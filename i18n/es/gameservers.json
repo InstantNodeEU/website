@@ -123,5 +123,6 @@
  "Storage": "Almacenamiento",
  "DDoS protection": "Protección DDoS",
  "Deployment": "Despliegue",
- "Backups": "Copias de seguridad"
+ "Backups": "Copias de seguridad",
+ "DDoS attacks? Not getting past me.": "¿Ataques DDoS? Conmigo no pasan."
 }

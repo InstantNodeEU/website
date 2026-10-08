@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=8" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=9" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Free Minecraft Server Hosting | InstantNode</title>
@@ -26,6 +26,7 @@
     <link as="font" href="fonts/Satoshi.woff" rel="preload" type="font/woff2" crossorigin />
     <link href="css/fonts.css" rel="stylesheet" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media=&#39;all&#39;" />
     <link href="css/lunaris.css?v=catnav4" rel="stylesheet" />
+    <link href="css/mc.css?v=7" rel="stylesheet" />
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Product",
@@ -261,18 +262,22 @@
           <span class="chip"><i class="fa-solid fa-terminal"></i>Live console</span>
           <span class="chip"><i class="fa-solid fa-puzzle-piece"></i>Plugins included</span>
         </div>
-        <div class="hero-art">
-          <canvas class="art" data-art="crates" data-hotx="0.5" data-hoty="0.55" height="320"></canvas>
+        <div class="mc-hero">
+          <img src="/img/mc/free-hero.webp" width="1600" height="979" alt="Three Minecraft players on a floating grass island next to a server rack with the InstantNode logo" fetchpriority="high" decoding="async" />
         </div>
       </section>
 
       <!-- ===== specs ===== -->
-      <section class="sec sec-flush">
+      <section class="sec sec-flush mc-specs">
         <div class="sec-head">
           <span class="badge rv">What you get</span>
           <h2 class="d2 rv">Small, but<br />a real server.</h2>
         </div>
-        <div class="cells cells-4">
+        <div class="cells cells-4 mc-cells">
+  <figure class="mc-sign">
+            <img src="/img/mc/free-sign.webp" width="560" height="1068" alt="A Minecraft player holding up a wooden sign" loading="lazy" decoding="async" />
+            <span class="mc-sign-text">€0<small>/ month</small></span>
+          </figure>
           <div class="cell rv"><h3>1 vCPU</h3><p>A full core share, capped so a neighbour cannot eat it.</p></div>
           <div class="cell rv"><h3>2 GB RAM</h3><p>Enough for a survival world with friends and a handful of plugins.</p></div>
           <div class="cell rv"><h3>5 GB NVMe</h3><p>World, plugins and a backup, on our own NVMe storage.</p></div>
@@ -317,7 +322,10 @@
         <canvas class="art" data-art="wave" data-hotx="0.5" data-hoty="0.85" height="260"></canvas>
         <h2 class="d1 rv">Ready in about a minute.</h2>
         <p class="lede rv">Pick a version, give it a name, connect. Upgrade to a paid server whenever you outgrow it - your world comes with you.</p>
-        <a class="btn btn-light btn-lg rv" href="/dashboard/free-minecraft">Create my free server</a>
+        <div class="mc-point-cta rv">
+          <img src="/img/mc/free-point.webp" width="600" height="778" alt="A Minecraft player pointing at the button" loading="lazy" decoding="async" />
+          <a class="btn btn-light btn-lg" href="/dashboard/free-minecraft">Create my free server</a>
+        </div>
         <p class="rv" style="color:var(--dim);font-size:13px">No card required. One free server per person, paid game servers from &euro;6.99/mo.</p>
       </section>
 

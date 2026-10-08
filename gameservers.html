@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=8" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=9" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Game Server Hosting - Palworld, Minecraft &amp; more | InstantNode</title>
@@ -27,6 +27,7 @@
     <link href="css/fonts.css" rel="stylesheet" />
     <link href="css/lunaris.css?v=catnav4" rel="stylesheet" />
     <link href="css/product.css?v=8" rel="stylesheet" />
+    <link href="css/mc.css?v=7" rel="stylesheet" />
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Product",
@@ -294,8 +295,8 @@
           <span class="chip"><i class="fa-solid fa-cloud"></i>Free backups</span>
           <span class="chip"><i class="fa-solid fa-x"></i>No slot limit</span>
         </div>
-        <div class="hero-art">
-          <canvas class="art" data-art="world" data-hotx="0.5" data-hoty="0.72" height="320"></canvas>
+        <div class="mc-hero">
+          <img src="/img/mc/gs-hero.webp" width="1600" height="1314" alt="A knight with a diamond sword and an InstantNode shield, a builder and a coder in front of glowing server racks" fetchpriority="high" decoding="async" />
         </div>
       </section>
 
@@ -315,7 +316,7 @@
           <h2 class="d2 rv">Choose the perfect plan<br />for your community</h2>
           <p class="lede rv">Every plan is a game-agnostic tier billed monthly from your prepaid balance - cancel anytime.</p>
         </div>
-        <div class="plans">
+        <div class="plans mc-has-peek">
           <div class="plan rv">
             <div class="plan-name">Starter</div>
             <div class="plan-price">€6.99<small>/ month</small></div>
@@ -340,7 +341,8 @@
             </ul>
             <a class="btn btn-ghost" href="/dashboard/gameservers/create">Get Basic</a>
           </div>
-          <div class="plan plan-hot rv">
+          <div class="plan plan-hot mc-peeked rv">
+            <figure class="mc-peek"><img src="/img/mc/gs-peek.webp" width="680" height="607" alt="" loading="lazy" decoding="async" /></figure>
             <div class="plan-name">Standard <span class="badge">Most popular</span></div>
             <div class="plan-price">€18.99<small>/ month</small></div>
             <p class="plan-desc">For medium communities</p>
@@ -537,7 +539,7 @@
           <h2 class="d2 rv">What every game server includes</h2>
           <p class="lede rv">Every plan is a game-agnostic tier billed monthly. You get the same hardware and features, whichever game you run.</p>
         </div>
-        <div class="pp-wrap pp-spec">
+        <div class="pp-wrap pp-spec mc-spec">
           <dl class="rv">
             <div><dt>CPU</dt><dd>High-frequency AMD Ryzen 9 5950X cores on nodes built for game servers.</dd></div>
             <div><dt>Storage</dt><dd>Fast NVMe SSD storage - 40 to 320 GB depending on your plan.</dd></div>
@@ -550,6 +552,10 @@
             <div><dt>Player slots</dt><dd>No slot limit on any plan.</dd></div>
             <div><dt>Billing</dt><dd>Simple monthly pricing from €6.99/mo. Upgrade your plan at any time.</dd></div>
           </dl>
+          <figure class="mc-bouncer rv">
+            <figcaption class="mc-bubble">DDoS attacks? Not getting past me.</figcaption>
+            <img src="/img/mc/gs-ddos.webp" width="640" height="813" alt="A Minecraft bouncer in a suit and sunglasses with his arms crossed" loading="lazy" decoding="async" />
+          </figure>
           
         </div>
       </section>
