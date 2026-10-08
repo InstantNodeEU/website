@@ -147,3 +147,54 @@
   /* JetBrains Mono may arrive after the first frame: rebuild with the real glyphs */
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { size(); if (still) settle(); });
 })();
+
+/* The numbers on /ddos-protection: /ddos-stats.json is rewritten every hour on
+   the server (inn-ddos-stats, aggregates only, never an address). Without it the
+   numbers written into the HTML stay. */
+(function () {
+  var bars = document.getElementById('dd-bars');
+  if (!bars || !window.fetch) return;
+  var WORDS = { en: ['vectors', 'min'], de: ['Vektoren', 'Min.'], fr: ['vecteurs', 'min'], es: ['vectores', 'min'] };
+  var data, io;
+  function lang() { var l = (document.documentElement.lang || 'en').slice(0, 2); return WORDS[l] ? l : 'en'; }
+  /* a fresh node, so inn-lang never writes its dictionary value back over it */
+  function swap(sel, text) {
+    var el = document.querySelector(sel);
+    if (!el) return;
+    var n = el.cloneNode(false);
+    n.setAttribute('data-no-i18n', '');
+    n.textContent = text;
+    el.parentNode.replaceChild(n, el);
+  }
+  function reveal(li) {
+    if (!('IntersectionObserver' in window)) { li.classList.add('in'); return; }
+    io = io || new IntersectionObserver(function (en) {
+      en.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -40px 0px' });
+    io.observe(li);
+  }
+  function render() {
+    var l = lang(), w = WORDS[l], d = data, max = d.top[0].gbps, ref = bars.querySelector('.dd-ref');
+    swap('.js-dd-max', max + ' Gbit/s');
+    swap('.js-dd-total', new Intl.NumberFormat(l).format(Math.floor(d.total / 100) * 100) + '+');
+    swap('.js-dd-vectors', String(d.vectors));
+    Array.prototype.slice.call(bars.children).forEach(function (li) { if (li !== ref) bars.removeChild(li); });
+    d.top.forEach(function (a) {
+      var p = a.date.split('-'), li = document.createElement('li');
+      li.className = 'rv';
+      li.setAttribute('data-no-i18n', '');
+      li.style.setProperty('--w', (a.gbps / max * 100).toFixed(1) + '%');
+      li.innerHTML = '<span class="dd-date">' + p[2] + '.' + p[1] + '.' + p[0] + '</span><span class="dd-bar"><i></i></span><b>' + a.gbps +
+        ' Gbit/s</b><span class="dd-meta">' + a.vectors + ' ' + w[0] + (a.minutes ? ' \u00b7 ' + a.minutes + ' ' + w[1] : '') + '</span>';
+      bars.insertBefore(li, ref);
+      reveal(li);
+    });
+    if (ref) ref.style.setProperty('--w', (100 / max).toFixed(2) + '%');
+  }
+  fetch('/ddos-stats.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+    if (!d || !d.top || !d.top.length || !(d.total > 0) || !(d.top[0].gbps > 0)) return;
+    data = d;
+    render();
+    document.addEventListener('inn:lang', render);
+  }).catch(function () {});
+})();

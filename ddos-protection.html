@@ -360,9 +360,9 @@
       <!-- ===== numbers from our network ===== -->
       <section class="sec sec-flush stats">
         <div class="cells cells-4" style="border-top:0">
-          <div class="cell rv"><span class="n" data-no-i18n>111 Gbit/s</span><span class="k">Largest attack filtered on our network (Aug 2026)</span></div>
-          <div class="cell rv"><span class="n">1,300+</span><span class="k">Attacks filtered so far</span></div>
-          <div class="cell rv"><span class="n" data-no-i18n>13</span><span class="k">Attack types seen and dropped</span></div>
+          <div class="cell rv"><span class="n js-dd-max" data-no-i18n>111 Gbit/s</span><span class="k">Largest attack filtered on our network</span></div>
+          <div class="cell rv"><span class="n js-dd-total">1,300+</span><span class="k">Attacks filtered so far</span></div>
+          <div class="cell rv"><span class="n js-dd-vectors" data-no-i18n>13</span><span class="k">Attack types seen and dropped</span></div>
           <div class="cell rv"><span class="n" data-no-i18n>0 s</span><span class="k">Activation time, the filter never switches off</span></div>
         </div>
       </section>
@@ -406,7 +406,7 @@
               <p class="lede rv">The five largest attacks on our network since February 2026, all of them filtered in the network. For scale: the biggest one was more than a hundred times what a 1 Gbit/s server port can take.</p>
             </div>
           </div>
-          <ol class="dd-bars">
+          <ol class="dd-bars" id="dd-bars">
             <li class="rv" style="--w:100%"><span class="dd-date" data-no-i18n>21.08.2026</span><span class="dd-bar"><i></i></span><b data-no-i18n>111 Gbit/s</b><span class="dd-meta">8 vectors · 13 min</span></li>
             <li class="rv" style="--w:98.5%"><span class="dd-date" data-no-i18n>03.09.2026</span><span class="dd-bar"><i></i></span><b data-no-i18n>110 Gbit/s</b><span class="dd-meta">8 vectors · 5 min</span></li>
             <li class="rv" style="--w:94.8%"><span class="dd-date" data-no-i18n>20.02.2026</span><span class="dd-bar"><i></i></span><b data-no-i18n>105 Gbit/s</b><span class="dd-meta">6 vectors · 4 min</span></li>
@@ -590,6 +590,6 @@
     </main>
 
     <script src="/js/lunaris.js?v=ib2" defer></script>
-<script src="/js/ddos-flow.js?v=2" defer></script>
+<script src="/js/ddos-flow.js?v=3" defer></script>
   </body>
 </html>
