@@ -47,9 +47,6 @@
  "For common games and services there are filter profiles that understand what normal traffic looks like, so real players keep getting through even while a flood is running.": "Pour les jeux et services courants, il existe des profils de filtrage qui savent à quoi ressemble le trafic normal, pour que les vrais joueurs continuent de passer même pendant un flood.",
  "Source engine games": "Jeux sur moteur Source",
  "Your server gets hit on the same port again and again? Open a ticket and we set the matching profile for your IP and port.": "Ton serveur est attaqué encore et encore sur le même port ? Ouvre un ticket et nous mettons en place le profil adapté pour ton IP et ton port.",
- "Included everywhere": "Inclus partout",
- "On every product,from the first minute.": "Sur chaque produit,<br>dès la première minute.",
- "There is nothing to book and nothing to switch on. Every address in our network is protected the moment your service is online.": "Rien à réserver, rien à activer. Chaque adresse de notre réseau est protégée dès que ton service est en ligne.",
  "Your server is somewhere else?": "Ton serveur est ailleurs ?",
  "With IP forwarding you get a protected IPv4 from our network and forward it over WireGuard to your machine, at home or at another host. Attacks end with us, your real address stays hidden.": "Avec la redirection IP, tu obtiens une IPv4 protégée de notre réseau et tu la rediriges via WireGuard vers ta machine, chez toi ou chez un autre hébergeur. Les attaques s'arrêtent chez nous, ta vraie adresse reste cachée.",
  "IP forwarding, €3.99/month": "Redirection IP, 3,99 €/mois",
@@ -71,5 +68,16 @@
  "Inline, in the network our servers in Eygelshoven (NL) are connected to. Traffic is not sent on a detour to a distant scrubbing center when an attack starts.": "En ligne, dans le réseau auquel nos serveurs à Eygelshoven (NL) sont connectés. Le trafic n'est pas détourné vers un centre de nettoyage lointain quand une attaque commence.",
  "Attacks are our problem.Not yours.": "Les attaques, c'est notre problème.<br>Pas le tien.",
  "DDoS protection on every server, included from the first minute.": "La protection DDoS sur chaque serveur, incluse dès la première minute.",
- "Game servers, VPS, web hosting and more, all in our network in the Netherlands.": "Serveurs de jeu, VPS, hébergement web et plus, le tout dans notre réseau aux Pays-Bas."
+ "Game servers, VPS, web hosting and more, all in our network in the Netherlands.": "Serveurs de jeu, VPS, hébergement web et plus, le tout dans notre réseau aux Pays-Bas.",
+ "From our network": "De notre réseau",
+ "Real attacks,real numbers.": "De vraies attaques,<br>de vrais chiffres.",
+ "The five largest attacks on our network since February 2026, all of them filtered in the network. For scale: the biggest one was more than a hundred times what a 1 Gbit/s server port can take.": "Les cinq plus grosses attaques contre notre réseau depuis février 2026, toutes filtrées dans le réseau. Pour comparer : la plus grosse représentait plus de cent fois ce qu'un port serveur de 1 Gbit/s peut encaisser.",
+ "8 vectors · 13 min": "8 vecteurs · 13 min",
+ "8 vectors · 5 min": "8 vecteurs · 5 min",
+ "6 vectors · 4 min": "6 vecteurs · 4 min",
+ "7 vectors · 1 min": "7 vecteurs · 1 min",
+ "9 vectors · 7 min": "9 vecteurs · 7 min",
+ "For scale": "Pour comparer",
+ "a typical server port": "un port serveur typique",
+ "Included on every product, from the smallest game server to a dedicated VDS, from the first minute.": "Inclus sur chaque produit, <span class=\"dim\">du plus petit serveur de jeu au VDS dédié,</span> dès la première minute."
 }

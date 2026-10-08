@@ -126,12 +126,36 @@
       .dd-proto { justify-content: center; max-width: 900px; margin: 0 auto; padding: 0 var(--pad); }
       a.chip { color: inherit; text-decoration: none; transition: border-color .2s, color .2s; }
       a.chip:hover { border-color: rgba(255,255,255,.22); color: var(--ink); }
-      .dd-note { max-width: 620px; margin: 26px auto 0; padding: 0 var(--pad); text-align: center; color: var(--mute); font-size: 14.5px; line-height: 1.6; }
+      .dd-note { color: var(--mute); font-size: 14.5px; line-height: 1.6; }
+      /* five largest attacks: bars grow when the row is revealed (.rv.in) */
+      .dd-bars { list-style: none; display: grid; gap: 18px; align-self: center; }
+      .dd-bars li { display: grid; grid-template-columns: 92px minmax(0, 1fr) 96px; column-gap: 16px; row-gap: 6px; align-items: center; }
+      .dd-date { font: 500 12.5px var(--mono); color: var(--mute); }
+      .dd-bar { height: 10px; border-radius: 999px; background: rgba(255,255,255,.05); overflow: hidden; }
+      .dd-bar i { display: block; height: 100%; width: 0; border-radius: inherit; min-width: 4px;
+        background: linear-gradient(90deg, rgba(59,130,246,.35), var(--ember)); transition: width 1.4s cubic-bezier(.2,.8,.2,1) .2s; }
+      .dd-bars li.in .dd-bar i { width: var(--w); }
+      .dd-bars b { font-weight: 500; font-size: 17px; letter-spacing: -.01em; text-align: right; white-space: nowrap; }
+      .dd-meta { grid-column: 2 / 4; font-size: 12.5px; color: var(--dim); }
+      .dd-ref { margin-top: 6px; padding-top: 22px; border-top: 1px dashed var(--line); }
+      .dd-ref .dd-bar i { background: var(--mute); }
+      .dd-ref b, .dd-ref .dd-date { color: var(--dim); }
+      /* protocol filters: name + default port */
+      .dd-ports { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; align-self: center;
+        background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+      .dd-ports li { background: var(--void); display: flex; align-items: center; gap: 12px; padding: 18px 20px; }
+      .dd-ports i { width: 18px; text-align: center; color: var(--mute); }
+      .dd-ports span { flex: 1; min-width: 0; font-size: 15px; }
+      .dd-ports code { font: 500 12px var(--mono); color: var(--dim); white-space: nowrap; }
+      .dd-cells .cell p { color: var(--mute); font-size: 14.5px; line-height: 1.6; }
+      .statement .dd-proto { margin-top: 36px; }
+      .statement .dd-elsewhere { text-align: left; }
       .dd-elsewhere { max-width: 900px; margin: clamp(40px, 6vw, 64px) auto 0; padding: 24px 28px; display: flex; align-items: center; gap: 24px;
         border: 1px solid var(--line); border-radius: 16px; background: var(--panel); }
       .dd-elsewhere > div { flex: 1; min-width: 0; }
       .dd-elsewhere h3 { font-size: 18px; font-weight: 500; margin-bottom: 6px; }
       .dd-elsewhere p { color: var(--mute); font-size: 14.5px; line-height: 1.6; }
+      @media (max-width: 560px) { .dd-ports { grid-template-columns: 1fr; } .dd-bars li { grid-template-columns: 82px minmax(0, 1fr) 78px; column-gap: 10px; } .dd-bars b { font-size: 15px; } }
       @media (max-width: 720px) {
         .dd-elsewhere { flex-direction: column; align-items: flex-start; margin-left: var(--pad); margin-right: var(--pad); }
         .dd-marks { font-size: 11px; }
@@ -372,6 +396,27 @@
         </ol>
       </section>
 
+      <!-- ===== the largest attacks (real numbers, no addresses) ===== -->
+      <section class="sec">
+        <div class="pp-wrap pp-why">
+          <div class="pp-why-l">
+            <div class="pp-head">
+              <span class="badge rv">From our network</span>
+              <h2 class="d2 rv">Real attacks,<br />real numbers.</h2>
+              <p class="lede rv">The five largest attacks on our network since February 2026, all of them filtered in the network. For scale: the biggest one was more than a hundred times what a 1 Gbit/s server port can take.</p>
+            </div>
+          </div>
+          <ol class="dd-bars">
+            <li class="rv" style="--w:100%"><span class="dd-date" data-no-i18n>21.08.2026</span><span class="dd-bar"><i></i></span><b data-no-i18n>111 Gbit/s</b><span class="dd-meta">8 vectors · 13 min</span></li>
+            <li class="rv" style="--w:98.5%"><span class="dd-date" data-no-i18n>03.09.2026</span><span class="dd-bar"><i></i></span><b data-no-i18n>110 Gbit/s</b><span class="dd-meta">8 vectors · 5 min</span></li>
+            <li class="rv" style="--w:94.8%"><span class="dd-date" data-no-i18n>20.02.2026</span><span class="dd-bar"><i></i></span><b data-no-i18n>105 Gbit/s</b><span class="dd-meta">6 vectors · 4 min</span></li>
+            <li class="rv" style="--w:88.8%"><span class="dd-date" data-no-i18n>16.07.2026</span><span class="dd-bar"><i></i></span><b data-no-i18n>99 Gbit/s</b><span class="dd-meta">7 vectors · 1 min</span></li>
+            <li class="rv" style="--w:88%"><span class="dd-date" data-no-i18n>23.08.2026</span><span class="dd-bar"><i></i></span><b data-no-i18n>98 Gbit/s</b><span class="dd-meta">9 vectors · 7 min</span></li>
+            <li class="rv dd-ref" style="--w:0.9%"><span class="dd-date">For scale</span><span class="dd-bar"><i></i></span><b data-no-i18n>1 Gbit/s</b><span class="dd-meta">a typical server port</span></li>
+          </ol>
+        </div>
+      </section>
+
       <!-- ===== attack types ===== -->
       <section class="sec sec-bg-host">
         <div class="sec-head">
@@ -379,43 +424,43 @@
           <h2 class="d2 rv">Every common attack,<br />handled for you.</h2>
           <p class="lede rv">These are the attack types we have seen against our own network since February 2026. Most attacks combine several of them at once.</p>
         </div>
-        <div class="pp-wrap pp-feats" style="--cols:3">
-          <div class="pp-feat rv"><i class="fa-solid fa-water"></i><div><h3>SYN, ACK and RST floods</h3><p>Masses of fake TCP packets, including FIN, PSH and SYN-ACK floods. The filter knows which connections really exist and drops the rest.</p></div></div>
-          <div class="pp-feat rv"><i class="fa-solid fa-wave-square"></i><div><h3>UDP floods</h3><p>Raw volume against game and voice ports. Dropped in the network, so the uplink of your server stays free for your players.</p></div></div>
-          <div class="pp-feat rv"><i class="fa-solid fa-bullhorn"></i><div><h3>Amplification</h3><p>DNS, NTP and other reflection attacks that multiply traffic through open servers on the internet.</p></div></div>
-          <div class="pp-feat rv"><i class="fa-solid fa-handshake-slash"></i><div><h3>Handshake attacks</h3><p>Connections that are opened and never used, built to tie up the resources of your server.</p></div></div>
-          <div class="pp-feat rv"><i class="fa-solid fa-tower-broadcast"></i><div><h3>ICMP floods</h3><p>Ping floods and other ICMP noise, dropped long before they reach your server.</p></div></div>
-          <div class="pp-feat rv"><i class="fa-solid fa-globe"></i><div><h3>Application layer (L7)</h3><p>Floods that imitate real requests are filtered too. For websites under heavy, targeted attacks we recommend Cloudflare in front, it works with every product.</p></div></div>
+        <div class="cells cells-3 dd-cells">
+          <div class="cell rv"><canvas class="art cell-ico" data-art="layers" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>SYN, ACK and RST floods</h3><p>Masses of fake TCP packets, including FIN, PSH and SYN-ACK floods. The filter knows which connections really exist and drops the rest.</p></div>
+          <div class="cell rv"><canvas class="art cell-ico" data-art="pulse" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>UDP floods</h3><p>Raw volume against game and voice ports. Dropped in the network, so the uplink of your server stays free for your players.</p></div>
+          <div class="cell rv"><canvas class="art cell-ico" data-art="nodes" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Amplification</h3><p>DNS, NTP and other reflection attacks that multiply traffic through open servers on the internet.</p></div>
+          <div class="cell rv"><canvas class="art cell-ico" data-art="cycle" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Handshake attacks</h3><p>Connections that are opened and never used, built to tie up the resources of your server.</p></div>
+          <div class="cell rv"><canvas class="art cell-ico" data-art="radar" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>ICMP floods</h3><p>Ping floods and other ICMP noise, dropped long before they reach your server.</p></div>
+          <div class="cell rv"><canvas class="art cell-ico" data-art="braces" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Application layer (L7)</h3><p>Floods that imitate real requests are filtered too. For websites under heavy, targeted attacks we recommend Cloudflare in front, it works with every product.</p></div>
         </div>
       </section>
 
       <!-- ===== protocol filters ===== -->
-      <section class="sec">
-        <div class="sec-head">
-          <span class="badge rv">Protocol filters</span>
-          <h2 class="d2 rv">Filters that know<br />your game.</h2>
-          <p class="lede rv">For common games and services there are filter profiles that understand what normal traffic looks like, so real players keep getting through even while a flood is running.</p>
+      <section class="sec sec-bg-host"><canvas class="sec-bg art" data-art="gamepad" data-tint="off" data-cell="7" aria-hidden="true"></canvas>
+        <div class="pp-wrap pp-why">
+          <div class="pp-why-l">
+            <div class="pp-head">
+              <span class="badge rv">Protocol filters</span>
+              <h2 class="d2 rv">Filters that know<br />your game.</h2>
+              <p class="lede rv">For common games and services there are filter profiles that understand what normal traffic looks like, so real players keep getting through even while a flood is running.</p>
+              <p class="dd-note rv">Your server gets hit on the same port again and again? Open a ticket and we set the matching profile for your IP and port.</p>
+            </div>
+          </div>
+          <ul class="dd-ports">
+            <li class="rv"><i class="fa-solid fa-cube"></i><span>Minecraft</span><code>25565/tcp</code></li>
+            <li class="rv"><i class="fa-solid fa-car"></i><span>FiveM</span><code>30120/tcp+udp</code></li>
+            <li class="rv"><i class="fa-solid fa-crosshairs"></i><span>Source engine games</span><code>27015/udp</code></li>
+            <li class="rv"><i class="fa-solid fa-headset"></i><span>TeamSpeak</span><code>9987/udp</code></li>
+            <li class="rv"><i class="fa-solid fa-terminal"></i><span>SSH</span><code>22/tcp</code></li>
+            <li class="rv"><i class="fa-solid fa-desktop"></i><span>RDP</span><code>3389/tcp</code></li>
+            <li class="rv"><i class="fa-solid fa-shield"></i><span>WireGuard</span><code>51820/udp</code></li>
+            <li class="rv"><i class="fa-solid fa-lock"></i><span>OpenVPN</span><code>1194/udp</code></li>
+          </ul>
         </div>
-        <div class="pill-row dd-proto rv">
-          <span class="chip"><i class="fa-solid fa-cube"></i>Minecraft</span>
-          <span class="chip"><i class="fa-solid fa-car"></i>FiveM</span>
-          <span class="chip"><i class="fa-solid fa-crosshairs"></i>Source engine games</span>
-          <span class="chip"><i class="fa-solid fa-headset"></i>TeamSpeak</span>
-          <span class="chip"><i class="fa-solid fa-terminal"></i>SSH</span>
-          <span class="chip"><i class="fa-solid fa-desktop"></i>RDP</span>
-          <span class="chip"><i class="fa-solid fa-shield"></i>WireGuard</span>
-          <span class="chip"><i class="fa-solid fa-lock"></i>OpenVPN</span>
-        </div>
-        <p class="dd-note rv">Your server gets hit on the same port again and again? Open a ticket and we set the matching profile for your IP and port.</p>
       </section>
 
-      <!-- ===== everywhere + ip forwarding ===== -->
-      <section class="sec sec-bg-host">
-        <div class="sec-head">
-          <span class="badge rv">Included everywhere</span>
-          <h2 class="d2 rv">On every product,<br />from the first minute.</h2>
-          <p class="lede rv">There is nothing to book and nothing to switch on. Every address in our network is protected the moment your service is online.</p>
-        </div>
+      <!-- ===== included everywhere ===== -->
+      <section class="statement">
+        <p class="rv">Included on every product, <span class="dim">from the smallest game server to a dedicated VDS,</span> from the first minute.</p>
         <div class="pill-row dd-proto rv">
           <a class="chip" href="/gameservers"><i class="fa-solid fa-gamepad"></i>Game Servers</a>
           <a class="chip" href="/kvm"><i class="fa-solid fa-server"></i>KVM VPS</a>
