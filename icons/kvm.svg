@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="200" height="200">
+  <!-- hypervisor slab -->
+  <rect x="6" y="41" width="52" height="16" rx="5" fill="#2a3550"/>
+  <rect x="6" y="41" width="52" height="16" rx="5" fill="none" stroke="#3d4d74" stroke-width="1.5"/>
+  <rect x="12" y="47.5" width="14" height="3" rx="1.5" fill="#475e91"/>
+  <circle cx="50" cy="49" r="2.6" fill="#60a5fa"/>
+  <circle cx="43" cy="49" r="2.6" fill="#3b82f6" opacity=".55"/>
+  <!-- dashed uplinks -->
+  <path d="M22 28.5v8" stroke="#475e91" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="1.2 4.4"/>
+  <path d="M42.5 32v4.5" stroke="#475e91" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="1.2 4.4"/>
+  <!-- floating VMs (duotone) -->
+  <rect x="12" y="8" width="20" height="20" rx="5" fill="#3b82f6"/>
+  <rect x="12" y="8" width="20" height="10" rx="5" fill="#60a5fa" opacity=".45"/>
+  <rect x="35" y="16" width="15" height="15" rx="4" fill="#2a3550"/>
+  <rect x="35" y="16" width="15" height="15" rx="4" fill="none" stroke="#60a5fa" stroke-width="2"/>
+  <path d="M18 18h8" stroke="#dbeafe" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M40.5 23.5h4" stroke="#93c5fd" stroke-width="2.2" stroke-linecap="round"/>
+</svg>

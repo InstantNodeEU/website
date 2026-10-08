@@ -1,0 +1,14 @@
+<!-- Canonical announcement bar. Paste directly after <body>. The inline
+     script decides visibility BEFORE paint (Rocket Loader: data-cfasync). -->
+<div class="in-announce" data-key="import2026" id="in-announce">
+  <div class="in-announce__icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M12 4v9"></path><path d="M8.5 9.5 12 13l3.5-3.5"></path><path d="M5 17h14"></path></svg></div>
+  <div>
+    <p class="in-announce__title">Bring your server over</p>
+    <p class="in-announce__text">Migrate your existing server to InstantNode in minutes.</p>
+    <a class="in-announce__btn" href="/dashboard/import">Try the Server Importer</a>
+  </div>
+  <button aria-label="Dismiss announcement" class="in-announce__close" type="button">&#10005;</button>
+</div>
+<script data-cfasync="false">
+  (function () { try { if (!localStorage.getItem('in-announce-import2026')) document.getElementById('in-announce').classList.add('is-open'); } catch (e) { document.getElementById('in-announce').classList.add('is-open'); } })();
+</script>

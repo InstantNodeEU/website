@@ -1,0 +1,15 @@
+User-agent: *
+# Panel- und API-Routen (alles hinter /dashboard ist Login-pflichtig)
+Disallow: /dashboard
+Disallow: /admin
+Disallow: /api
+Disallow: /auth
+Disallow: /webhooks
+Disallow: /container
+Disallow: /ib
+Disallow: /gs/
+Disallow: /vnc/
+Disallow: /tickets/
+Allow: /
+
+Sitemap: https://instantnode.eu/sitemap.xml
