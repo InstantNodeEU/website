@@ -1,4 +1,4 @@
-/* InstantNode 2026 — glyph-halftone art + nav + reveal. No deps. */
+/* InstantNode 2026 - glyph-halftone art + nav + reveal. No deps. */
 (function () {
   'use strict';
 
@@ -55,7 +55,7 @@
   function box(X, Y, w, h, cx, cy) {
     return Math.min(w - Math.abs(X - (cx || 0)), h - Math.abs(Y - (cy || 0)));
   }
-  /* wraps an icon fn: outline style — bright edge, near-empty interior,
+  /* wraps an icon fn: outline style - bright edge, near-empty interior,
      so box-ish glyphs stay readable at ~25x25 characters */
   function icon(fn, sx, sy) {
     return function (u, v, a) {
@@ -1203,7 +1203,7 @@
         }
         var raw = (d.maintenance.message && String(d.maintenance.message).trim()) || 'We are performing scheduled maintenance. Some services may be unavailable.';
         var safe = raw.replace(/[<>&]/g, function (c) { return c === '<' ? '&lt;' : c === '>' ? '&gt;' : '&amp;'; });
-        el.innerHTML = '<span class="imd-dot"></span><span>Current maintenance — ' + safe + '</span>';
+        el.innerHTML = '<span class="imd-dot"></span><span>Current maintenance - ' + safe + '</span>';
       })
       .catch(function () {});
   }
