@@ -47,7 +47,7 @@
   }
 }</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://instantnode.eu/"}, {"@type": "ListItem", "position": 2, "name": "Managed Email", "item": "https://instantnode.eu/email"}]}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the free plan really free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. One mailbox with 250 MB and 50 emails a day, no time limit and no card. One free plan per account. Upgrade whenever you outgrow it and only the difference is charged."}}, {"@type": "Question", "name": "Do I need to move my domain to you?", "acceptedAnswer": {"@type": "Answer", "text": "No. Keep the domain at your current registrar. You only add a few DNS records - the panel lists the exact values for your domain and verifies them for you."}}, {"@type": "Question", "name": "Can I use Outlook, Thunderbird or my phone?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every plan includes IMAP, POP3 and SMTP, so any mail client works. Webmail is there when you would rather not set anything up."}}, {"@type": "Question", "name": "Can I add aliases like info@ or sales@?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. An alias is an extra address on your domain that delivers into one or up to 10 mailboxes of the same plan. It stores nothing itself and cannot send. You can switch aliases on and off, change their targets or delete them in the dashboard or via the API. Free includes 5 aliases, Starter 25, Pro 100, Business 250, Growth 500 and Enterprise 1000."}}, {"@type": "Question", "name": "What happens if I hit the daily send limit?", "acceptedAnswer": {"@type": "Answer", "text": "Further messages are deferred until the window resets. The limit exists so one compromised account cannot get the platform blocklisted. The two largest plans have no send limit."}}, {"@type": "Question", "name": "How do I pay?", "acceptedAnswer": {"@type": "Answer", "text": "You top up your InstantNode balance with PayPal, card or cryptocurrency, and the subscription is paid from that balance each month. Cancel any time."}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the free plan really free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. One mailbox with 250 MB and 50 emails a day, no time limit and no card. One free plan per account. Upgrade whenever you outgrow it and only the difference is charged."}}, {"@type": "Question", "name": "Do I need to move my domain to you?", "acceptedAnswer": {"@type": "Answer", "text": "No. Keep the domain at your current registrar. You only add a few DNS records - the panel lists the exact values for your domain and verifies them for you."}}, {"@type": "Question", "name": "Can I use Outlook, Thunderbird or my phone?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every plan includes IMAP, POP3 and SMTP, so any mail client works. Webmail is there when you would rather not set anything up."}}, {"@type": "Question", "name": "Can I add aliases like info@ or sales@?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. An alias is an extra address on your domain that delivers into one or up to 10 mailboxes of the same plan. It stores nothing itself and cannot send. You can switch aliases on and off, change their targets or delete them in the dashboard or via the API. Free includes 5 aliases, Starter 25, Pro 100, Business 250, Growth 500 and Enterprise 1000."}}, {"@type": "Question", "name": "What happens if I hit the daily send limit?", "acceptedAnswer": {"@type": "Answer", "text": "Further messages are deferred until the allowance refills, which happens gradually over the day. The limit exists so one compromised account cannot get the platform blocklisted."}}, {"@type": "Question", "name": "How do I pay?", "acceptedAnswer": {"@type": "Answer", "text": "You top up your InstantNode balance with PayPal, card or cryptocurrency, and the subscription is paid from that balance each month. Cancel any time."}}]}</script>
     <link rel="discord:component-embed" type="application/json" href="https://instantnode.eu/discord-embed.json">
 </head>
   <body>
@@ -259,7 +259,7 @@
             <p class="plan-desc">One mailbox, no time limit</p>
             <ul>
             <li>1 mailbox</li>
-            <li>1 GB storage</li>
+            <li>250 MB storage</li>
             <li>5 aliases</li>
             <li>50 emails / day</li>
             <li>Webmail · IMAP · POP3 · SMTP</li>
@@ -275,7 +275,7 @@
             <li>3 mailboxes</li>
             <li>5 GB per mailbox</li>
             <li>25 aliases</li>
-            <li>200 emails / day</li>
+            <li>500 emails / day</li>
             <li>All protocols included</li>
             </ul>
             <a class="btn btn-ghost btn-sm" href="/dashboard/email/create">Order Starter</a>
@@ -288,7 +288,7 @@
             <li>10 mailboxes</li>
             <li>20 GB per mailbox</li>
             <li>100 aliases</li>
-            <li>500 emails / day</li>
+            <li>2,000 emails / day</li>
             <li>All protocols included</li>
             </ul>
             <a class="btn btn-ghost btn-sm" href="/dashboard/email/create">Order Pro</a>
@@ -301,7 +301,7 @@
             <li>25 mailboxes</li>
             <li>60 GB per mailbox</li>
             <li>250 aliases</li>
-            <li>1000 emails / day</li>
+            <li>5,000 emails / day</li>
             <li>All protocols included</li>
             </ul>
             <a class="btn btn-ghost btn-sm" href="/dashboard/email/create">Order Business</a>
@@ -309,12 +309,12 @@
           <div class="plan rv">
             <div class="plan-name">Growth</div>
             <div class="plan-price">€19.99<small>/ month</small></div>
-            <p class="plan-desc">High volume, no send cap</p>
+            <p class="plan-desc">High volume sending</p>
             <ul>
             <li>50 mailboxes</li>
             <li>150 GB per mailbox</li>
             <li>500 aliases</li>
-            <li>Unlimited sending</li>
+            <li>10,000 emails / day</li>
             <li>All protocols included</li>
             </ul>
             <a class="btn btn-ghost btn-sm" href="/dashboard/email/create">Order Growth</a>
@@ -327,7 +327,7 @@
             <li>100 mailboxes</li>
             <li>300 GB per mailbox</li>
             <li>1000 aliases</li>
-            <li>Unlimited sending</li>
+            <li>25,000 emails / day</li>
             <li>All protocols included</li>
             </ul>
             <a class="btn btn-ghost btn-sm" href="/dashboard/email/create">Order Enterprise</a>
@@ -380,7 +380,7 @@
           <details class="rv"><summary>Do I need to move my domain to you?</summary><div>No. Keep the domain at your current registrar. You only add a few DNS records - the panel lists the exact values for your domain and verifies them for you.</div></details>
           <details class="rv"><summary>Can I use Outlook, Thunderbird or my phone?</summary><div>Yes. Every plan includes IMAP, POP3 and SMTP, so any mail client works. Webmail is there when you would rather not set anything up.</div></details>
           <details class="rv"><summary>Can I add aliases like info@ or sales@?</summary><div>Yes. An alias is an extra address on your domain that delivers into one or up to 10 mailboxes of the same plan. It stores nothing itself and cannot send. You can switch aliases on and off, change their targets or delete them in the dashboard or via the API. Free includes 5 aliases, Starter 25, Pro 100, Business 250, Growth 500 and Enterprise 1000.</div></details>
-          <details class="rv"><summary>What happens if I hit the daily send limit?</summary><div>Further messages are deferred until the window resets. The limit exists so one compromised account cannot get the platform blocklisted. The two largest plans have no send limit.</div></details>
+          <details class="rv"><summary>What happens if I hit the daily send limit?</summary><div>Further messages are deferred until the allowance refills, which happens gradually over the day. The limit exists so one compromised account cannot get the platform blocklisted.</div></details>
           <details class="rv"><summary>How do I pay?</summary><div>You top up your InstantNode balance with PayPal, card or cryptocurrency, and the subscription is paid from that balance each month. Cancel any time.</div></details>
         </div>
       </section>
