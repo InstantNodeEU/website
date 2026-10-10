@@ -5274,7 +5274,7 @@
           "Email"
         ],
         "summary": "Email plans",
-        "description": "Managed Email plans with mailbox, alias, storage and send limits. `storageGb` is per mailbox; `sendLimitPerDay` applies to the whole domain, `sendLimitPerHour` to each mailbox.",
+        "description": "Managed Email plans with mailbox, alias, storage and send limits. `storageGb` is per mailbox; `sendLimitPerDay` applies to the whole domain (all mailboxes share it); there is no hourly limit.",
         "responses": {
           "200": {
             "description": "Success",
@@ -5290,7 +5290,6 @@
                       "aliasLimit": 100,
                       "storageGb": 20,
                       "priceMonthly": 4.99,
-                      "sendLimitPerHour": 300,
                       "sendLimitPerDay": 2000,
                       "protocols": {
                         "imap": true,
