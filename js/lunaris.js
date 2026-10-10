@@ -527,7 +527,7 @@
       for (var i = 0; i < 3; i++) if (Math.abs(Y - b[i]) < 0.045) return 0.9;
       return 0.28 + 0.38 * fbm(u * 16, v * 14);
     },
-    /* browser window with toolbar dots (webspaces) */
+    /* browser window with a plain toolbar, no traffic-light dots (webspaces) */
     browser: function (u, v, a) {
       a = a || 1;
       var X = ((u - 0.5) * a) / 0.72, Y = (v - 0.48) / 0.72;
@@ -535,10 +535,6 @@
       if (s <= 0) return amb(u, v);
       if (s < 0.04) return 0.97;
       if (Y < -0.28) {
-        for (var i = 0; i < 3; i++) {
-          var dx = X + 0.5 - i * 0.11, dy = Y + 0.36;
-          if (dx * dx + dy * dy < 0.0018) return 1;
-        }
         if (Math.abs(Y + 0.28) < 0.02) return 0.9;
         return 0.45 + 0.3 * fbm(u * 20, v * 20);
       }

@@ -1,34 +1,43 @@
-/* Game library on /gameservers: the popular games as a bento up top, every
-   game below as a searchable, filterable grid of small cards. */
+/* Game library on /gameservers: the popular games as a bento up top (key art
+   plus the official logo), every game below as a launcher-style grid of
+   portrait covers that can be searched and filtered. */
 
 .gl { margin: 0 var(--pad); display: flex; flex-direction: column; gap: 16px; }
 .gl [hidden] { display: none !important; }
 .gl-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
 
 /* ---------- popular right now ---------- */
-.gl-feat { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: clamp(150px, 15vw, 200px); gap: 14px; }
+.gl-feat {
+  --lu: clamp(32px, 3.6vw, 48px);
+  display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: clamp(150px, 15vw, 200px); gap: 14px;
+}
 .gl-big {
   position: relative; display: block; overflow: hidden; isolation: isolate;
   border-radius: 18px; border: 1px solid var(--line-soft); background: var(--panel);
   transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
-.gl-big:first-child { grid-column: span 2; grid-row: span 2; }
-.gl-big img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.gl-big:first-child { grid-column: span 2; grid-row: span 2; --lu: clamp(44px, 5.6vw, 78px); }
+.gl-big.gl-wide { grid-column: span 2; --lu: clamp(38px, 4.4vw, 60px); }
+.gl-big-art { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
 .gl-big::after {
   content: ''; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(to top, rgba(6, 6, 6, 0.94), rgba(6, 6, 6, 0.38) 46%, transparent 76%);
+  background: linear-gradient(to top, rgba(6, 6, 6, 0.92), rgba(6, 6, 6, 0.42) 44%, transparent 74%);
 }
-.gl-big-txt { position: absolute; left: 18px; right: 18px; bottom: 16px; display: flex; flex-direction: column; gap: 4px; }
-.gl-big-name { font-size: clamp(17px, 1.6vw, 22px); font-weight: 600; letter-spacing: -0.01em; color: #fff; }
-.gl-big:first-child .gl-big-name { font-size: clamp(22px, 2.6vw, 34px); }
-.gl-big-blurb { font-size: 13.5px; color: rgba(242, 241, 238, 0.74); }
+.gl-big-txt { position: absolute; left: 18px; right: 18px; bottom: 16px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.gl-logo {
+  display: block; width: auto; max-width: 100%;
+  height: calc(var(--lh, 1) * var(--lu));
+  object-fit: contain; object-position: left bottom;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+}
+.gl-big-blurb { font-size: 13.5px; line-height: 1.35; color: rgba(242, 241, 238, 0.78); }
 .gl-go {
   position: absolute; top: 14px; right: 14px; padding: 7px 13px; border-radius: 999px;
   background: var(--ink); color: #0b0b0c; font-size: 12.5px; font-weight: 600;
   opacity: 0; transform: translateY(-6px); transition: opacity 0.25s, transform 0.25s;
 }
 .gl-big:hover, .gl-big:focus-visible { border-color: rgba(139, 92, 246, 0.55); transform: translateY(-2px); box-shadow: 0 18px 40px rgba(59, 130, 246, 0.12); }
-.gl-big:hover img, .gl-big:focus-visible img { transform: scale(1.05); }
+.gl-big:hover .gl-big-art, .gl-big:focus-visible .gl-big-art { transform: scale(1.05); }
 .gl-big:hover .gl-go, .gl-big:focus-visible .gl-go { opacity: 1; transform: none; }
 
 /* ---------- search and genre filter ---------- */
@@ -50,31 +59,36 @@
 .gl-chip:hover { color: var(--ink); border-color: rgba(255, 255, 255, 0.18); }
 .gl-chip[aria-pressed="true"] { color: #fff; border-color: transparent; background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(139, 92, 246, 0.9)); }
 
-/* ---------- every game ---------- */
-.gl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(178px, 1fr)); gap: 12px; }
+/* ---------- every game: portrait covers like a launcher library ---------- */
+.gl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
 .gl-card {
-  display: flex; flex-direction: column; overflow: hidden;
-  border-radius: 14px; border: 1px solid var(--line-soft); background: var(--panel);
+  display: flex; flex-direction: column; overflow: hidden; min-width: 0;
+  border-radius: 12px; border: 1px solid var(--line-soft); background: var(--panel);
   transition: border-color 0.2s, transform 0.2s, background 0.2s;
 }
-.gl-card img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; filter: saturate(0.9); transition: filter 0.25s; }
-.gl-name { padding: 10px 12px 2px; font-size: 14px; font-weight: 500; line-height: 1.3; color: var(--ink); }
-.gl-genre { padding: 0 12px 11px; font-size: 12px; color: var(--mute); }
+.gl-card img {
+  display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover;
+  background: var(--panel-2); filter: saturate(0.92); transition: filter 0.25s;
+}
+.gl-name { padding: 9px 10px 1px; font-size: 14px; font-weight: 500; line-height: 1.3; color: var(--ink); overflow-wrap: anywhere; }
+.gl-genre { padding: 0 10px 10px; font-size: 12px; color: var(--mute); }
 .gl-card:hover, .gl-card:focus-visible { border-color: rgba(139, 92, 246, 0.45); transform: translateY(-2px); background: var(--panel-2); }
-.gl-card:hover img, .gl-card:focus-visible img { filter: saturate(1.08); }
+.gl-card:hover img, .gl-card:focus-visible img { filter: saturate(1.1); }
 .gl-empty { text-align: center; color: var(--mute); font-size: 15px; padding: 26px 0 6px; }
 .gl-empty a { color: var(--ink); border-bottom: 1px solid var(--dim); }
+.gl-more { align-self: center; margin-top: 6px; }
 
 @media (max-width: 900px) {
-  .gl-feat { grid-template-columns: repeat(2, 1fr); }
-  .gl-big:first-child { grid-row: span 1; }
+  .gl-feat { grid-template-columns: repeat(2, 1fr); --lu: clamp(26px, 5vw, 38px); }
+  .gl-big:first-child { grid-row: span 1; --lu: clamp(30px, 6vw, 46px); }
+  .gl-big.gl-wide { --lu: clamp(28px, 5.4vw, 40px); }
 }
 @media (max-width: 520px) {
-  .gl-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .gl-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .gl-name { padding: 8px 8px 1px; font-size: 13px; }
+  .gl-genre { padding: 0 8px 9px; font-size: 11.5px; }
+  .gl-big-txt { left: 14px; right: 14px; bottom: 12px; gap: 6px; }
+  .gl-big-blurb { font-size: 12.5px; }
   .gl-search { max-width: none; }
   .gl-go { display: none; }
 }
-
-/* the two cards that close the bento span half the width each */
-.gl-big.gl-wide { grid-column: span 2; }
-.gl-more { align-self: center; margin-top: 6px; }
