@@ -51,13 +51,11 @@
   background: radial-gradient(closest-side, rgba(139, 92, 246, 0.5), transparent);
   filter: blur(6px);
 }
-.mc-sign-text {
-  position: absolute; left: 0; top: 0; width: 100%; height: 29.7%;
-  display: flex; align-items: center; justify-content: center; gap: 0.3em;
-  color: #3a2813; font-weight: 700; font-size: clamp(18px, 1.7vw, 23px); letter-spacing: -0.02em; line-height: 1;
-  transform: rotate(-1.5deg);
-}
-.mc-sign-text small { font-size: 0.5em; font-weight: 600; color: #5a4022; }
+/* the sign text is painted into the render, one image per language;
+   hidden images with loading=lazy are never fetched */
+.mc-sign img:not([data-sign-lang="en"]) { display: none; }
+html[lang="de"] .mc-sign img[data-sign-lang="en"], html[lang="fr"] .mc-sign img[data-sign-lang="en"], html[lang="es"] .mc-sign img[data-sign-lang="en"] { display: none; }
+html[lang="de"] .mc-sign img[data-sign-lang="de"], html[lang="fr"] .mc-sign img[data-sign-lang="fr"], html[lang="es"] .mc-sign img[data-sign-lang="es"] { display: block; }
 .cells > .mc-sign, .cells > .mc-sign:hover { background: none; border: 0; padding: 0; box-shadow: none; min-height: 0; overflow: visible; }
 @media (max-width: 1000px) {
   .mc-sign { position: relative; right: auto; bottom: auto; margin: 0 auto 8px; grid-column: 1 / -1; width: 140px; }
