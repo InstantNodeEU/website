@@ -55,6 +55,58 @@
   function box(X, Y, w, h, cx, cy) {
     return Math.min(w - Math.abs(X - (cx || 0)), h - Math.abs(Y - (cy || 0)));
   }
+  /* the InstantNode mark: three blades with speed spikes and six round holes,
+     in logo units (height -1..1). Simplified from mc-renders logo_shape.json. */
+  var LOGO = [[-0.469,-0.92,-0.462,-0.95,-0.445,-0.976,-0.419,-0.994,-0.393,-1.0,1.702,-0.998,1.727,-0.989,1.747,-0.973,1.766,-0.93,1.766,-0.43,1.756,-0.406,1.74,-0.385,1.717,-0.372,1.692,-0.366,-0.054,-0.365,-1.265,-0.43,-1.285,-0.444,-1.29,-0.462,-1.281,-0.485,-1.258,-0.494,0.723,-0.606,-0.419,-0.66,-0.455,-0.683,-0.468,-0.715],[-1.651,-0.149,1.697,-0.271,1.722,-0.263,1.744,-0.248,1.759,-0.227,1.766,-0.202,1.766,0.234,1.756,0.264,1.74,0.284,1.717,0.298,1.687,0.304,-0.054,0.304,-1.265,0.236,-1.285,0.223,-1.29,0.205,-1.285,0.187,-1.265,0.173,0.535,0.05,-1.678,-0.094,-1.735,-0.09,-1.753,-0.095,-1.766,-0.116,-1.765,-0.134,-1.753,-0.149,-1.735,-0.154],[-1.187,0.502,1.697,0.412,1.722,0.419,1.744,0.435,1.759,0.456,1.766,0.481,1.766,0.93,1.756,0.96,1.74,0.98,1.717,0.994,1.687,1.0,-0.399,0.999,-0.441,0.98,-0.458,0.96,-0.467,0.935,-0.469,0.612,-1.265,0.568,-1.281,0.56,-1.29,0.543,-1.281,0.514,-1.265,0.505]];
+  var LOGO_HOLES = [[1.199,-0.695,0.083],[1.478,-0.695,0.083],[1.199,0.017,0.083],[1.478,0.017,0.083],[1.199,0.687,0.083],[1.478,0.687,0.083]];
+  /* signed distance to the mark in logo units, positive inside */
+  function logoSd(X, Y) {
+    var inside = false, best = 1e9, k, i, j, p, n;
+    for (k = 0; k < LOGO.length; k++) {
+      p = LOGO[k]; n = p.length;
+      for (i = 0, j = n - 2; i < n; j = i, i += 2) {
+        var xi = p[i], yi = p[i + 1], dx = p[j] - xi, dy = p[j + 1] - yi;
+        if ((yi > Y) !== (p[j + 1] > Y) && X < dx * (Y - yi) / dy + xi) inside = !inside;
+        var L = dx * dx + dy * dy, t = L ? ((X - xi) * dx + (Y - yi) * dy) / L : 0;
+        t = t < 0 ? 0 : t > 1 ? 1 : t;
+        var ex = X - xi - t * dx, ey = Y - yi - t * dy;
+        if (ex * ex + ey * ey < best) best = ex * ex + ey * ey;
+      }
+    }
+    var s = inside ? Math.sqrt(best) : -Math.sqrt(best);
+    for (k = 0; k < LOGO_HOLES.length; k++) {
+      var h = LOGO_HOLES[k];
+      s = Math.min(s, Math.sqrt((X - h[0]) * (X - h[0]) + (Y - h[1]) * (Y - h[1])) - h[2]);
+    }
+    return s;
+  }
+  /* ---- InstantNode mark as ink: shared by mark / gate ----
+     X, Y in logo units (height -1..1), c = one glyph row in logo units.
+     Returns a density for the mark, 0 for its clean halo (keeps the blades
+     apart and the six holes hollow), or -1 when the point is free. */
+  var LOGO_TIPS = [[-1.29, -0.462], [-1.766, -0.12], [-1.29, 0.205], [-1.29, 0.543]];
+  function logoInk(X, Y, c, u, v, cx) {
+    cx = cx || c;                                       /* cx = one glyph column in logo units */
+    var k, h, dx, dy, lip = false;
+    var hx = Math.max(2, Math.round(0.166 / cx)) * cx * 0.5, hy = Math.max(2, Math.round(0.166 / c)) * c * 0.5;
+    for (k = 0; k < LOGO_HOLES.length; k++) {           /* holes: whole glyphs picked at the cell */
+      h = LOGO_HOLES[k];                                /* centre, so each is a clean 2 x 2 at mark size */
+      dx = Math.abs(X + cx * 0.5 - h[0]); dy = Math.abs(Y + c * 0.5 - h[1]);
+      if (dx < hx && dy < hy) return 0;                 /* always hollow */
+      if (dx < hx + cx && dy < hy + c) lip = true;
+    }
+    if (lip) return 0.85;                               /* even lip, so the holes read as dots */
+    var m = logoSd(X, Y);
+    if (X < -0.47) {                                    /* needles: vertical coverage, taper to the tip */
+      if (m < -c * 1.6) return -1;
+      var f = 0;
+      for (k = 0; k < 6; k++) if (logoSd(X, Y + (k / 5 - 0.5) * c * 0.96) > 0) f++;
+      return f ? 0.3 + 0.58 * clamp01(f / 6 * 1.6) : 0;   /* tops out at the rim level */
+    }
+    if (m > 0) return m < c * 0.6 ? 0.9 : 0.62 + 0.34 * fbm(u * 16, v * 14);   /* solid blades */
+    if (m > -c * 1.2) return 0;                         /* clean halo, gaps stay open */
+    return -1;
+  }
   /* wraps an icon fn: outline style - bright edge, near-empty interior,
      so box-ish glyphs stay readable at ~25x25 characters */
   function icon(fn, sx, sy) {
@@ -666,8 +718,8 @@
     /* DDoS shield: aspect-corrected so the silhouette keeps its proportions
        on any canvas. Flat top, straight sides, tapered tip, bright rim,
        bolt emblem in the middle. */
-    shield: function (u, v, a) {
-      a = a || 1;
+    shield: function (u, v, a, c) {
+      a = a || 1; c = c || 0.025;
       /* coords in height units, centered on the shield */
       var x = ((u - 0.5) * a) / 0.36;      /* half-width = 0.36 * H */
       var y = (v - 0.46) / 0.4;            /* half-height = 0.4 * H; y: -1 top .. 1 tip */
@@ -683,7 +735,14 @@
       if (edge <= 0) return Math.max(field, ground);
       if (edge < 0.035) return 0.97;                      /* bright rim */
       if (edge < 0.065) return 0.12;                      /* dark inset ring */
-      return 0.28 + 0.38 * fbm(u * 16, v * 14);
+      /* the InstantNode mark as the emblem; c = one cell in height units, so
+         the thin speed spikes still land on a row of glyphs. Under ~44 rows
+         the mark turns to mush, so coarse shields keep the plain fill. */
+      if (c > 1 / 44) return 0.28 + 0.38 * fbm(u * 16, v * 14);
+      var m = logoSd(((u - 0.5) * a) / 0.145, (v - 0.41) / 0.145) * 0.145;
+      if (m > -c * 0.5) return 0.6 + 0.4 * clamp01(0.5 + m / c);
+      if (m > -c * 1.5) return 0.07;
+      return 0.22 + 0.3 * fbm(u * 16, v * 14);
     },
     /* datacenter aisle: a long row of racks of varying height, each with
        unit slats and glowing status LEDs. Built to fill a wide hero. */
@@ -824,6 +883,47 @@
       for (i = 0; i < 2; i++) if (Math.abs(Y - (b[i] + c)) < 0.032) return 0.95;
       return 0.24 + 0.3 * fbm(u * 16, v * 14);
     },
+    /* instantblock dogfooding: traffic streaks stop at a thin gate, only
+       the four rows of the mark's own needles pass through to the mark */
+    gate: function (u, v, a, c, cu) {
+      a = a || 1; c = c || 0.03;
+      var S = 0.36, cx = a - 0.05 - 1.766 * S;
+      var X = (u * a - cx) / S, Y = (v - 0.5) / S, cl = c / S;
+      var d = logoInk(X, Y, cl, u, v, cu ? cu * a / S : cl);
+      if (d >= 0) return d;
+      var x = u * a, gx = cx - 1.766 * S - 0.16;
+      if (v > 0.08 && v < 0.92) {
+        if (Math.abs(x - gx) < c * 0.5) return 0.95;               /* the gate */
+        if (Math.abs(x - gx - c) < c * 0.5) return 0.18;           /* its shadow */
+      }
+      var i, s = 0;
+      for (i = 0; i < 4; i++) {
+        var ty = 0.5 + LOGO_TIPS[i][1] * S, tx = cx + (LOGO_TIPS[i][0] - cl * 1.5) * S;
+        if (Math.abs(v - ty) <= c * 0.5) {
+          if (x > gx + c * 1.5 && x < tx) return Math.floor(x / c + 0.01) % 2 ? 0 : 0.5;   /* passed */
+          if (x < gx - c && x > 0.03) s = 0.15 + 0.45 * (x / gx);                 /* arriving */
+        }
+      }
+      if (!s) {
+        var r = Math.floor(v / c);
+        if (v > 0.1 && v < 0.9 && hash(r, 5.5) > 0.62 && x < gx - c * 0.5) {     /* blocked rows */
+          var xs = 0.03 + hash(r, 2.9) * gx * 0.6;
+          if (x > gx - c * 1.5) s = 0.85;                                         /* impact */
+          else if (x > xs) s = 0.16 + 0.5 * (x - xs) / (gx - xs);
+        }
+      } else if (x < gx * 0.35) s = 0;
+      return s || amb(u, v);
+    },
+    /* glyph pool under a 3D product shot: a flat ellipse, densest in the
+       middle with one faint ring, so the render stands on the same glyph
+       field as the rest of the page */
+    pool: function (u, v) {
+      var x = (u - 0.5) * 2, y = (v - 0.5) * 2;
+      var r = Math.sqrt(x * x + y * y);
+      if (r >= 1) return 0;
+      if (Math.abs(r - 0.82) < 0.05) return 0.5;
+      return (1 - r * r) * (0.42 + 0.55 * fbm(u * 18, v * 5));
+    },
     /* concentric orbit rings with a core (platform) */
     orbit: function (u, v) {
       var x = (u - 0.5) * 2, y = (v - 0.55) * 2.4;
@@ -837,7 +937,6 @@
   function renderArt(cv) {
     cv.dataset.drawn = '1';
     var shape = SHAPES[cv.dataset.art] || SHAPES.wave;
-    var tint = cv.dataset.tint !== 'off';
     var hotU = parseFloat(cv.dataset.hotx || '0.5');
     var hotV = parseFloat(cv.dataset.hoty || '0.6');
     var rect = cv.getBoundingClientRect();
@@ -854,24 +953,97 @@
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'center';
     var cols = Math.ceil(W / cell), rows = Math.ceil(H / cell);
+    var A = cv._art = { ctx: ctx, W: W, H: H, cell: cell, cols: cols, rows: rows, tint: cv.dataset.tint !== 'off',
+                        u: [], v: [], d: [], hu: hotU, hv: hotV, tu: hotU, tv: hotV, hu0: hotU, hv0: hotV };
     for (var gy = 0; gy < rows; gy++) {
       for (var gx = 0; gx < cols; gx++) {
         var u = gx / cols, v = gy / rows;
-        var d = clamp01(shape(u, v, W / H));
+        var d = clamp01(shape(u, v, W / H, 1 / rows, 1 / cols));
         if (d < 0.06) continue;
-        var ch = RAMP[Math.min(RAMP.length - 1, (d * (RAMP.length - 1)) | 0)];
-        if (ch === ' ') continue;
-        var dx = u - hotU, dy = (v - hotV) * 1.4;
-        var heat = tint ? clamp01(1 - Math.sqrt(dx * dx + dy * dy) * 2.6) : 0;
-        var g = 60 + d * 140;
-        /* glow towards the brand blue (#3b82f6) near the hotspot */
-        var r0 = mix(g, 59, heat * 0.8);
-        var g0 = mix(g, 120 + d * 70, heat * 0.85);
-        var b0 = mix(g, 255, heat * 0.9);
-        ctx.fillStyle = 'rgb(' + (r0 | 0) + ',' + (g0 | 0) + ',' + (b0 | 0) + ')';
-        ctx.fillText(ch, gx * cell + cell / 2, gy * cell + cell / 2);
+        A.u.push(u); A.v.push(v); A.d.push(d);
       }
     }
+    paint(A, 0);
+    if (!cv.classList.contains('cell-ico')) watch(cv);
+  }
+
+  /* t = 0 draws the still picture; later frames let the glyphs shimmer and
+     send a blue pulse across the canvas every 9 s */
+  function paint(A, t) {
+    var ctx = A.ctx, cell = A.cell, n = A.d.length, top = RAMP.length - 1;
+    var sweep = t ? (t / 9000 % 1) * 1.8 - 0.4 : -9;
+    ctx.clearRect(0, 0, A.W, A.H);
+    for (var k = 0; k < n; k++) {
+      var u = A.u[k], v = A.v[k], d = A.d[k];
+      if (t) d = clamp01(d + (noise(u * A.cols * 0.2 + t * 0.0004, v * A.rows * 0.2 - t * 0.0003) - 0.5) * 0.2);
+      var ch = RAMP[Math.min(top, (d * top) | 0)];
+      if (ch === ' ') continue;
+      var dx = u - A.hu, dy = (v - A.hv) * 1.4;
+      var heat = A.tint ? clamp01(1 - Math.sqrt(dx * dx + dy * dy) * 2.6) : 0;
+      if (t && A.tint) { var w = (u - sweep) * 10; heat = Math.max(heat, Math.exp(-w * w) * clamp01(d * 1.5) * 0.85); }
+      var g = 60 + d * 140;
+      /* glow towards the brand blue (#3b82f6) near the hotspot */
+      var r0 = mix(g, 59, heat * 0.8);
+      var g0 = mix(g, 120 + d * 70, heat * 0.85);
+      var b0 = mix(g, 255, heat * 0.9);
+      ctx.fillStyle = 'rgb(' + (r0 | 0) + ',' + (g0 | 0) + ',' + (b0 | 0) + ')';
+      ctx.fillText(ch, (u * A.cols) * cell + cell / 2, (v * A.rows) * cell + cell / 2);
+    }
+  }
+
+  /* ---------- living art ----------
+     The wide canvases (not the card icons) keep moving while they are on
+     screen, ~12 fps: glyph shimmer, the pulse, and the glow drifting towards
+     the pointer. Reduced motion keeps the still picture. */
+  var calm = !window.matchMedia || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var live = [], liveIO, raf = 0, last = 0;
+  function watch(cv) {
+    if (calm || !('IntersectionObserver' in window)) return;
+    if (!liveIO) liveIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var i = live.indexOf(en.target);
+        if (en.isIntersecting && i < 0) live.push(en.target);
+        if (!en.isIntersecting && i >= 0) live.splice(i, 1);
+      });
+      if (live.length && !raf) raf = requestAnimationFrame(tick);
+    });
+    liveIO.observe(cv);
+  }
+  function tick(now) {
+    raf = live.length ? requestAnimationFrame(tick) : 0;
+    if (now - last < 80) return;
+    last = now;
+    live.forEach(function (cv) {
+      var A = cv._art;
+      A.hu += (A.tu - A.hu) * 0.15; A.hv += (A.tv - A.hv) * 0.15;
+      paint(A, now);
+    });
+  }
+  window.addEventListener('pointermove', function (e) {
+    live.forEach(function (cv) {
+      var A = cv._art, r = cv.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      var on = x >= 0 && x <= 1 && y >= -0.2 && y <= 1.2;
+      A.tu = on ? x : A.hu0; A.tv = on ? y : A.hv0;
+    });
+  }, { passive: true });
+
+  /* product shots sit a little deeper than the page: they trail the scroll by
+     a few px, which reads as depth. Measured on the parent so the shift does
+     not feed back into itself; reduced motion keeps them still. */
+  var shots = document.querySelectorAll('.prod, .cell-shot > img');
+  if (!calm && shots.length) {
+    var sT = 0;
+    var depth = function () {
+      sT = 0;
+      shots.forEach(function (el) {
+        var r = el.parentElement.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > innerHeight + 200) return;
+        el.style.translate = '0 ' + (((r.top + r.height / 2) / innerHeight - 0.5) * 24).toFixed(1) + 'px';
+      });
+    };
+    window.addEventListener('scroll', function () { if (!sT) sT = requestAnimationFrame(depth); }, { passive: true });
+    depth();
   }
 
   /* ponytail: draw each canvas only once it nears the viewport - drawing all

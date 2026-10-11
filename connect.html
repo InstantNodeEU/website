@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=8" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=12" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>INN Connect - Desktop App for Windows &amp; Linux | InstantNode</title>
@@ -25,7 +25,7 @@
     <link href="/favicon.ico" rel="icon" sizes="32x32" />
     <link as="font" href="fonts/Satoshi.woff" rel="preload" type="font/woff2" crossorigin />
     <link href="css/fonts.css" rel="stylesheet" />
-    <link href="css/lunaris.css?v=catnav4" rel="stylesheet" />
+    <link href="css/lunaris.css?v=catnav5" rel="stylesheet" />
     <link href="css/product.css?v=6" rel="stylesheet" />
     <style>
       /* Downloads. The markup hooks (.cn-row[data-kind], .cn-size, [data-sha], .cn-cmd,
@@ -160,7 +160,7 @@
     <symbol id="fa-gauge" viewBox="0 0 512 512"><path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm320 96c0-26.9-16.5-49.9-40-59.3L280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 172.7c-23.5 9.5-40 32.5-40 59.3 0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-16 80a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM400 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></symbol>
     </svg>
     <!-- Announcement bar. Visibility is decided before paint; the close
-         button is wired in js/lunaris.js?v=ib4. -->
+         button is wired in js/lunaris.js?v=ib5. -->
     <div class="in-announce" data-key="import2026" id="in-announce">
       <div class="in-announce__icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M12 4v9"></path><path d="M8.5 9.5 12 13l3.5-3.5"></path><path d="M5 17h14"></path></svg></div>
       <div>
@@ -196,7 +196,6 @@
                 <a class="mm-card" href="/windows-server"><svg class="mm-ico" aria-hidden="true"><use href="#fa-panes"/></svg><span class="mm-card-h"><span class="mm-card-t">Windows Server</span></span><span class="mm-card-d">Windows Server, pre-installed and ready to RDP into in minutes.</span></a>
                 <a class="mm-card" href="/storage-server"><svg class="mm-ico" aria-hidden="true"><use href="#fa-drive"/></svg><span class="mm-card-h"><span class="mm-card-t">Storage Server</span></span><span class="mm-card-d">High-capacity NVMe storage up to 5 TB, with up to 2.5 Gbit/s.</span></a>
                 <a class="mm-card" href="/openclaw"><svg class="mm-ico" aria-hidden="true"><use href="#fa-robot"/></svg><span class="mm-card-h"><span class="mm-card-t">OpenClaw KVM</span><span class="badge">New</span></span><span class="mm-card-d">OpenClaw preinstalled on a KVM VPS - bring your provider key, get a hardened HTTPS gateway.</span></a>
-                <a class="mm-card" href="/ip-forwarding"><svg class="mm-ico" aria-hidden="true"><use href="#fa-network"/></svg><span class="mm-card-h"><span class="mm-card-t">IP Forwarding</span><span class="badge">New</span></span><span class="mm-card-d">Your own protected IPv4, forwarded over WireGuard to your machine at home or anywhere.</span></a>
               </div>
               <a class="mm-more cat-more" href="/hardware">Our Hardware<svg class="mm-chev" aria-hidden="true"><use href="#fa-arrow"/></svg></a>
             </div>
@@ -218,6 +217,7 @@
             <div class="cat-menu">
               <div class="cat-col">
                 <a class="mm-card" href="/webspaces"><svg class="mm-ico" aria-hidden="true"><use href="#fa-globe"/></svg><span class="mm-card-h"><span class="mm-card-t">Webspaces</span></span><span class="mm-card-d">Managed web hosting with one-click apps - no server to run.</span></a>
+                <a class="mm-card" href="/domains"><svg class="mm-ico" aria-hidden="true"><use href="#fa-network"/></svg><span class="mm-card-h"><span class="mm-card-t">Domains</span></span><span class="mm-card-d">Register a new domain or transfer yours in, with DNS hosting included.</span></a>
               </div>
             </div>
           </div>
@@ -229,6 +229,7 @@
               <div class="cat-col">
                 <a class="mm-card" href="/databases"><svg class="mm-ico" aria-hidden="true"><use href="#fa-db"/></svg><span class="mm-card-h"><span class="mm-card-t">Managed Databases</span><span class="badge">Free plan</span></span><span class="mm-card-d">MariaDB with full phpMyAdmin - no server to run or patch.</span></a>
                 <a class="mm-card" href="/email"><svg class="mm-ico" aria-hidden="true"><use href="#fa-mail"/></svg><span class="mm-card-h"><span class="mm-card-t">Managed Email</span><span class="badge">Free plan</span></span><span class="mm-card-d">Mailboxes on your own domain, with webmail and every protocol.</span></a>
+                <a class="mm-card" href="/ip-forwarding"><svg class="mm-ico" aria-hidden="true"><use href="#fa-network"/></svg><span class="mm-card-h"><span class="mm-card-t">IP Forwarding</span><span class="badge">New</span></span><span class="mm-card-d">Your own protected IPv4, forwarded over WireGuard to your machine at home or anywhere.</span></a>
               </div>
             </div>
           </div>
@@ -288,14 +289,15 @@
         <a href="/windows-server"><svg class="mm-ico" aria-hidden="true"><use href="#fa-panes"/></svg>Windows Server</a>
         <a href="/storage-server"><svg class="mm-ico" aria-hidden="true"><use href="#fa-drive"/></svg>Storage Server</a>
         <a href="/openclaw"><svg class="mm-ico" aria-hidden="true"><use href="#fa-robot"/></svg>OpenClaw KVM</a>
-        <a href="/ip-forwarding"><svg class="mm-ico" aria-hidden="true"><use href="#fa-network"/></svg>IP Forwarding</a>
         <div class="m-group">Game Servers</div>
         <a href="/gameservers"><svg class="mm-ico" aria-hidden="true"><use href="#fa-gamepad"/></svg>Game Servers</a>
         <div class="m-group">Webspaces</div>
         <a href="/webspaces"><svg class="mm-ico" aria-hidden="true"><use href="#fa-globe"/></svg>Webspaces</a>
+        <a href="/domains"><svg class="mm-ico" aria-hidden="true"><use href="#fa-network"/></svg>Domains</a>
         <div class="m-group">Managed Hosting</div>
         <a href="/databases"><svg class="mm-ico" aria-hidden="true"><use href="#fa-db"/></svg>Managed Databases</a>
         <a href="/email"><svg class="mm-ico" aria-hidden="true"><use href="#fa-mail"/></svg>Managed Email</a>
+        <a href="/ip-forwarding"><svg class="mm-ico" aria-hidden="true"><use href="#fa-network"/></svg>IP Forwarding</a>
         <div class="m-group">Discord Bots</div>
         <a href="/discord-bots"><svg class="mm-ico" aria-hidden="true"><use href="#fa-robot"/></svg>Discord Bots</a>
         <a href="/instantbot"><svg class="mm-ico" aria-hidden="true"><use href="#fa-cube"/></svg>InstantBot</a>
@@ -349,6 +351,7 @@ active
 nginx: configuration file /etc/nginx/nginx.conf test is successful
 <span class="p">root@web-01:~#</span> </pre>
             </div>
+            <div class="why-mark why-shot why-shot--behind rv" style="--lap:-110px" aria-hidden="true"><span class="prod"><canvas class="art prod-pool" data-art="pool" data-hotx="0.5" data-hoty="0.5" data-cell="6"></canvas><img src="/img/3d/rj45.webp" width="700" height="741" alt="" loading="lazy" decoding="async" /></span></div>
           </div>
           <ol class="pp-rows">
             <li class="rv"><div><h3>Power controls</h3><p>Start, stop and restart every VPS, game server and Discord bot you own. Dedicated servers get their BMC actions. Status updates itself while you watch.</p></div></li>
@@ -551,6 +554,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
             <a href="/openclaw">OpenClaw KVM</a>
             <a href="/ip-forwarding">IP Forwarding</a>
             <a href="/webspaces">Web Hosting</a>
+            <a href="/domains">Domains</a>
             <a href="/discord-bots">Discord Bots</a>
             <a href="/instantbot">InstantBot</a>
             <a href="/email">Managed Email</a>
@@ -571,6 +575,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
           <div class="ftr-col">
             <h4>Resources</h4>
             <a href="/dashboard">Client Panel</a>
+            <a href="/connect">INN Connect</a>
             <a href="/dashboard/import">Server Importer</a>
             <a href="/developers">API Documentation</a>
             <a href="https://docs.instantnode.eu" rel="noreferrer" target="_blank">Documentation</a>
@@ -614,7 +619,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
       </footer>
     </main>
 
-    <script src="/js/lunaris.js?v=ib4" defer></script>
+    <script src="/js/lunaris.js?v=ib5" defer></script>
     <!-- data-cfasync keeps Rocket Loader from deferring this: the primary
          button has to say the right platform before the visitor reads it. -->
     <script data-cfasync="false">

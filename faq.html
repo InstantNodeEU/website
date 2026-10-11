@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=8" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=12" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>FAQ - Frequently asked questions | InstantNode</title>
@@ -23,7 +23,7 @@
     <link href="/favicon.ico" rel="icon" sizes="32x32" />
     <link as="font" href="fonts/Satoshi.woff" rel="preload" type="font/woff2" crossorigin />
     <link href="css/fonts.css" rel="stylesheet" />
-    <link href="css/lunaris.css?v=catnav4" rel="stylesheet" />
+    <link href="css/lunaris.css?v=catnav5" rel="stylesheet" />
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How fast is my server ready?", "acceptedAnswer": {"@type": "Answer", "text": "Almost instantly. Once your payment or top-up clears, most servers are provisioned and booted in around 60 seconds - no manual review, no waiting for an agent. You get the login details in your dashboard right away."}}, {"@type": "Question", "name": "Where are your servers located?", "acceptedAnswer": {"@type": "Answer", "text": "In our own racks in Eygelshoven, Netherlands (EU) - close to the German border and the major Frankfurt/Amsterdam internet exchanges. Everything stays inside the EU, so you get low latency across Europe and GDPR-compliant hosting by default."}}, {"@type": "Question", "name": "What can I run on a server?", "acceptedAnswer": {"@type": "Answer", "text": "Anything you would run on a normal Linux or Windows machine. Game servers, websites and web apps, Discord bots, databases, VPN, CI runners - you get full root (or Administrator on Windows), so it is your machine to use."}}, {"@type": "Question", "name": "Do you offer a trial or free plan?", "acceptedAnswer": {"@type": "Answer", "text": "We don't do a free tier, but the entry plans are cheap and billed hourly, so you can spin one up for a few cents to try it and delete it whenever you want. Invite a friend and you both get bonus credit - see the referral section in your billing page."}}, {"@type": "Question", "name": "Can I move my existing server to InstantNode?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The Server Importer in the client panel copies an existing server over in a few minutes - no reinstalling from scratch."}}, {"@type": "Question", "name": "What's the difference between KVM, LXC and VDS?", "acceptedAnswer": {"@type": "Answer", "text": "KVM is a fully virtualised machine with its own kernel - the most compatible choice, runs any OS including Windows. LXC is a lightweight Linux virtual server, cheaper and faster for Linux-only workloads. VDS is a KVM with dedicated, pinned CPU cores - no sharing, for when you need consistent performance. Not sure which fits? Ask in Discord."}}, {"@type": "Question", "name": "What hardware do you run?", "acceptedAnswer": {"@type": "Answer", "text": "Recent-generation AMD EPYC and Ryzen CPUs with NVMe SSD storage - the same nodes we host our own game servers on. More on the hardware page."}}, {"@type": "Question", "name": "Do I get full root / Administrator access?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, on every VPS and dedicated server. It is your machine - install what you like, reinstall the OS, reboot, whatever you need."}}, {"@type": "Question", "name": "Is DDoS protection included?", "acceptedAnswer": {"@type": "Answer", "text": "Yes - always-on L3/L4/L7 mitigation on every service, free. You don't configure anything and you don't pay extra."}}, {"@type": "Question", "name": "Can I upgrade or downgrade later?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Resize CPU, RAM and disk from the panel whenever you need - you only pay the difference for the rest of the billing period. No migration, no downtime for most changes."}}, {"@type": "Question", "name": "Backups, snapshots and rescue mode?", "acceptedAnswer": {"@type": "Answer", "text": "You can take snapshots before risky changes, schedule rolling backups, and boot a broken KVM into rescue mode to repair it over the console. All from the dashboard."}}, {"@type": "Question", "name": "Do you offer Windows servers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes - RDP-ready Windows Server images on KVM. Pick Windows KVM when you create a server."}}, {"@type": "Question", "name": "How does billing work?", "acceptedAnswer": {"@type": "Answer", "text": "Your account runs on a prepaid balance. Servers bill hourly (or monthly if you prefer), and the cost is drawn from your balance - so you are never surprised by an invoice at the end of the month. Top up whenever, cancel whenever."}}, {"@type": "Question", "name": "Which payment methods do you accept?", "acceptedAnswer": {"@type": "Answer", "text": "PayPal, credit/debit card, and a wide range of cryptocurrencies (BTC, ETH, USDT, USDC, LTC, DOGE, SOL, XMR and more). Crypto top-ups don't even require an email."}}, {"@type": "Question", "name": "Do you charge VAT?", "acceptedAnswer": {"@type": "Answer", "text": "No. InstantNode is a small business under § 19 UStG (Kleinunternehmerregelung), so no VAT is added or shown - the price you see is the price you pay."}}, {"@type": "Question", "name": "Is there a minimum contract or setup fee?", "acceptedAnswer": {"@type": "Answer", "text": "No setup fee and no lock-in. Hourly billing means you can run a server for an hour or a year - it is entirely up to you."}}, {"@type": "Question", "name": "How do I cancel a service?", "acceptedAnswer": {"@type": "Answer", "text": "Turn off auto-renew on the service (or use the cancel contracts page - no login needed). The server keeps running until the end of the period you already paid for, then simply stops renewing."}}, {"@type": "Question", "name": "Can I get a refund?", "acceptedAnswer": {"@type": "Answer", "text": "No. Top-ups are credited instantly, and at checkout you agree to that, so the right of withdrawal lapses once the credit is on your account. Balance is never paid out in money - it stays on your account with no expiry and can be used for any service. Full details in the withdrawal policy and payment terms."}}, {"@type": "Question", "name": "Do you have a referral program?", "acceptedAnswer": {"@type": "Answer", "text": "Yes - share your referral link and your friend gets a welcome bonus on their first top-up, while you earn a commission on every top-up they make. Find your link in the billing page."}}, {"@type": "Question", "name": "How do I get help?", "acceptedAnswer": {"@type": "Answer", "text": "The fastest way is our Discord - the team and other users are there daily. For anything tied to your account (billing, a service issue), open a support ticket so we can look at your services securely."}}, {"@type": "Question", "name": "What are your response times?", "acceptedAnswer": {"@type": "Answer", "text": "We're a small team and won't promise SLAs we can't keep. In practice Discord questions are usually answered within a few hours, and tickets within a business day."}}, {"@type": "Question", "name": "Is support actually human?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. You talk to the people who built and run the platform - not an outsourced ticket queue reading from a script."}}, {"@type": "Question", "name": "How do I check if there's an outage?", "acceptedAnswer": {"@type": "Answer", "text": "Live platform status and incident history are on status.instantnode.eu."}}, {"@type": "Question", "name": "Is my data GDPR-compliant?", "acceptedAnswer": {"@type": "Answer", "text": "Yes - all servers live in our EU datacenter and we operate under EU/German data-protection law. See the privacy policy."}}, {"@type": "Question", "name": "Can I secure my account with 2FA?", "acceptedAnswer": {"@type": "Answer", "text": "Yes - enable two-factor authentication (and passkeys) in your profile settings. We strongly recommend it."}}, {"@type": "Question", "name": "Is crypto mining allowed?", "acceptedAnswer": {"@type": "Answer", "text": "No. Mining is not permitted, and shared resources are governed by a fair-use rule so one customer can't starve the others. The full rules are in the terms."}}, {"@type": "Question", "name": "Where do I find legal and company information?", "acceptedAnswer": {"@type": "Answer", "text": "Our provider details are on the imprint, along with the terms, privacy policy and right of withdrawal."}}]}</script>
     <link rel="discord:component-embed" type="application/json" href="https://instantnode.eu/discord-embed.json">
 </head>
@@ -54,7 +54,7 @@
     <symbol id="fa-gauge" viewBox="0 0 512 512"><path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm320 96c0-26.9-16.5-49.9-40-59.3L280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 172.7c-23.5 9.5-40 32.5-40 59.3 0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-16 80a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM400 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></symbol>
     </svg>
     <!-- Announcement bar. Visibility is decided before paint; the close
-         button is wired in js/lunaris.js?v=ib4. -->
+         button is wired in js/lunaris.js?v=ib5. -->
     <div class="in-announce" data-key="import2026" id="in-announce">
       <div class="in-announce__icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M12 4v9"></path><path d="M8.5 9.5 12 13l3.5-3.5"></path><path d="M5 17h14"></path></svg></div>
       <div>
@@ -90,7 +90,6 @@
                 <a class="mm-card" href="/windows-server"><svg class="mm-ico" aria-hidden="true"><use href="#fa-panes"/></svg><span class="mm-card-h"><span class="mm-card-t">Windows Server</span></span><span class="mm-card-d">Windows Server, pre-installed and ready to RDP into in minutes.</span></a>
                 <a class="mm-card" href="/storage-server"><svg class="mm-ico" aria-hidden="true"><use href="#fa-drive"/></svg><span class="mm-card-h"><span class="mm-card-t">Storage Server</span></span><span class="mm-card-d">High-capacity NVMe storage up to 5 TB, with up to 2.5 Gbit/s.</span></a>
                 <a class="mm-card" href="/openclaw"><svg class="mm-ico" aria-hidden="true"><use href="#fa-robot"/></svg><span class="mm-card-h"><span class="mm-card-t">OpenClaw KVM</span><span class="badge">New</span></span><span class="mm-card-d">OpenClaw preinstalled on a KVM VPS - bring your provider key, get a hardened HTTPS gateway.</span></a>
-                <a class="mm-card" href="/ip-forwarding"><svg class="mm-ico" aria-hidden="true"><use href="#fa-network"/></svg><span class="mm-card-h"><span class="mm-card-t">IP Forwarding</span><span class="badge">New</span></span><span class="mm-card-d">Your own protected IPv4, forwarded over WireGuard to your machine at home or anywhere.</span></a>
               </div>
               <a class="mm-more cat-more" href="/hardware">Our Hardware<svg class="mm-chev" aria-hidden="true"><use href="#fa-arrow"/></svg></a>
             </div>
@@ -112,6 +111,7 @@
             <div class="cat-menu">
               <div class="cat-col">
                 <a class="mm-card" href="/webspaces"><svg class="mm-ico" aria-hidden="true"><use href="#fa-globe"/></svg><span class="mm-card-h"><span class="mm-card-t">Webspaces</span></span><span class="mm-card-d">Managed web hosting with one-click apps - no server to run.</span></a>
+                <a class="mm-card" href="/domains"><svg class="mm-ico" aria-hidden="true"><use href="#fa-network"/></svg><span class="mm-card-h"><span class="mm-card-t">Domains</span></span><span class="mm-card-d">Register a new domain or transfer yours in, with DNS hosting included.</span></a>
               </div>
             </div>
           </div>
@@ -123,6 +123,7 @@
               <div class="cat-col">
                 <a class="mm-card" href="/databases"><svg class="mm-ico" aria-hidden="true"><use href="#fa-db"/></svg><span class="mm-card-h"><span class="mm-card-t">Managed Databases</span><span class="badge">Free plan</span></span><span class="mm-card-d">MariaDB with full phpMyAdmin - no server to run or patch.</span></a>
                 <a class="mm-card" href="/email"><svg class="mm-ico" aria-hidden="true"><use href="#fa-mail"/></svg><span class="mm-card-h"><span class="mm-card-t">Managed Email</span><span class="badge">Free plan</span></span><span class="mm-card-d">Mailboxes on your own domain, with webmail and every protocol.</span></a>
+                <a class="mm-card" href="/ip-forwarding"><svg class="mm-ico" aria-hidden="true"><use href="#fa-network"/></svg><span class="mm-card-h"><span class="mm-card-t">IP Forwarding</span><span class="badge">New</span></span><span class="mm-card-d">Your own protected IPv4, forwarded over WireGuard to your machine at home or anywhere.</span></a>
               </div>
             </div>
           </div>
@@ -182,14 +183,15 @@
         <a href="/windows-server"><svg class="mm-ico" aria-hidden="true"><use href="#fa-panes"/></svg>Windows Server</a>
         <a href="/storage-server"><svg class="mm-ico" aria-hidden="true"><use href="#fa-drive"/></svg>Storage Server</a>
         <a href="/openclaw"><svg class="mm-ico" aria-hidden="true"><use href="#fa-robot"/></svg>OpenClaw KVM</a>
-        <a href="/ip-forwarding"><svg class="mm-ico" aria-hidden="true"><use href="#fa-network"/></svg>IP Forwarding</a>
         <div class="m-group">Game Servers</div>
         <a href="/gameservers"><svg class="mm-ico" aria-hidden="true"><use href="#fa-gamepad"/></svg>Game Servers</a>
         <div class="m-group">Webspaces</div>
         <a href="/webspaces"><svg class="mm-ico" aria-hidden="true"><use href="#fa-globe"/></svg>Webspaces</a>
+        <a href="/domains"><svg class="mm-ico" aria-hidden="true"><use href="#fa-network"/></svg>Domains</a>
         <div class="m-group">Managed Hosting</div>
         <a href="/databases"><svg class="mm-ico" aria-hidden="true"><use href="#fa-db"/></svg>Managed Databases</a>
         <a href="/email"><svg class="mm-ico" aria-hidden="true"><use href="#fa-mail"/></svg>Managed Email</a>
+        <a href="/ip-forwarding"><svg class="mm-ico" aria-hidden="true"><use href="#fa-network"/></svg>IP Forwarding</a>
         <div class="m-group">Discord Bots</div>
         <a href="/discord-bots"><svg class="mm-ico" aria-hidden="true"><use href="#fa-robot"/></svg>Discord Bots</a>
         <a href="/instantbot"><svg class="mm-ico" aria-hidden="true"><use href="#fa-cube"/></svg>InstantBot</a>
@@ -319,6 +321,7 @@
             <a href="/openclaw">OpenClaw KVM</a>
             <a href="/ip-forwarding">IP Forwarding</a>
             <a href="/webspaces">Web Hosting</a>
+            <a href="/domains">Domains</a>
             <a href="/discord-bots">Discord Bots</a>
             <a href="/instantbot">InstantBot</a>
             <a href="/email">Managed Email</a>
@@ -339,6 +342,7 @@
           <div class="ftr-col">
             <h4>Resources</h4>
             <a href="/dashboard">Client Panel</a>
+            <a href="/connect">INN Connect</a>
             <a href="/dashboard/import">Server Importer</a>
             <a href="/developers">API Documentation</a>
             <a href="https://docs.instantnode.eu" rel="noreferrer" target="_blank">Documentation</a>
@@ -382,6 +386,6 @@
       </footer>
     </main>
 
-    <script src="/js/lunaris.js?v=ib4" defer></script>
+    <script src="/js/lunaris.js?v=ib5" defer></script>
   </body>
 </html>

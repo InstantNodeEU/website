@@ -1,4 +1,4 @@
-/* InstantNode 2026 — "Orbit" design system
+/* InstantNode 2026 - "Orbit" design system
    Reference: dark framed canvas, hairline grid, glyph-halftone art,
    blue accent gradients. One file, no build step. */
 
@@ -67,7 +67,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 /* ---------- frame: the railed canvas ---------- */
 
-/* seamless canvas: content is centered but not visually boxed —
+/* seamless canvas: content is centered but not visually boxed -
    the body's dot ground runs edge to edge */
 .frame {
   max-width: var(--frame-w);
@@ -1240,3 +1240,43 @@ table.spec { width: 100%; border-collapse: collapse; font-size: 14.5px; min-widt
   .student { flex-direction: column; align-items: flex-start; }
   .student > .btn { width: 100%; }
 }
+
+/* ---------- spot art: accents in quiet gaps ----------
+   Glyph canvases are plain canvas.art (not .cell-ico), so they keep the
+   shimmer, pulse and pointer glow. Wrappers are aria-hidden and carry .rv. */
+
+/* a small centred motif under a section head */
+.sec-mark { display: flex; justify-content: center; margin-top: clamp(28px, 4vw, 44px); }
+.sec-mark canvas.art { width: min(300px, 100%); height: 120px; opacity: 0.7; }
+
+/* 3D product shots in the same quiet spots: transparent renders that float a
+   few px over a glyph pool (SHAPES.pool), never rotate; still for reduced motion */
+.prod { position: relative; display: block; max-width: 100%; isolation: isolate; }
+.prod > img { display: block; width: 100%; height: auto; animation: prod-float 7s ease-in-out infinite; }
+.prod > .prod-pool { position: absolute; z-index: -1; left: 50%; bottom: -5%; width: 100%; height: auto; aspect-ratio: 9 / 2; transform: translateX(-50%); pointer-events: none; }
+.why-mark .prod { width: min(380px, 100%); }
+.sec-mark .prod { width: min(360px, 100%); }
+/* a grid slot turned into a real card the object rises out of: same card
+   chrome as its neighbours, a glyph floor, the render cut by the card edge */
+.cells > .cell-shot { position: relative; min-height: 300px; isolation: isolate; background: radial-gradient(90% 70% at 50% 100%, rgba(242, 241, 238, 0.05), transparent 70%), var(--panel); }
+.cell-shot > .shot-floor { position: absolute; z-index: -1; left: 0; bottom: 0; width: 100%; height: 34%; }
+.cell-shot > img { position: absolute; left: 0; right: 0; bottom: -7%; margin: 0 auto; width: auto; height: auto; max-width: min(84%, 300px); max-height: 100%; animation: prod-float 7s ease-in-out infinite; }
+.cells > .cell-shot--wide { grid-column: span 2; }
+.cell-shot--wide > img { max-width: min(86%, 600px); max-height: 70%; bottom: 14%; }
+@media (max-width: 560px) { .cells > .cell-shot { min-height: 240px; } .cells > .cell-shot--wide { grid-column: auto; } }
+/* under a terminal: the object sits over the terminal's bottom-right corner
+   and drops its shadow onto it */
+.why-mark.why-shot { position: relative; z-index: 2; display: flex; justify-content: flex-end; margin-top: var(--lap, -72px); pointer-events: none; }
+.why-shot .prod { width: min(320px, 78%); }
+.why-shot .prod > img { filter: drop-shadow(0 14px 14px rgba(0, 0, 0, 0.6)); }
+/* the terminal stacks over anything tucked behind it (the connect cable) */
+.pp-why-l > .pp-term { position: relative; z-index: 1; }
+.why-mark.why-shot--behind { z-index: 0; }
+/* the install stick beside the OS tile, plug toward it */
+.pp-os > .os-shot, .pp-os > .os-shot:hover { display: flex; align-items: center; padding: 0; background: none; border: 0; transform: none; }
+.os-shot .prod { width: min(250px, 100%); }
+.os-shot .prod > img { width: 100%; height: auto; object-fit: initial; }
+/* one column on phones: the "why" art comes back, smaller, under the terminal */
+@media (max-width: 900px) { .why-mark .prod { width: min(260px, 70%); } .why-mark.why-shot { margin-top: -36px; } }
+@keyframes prod-float { 50% { transform: translateY(-8px); } }
+@media (prefers-reduced-motion: reduce) { .prod > img, .cell-shot > img { animation: none; } }
