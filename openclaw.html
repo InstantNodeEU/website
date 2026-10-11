@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=12" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=13" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>OpenClaw KVM Hosting - Your own AI assistant server | InstantNode</title>
@@ -25,7 +25,7 @@
     <link href="/favicon.ico" rel="icon" sizes="32x32" />
     <link as="font" href="fonts/Satoshi.woff" rel="preload" type="font/woff2" crossorigin />
     <link href="css/fonts.css" rel="stylesheet" />
-    <link href="css/lunaris.css?v=catnav5" rel="stylesheet" />
+    <link href="css/lunaris.css?v=ping1" rel="stylesheet" />
     <link href="css/product.css?v=8" rel="stylesheet" />
     <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -140,9 +140,9 @@
     <symbol id="fa-gauge" viewBox="0 0 512 512"><path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm320 96c0-26.9-16.5-49.9-40-59.3L280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 172.7c-23.5 9.5-40 32.5-40 59.3 0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-16 80a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM400 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></symbol>
     </svg>
     <!-- Announcement bar. Visibility is decided before paint; the close
-         button is wired in js/lunaris.js?v=ib5. -->
+         button is wired in js/lunaris.js?v=ping1. -->
     <div class="in-announce" data-key="import2026" id="in-announce">
-      <div class="in-announce__icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M12 4v9"></path><path d="M8.5 9.5 12 13l3.5-3.5"></path><path d="M5 17h14"></path></svg></div>
+      <div class="in-announce__icon has-ping"><span class="ping-head" style="--pw:38px" aria-hidden="true"><img src="/img/ping/ping-head.webp" width="256" height="285" alt="" decoding="async" /><img src="/img/ping/ping-head-blink.webp" width="256" height="285" alt="" decoding="async" /></span></div>
       <div>
         <p class="in-announce__title">Bring your server over</p>
         <p class="in-announce__text">Migrate your existing server to InstantNode in minutes.</p>
@@ -319,7 +319,7 @@
           <h2 class="d2 rv">Six fixed packages,<br />one preinstalled stack</h2>
           <p class="lede rv">From €8.49/mo. Full root access, DDoS protection and the whole OpenClaw stack included, billed monthly from your prepaid balance - cancel anytime.</p>
         </div>
-        <div class="plans">
+        <div class="plans has-ping" style="--above:91px">
           <div class="plan rv">
             <div class="plan-name">Starter</div>
             <div class="plan-price">€8.49<small>/ month</small></div>
@@ -333,7 +333,8 @@
             </ul>
             <a class="btn btn-ghost" href="/dashboard/containers/create?type=kvm&amp;product=openclaw&amp;plan=Starter">Deploy Starter</a>
           </div>
-          <div class="plan plan-hot rv">
+          <div class="plan plan-hot ping-host rv">
+            <span class="ping ping--ledge ping--peek" style="--pw:124px;right:22px" aria-hidden="true"><img src="/img/ping/ping-peek.webp" width="520" height="393" alt="" loading="lazy" decoding="async" /><img src="/img/ping/ping-peek-happy.webp" width="520" height="393" alt="" loading="lazy" decoding="async" /></span>
             <div class="plan-name">Pro <span class="badge" style="font-size:11px;padding:3px 10px">Recommended</span></div>
             <div class="plan-price">€15.99<small>/ month</small></div>
             <p class="plan-desc">The one most people pick</p>
@@ -566,7 +567,8 @@
           <h2 class="d2 rv">Frequently asked questions</h2>
           <p class="lede rv">Still unsure? Our support team answers on Discord and by ticket.</p>
         </div>
-          <div class="faq">
+          <div class="faq has-ping">
+          <span class="ping ping--stand" style="--pw:78px;right:34px" aria-hidden="true"><img src="/img/ping/ping-think.webp" width="520" height="748" alt="" loading="lazy" decoding="async" /></span>
           <details class="rv"><summary>What is OpenClaw?</summary><div>OpenClaw is a self-hosted AI assistant gateway - the upstream <code>openclaw</code> package. It runs on your own server, connects to the model provider of your choice with your own API key, and you talk to it through the gateway's HTTPS endpoint. We install and secure it for you; the software itself is the upstream project, updated to its latest release at deployment.</div></details>
           <details class="rv"><summary>Which providers can I use?</summary><div>More than 40: OpenAI, Anthropic, Google, xAI, Mistral, Cohere, Groq, DeepSeek, Together, Fireworks, OpenRouter, Perplexity, Hugging Face, Azure and others. You pick the provider at checkout and paste your key - a sensible default model for that provider is configured for you.</div></details>
           <details class="rv"><summary>Is my API key stored by InstantNode?</summary><div>No. The key is handed to the server exactly once during provisioning and lives only on your VPS. It is not kept in the panel or in our database - if you ever need to change it, you edit it on the server.</div></details>
@@ -583,11 +585,12 @@
         <canvas class="art" data-art="wave" data-hotx="0.5" data-hoty="0.85" height="260"></canvas>
         <h2 class="d1 rv">Ready for your own assistant?</h2>
         <p class="lede rv">Deploy OpenClaw on a KVM VPS in about 60 seconds - bring your key, keep your data in the EU.</p>
-        <a class="btn btn-light btn-lg rv" href="/dashboard/containers/create?type=kvm&amp;product=openclaw&amp;plan=Pro">Deploy OpenClaw</a>
+        <span class="ping-cta ping-host rv"><span class="ping " style="--pw:88px;" aria-hidden="true"><img src="/img/ping/ping-point-r.webp" width="520" height="705" alt="" loading="lazy" decoding="async" /><img src="/img/ping/ping-point-r-happy.webp" width="520" height="705" alt="" loading="lazy" decoding="async" /></span><a class="btn btn-light btn-lg" href="/dashboard/containers/create?type=kvm&amp;product=openclaw&amp;plan=Pro">Deploy OpenClaw</a></span>
         <p class="rv" style="color:var(--dim);font-size:13px">Want a plain server instead? Compare our <a href="/kvm" style="color:var(--mute);border-bottom:1px solid var(--dim)">KVM VPS</a> and <a href="/lxc" style="color:var(--mute);border-bottom:1px solid var(--dim)">LXC VPS</a>.</p>
       </section>
       <!-- ===== footer ===== -->
-      <footer class="ftr">
+      <footer class="ftr ping-host">
+        <span class="ping ping--ledge ping--sleep" style="--pw:150px;" aria-hidden="true"><img src="/img/ping/ping-sleep.webp" width="520" height="341" alt="" loading="lazy" decoding="async" /><img src="/img/ping/ping-sleep-wake.webp" width="520" height="341" alt="" loading="lazy" decoding="async" /></span>
         <div class="ftr-grid">
           <div class="ftr-brand">
             <img alt="InstantNode" src="/logos/light_logo.png" width="113" height="20" />
@@ -654,10 +657,10 @@
           </div>
         </div>
         <div class="ftr-badges">
-          <span class="ftr-badge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2l7.4 3v5.6c0 4.4-3 7.6-7.4 9-4.4-1.4-7.4-4.6-7.4-9V6.2l7.4-3Z"/><path d="M12 3.6v17"/></svg> Free DDoS protection</span>
-          <span class="ftr-badge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/><path d="M12 3.4c2.3 2.4 2.3 14.8 0 17.2M12 3.4c-2.3 2.4-2.3 14.8 0 17.2"/></svg> EU datacenter &middot; GDPR</span>
-          <span class="ftr-badge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M8.2 12.2l2.6 2.6 5-5.2"/></svg> 99.9% uptime target</span>
-          <span class="ftr-badge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13H11l-1 9 8.5-11H12l1-9Z"/></svg> Deployed in ~60 seconds</span>
+          <span class="ftr-badge" data-ping tabindex="0" title="Always-on DDoS filtering is included with every server, at no extra cost."><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2l7.4 3v5.6c0 4.4-3 7.6-7.4 9-4.4-1.4-7.4-4.6-7.4-9V6.2l7.4-3Z"/><path d="M12 3.6v17"/></svg> Free DDoS protection</span>
+          <span class="ftr-badge" data-ping tabindex="0" title="Your data stays in our datacenter in Eygelshoven, Netherlands, handled under the GDPR."><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/><path d="M12 3.4c2.3 2.4 2.3 14.8 0 17.2M12 3.4c-2.3 2.4-2.3 14.8 0 17.2"/></svg> EU datacenter &middot; GDPR</span>
+          <span class="ftr-badge" data-ping tabindex="0" title="We aim for 99.9% availability and report incidents openly on our status page."><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M8.2 12.2l2.6 2.6 5-5.2"/></svg> 99.9% uptime target</span>
+          <span class="ftr-badge" data-ping tabindex="0" title="Most servers are up and running about a minute after you order."><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13H11l-1 9 8.5-11H12l1-9Z"/></svg> Deployed in ~60 seconds</span>
         </div>
         <div class="ftr-legal">
           <div>
@@ -674,7 +677,7 @@
       </footer>
     </main>
 
-    <script src="/js/lunaris.js?v=ib5" defer></script>
+    <script src="/js/lunaris.js?v=ping1" defer></script>
     <script src="/js/inn-sales.js?v=4" defer></script>
   </body>
 </html>

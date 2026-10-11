@@ -1383,3 +1383,46 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 })();
+
+/* ---------- Ping tooltips ----------
+   Any [data-ping][title] element shows its title in a small bubble with Ping's
+   blinking head. The title stays the source of truth, so inn-lang.js keeps
+   translating it; it is only lifted off while the bubble shows (no native tip on top). */
+(function () {
+  var tip, txt, cur;
+  function make() {
+    tip = document.createElement('div');
+    tip.className = 'ping-tip';
+    tip.setAttribute('role', 'tooltip');
+    tip.innerHTML = '<span class="ping-head" aria-hidden="true"><img src="/img/ping/ping-head.webp" width="256" height="285" alt="" />' +
+      '<img src="/img/ping/ping-head-blink.webp" width="256" height="285" alt="" /></span><span></span>';
+    txt = tip.lastChild;
+    document.body.appendChild(tip);
+  }
+  function show(el) {
+    var t = el.getAttribute('title');
+    if (!t) return;
+    if (!tip) make();
+    cur = el;
+    el.setAttribute('data-ping-title', t);
+    el.removeAttribute('title');
+    txt.textContent = t;
+    var r = el.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
+    var y = r.top - h - 10;
+    tip.style.left = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8) + 'px';
+    tip.style.top = (y < 8 ? r.bottom + 10 : y) + 'px';
+    tip.classList.add('is-on');
+  }
+  function hide() {
+    if (!cur) return;
+    cur.setAttribute('title', cur.getAttribute('data-ping-title'));
+    cur.removeAttribute('data-ping-title');
+    cur = null;
+    tip.classList.remove('is-on');
+  }
+  function pick(e) { return e.target.closest ? e.target.closest('[data-ping]') : null; }
+  document.addEventListener('pointerover', function (e) { var el = pick(e); if (el !== cur) { hide(); if (el) show(el); } });
+  document.addEventListener('focusin', function (e) { var el = pick(e); if (el !== cur) { hide(); if (el) show(el); } });
+  document.addEventListener('focusout', hide);
+  addEventListener('scroll', hide, { passive: true });
+})();

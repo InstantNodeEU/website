@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=12" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=13" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>8 Things to Run on a €1.50 LXC VPS</title>
@@ -24,7 +24,7 @@
     <link href="/favicon.ico" rel="icon" sizes="32x32" />
     <link as="font" href="/fonts/Satoshi.woff" rel="preload" type="font/woff2" crossorigin />
     <link href="/css/fonts.css" rel="stylesheet" />
-    <link href="/css/lunaris.css?v=catnav5" rel="stylesheet" />
+    <link href="/css/lunaris.css?v=ping1" rel="stylesheet" />
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://instantnode.eu/blog/cheap-lxc-vps-uses"}, "headline": "8 Things to Run on a €1.50 LXC VPS", "description": "A cheap LXC container VPS from €1.50/mo is perfect for small always-on jobs. Eight practical things to run on one - bots, proxies, monitoring, Git, VPN and more.", "image": "https://instantnode.eu/meta-banner.webp?v=5", "author": {"@type": "Organization", "name": "InstantNode", "url": "https://instantnode.eu/"}, "publisher": {"@type": "Organization", "name": "InstantNode", "logo": {"@type": "ImageObject", "url": "https://instantnode.eu/logos/light_logo.png"}}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://instantnode.eu/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://instantnode.eu/blog"}, {"@type": "ListItem", "position": 3, "name": "8 Things to Run on a €1.50 LXC VPS", "item": "https://instantnode.eu/blog/cheap-lxc-vps-uses"}]}</script>
     <link rel="discord:component-embed" type="application/json" href="https://instantnode.eu/discord-embed.json">
@@ -56,9 +56,9 @@
     <symbol id="fa-gauge" viewBox="0 0 512 512"><path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm320 96c0-26.9-16.5-49.9-40-59.3L280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 172.7c-23.5 9.5-40 32.5-40 59.3 0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-16 80a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM400 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></symbol>
     </svg>
     <!-- Announcement bar. Visibility is decided before paint; the close
-         button is wired in js/lunaris.js?v=ib5. -->
+         button is wired in js/lunaris.js?v=ping1. -->
     <div class="in-announce" data-key="import2026" id="in-announce">
-      <div class="in-announce__icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M12 4v9"></path><path d="M8.5 9.5 12 13l3.5-3.5"></path><path d="M5 17h14"></path></svg></div>
+      <div class="in-announce__icon has-ping"><span class="ping-head" style="--pw:38px" aria-hidden="true"><img src="/img/ping/ping-head.webp" width="256" height="285" alt="" decoding="async" /><img src="/img/ping/ping-head-blink.webp" width="256" height="285" alt="" decoding="async" /></span></div>
       <div>
         <p class="in-announce__title">Bring your server over</p>
         <p class="in-announce__text">Migrate your existing server to InstantNode in minutes.</p>
@@ -234,7 +234,8 @@
         <p><a class="btn btn-light" href="/kvm">Explore KVM VPS</a></p>
       </div>
 
-      <footer class="ftr">
+      <footer class="ftr ping-host">
+        <span class="ping ping--ledge ping--sleep" style="--pw:150px;" aria-hidden="true"><img src="/img/ping/ping-sleep.webp" width="520" height="341" alt="" loading="lazy" decoding="async" /><img src="/img/ping/ping-sleep-wake.webp" width="520" height="341" alt="" loading="lazy" decoding="async" /></span>
         <div class="ftr-grid">
           <div class="ftr-brand">
             <img alt="InstantNode" src="/logos/light_logo.png" width="113" height="20" />
@@ -301,10 +302,10 @@
           </div>
         </div>
         <div class="ftr-badges">
-          <span class="ftr-badge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2l7.4 3v5.6c0 4.4-3 7.6-7.4 9-4.4-1.4-7.4-4.6-7.4-9V6.2l7.4-3Z"/><path d="M12 3.6v17"/></svg> Free DDoS protection</span>
-          <span class="ftr-badge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/><path d="M12 3.4c2.3 2.4 2.3 14.8 0 17.2M12 3.4c-2.3 2.4-2.3 14.8 0 17.2"/></svg> EU datacenter &middot; GDPR</span>
-          <span class="ftr-badge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M8.2 12.2l2.6 2.6 5-5.2"/></svg> 99.9% uptime target</span>
-          <span class="ftr-badge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13H11l-1 9 8.5-11H12l1-9Z"/></svg> Deployed in ~60 seconds</span>
+          <span class="ftr-badge" data-ping tabindex="0" title="Always-on DDoS filtering is included with every server, at no extra cost."><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2l7.4 3v5.6c0 4.4-3 7.6-7.4 9-4.4-1.4-7.4-4.6-7.4-9V6.2l7.4-3Z"/><path d="M12 3.6v17"/></svg> Free DDoS protection</span>
+          <span class="ftr-badge" data-ping tabindex="0" title="Your data stays in our datacenter in Eygelshoven, Netherlands, handled under the GDPR."><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/><path d="M12 3.4c2.3 2.4 2.3 14.8 0 17.2M12 3.4c-2.3 2.4-2.3 14.8 0 17.2"/></svg> EU datacenter &middot; GDPR</span>
+          <span class="ftr-badge" data-ping tabindex="0" title="We aim for 99.9% availability and report incidents openly on our status page."><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M8.2 12.2l2.6 2.6 5-5.2"/></svg> 99.9% uptime target</span>
+          <span class="ftr-badge" data-ping tabindex="0" title="Most servers are up and running about a minute after you order."><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13H11l-1 9 8.5-11H12l1-9Z"/></svg> Deployed in ~60 seconds</span>
         </div>
         <div class="ftr-legal">
           <div>
@@ -321,6 +322,6 @@
       </footer>
     </main>
 
-    <script src="/js/lunaris.js?v=ib5" defer></script>
+    <script src="/js/lunaris.js?v=ping1" defer></script>
   </body>
 </html>

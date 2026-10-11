@@ -1280,3 +1280,57 @@ table.spec { width: 100%; border-collapse: collapse; font-size: 14.5px; min-widt
 @media (max-width: 900px) { .why-mark .prod { width: min(260px, 70%); } .why-mark.why-shot { margin-top: -36px; } }
 @keyframes prod-float { 50% { transform: translateY(-8px); } }
 @media (prefers-reduced-motion: reduce) { .prod > img, .cell-shot > img { animation: none; } }
+
+/* ---------- Ping, the mascot: small, built onto real elements ----------
+   .ping lives inside a positioned host. Ledge poses put the render's ledge line
+   (--ledge = share of the image hanging below the edge) exactly on the host's
+   top border; --stand poses stand on it. A second img is the hover face with
+   the same framing, shown while the .ping-host is hovered or focused. */
+.ping { position: absolute; z-index: 3; width: var(--pw, 110px); pointer-events: none; }
+.ping > img { display: block; width: 100%; height: auto; max-width: none; transform-origin: 50% 100%; animation: ping-breathe 4.6s ease-in-out infinite; }
+.ping > img + img { position: absolute; left: 0; top: 0; opacity: 0; }
+.ping-host:hover .ping > img + img, .ping-host:focus-within .ping > img + img { opacity: 1; }
+.ping-host:hover .ping > img:first-child, .ping-host:focus-within .ping > img:first-child { opacity: 0; }
+.ping--ledge { bottom: 100%; transform: translateY(calc(var(--ledge) * 100%)); }
+.ping--sit { --ledge: 0.2174; }
+.ping--peek { --ledge: 0.0975; }
+.ping--sleep { --ledge: 0.0091; }
+.ping--sleep > img { animation-duration: 5.4s; }
+.ping--stand { bottom: calc(100% - 3px); }
+@keyframes ping-breathe { 50% { transform: scaleY(1.016); } }
+/* room above a card he sits on; when the grid stacks, the room moves onto that card */
+.plans.has-ping { margin-top: var(--above); }
+@media (max-width: 900px) { .plans.has-ping { margin-top: 0; } .plans.has-ping > .ping-host { margin-top: var(--above); } }
+.faq.has-ping { position: relative; }
+@media (max-width: 860px) { .faq.has-ping { margin-top: 96px; } }
+/* pointing at a CTA: wrapper keeps him beside the button, never inside the <a> */
+.ping-cta { position: relative; display: inline-flex; }
+.ping-cta > .ping { right: calc(100% + 8px); bottom: -10px; }
+.ping-cta:has(.inn-sales-off) > .ping, .ping-cta:not(:has(a)) > .ping { display: none; }
+.cta-final > .ping-cta { margin-top: 48px; }   /* room for his head between the lede and the button */
+@media (max-width: 760px) { .ping-cta > .ping { display: none; } .cta-final > .ping-cta { margin-top: 0; } }
+.ftr > .ping { right: clamp(24px, 14vw, 260px); }
+@media (max-width: 640px) { .ftr > .ping { --pw: 112px !important; right: 18px; } }
+/* head avatar that blinks now and then */
+.ping-head { position: relative; display: inline-block; flex: none; width: var(--pw, 28px); }
+.ping-head > img { display: block; width: 100%; height: auto; }
+.ping-head > img + img { position: absolute; left: 0; top: 0; opacity: 0; animation: ping-blink 5.2s linear infinite; }
+@keyframes ping-blink { 0%, 94% { opacity: 0; } 95%, 97% { opacity: 1; } 98%, 100% { opacity: 0; } }
+.in-announce__icon.has-ping { width: 38px; height: auto; background: transparent; border-radius: 0; }
+/* Ping tooltip: [data-ping][title] elements, text comes from the (translated) title */
+[data-ping] { cursor: help; }
+.ping-tip { position: fixed; z-index: 90; display: flex; gap: 10px; align-items: flex-start; max-width: 290px; padding: 10px 14px 10px 10px;
+  background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+  font-size: 0.84rem; line-height: 1.45; color: var(--ink); opacity: 0; transform: translateY(4px); transition: opacity 0.15s, transform 0.15s; pointer-events: none; }
+.ping-tip.is-on { opacity: 1; transform: none; }
+.ping-tip .ping-head { --pw: 30px; margin-top: -3px; }
+.pp-term.ping-host { overflow: visible; margin-top: var(--above); }
+.pp-term.ping-host > .pp-term-bar { border-radius: 10px 10px 0 0; }
+.hw-rack.ping-host { position: relative; margin-top: var(--above); }
+/* one 404 card everywhere (site, nginx errors/404.html, dashboard error.vue): Ping peeks over its top edge */
+.nf { display: flex; justify-content: center; padding: clamp(150px, 16vw, 200px) var(--pad) clamp(90px, 12vw, 150px); }
+.nf-card { position: relative; width: 100%; max-width: 30rem; text-align: center; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 46px 34px; }
+.nf-code { font: 0.75rem var(--mono); letter-spacing: 0.12em; color: var(--dim); }
+.nf-card h1 { margin-top: 12px; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; }
+.nf-card p { margin: 10px auto 0; max-width: 26rem; color: var(--mute); font-size: 0.94rem; line-height: 1.65; }
+.nf-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 26px; }

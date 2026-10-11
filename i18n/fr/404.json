@@ -4,5 +4,7 @@
  "Back home": "Retour à l'accueil",
  "Get help": "Obtenir de l'aide",
  "Page not found | InstantNode": "Page introuvable | InstantNode",
- "The page you are looking for does not exist or has moved.": "La page que vous cherchez n'existe pas ou a été déplacée."
+ "The page you are looking for does not exist or has moved.": "La page que vous cherchez n'existe pas ou a été déplacée.",
+ "Ping can't find this page": "Ping ne trouve pas cette page",
+ "It doesn't exist, has moved, or was never here. Let's get you back on track.": "Elle n'existe pas, a été déplacée ou n'a jamais existé. Remettons-vous sur la bonne voie."
 }

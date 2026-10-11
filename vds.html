@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=12" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=13" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>VDS - Dedicated Core Servers | InstantNode</title>
@@ -24,7 +24,7 @@
     <link href="/favicon.ico" rel="icon" sizes="32x32" />
     <link as="font" href="fonts/Satoshi.woff" rel="preload" type="font/woff2" crossorigin />
     <link href="css/fonts.css" rel="stylesheet" />
-    <link href="css/lunaris.css?v=catnav5" rel="stylesheet" />
+    <link href="css/lunaris.css?v=ping1" rel="stylesheet" />
     <link href="css/product.css?v=8" rel="stylesheet" />
     <style>.plans-4{grid-template-columns:repeat(4,1fr)}@media(max-width:1100px){.plans-4{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){.plans-4{grid-template-columns:1fr}}</style>
     <script type="application/ld+json">{
@@ -163,9 +163,9 @@
     <symbol id="fa-gauge" viewBox="0 0 512 512"><path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm320 96c0-26.9-16.5-49.9-40-59.3L280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 172.7c-23.5 9.5-40 32.5-40 59.3 0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-16 80a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM400 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></symbol>
     </svg>
     <!-- Announcement bar. Visibility is decided before paint; the close
-         button is wired in js/lunaris.js?v=ib5. -->
+         button is wired in js/lunaris.js?v=ping1. -->
     <div class="in-announce" data-key="import2026" id="in-announce">
-      <div class="in-announce__icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M12 4v9"></path><path d="M8.5 9.5 12 13l3.5-3.5"></path><path d="M5 17h14"></path></svg></div>
+      <div class="in-announce__icon has-ping"><span class="ping-head" style="--pw:38px" aria-hidden="true"><img src="/img/ping/ping-head.webp" width="256" height="285" alt="" decoding="async" /><img src="/img/ping/ping-head-blink.webp" width="256" height="285" alt="" decoding="async" /></span></div>
       <div>
         <p class="in-announce__title">Bring your server over</p>
         <p class="in-announce__text">Migrate your existing server to InstantNode in minutes.</p>
@@ -626,7 +626,8 @@ Model name:   AMD EPYC 7763 64-Core Processor
           <h2 class="d2 rv">Frequently asked questions</h2>
           <p class="lede rv">Still unsure? Our support team answers on Discord and by ticket.</p>
         </div>
-          <div class="faq">
+          <div class="faq has-ping">
+          <span class="ping ping--stand" style="--pw:78px;right:34px" aria-hidden="true"><img src="/img/ping/ping-think.webp" width="520" height="748" alt="" loading="lazy" decoding="async" /></span>
           <details class="rv"><summary>What does "dedicated cores" actually mean?</summary><div>Your VM is pinned to specific physical EPYC cores on the host and gets top scheduling priority on them. Unlike a shared vCPU, your compute does not wobble when a neighbor gets busy - performance is the same at 3 a.m. and at peak hour. The pool of dedicated cores is finite; when it is sold out we say so instead of overselling.</div></details>
           <details class="rv"><summary>VDS or regular KVM VPS - which one do I need?</summary><div>For websites, bots, small game servers and dev boxes, a <a href="/kvm">KVM VPS</a> is the better deal. Pick a VDS when your workload is latency-sensitive under sustained load: busy game servers, databases, CI runners, panels hosting several services. We wrote an honest comparison <a href="/blog/vds-dedicated-cores">on the blog</a>.</div></details>
           <details class="rv"><summary>Can I resize my VDS later?</summary><div>VDS plans are fixed presets - that is what makes the core pool plannable. To grow, deploy a bigger plan and move over (the <a href="/dashboard/import">Server Importer</a> makes that painless), or open a ticket and we will help with the switch.</div></details>
@@ -641,10 +642,11 @@ Model name:   AMD EPYC 7763 64-Core Processor
         <canvas class="art" data-art="wave" data-hotx="0.5" data-hoty="0.85" height="260"></canvas>
         <h2 class="d1 rv">Ready for full control?</h2>
         <p class="lede rv">Deploy a KVM VPS with full root access in seconds. Only pay for what you need.</p>
-        <a class="btn btn-light btn-lg rv" href="/dashboard">Deploy your VPS</a>
+        <span class="ping-cta ping-host rv"><span class="ping " style="--pw:88px;" aria-hidden="true"><img src="/img/ping/ping-point-r.webp" width="520" height="705" alt="" loading="lazy" decoding="async" /><img src="/img/ping/ping-point-r-happy.webp" width="520" height="705" alt="" loading="lazy" decoding="async" /></span><a class="btn btn-light btn-lg" href="/dashboard">Deploy your VPS</a></span>
         <p class="rv" style="color:var(--dim);font-size:13px">Need bare-metal power or more capacity? Compare our <a href="/storage-server" style="color:var(--mute);border-bottom:1px solid var(--dim)">storage servers</a> and <a href="/gameservers" style="color:var(--mute);border-bottom:1px solid var(--dim)">game servers</a>.</p>
       </section>
-      <footer class="ftr">
+      <footer class="ftr ping-host">
+        <span class="ping ping--ledge ping--sleep" style="--pw:150px;" aria-hidden="true"><img src="/img/ping/ping-sleep.webp" width="520" height="341" alt="" loading="lazy" decoding="async" /><img src="/img/ping/ping-sleep-wake.webp" width="520" height="341" alt="" loading="lazy" decoding="async" /></span>
         <div class="ftr-grid">
           <div class="ftr-brand">
             <img alt="InstantNode" src="/logos/light_logo.png" width="113" height="20" />
@@ -711,10 +713,10 @@ Model name:   AMD EPYC 7763 64-Core Processor
           </div>
         </div>
         <div class="ftr-badges">
-          <span class="ftr-badge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2l7.4 3v5.6c0 4.4-3 7.6-7.4 9-4.4-1.4-7.4-4.6-7.4-9V6.2l7.4-3Z"/><path d="M12 3.6v17"/></svg> Free DDoS protection</span>
-          <span class="ftr-badge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/><path d="M12 3.4c2.3 2.4 2.3 14.8 0 17.2M12 3.4c-2.3 2.4-2.3 14.8 0 17.2"/></svg> EU datacenter &middot; GDPR</span>
-          <span class="ftr-badge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M8.2 12.2l2.6 2.6 5-5.2"/></svg> 99.9% uptime target</span>
-          <span class="ftr-badge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13H11l-1 9 8.5-11H12l1-9Z"/></svg> Deployed in ~60 seconds</span>
+          <span class="ftr-badge" data-ping tabindex="0" title="Always-on DDoS filtering is included with every server, at no extra cost."><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2l7.4 3v5.6c0 4.4-3 7.6-7.4 9-4.4-1.4-7.4-4.6-7.4-9V6.2l7.4-3Z"/><path d="M12 3.6v17"/></svg> Free DDoS protection</span>
+          <span class="ftr-badge" data-ping tabindex="0" title="Your data stays in our datacenter in Eygelshoven, Netherlands, handled under the GDPR."><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/><path d="M12 3.4c2.3 2.4 2.3 14.8 0 17.2M12 3.4c-2.3 2.4-2.3 14.8 0 17.2"/></svg> EU datacenter &middot; GDPR</span>
+          <span class="ftr-badge" data-ping tabindex="0" title="We aim for 99.9% availability and report incidents openly on our status page."><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M8.2 12.2l2.6 2.6 5-5.2"/></svg> 99.9% uptime target</span>
+          <span class="ftr-badge" data-ping tabindex="0" title="Most servers are up and running about a minute after you order."><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13H11l-1 9 8.5-11H12l1-9Z"/></svg> Deployed in ~60 seconds</span>
         </div>
         <div class="ftr-legal">
           <div>
@@ -731,7 +733,7 @@ Model name:   AMD EPYC 7763 64-Core Processor
       </footer>
     </main>
 
-    <script src="/js/lunaris.js?v=ib5" defer></script>
+    <script src="/js/lunaris.js?v=ping1" defer></script>
     <script src="/js/inn-sales.js?v=4" defer></script>
 
     <!-- VDS capacity: dedicated cores are a finite pool, and a visitor who tops

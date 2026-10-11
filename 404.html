@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=12" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=13" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Page not found | InstantNode</title>
@@ -13,7 +13,7 @@
     <link href="/favicon.ico" rel="icon" sizes="32x32" />
     <link as="font" href="fonts/Satoshi.woff" rel="preload" type="font/woff2" crossorigin />
     <link href="css/fonts.css" rel="stylesheet" />
-    <link href="css/lunaris.css?v=catnav5" rel="stylesheet" />
+    <link href="css/lunaris.css?v=ping1" rel="stylesheet" />
     <link rel="discord:component-embed" type="application/json" href="https://instantnode.eu/discord-embed.json">
 </head>
   <body>
@@ -181,17 +181,21 @@
 
     <main class="frame">
 
-      <section class="prose-hero" style="padding: clamp(90px,12vw,150px) var(--pad) clamp(90px,12vw,150px)">
-        <span class="badge rv">404</span>
-        <h1 class="d1 rv">This page took<br />a wrong turn</h1>
-        <p class="lede rv">The page you're looking for doesn't exist or has moved. Let's get you back on track.</p>
-        <div class="hero-actions rv" style="justify-content:center">
-          <a class="btn btn-light btn-lg" href="/">Back home</a>
-          <a class="btn btn-ghost btn-lg" href="https://discord.gg/SyzuYrywgQ">Get help</a>
+      <section class="nf">
+        <div class="nf-card ping-host rv">
+          <span class="ping ping--ledge ping--peek" style="--pw:190px;left:0;right:0;margin:0 auto" aria-hidden="true"><img src="/img/ping/ping-peek.webp" width="520" height="393" alt="" decoding="async" /><img src="/img/ping/ping-peek-happy.webp" width="520" height="393" alt="" decoding="async" /></span>
+          <span class="nf-code">404</span>
+          <h1>Ping can't find this page</h1>
+          <p>It doesn't exist, has moved, or was never here. Let's get you back on track.</p>
+          <div class="nf-actions">
+            <a class="btn btn-light" href="/">Back home</a>
+            <a class="btn btn-ghost" href="/contact">Get help</a>
+          </div>
         </div>
       </section>
 
-      <footer class="ftr">
+      <footer class="ftr ping-host">
+        <span class="ping ping--ledge ping--sleep" style="--pw:150px;" aria-hidden="true"><img src="/img/ping/ping-sleep.webp" width="520" height="341" alt="" loading="lazy" decoding="async" /><img src="/img/ping/ping-sleep-wake.webp" width="520" height="341" alt="" loading="lazy" decoding="async" /></span>
         <div class="ftr-grid">
           <div class="ftr-brand">
             <img alt="InstantNode" src="/logos/light_logo.png" width="113" height="20" />
@@ -258,10 +262,10 @@
           </div>
         </div>
         <div class="ftr-badges">
-          <span class="ftr-badge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2l7.4 3v5.6c0 4.4-3 7.6-7.4 9-4.4-1.4-7.4-4.6-7.4-9V6.2l7.4-3Z"/><path d="M12 3.6v17"/></svg> Free DDoS protection</span>
-          <span class="ftr-badge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/><path d="M12 3.4c2.3 2.4 2.3 14.8 0 17.2M12 3.4c-2.3 2.4-2.3 14.8 0 17.2"/></svg> EU datacenter &middot; GDPR</span>
-          <span class="ftr-badge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M8.2 12.2l2.6 2.6 5-5.2"/></svg> 99.9% uptime target</span>
-          <span class="ftr-badge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13H11l-1 9 8.5-11H12l1-9Z"/></svg> Deployed in ~60 seconds</span>
+          <span class="ftr-badge" data-ping tabindex="0" title="Always-on DDoS filtering is included with every server, at no extra cost."><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2l7.4 3v5.6c0 4.4-3 7.6-7.4 9-4.4-1.4-7.4-4.6-7.4-9V6.2l7.4-3Z"/><path d="M12 3.6v17"/></svg> Free DDoS protection</span>
+          <span class="ftr-badge" data-ping tabindex="0" title="Your data stays in our datacenter in Eygelshoven, Netherlands, handled under the GDPR."><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/><path d="M12 3.4c2.3 2.4 2.3 14.8 0 17.2M12 3.4c-2.3 2.4-2.3 14.8 0 17.2"/></svg> EU datacenter &middot; GDPR</span>
+          <span class="ftr-badge" data-ping tabindex="0" title="We aim for 99.9% availability and report incidents openly on our status page."><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M8.2 12.2l2.6 2.6 5-5.2"/></svg> 99.9% uptime target</span>
+          <span class="ftr-badge" data-ping tabindex="0" title="Most servers are up and running about a minute after you order."><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13H11l-1 9 8.5-11H12l1-9Z"/></svg> Deployed in ~60 seconds</span>
         </div>
         <div class="ftr-legal">
           <div>
@@ -278,6 +282,6 @@
       </footer>
     </main>
 
-    <script src="/js/lunaris.js?v=ib5" defer></script>
+    <script src="/js/lunaris.js?v=ping1" defer></script>
   </body>
 </html>

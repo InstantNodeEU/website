@@ -239,5 +239,11 @@
  "Giveaways, sales and early news": "Sorteos, ofertas y noticias antes que nadie",
  "Join our Discord": "Unirse al Discord",
  "Domains": "Dominios",
- "Register a new domain or transfer yours in, with DNS hosting included.": "Registra un dominio nuevo o transfiere el tuyo, con alojamiento DNS incluido."
+ "Register a new domain or transfer yours in, with DNS hosting included.": "Registra un dominio nuevo o transfiere el tuyo, con alojamiento DNS incluido.",
+ "Always-on DDoS filtering is included with every server, at no extra cost.": "El filtrado DDoS permanente está incluido en cada servidor, sin coste adicional.",
+ "Your data stays in our datacenter in Eygelshoven, Netherlands, handled under the GDPR.": "Tus datos se quedan en nuestro centro de datos de Eygelshoven (Países Bajos) y se tratan conforme al RGPD.",
+ "We aim for 99.9% availability and report incidents openly on our status page.": "Apuntamos a un 99,9 % de disponibilidad e informamos abiertamente de las incidencias en nuestra página de estado.",
+ "Most servers are up and running about a minute after you order.": "La mayoría de los servidores están en marcha aproximadamente un minuto después de tu pedido.",
+ "You pay per hour while the server exists. Delete it and billing stops.": "Pagas por hora mientras el servidor exista. Si lo borras, la facturación se detiene.",
+ "KVM gives you a real virtual machine: your own kernel, kernel modules, Docker and any Linux you like.": "KVM te da una máquina virtual real: tu propio kernel, módulos del kernel, Docker y el Linux que quieras."
 }
