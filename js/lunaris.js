@@ -962,6 +962,36 @@
       } else if (x < gx * 0.35) s = 0;
       return s || amb(u, v);
     },
+    /* license key for /license-server: the bow carries the InstantNode mark,
+       the bits under the blade stand in for the blocks of a license key */
+    licensekey: function (u, v, a, c, cu) {
+      a = a || 1; c = c || 0.03;
+      var L = Math.min(1.9, a * 0.86), x0 = (a - L) / 2, x = u * a, k = L / 1.9;
+      var bx = x0 + 0.34 * k, by = 0.5, R = 0.34, T = 0.085;
+      var dx = x - bx, dy = v - by, d = Math.sqrt(dx * dx + dy * dy);
+      if (d < R - T) {                                      /* the mark inside the bow */
+        var S = 0.072, ink = logoInk(dx / S, dy / S, c / S, u, v, cu ? (cu * a) / S : c / S);
+        return ink >= 0 ? ink : 0.05 * fbm(u * 12, v * 12);
+      }
+      if (d < R) {                                          /* the bow */
+        var e = Math.min(d - (R - T), R - d);
+        return e < c * 0.9 ? 0.95 : 0.52 + 0.3 * fbm(u * 16, v * 14);
+      }
+      var sx0 = bx + R - 0.03, sx1 = x0 + L, sh = 0.065;
+      if (x > sx0 && x < sx1 && Math.abs(v - by) < sh) {     /* the blade */
+        var ey = sh - Math.abs(v - by);
+        return ey < c * 0.9 || sx1 - x < c ? 0.95 : 0.48 + 0.3 * fbm(u * 18, v * 10);
+      }
+      var bits = [[0.86, 0.15], [1.1, 0.1], [1.34, 0.19], [1.58, 0.12]], i;
+      for (i = 0; i < bits.length; i++) {                   /* four blocks, like PJ-7KQM-W2RX-9HTD */
+        var tx = x0 + bits[i][0] * k, tw = 0.15 * k, th = bits[i][1];
+        if (x > tx && x < tx + tw && v > by + sh - 0.01 && v < by + sh + th) {
+          var edge = Math.min(x - tx, tx + tw - x, by + sh + th - v);
+          return edge < c * 0.9 ? 0.92 : 0.42 + 0.3 * fbm(u * 18, v * 18);
+        }
+      }
+      return amb(u, v);
+    },
     /* glyph pool under a 3D product shot: a flat ellipse, densest in the
        middle with one faint ring, so the render stands on the same glyph
        field as the rest of the page */
