@@ -231,13 +231,11 @@
  "You pay per hour while the server exists. Delete it and billing stops.": "Vous payez à l'heure tant que le serveur existe. Supprimez-le et la facturation s'arrête.",
  "KVM gives you a real virtual machine: your own kernel, kernel modules, Docker and any Linux you like.": "KVM vous donne une vraie machine virtuelle : votre propre noyau, des modules noyau, Docker et le Linux de votre choix.",
  "Numbers from our own systems": "Des chiffres issus de nos propres systèmes",
- "Support and uptime cover the last 90 days (July to October 2026), taken from our ticket system and status monitor. Countries come from the billing addresses of paying customers.": "Le support et la disponibilité portent sur les 90 derniers jours (juillet à octobre 2026), d'après notre système de tickets et notre moniteur de statut. Les pays proviennent des adresses de facturation des clients payants.",
- "21 min": "21 min",
  "Median time to the first human reply on a ticket": "Délai médian avant la première réponse humaine à un ticket",
- "99.99%": "99,99 %",
- "Uptime of website and client panel": "Disponibilité du site et de l'espace client",
  "Countries our paying customers come from": "Pays d'où viennent nos clients payants",
  "Paying customers, plus 3,800+ registered users": "Clients payants, plus <span class=\"js-user-count\">3,800+</span> utilisateurs inscrits",
  "3,800+ registered users": "<b class=\"js-user-count\">3,800+</b> utilisateurs inscrits",
- "300+ paying customers": "<b class=\"js-customer-count\">300+</b> clients payants"
+ "300+ paying customers": "<b class=\"js-customer-count\">300+</b> clients payants",
+ "Calculated automatically from our own systems. Support and uptime cover the last 90 days, countries come from the billing addresses of paying customers.": "Calculé automatiquement à partir de nos propres systèmes. Le support et la disponibilité portent sur les 90 derniers jours, les pays sur les adresses de facturation des clients payants.",
+ "Uptime of website, panel and server nodes": "Disponibilité du site, du panel et des nœuds serveur"
 }

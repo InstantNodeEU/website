@@ -235,13 +235,11 @@
  "You pay per hour while the server exists. Delete it and billing stops.": "Du zahlst pro Stunde, solange der Server existiert. Löschst du ihn, endet die Abrechnung.",
  "KVM gives you a real virtual machine: your own kernel, kernel modules, Docker and any Linux you like.": "KVM ist eine echte virtuelle Maschine: eigener Kernel, Kernel-Module, Docker und jedes Linux deiner Wahl.",
  "Numbers from our own systems": "Zahlen aus unseren eigenen Systemen",
- "Support and uptime cover the last 90 days (July to October 2026), taken from our ticket system and status monitor. Countries come from the billing addresses of paying customers.": "Support und Verfügbarkeit beziehen sich auf die letzten 90 Tage (Juli bis Oktober 2026) und stammen aus unserem Ticketsystem und Statusmonitor. Die Länder ergeben sich aus den Rechnungsadressen zahlender Kunden.",
- "21 min": "21 Min.",
  "Median time to the first human reply on a ticket": "Median bis zur ersten Antwort eines Menschen auf ein Ticket",
- "99.99%": "99,99 %",
- "Uptime of website and client panel": "Verfügbarkeit von Website und Kundenpanel",
  "Countries our paying customers come from": "Länder, aus denen unsere zahlenden Kunden kommen",
  "Paying customers, plus 3,800+ registered users": "Zahlende Kunden, dazu <span class=\"js-user-count\">3,800+</span> registrierte Nutzer",
  "3,800+ registered users": "<b class=\"js-user-count\">3,800+</b> registrierte Nutzer",
- "300+ paying customers": "<b class=\"js-customer-count\">300+</b> zahlende Kunden"
+ "300+ paying customers": "<b class=\"js-customer-count\">300+</b> zahlende Kunden",
+ "Calculated automatically from our own systems. Support and uptime cover the last 90 days, countries come from the billing addresses of paying customers.": "Automatisch aus unseren eigenen Systemen berechnet. Support und Verfügbarkeit beziehen sich auf die letzten 90 Tage, die Länder auf die Rechnungsadressen zahlender Kunden.",
+ "Uptime of website, panel and server nodes": "Verfügbarkeit von Website, Panel und Server-Nodes"
 }

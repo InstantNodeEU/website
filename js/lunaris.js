@@ -1328,7 +1328,7 @@
   // only written when the API actually returned it, so a partial or failed
   // response leaves the static number in the markup standing.
   function fillPublicInfo() {
-    var wanted = document.querySelector('.js-customer-count, .js-user-count');
+    var wanted = document.querySelector('.js-customer-count, .js-user-count, .js-support-median, .js-uptime, .js-countries');
     if (!wanted || !window.fetch) return;
     fetch('/api/v1/public/info', { cache: 'no-store', headers: { Accept: 'application/json' } })
       .then(function (r) { return r.ok ? r.json() : null; })
@@ -1341,6 +1341,12 @@
           var n = Number(f[1]);
           if (n >= 100) setAll(f[0], (Math.floor(n / 100) * 100).toLocaleString('en-US') + '+');
         });
+        // Support median rounded up and uptime floored by the API: the page
+        // never shows us faster or more available than measured.
+        var m = st.support && Number(st.support.medianMinutes);
+        if (m > 0) setAll('.js-support-median', m < 60 ? Math.ceil(m) + ' min' : Math.ceil(m / 6) / 10 + ' h');
+        if (Number(st.uptime90) > 0) setAll('.js-uptime', Number(st.uptime90).toFixed(2) + '%');
+        if (Number(st.countries) >= 10) setAll('.js-countries', Math.floor(st.countries / 10) * 10 + '+');
       })
       .catch(function () { /* the numbers in the markup stay */ });
   }

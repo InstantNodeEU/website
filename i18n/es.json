@@ -236,13 +236,11 @@
  "You pay per hour while the server exists. Delete it and billing stops.": "Pagas por hora mientras el servidor exista. Si lo borras, la facturación se detiene.",
  "KVM gives you a real virtual machine: your own kernel, kernel modules, Docker and any Linux you like.": "KVM te da una máquina virtual real: tu propio kernel, módulos del kernel, Docker y el Linux que quieras.",
  "Numbers from our own systems": "Cifras de nuestros propios sistemas",
- "Support and uptime cover the last 90 days (July to October 2026), taken from our ticket system and status monitor. Countries come from the billing addresses of paying customers.": "El soporte y la disponibilidad corresponden a los últimos 90 días (julio a octubre de 2026), según nuestro sistema de tickets y nuestro monitor de estado. Los países salen de las direcciones de facturación de los clientes de pago.",
- "21 min": "21 min",
  "Median time to the first human reply on a ticket": "Tiempo mediano hasta la primera respuesta humana en un ticket",
- "99.99%": "99,99 %",
- "Uptime of website and client panel": "Disponibilidad de la web y del panel de cliente",
  "Countries our paying customers come from": "Países de donde vienen nuestros clientes de pago",
  "Paying customers, plus 3,800+ registered users": "Clientes de pago, más <span class=\"js-user-count\">3,800+</span> usuarios registrados",
  "3,800+ registered users": "<b class=\"js-user-count\">3,800+</b> usuarios registrados",
- "300+ paying customers": "<b class=\"js-customer-count\">300+</b> clientes de pago"
+ "300+ paying customers": "<b class=\"js-customer-count\">300+</b> clientes de pago",
+ "Calculated automatically from our own systems. Support and uptime cover the last 90 days, countries come from the billing addresses of paying customers.": "Calculado automáticamente a partir de nuestros propios sistemas. El soporte y la disponibilidad cubren los últimos 90 días; los países, las direcciones de facturación de los clientes de pago.",
+ "Uptime of website, panel and server nodes": "Disponibilidad de la web, el panel y los nodos de servidor"
 }

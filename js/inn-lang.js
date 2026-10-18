@@ -29,7 +29,7 @@
   'use strict'
 
   var LS_KEY = 'inn_ui_prefs'
-  var DICT_V = '14'
+  var DICT_V = '15'
   var LANGS = [
     { code: 'en', name: 'English' },
     { code: 'de', name: 'Deutsch' },
@@ -39,7 +39,7 @@
   // Subtrees that never hold copy.
   var SKIP = { SCRIPT: 1, STYLE: 1, SVG: 1, CODE: 1, PRE: 1, NOSCRIPT: 1, TEXTAREA: 1, CANVAS: 1, TEMPLATE: 1, SELECT: 1 }
   // Figures lunaris.js writes from the API: keep whatever they show across a swap.
-  var LIVE = '.js-customer-count, .js-user-count'
+  var LIVE = '.js-customer-count, .js-user-count, .js-support-median, .js-uptime, .js-countries'
   var ATTRS = ['aria-label', 'alt', 'placeholder', 'title']
   var HEAD = 'meta[name="description"], meta[name="title"], meta[property="og:title"], meta[property="og:description"], meta[name="twitter:title"], meta[name="twitter:description"]'
 
