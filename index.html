@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=15" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=17" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>InstantNode - Game Server &amp; KVM VPS Hosting in Europe</title>
@@ -28,7 +28,7 @@
     <link as="font" href="fonts/Satoshi.woff" rel="preload" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media=&#39;all&#39;" />
     <link href="css/fonts.css" rel="stylesheet" />
-    <link href="css/lunaris.css?v=tp1" rel="stylesheet" />
+    <link href="css/lunaris.css?v=tp5" rel="stylesheet" />
     <link href="css/product.css?v=8" rel="stylesheet" />
     <script type="application/ld+json">
     {
@@ -39,8 +39,7 @@
       "logo": "https://instantnode.eu/logos/light_logo.png",
       "sameAs": [
         "https://instantnode.eu/discord",
-        "https://www.instagram.com/instantnode.eu",
-        "https://www.trustpilot.com/review/instantnode.eu"
+        "https://www.instagram.com/instantnode.eu"
       ]
     }
     </script>
@@ -96,7 +95,7 @@
     <symbol id="fa-gauge" viewBox="0 0 512 512"><path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm320 96c0-26.9-16.5-49.9-40-59.3L280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 172.7c-23.5 9.5-40 32.5-40 59.3 0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-16 80a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM400 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></symbol>
     </svg>
     <!-- Announcement bar. Visibility is decided before paint; the close
-         button is wired in js/lunaris.js?v=tp2. -->
+         button is wired in js/lunaris.js?v=tp3. -->
     <div class="in-announce" data-key="import2026" id="in-announce">
       <div class="in-announce__icon has-ping"><span class="ping-head" style="--pw:38px" aria-hidden="true"><img src="/img/ping/ping-head.webp" width="256" height="285" alt="" decoding="async" /><img src="/img/ping/ping-head-blink.webp" width="256" height="285" alt="" decoding="async" /></span></div>
       <div>
@@ -266,6 +265,7 @@
         <div class="proof">
           <span class="proof-part"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8.5" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 15.4A4.6 4.6 0 0 1 21 19"/></svg><span><b class="js-user-count">3,800+</b> registered users</span></span>
           <span class="proof-part"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h3"/></svg><span><b class="js-customer-count">300+</b> paying customers</span></span>
+          <a class="proof-part js-review-pill" href="/reviews" data-no-i18n hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2l2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6-4.4-4.2 6-.8z"/></svg><span data-review-text></span></a>
         </div>
         <div class="tick" style="margin-top:26px">
           <div class="tick-track">
@@ -504,6 +504,7 @@
           <div class="cell rv"><span class="n js-countries" data-no-i18n>60+</span><span class="k">Countries our paying customers come from</span></div>
           <div class="cell rv"><span class="n js-customer-count" data-no-i18n>300+</span><span class="k">Paying customers, plus <span class="js-user-count">3,800+</span> registered users</span></div>
         </div>
+        <div class="rv-line js-review-line" data-no-i18n hidden><a class="btn btn-ghost btn-sm" href="/reviews" data-review-text></a></div>
       </section>
 
       <!-- ===== FAQ ===== -->
@@ -594,6 +595,7 @@
           <div class="ftr-col">
             <h4>Company</h4>
             <a href="/about">About us</a>
+            <a href="/reviews">Customer reviews</a>
             <a href="/partners">Partners</a>
             <a href="/hardware">Our Hardware</a>
             <a href="/datacenter">Datacenter &amp; Network</a>
@@ -612,7 +614,6 @@
             <a href="https://docs.instantnode.eu" rel="noreferrer" target="_blank">Documentation</a>
             <a href="https://status.instantnode.eu" rel="noreferrer" target="_blank">Status</a>
             <a href="https://instantnode.eu/discord">Discord Community</a>
-            <a href="https://www.trustpilot.com/review/instantnode.eu" rel="noreferrer" target="_blank">Trustpilot</a>
           </div>
           <div class="ftr-col">
             <h4>Legal</h4>
@@ -651,7 +652,7 @@
       </footer>
     </main>
 
-    <script src="/js/lunaris.js?v=tp2" defer></script>
+    <script src="/js/lunaris.js?v=tp3" defer></script>
     <script src="/js/inn-sales.js?v=4" defer></script>
   </body>
 </html>

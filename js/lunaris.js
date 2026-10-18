@@ -1324,15 +1324,41 @@
     Array.prototype.forEach.call(document.querySelectorAll(sel), function (el) { el.textContent = txt; });
   }
 
+  // "Rated 4.8 out of 5 in 12 customer reviews": our own reviews (/reviews),
+  // shown from the first one on. Worded here per language because the numbers
+  // arrive after inn-lang has taken its snapshot of the page copy.
+  var REVIEW_LINE = {
+    en: function (a, n) { return 'Rated ' + a + ' out of 5 in ' + n + (n === 1 ? ' customer review' : ' customer reviews') },
+    de: function (a, n) { return 'Mit ' + a + ' von 5 bewertet, aus ' + n + (n === 1 ? ' Kundenbewertung' : ' Kundenbewertungen') },
+    fr: function (a, n) { return 'Noté ' + a + ' sur 5 dans ' + n + ' avis clients' },
+    es: function (a, n) { return 'Valorado con ' + a + ' de 5 en ' + n + (n === 1 ? ' opinión de cliente' : ' opiniones de clientes') },
+  };
+  var reviewSummary = null;
+  function renderReviewLines() {
+    var s = reviewSummary;
+    if (!s || !(s.count > 0) || !(s.average > 0)) return;
+    var c = window.innLang && window.innLang.current ? window.innLang.current() : 'en';
+    var f = REVIEW_LINE[c] || REVIEW_LINE.en;
+    var avg = s.average.toFixed(1);
+    var text = f(c === 'en' ? avg : avg.replace('.', ','), s.count);
+    Array.prototype.forEach.call(document.querySelectorAll('.js-review-line, .js-review-pill'), function (el) {
+      var t = el.querySelector('[data-review-text]');
+      if (t) t.textContent = text;
+      el.hidden = false;
+    });
+  }
+  document.addEventListener('inn:lang', renderReviewLines);
+
   // One request feeds the live counts on the marketing pages. Each value is
   // only written when the API actually returned it, so a partial or failed
   // response leaves the static number in the markup standing.
   function fillPublicInfo() {
-    var wanted = document.querySelector('.js-customer-count, .js-user-count, .js-support-median, .js-uptime, .js-countries');
+    var wanted = document.querySelector('.js-customer-count, .js-user-count, .js-support-median, .js-uptime, .js-countries, .js-review-line, .js-review-pill');
     if (!wanted || !window.fetch) return;
     fetch('/api/v1/public/info', { cache: 'no-store', headers: { Accept: 'application/json' } })
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (d) {
+        if (d && d.reviews) { reviewSummary = d.reviews; renderReviewLines(); }
         var st = d && d.stats;
         if (!st) return;
         // Floored to the nearest 100, so "X,X00+" is never a claim for more

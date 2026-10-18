@@ -1330,3 +1330,66 @@ table.spec { width: 100%; border-collapse: collapse; font-size: 14.5px; min-widt
 .nf-card h1 { margin-top: 12px; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.015em; }
 .nf-card p { margin: 10px auto 0; max-width: 26rem; color: var(--mute); font-size: 0.94rem; line-height: 1.65; }
 .nf-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 26px; }
+
+/* ---------- customer reviews (/reviews, review line, proof pill) ---------- */
+[hidden] { display: none !important; }
+a.proof-part { color: inherit; }
+a.proof-part:hover { color: var(--ink); }
+.rv-line { display: flex; justify-content: center; padding: clamp(24px, 3vw, 36px) var(--pad) 0; }
+.rv-sum { display: grid; grid-template-columns: auto minmax(0, 340px); gap: clamp(28px, 5vw, 64px); justify-content: center; align-items: center; margin: 0 var(--pad) 14px; padding: clamp(26px, 3vw, 38px); background: var(--panel); border: 1px solid var(--line-soft); border-radius: 18px; }
+.rv-avg { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+.rv-avg .n { font-size: clamp(44px, 5vw, 64px); font-weight: 500; letter-spacing: -0.03em; line-height: 1; }
+.rv-count { font-size: 13px; color: var(--mute); }
+.rv-stars .off { color: rgba(255, 255, 255, 0.14); }
+.rv-dist { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 13px; color: var(--mute); }
+.rv-dist li { display: grid; grid-template-columns: 34px 1fr 28px; gap: 10px; align-items: center; }
+.rv-dist .bar { height: 6px; border-radius: 99px; background: rgba(255, 255, 255, 0.06); overflow: hidden; }
+.rv-dist .bar i { display: block; height: 100%; background: var(--ink); border-radius: inherit; }
+.rv-dist li span:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.rv-empty { color: var(--mute); padding: 0 var(--pad) 24px; }
+.rv-list { align-items: start; }
+.rv-list .quote p { white-space: pre-line; overflow-wrap: anywhere; }
+.rv-reply { border-top: 1px solid var(--line-soft); padding-top: 14px; }
+.rv-reply b { display: block; color: var(--ink); font-weight: 600; margin-bottom: 4px; font-size: 13px; }
+.rv-list .rv-reply p { font-size: 13.5px; color: var(--mute); }
+@media (max-width: 700px) { .rv-sum { grid-template-columns: 1fr; } }
+
+/* /reviews v2: switch note, toolbar, avatars, details, placeholders, reports */
+.rv-switch { max-width: 640px; margin: 10px auto 0; padding: 14px 20px; border: 1px solid var(--line); border-radius: 14px; color: var(--mute); font-size: 14px; line-height: 1.6; }
+.rv-dist li { display: block; }
+.rv-col { max-width: calc(860px + 2 * var(--pad)); margin: 0 auto; }
+.rv-col .rv-list { grid-template-columns: 1fr; }
+.rv-bar-btn { display: grid; grid-template-columns: 34px 1fr 28px; gap: 10px; align-items: center; width: 100%; padding: 2px 0; color: inherit; cursor: pointer; border-radius: 6px; }
+.rv-bar-btn:hover .bar i, .rv-bar-btn.is-on .bar i { background: var(--ember); }
+.rv-bar-btn.is-on { color: var(--ink); }
+.rv-bar-btn span:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.rv-toolbar { display: flex; flex-wrap: wrap; gap: 6px; justify-content: space-between; align-items: center; margin: 0 var(--pad) 14px; padding: 6px; background: var(--panel); border: 1px solid var(--line-soft); border-radius: 14px; }
+.rv-seg { display: flex; flex-wrap: wrap; gap: 2px; }
+.rv-seg-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 13.5px; color: var(--mute); padding: 8px 14px; border-radius: 10px; cursor: pointer; transition: background-color 0.2s, color 0.2s; }
+.rv-seg-btn:hover { color: var(--ink); background: rgba(255, 255, 255, 0.04); }
+.rv-seg-btn.is-on { color: var(--ink); background: rgba(255, 255, 255, 0.08); }
+.rv-seg-star { font-size: 11px; color: var(--dim); }
+.rv-seg-btn.is-on .rv-seg-star { color: var(--ember); }
+.rv-selects { display: flex; flex-wrap: wrap; gap: 2px; }
+.rv-sel { appearance: none; -webkit-appearance: none; font: inherit; font-size: 13.5px; color: var(--mute); background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238f8e89' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center / 14px; border: 0; border-radius: 10px; padding: 8px 32px 8px 14px; cursor: pointer; transition: background-color 0.2s, color 0.2s; }
+.rv-sel:hover, .rv-sel:focus-visible { color: var(--ink); background-color: rgba(255, 255, 255, 0.04); }
+.rv-sel option { background: #0b0b0c; color: #f2f1ee; }
+.rv-select { font: inherit; font-size: 13px; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 7px 10px; }
+.rv-head { display: flex; align-items: center; gap: 12px; font-size: 13px; }
+.rv-head b { display: block; font-weight: 600; color: var(--ink); }
+.rv-head span { color: var(--dim); }
+.rv-av { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%; overflow: hidden; display: grid; place-items: center; background: rgba(255, 255, 255, 0.06); color: var(--mute); font-size: 13px; font-weight: 600; letter-spacing: 0.02em; }
+.rv-av img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.rv-list .quote p.rv-facts { font-size: 12.5px; color: var(--mute); flex: 0 0 auto; }
+.rv-foot { display: flex; justify-content: flex-end; }
+.rv-link { font-size: 12px; color: var(--dim); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.rv-link:hover { color: var(--mute); }
+.rv-removed { gap: 6px; font-size: 13px; color: var(--dim); border-style: dashed; }
+.rv-removed b { color: var(--mute); font-weight: 600; }
+.rv-report { display: grid; gap: 10px; font-size: 13px; color: var(--mute); }
+.rv-report label { display: grid; gap: 6px; }
+.rv-report textarea { font: inherit; font-size: 13px; color: var(--ink); background: rgba(255, 255, 255, 0.03); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; resize: vertical; }
+.rv-report-row { display: flex; gap: 8px; }
+.rv-list .quote p.rv-report-msg { font-size: 13px; color: var(--mute); flex: 0 0 auto; }
+.rv-mod-sub { display: block; margin-top: 10px; font-size: 12px; color: var(--mute); line-height: 1.5; }
+@media (max-width: 640px) { .rv-toolbar { flex-direction: column; align-items: stretch; } .rv-seg { justify-content: space-between; } .rv-selects .rv-sel { flex: 1; } }

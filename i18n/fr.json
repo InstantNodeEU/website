@@ -237,5 +237,6 @@
  "3,800+ registered users": "<b class=\"js-user-count\">3,800+</b> utilisateurs inscrits",
  "300+ paying customers": "<b class=\"js-customer-count\">300+</b> clients payants",
  "Calculated automatically from our own systems. Support and uptime cover the last 90 days, countries come from the billing addresses of paying customers.": "Calculé automatiquement à partir de nos propres systèmes. Le support et la disponibilité portent sur les 90 derniers jours, les pays sur les adresses de facturation des clients payants.",
- "Uptime of website, panel and server nodes": "Disponibilité du site, du panel et des nœuds serveur"
+ "Uptime of website, panel and server nodes": "Disponibilité du site, du panel et des nœuds serveur",
+ "Customer reviews": "Avis clients"
 }
