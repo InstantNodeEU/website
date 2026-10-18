@@ -22,7 +22,7 @@
     <link href="/favicon.ico" rel="icon" sizes="32x32" />
     <link as="font" href="fonts/Satoshi.woff" rel="preload" type="font/woff2" crossorigin />
     <link href="css/fonts.css" rel="stylesheet" />
-    <link href="css/lunaris.css?v=tp5" rel="stylesheet" />
+    <link href="css/lunaris.css?v=tp6" rel="stylesheet" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -62,7 +62,7 @@
     <symbol id="fa-gauge" viewBox="0 0 512 512"><path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm320 96c0-26.9-16.5-49.9-40-59.3L280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 172.7c-23.5 9.5-40 32.5-40 59.3 0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-16 80a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM400 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></symbol>
     </svg>
     <!-- Announcement bar. Visibility is decided before paint; the close
-         button is wired in js/lunaris.js?v=tp3. -->
+         button is wired in js/lunaris.js?v=tp4. -->
     <div class="in-announce" data-key="import2026" id="in-announce">
       <div class="in-announce__icon has-ping"><span class="ping-head" style="--pw:38px" aria-hidden="true"><img src="/img/ping/ping-head.webp" width="256" height="285" alt="" decoding="async" /><img src="/img/ping/ping-head-blink.webp" width="256" height="285" alt="" decoding="async" /></span></div>
       <div>
@@ -215,17 +215,23 @@
     <main class="frame">
 
       <!-- ===== hero ===== -->
-      <section class="prose-hero">
+      <section class="hero rv-hero">
         <h1 class="d1 rv">Customer reviews</h1>
         <p class="lede rv">Written by InstantNode customers in their client panel and published as written, whatever the rating.</p>
-        <a class="btn btn-light rv" href="/dashboard/review">Write a review</a>
+        <div class="hero-actions rv">
+          <span class="ping-cta ping-host"><span class="ping" style="--pw:84px;" aria-hidden="true"><img src="/img/ping/ping-point-r.webp" width="520" height="705" alt="" decoding="async" /><img src="/img/ping/ping-point-r-happy.webp" width="520" height="705" alt="" decoding="async" /></span><a class="btn btn-light btn-lg" href="/dashboard/review">Write a review</a></span>
+        </div>
+        <div class="hero-art">
+          <canvas class="art" data-art="reviews" data-hotx="0.56" data-hoty="0.58" data-cell="6" height="340"></canvas>
+        </div>
         <p class="rv-switch rv">Until October 2026 we collected reviews on Trustpilot. Now we collect them here: only real customers can write one, every rule is public and every review is published. Reviews written on Trustpilot before stay there.</p>
       </section>
 
       <!-- ===== summary, filters, list (js/reviews.js) ===== -->
       <section class="sec sec-flush">
         <div class="rv-col">
-        <div class="rv-sum" id="rv-summary" data-no-i18n hidden>
+        <div class="rv-sum ping-host" id="rv-summary" data-no-i18n hidden>
+          <span class="ping ping--ledge ping--sit" style="--pw:76px;right:34px" aria-hidden="true"><img src="/img/ping/ping-sit.webp" width="520" height="959" alt="" decoding="async" /><img src="/img/ping/ping-sit-happy.webp" width="520" height="959" alt="" decoding="async" /></span>
           <div class="rv-avg"><span class="n js-rv-avg"></span><span class="k js-rv-of"></span><span class="js-rv-stars"></span><span class="rv-count js-rv-count"></span></div>
           <ol class="rv-dist js-rv-dist"></ol>
         </div>
@@ -275,7 +281,8 @@
             <h2 class="d2 rv">Questions about our reviews</h2>
             <p class="lede rv">Everything about how reviews are written, checked, reported and removed.</p>
           </div>
-          <div class="faq">
+          <div class="faq has-ping">
+            <span class="ping ping--stand" style="--pw:78px;right:34px" aria-hidden="true"><img src="/img/ping/ping-think.webp" width="520" height="748" alt="" decoding="async" /></span>
             <details class="rv"><summary>Why do you no longer use Trustpilot?</summary><div>We want one place where only verified customers can review, where every rule is public and where you can see every number behind it. Reviews written on Trustpilot before stay on Trustpilot.</div></details>
             <details class="rv"><summary>How do you check that a reviewer is a customer?</summary><div>A review can only be written while logged in to the client panel, from an account that uses or has used at least one of our services. Each account can write one review. Accounts of our staff and founders cannot write reviews.</div></details>
             <details class="rv"><summary>Can InstantNode change or delete my review?</summary><div>We never change your text or your rating. We can only remove a review that is unlawful: insults or threats, personal data, spam or other unlawful content. It then shows up here as removed, with date and reason, and we restore it if we got it wrong. We can add a public reply, which is always marked as ours.</div></details>
@@ -289,7 +296,15 @@
         </div>
       </section>
 
-            <!-- ===== footer ===== -->
+            <!-- ===== final CTA ===== -->
+      <section class="cta-final">
+        <canvas class="art" data-art="wave" data-hotx="0.5" data-hoty="0.85" height="260"></canvas>
+        <h2 class="d1 rv">Used InstantNode?</h2>
+        <p class="lede rv">Tell others how it went. Your review goes online right away, whatever the rating.</p>
+        <span class="ping-cta ping-cta--right ping-host rv"><a class="btn btn-light btn-lg" href="/dashboard/review">Write a review</a><span class="ping" style="--pw:96px;" aria-hidden="true"><img src="/img/ping/ping-point-l.webp" width="520" height="596" alt="" decoding="async" /><img src="/img/ping/ping-point-l-happy.webp" width="520" height="596" alt="" decoding="async" /></span></span>
+      </section>
+
+      <!-- ===== footer ===== -->
       <footer class="ftr ping-host">
         <span class="ping ping--ledge ping--sleep" style="--pw:150px;" aria-hidden="true"><img src="/img/ping/ping-sleep.webp" width="520" height="341" alt="" loading="lazy" decoding="async" /><img src="/img/ping/ping-sleep-wake.webp" width="520" height="341" alt="" loading="lazy" decoding="async" /></span>
         <div class="ftr-grid">
@@ -378,7 +393,7 @@
       </footer>
     </main>
 
-    <script src="/js/reviews.js?v=3" defer></script>
-    <script src="/js/lunaris.js?v=tp3" defer></script>
+    <script src="/js/reviews.js?v=4" defer></script>
+    <script src="/js/lunaris.js?v=tp4" defer></script>
   </body>
 </html>

@@ -850,6 +850,54 @@
       return fbm(u * 10, v * 10) * 0.12;
     },
     /* soft wave field (footer / cta) */
+    /* customer reviews: a back bubble with lines of text, a front bubble
+       carrying a row of five stars, a few sparks around (/reviews hero) */
+    reviews: function (u, v, a) {
+      a = a || 1;
+      var X = (u - 0.5) * a, Y = v - 0.5;
+      function rr(cx, cy, hw, hh, r) {                 /* rounded box, + inside */
+        var qx = Math.abs(X - cx) - hw + r, qy = Math.abs(Y - cy) - hh + r;
+        var o = Math.sqrt(Math.max(qx, 0) * Math.max(qx, 0) + Math.max(qy, 0) * Math.max(qy, 0));
+        return r - o - Math.min(Math.max(qx, qy), 0);
+      }
+      function tri(x0, y0, x1, y1, x2, y2) {           /* + inside, distance to the nearest edge */
+        var e = [bar(X, Y, x0, y0, x1, y1, 0), bar(X, Y, x1, y1, x2, y2, 0), bar(X, Y, x2, y2, x0, y0, 0)];
+        var d = -Math.max(e[0], e[1], e[2]);
+        var c1 = (x1 - x0) * (Y - y0) - (y1 - y0) * (X - x0), c2 = (x2 - x1) * (Y - y1) - (y2 - y1) * (X - x1), c3 = (x0 - x2) * (Y - y2) - (y0 - y2) * (X - x2);
+        var inside = (c1 >= 0 && c2 >= 0 && c3 >= 0) || (c1 <= 0 && c2 <= 0 && c3 <= 0);
+        return inside ? d : -d;
+      }
+      function star(cx, cy, R) {                       /* five points, + inside */
+        var dx = X - cx, dy = Y - cy;
+        if (dx * dx + dy * dy > R * R * 1.2) return -1;
+        var p = [], inside = false, best = 1e9, k, i, j;
+        for (k = 0; k < 10; k++) {
+          var an = -Math.PI / 2 + k * Math.PI / 5, r = k % 2 ? R * 0.42 : R;
+          p.push(cx + Math.cos(an) * r, cy + Math.sin(an) * r);
+        }
+        for (i = 0, j = 18; i < 20; j = i, i += 2) {
+          if ((p[i + 1] > Y) !== (p[j + 1] > Y) && X < (p[j] - p[i]) * (Y - p[i + 1]) / (p[j + 1] - p[i + 1]) + p[i]) inside = !inside;
+          best = Math.min(best, -bar(X, Y, p[i], p[i + 1], p[j], p[j + 1], 0));
+        }
+        return inside ? best : -best;
+      }
+      var front = Math.max(rr(0.3, 0.1, 0.7, 0.23, 0.12), tri(0.56, 0.32, 0.78, 0.32, 0.88, 0.49));
+      if (front > 0) {
+        if (front < 0.016) return 0.97;                 /* rim */
+        for (var i = 0; i < 5; i++) if (star(0.3 + (i - 2) * 0.255, 0.11, 0.115) > 0) return 0.95;
+        return 0.16 + 0.22 * fbm(u * 16, v * 14);
+      }
+      if (front > -0.035) return 0;                     /* clean gap between the bubbles */
+      var back = Math.max(rr(-0.42, -0.14, 0.52, 0.2, 0.11), tri(-0.72, 0.05, -0.54, 0.05, -0.82, 0.24));
+      if (back > 0) {
+        if (back < 0.016) return 0.72;
+        var line = Math.max(bar(X, Y, -0.82, -0.22, -0.14, -0.22, 0.017), bar(X, Y, -0.82, -0.14, -0.26, -0.14, 0.017), bar(X, Y, -0.82, -0.06, -0.44, -0.06, 0.017));
+        return line > 0 ? 0.5 : 0.06;
+      }
+      var sp = [[-1.2, -0.3], [1.22, -0.26], [-1.02, 0.32], [1.16, 0.38], [-0.02, -0.42]];
+      for (var j = 0; j < sp.length; j++) if (star(sp[j][0], sp[j][1], 0.04) > 0) return 0.6;
+      return amb(u, v);
+    },
     wave: function (u, v) {
       var y = 0.42 + 0.18 * Math.sin(u * 6.3) * fbm(u * 2.5, 1.2) + 0.12 * fbm(u * 4.4, 8.8);
       if (v < y) return fbm(u * 9, v * 9) * 0.06;

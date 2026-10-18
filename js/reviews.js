@@ -16,7 +16,7 @@
       of: 'out of 5', count: function (n) { return n === 1 ? '1 review' : n + ' reviews' },
       paying: 'Paying customer', edited: 'edited', reply: 'Reply from InstantNode',
       stars: function (r) { return r + ' out of 5 stars' },
-      empty: 'No reviews yet. Be the first to write one.', none: 'No reviews match these filters.',
+      empty: 'No reviews yet. Be the first to write one.', none: 'No reviews match these filters.', showAll: 'Show all reviews',
       failed: 'The reviews could not be loaded. Please try again later.',
       since: function (m) { return 'Customer since ' + m }, spent: function (n) { return '€' + n.toLocaleString('en-US') + '+ spent' },
       removedTitle: 'Review removed', removedLine: function (d, c) { return 'Removed on ' + d + ' · Reason: ' + c }, written: function (d) { return 'Written on ' + d },
@@ -31,7 +31,7 @@
       of: 'von 5', count: function (n) { return n === 1 ? '1 Bewertung' : n + ' Bewertungen' },
       paying: 'Zahlender Kunde', edited: 'bearbeitet', reply: 'Antwort von InstantNode',
       stars: function (r) { return r + ' von 5 Sternen' },
-      empty: 'Noch keine Bewertungen. Schreib die erste.', none: 'Keine Bewertungen passen zu diesen Filtern.',
+      empty: 'Noch keine Bewertungen. Schreib die erste.', none: 'Keine Bewertungen passen zu diesen Filtern.', showAll: 'Alle Bewertungen zeigen',
       failed: 'Die Bewertungen konnten nicht geladen werden. Bitte versuch es später noch einmal.',
       since: function (m) { return 'Kunde seit ' + m }, spent: function (n) { return n.toLocaleString('de-DE') + '+ € ausgegeben' },
       removedTitle: 'Bewertung entfernt', removedLine: function (d, c) { return 'Entfernt am ' + d + ' · Grund: ' + c }, written: function (d) { return 'Geschrieben am ' + d },
@@ -46,7 +46,7 @@
       of: 'sur 5', count: function (n) { return n + ' avis' },
       paying: 'Client payant', edited: 'modifié', reply: "Réponse d'InstantNode",
       stars: function (r) { return r + ' étoiles sur 5' },
-      empty: "Pas encore d'avis. Soyez le premier à en écrire un.", none: 'Aucun avis ne correspond à ces filtres.',
+      empty: "Pas encore d'avis. Soyez le premier à en écrire un.", none: 'Aucun avis ne correspond à ces filtres.', showAll: 'Voir tous les avis',
       failed: "Les avis n'ont pas pu être chargés. Réessayez plus tard.",
       since: function (m) { return 'Client depuis ' + m }, spent: function (n) { return n.toLocaleString('fr-FR') + '+ € dépensés' },
       removedTitle: 'Avis retiré', removedLine: function (d, c) { return 'Retiré le ' + d + ' · Motif : ' + c }, written: function (d) { return 'Écrit le ' + d },
@@ -61,7 +61,7 @@
       of: 'de 5', count: function (n) { return n === 1 ? '1 opinión' : n + ' opiniones' },
       paying: 'Cliente de pago', edited: 'editada', reply: 'Respuesta de InstantNode',
       stars: function (r) { return r + ' de 5 estrellas' },
-      empty: 'Todavía no hay opiniones. Escribe la primera.', none: 'Ninguna opinión coincide con estos filtros.',
+      empty: 'Todavía no hay opiniones. Escribe la primera.', none: 'Ninguna opinión coincide con estos filtros.', showAll: 'Ver todas las opiniones',
       failed: 'No se pudieron cargar las opiniones. Inténtalo más tarde.',
       since: function (m) { return 'Cliente desde ' + m }, spent: function (n) { return n.toLocaleString('es-ES') + '+ € gastados' },
       removedTitle: 'Opinión retirada', removedLine: function (d, c) { return 'Retirada el ' + d + ' · Motivo: ' + c }, written: function (d) { return 'Escrita el ' + d },
@@ -77,6 +77,8 @@
   var data = null
   var failed = false
   var state = { stars: 0, product: '', sort: 'newest', reporting: null, reported: {} }
+  var animated = false
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   function code() {
     var c = window.innLang && window.innLang.current ? window.innLang.current() : 'en'
@@ -132,11 +134,20 @@
   function renderSummary(t, c) {
     var s = data.summary
     var sum = document.getElementById('rv-summary')
-    sum.querySelector('.js-rv-avg').textContent = num(s.average, c)
+    var avgEl = sum.querySelector('.js-rv-avg')
+    var first = !animated && !still
+    avgEl.textContent = num(first ? 0 : s.average, c)
     sum.querySelector('.js-rv-of').textContent = t.of
     var st = sum.querySelector('.js-rv-stars')
     st.textContent = ''
-    st.appendChild(stars(Math.floor(s.average), t.stars(num(s.average, c))))
+    // exact average as a partial fill, so 4.6 shows 4.6 stars, never rounded up
+    var row = el('span', 'rv-fill-stars')
+    row.setAttribute('role', 'img')
+    row.setAttribute('aria-label', t.stars(num(s.average, c)))
+    row.appendChild(el('span', 'base', '★★★★★'))
+    var fillRow = el('span', 'fill', '★★★★★')
+    row.appendChild(fillRow)
+    st.appendChild(row)
     sum.querySelector('.js-rv-count').textContent = t.count(s.count)
     var dist = sum.querySelector('.js-rv-dist')
     dist.textContent = ''
@@ -150,7 +161,8 @@
       b.appendChild(el('span', '', r + ' ★'))
       var bar = el('span', 'bar')
       var fill = el('i')
-      fill.style.width = (s.count ? n / s.count * 100 : 0) + '%'
+      fill.style.width = first ? '0%' : (s.count ? n / s.count * 100 : 0) + '%'
+      fill.setAttribute('data-w', (s.count ? n / s.count * 100 : 0) + '%')
       bar.appendChild(fill)
       b.appendChild(bar)
       b.appendChild(el('span', '', String(n)))
@@ -159,6 +171,21 @@
       dist.appendChild(li)
     }
     sum.hidden = false
+    var target = s.average / 5 * 100 + '%'
+    if (!first) { fillRow.style.width = target; return }
+    animated = true
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        fillRow.style.width = target
+        Array.prototype.forEach.call(dist.querySelectorAll('i[data-w]'), function (i) { i.style.width = i.getAttribute('data-w') })
+        var t0 = performance.now()
+        ;(function tick(now) {
+          var k = Math.min(1, (now - t0) / 900)
+          avgEl.textContent = num(Math.floor(s.average * (1 - Math.pow(1 - k, 3)) * 10) / 10, code())
+          if (k < 1) requestAnimationFrame(tick)
+        })(t0)
+      })
+    })
   }
 
   function renderToolbar(t) {
@@ -307,6 +334,34 @@
     set('.js-mod-replies', m.replies)
   }
 
+  var seen = window.IntersectionObserver ? new IntersectionObserver(function (entries) {
+    var k = 0
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return
+      seen.unobserve(e.target)
+      e.target.style.transitionDelay = (k++ % 6) * 60 + 'ms'
+      e.target.classList.add('is-in')
+    })
+  }, { rootMargin: '0px 0px -40px 0px' }) : null
+  function reveal(node) {
+    if (!seen || still) { node.classList.add('is-in'); return }
+    seen.observe(node)
+  }
+
+  // Nothing to show: a card Ping peeks over, with a way back to all reviews.
+  function noneCard(text, t, withReset) {
+    var box = el('div', 'rv-none ping-host')
+    box.innerHTML = '<span class="ping ping--ledge ping--peek" style="--pw:96px" aria-hidden="true"><img src="/img/ping/ping-peek.webp" width="520" height="393" alt="" decoding="async" /><img src="/img/ping/ping-peek-happy.webp" width="520" height="393" alt="" decoding="async" /></span>'
+    box.appendChild(el('p', '', text))
+    if (withReset) {
+      var b = el('button', 'btn btn-ghost btn-sm', t.showAll)
+      b.type = 'button'
+      b.onclick = function () { state.stars = 0; state.product = ''; render() }
+      box.appendChild(b)
+    }
+    return box
+  }
+
   /* ---------- list ---------- */
 
   function render() {
@@ -319,7 +374,7 @@
     if (failed) { msg.textContent = t.failed; msg.hidden = false; sum.hidden = true; return }
     if (!data) return
     renderModeration(t)
-    if (!data.summary.count && !data.removed.length) { msg.textContent = t.empty; msg.hidden = false; sum.hidden = true; return }
+    if (!data.summary.count && !data.removed.length) { msg.hidden = true; sum.hidden = true; list.appendChild(noneCard(t.empty, t, false)); return }
     if (data.summary.count) renderSummary(t, c)
     renderToolbar(t)
 
@@ -337,9 +392,13 @@
       low: function (a, b) { return (a.rating || 99) - (b.rating || 99) || (a.at < b.at ? 1 : -1) }
     }
     items.sort(by[state.sort])
-    msg.hidden = items.length > 0
-    if (!items.length) msg.textContent = t.none
-    items.forEach(function (it) { list.appendChild(it.rv ? card(it.rv, t, c) : removedCard(it.rm, t, c)) })
+    msg.hidden = true
+    if (!items.length) list.appendChild(noneCard(t.none, t, true))
+    items.forEach(function (it) {
+      var node = it.rv ? card(it.rv, t, c) : removedCard(it.rm, t, c)
+      list.appendChild(node)
+      reveal(node)
+    })
   }
 
   fetch('/api/v1/public/reviews', { headers: { Accept: 'application/json' } })
