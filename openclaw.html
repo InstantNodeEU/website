@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=13" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=14" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>OpenClaw KVM Hosting - Your own AI assistant server | InstantNode</title>
@@ -25,7 +25,7 @@
     <link href="/favicon.ico" rel="icon" sizes="32x32" />
     <link as="font" href="fonts/Satoshi.woff" rel="preload" type="font/woff2" crossorigin />
     <link href="css/fonts.css" rel="stylesheet" />
-    <link href="css/lunaris.css?v=ping1" rel="stylesheet" />
+    <link href="css/lunaris.css?v=tp1" rel="stylesheet" />
     <link href="css/product.css?v=8" rel="stylesheet" />
     <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -140,7 +140,7 @@
     <symbol id="fa-gauge" viewBox="0 0 512 512"><path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm320 96c0-26.9-16.5-49.9-40-59.3L280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 172.7c-23.5 9.5-40 32.5-40 59.3 0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-16 80a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM400 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></symbol>
     </svg>
     <!-- Announcement bar. Visibility is decided before paint; the close
-         button is wired in js/lunaris.js?v=ping1. -->
+         button is wired in js/lunaris.js?v=tp1. -->
     <div class="in-announce" data-key="import2026" id="in-announce">
       <div class="in-announce__icon has-ping"><span class="ping-head" style="--pw:38px" aria-hidden="true"><img src="/img/ping/ping-head.webp" width="256" height="285" alt="" decoding="async" /><img src="/img/ping/ping-head-blink.webp" width="256" height="285" alt="" decoding="async" /></span></div>
       <div>
@@ -530,31 +530,17 @@
         </div>
       </section>
 
-      <!-- ===== quotes ===== -->
-      <section class="sec sec-flush">
+      <!-- ===== in numbers ===== -->
+      <section class="sec sec-flush stats">
         <div class="sec-head" style="padding: clamp(64px,9vw,110px) var(--pad) 0">
-          <span class="badge rv">Voices from our customers</span>
-          <h2 class="d2 rv">Rated <span class="js-trustpilot-score">4.9</span> out of 5 on Trustpilot</h2>
+          <h2 class="d2 rv">Numbers from our own systems</h2>
+          <p class="lede rv">Support and uptime cover the last 90 days (July to October 2026), taken from our ticket system and status monitor. Countries come from the billing addresses of paying customers.</p>
         </div>
-        <div class="quotes pp-quotes">
-          <div class="quote quote-hot rv">
-            <span class="stars" aria-label="5 stars">★★★★★</span>
-            <p>"Amazing Hosting service. Helped get my Ai servers up in no time."</p>
-            <div class="who"><div><b>Astatineholder (PT)</b><span>Trustpilot, June 2026</span></div></div>
-          </div>
-          <div class="quote rv">
-            <span class="stars" aria-label="5 stars">★★★★★</span>
-            <p>"Pricing and services are good (the best I could find for my case (Nested Virtualization/Proxmox on a virtual server)) and the support answers really fast."</p>
-            <div class="who"><div><b>Kunde (DE)</b><span>Trustpilot, September 2026</span></div></div>
-          </div>
-          <div class="quote rv">
-            <span class="stars" aria-label="5 stars">★★★★★</span>
-            <p>"w service, fast response"</p>
-            <div class="who"><div><b>Hùng Lê Quốc (VN)</b><span>Trustpilot, September 2026</span></div></div>
-          </div>
-        </div>
-        <div class="center" style="padding: clamp(28px,4vw,44px) var(--pad)">
-          <a class="btn btn-ghost btn-sm" href="https://www.trustpilot.com/review/instantnode.eu" rel="noreferrer" target="_blank">Read more reviews on Trustpilot</a>
+        <div class="cells cells-4" style="border-top:0">
+          <div class="cell rv"><span class="n">21 min</span><span class="k">Median time to the first human reply on a ticket</span></div>
+          <div class="cell rv"><span class="n">99.99%</span><span class="k">Uptime of website and client panel</span></div>
+          <div class="cell rv"><span class="n" data-no-i18n>60+</span><span class="k">Countries our paying customers come from</span></div>
+          <div class="cell rv"><span class="n js-customer-count" data-no-i18n>300+</span><span class="k">Paying customers, plus <span class="js-user-count">3,800+</span> registered users</span></div>
         </div>
       </section>
 
@@ -598,7 +584,6 @@
             <div class="ftr-social">
               <a aria-label="Discord" href="https://instantnode.eu/discord" rel="noreferrer" target="_blank"><svg viewBox="0 0 30.67 23.25" fill="currentColor"><path d="M26 1.95A24.9 24.9 0 0 0 19.66 0c-.28.48-.59 1.13-.8 1.64a24.2 24.2 0 0 0-7.03 0A20.2 20.2 0 0 0 11.03 0a24.9 24.9 0 0 0-6.34 1.95C.67 7.87-.41 13.66.13 19.36a25.7 25.7 0 0 0 7.77 3.89c.62-.84 1.18-1.74 1.66-2.68a16.3 16.3 0 0 1-2.62-1.26c.22-.15.43-.32.64-.5 5.05 2.31 10.52 2.31 15.51 0 .22.18.42.35.64.5-.84.5-1.71.91-2.62 1.26.48.94 1.04 1.84 1.66 2.68a25.7 25.7 0 0 0 7.77-3.89c.66-6.6-1.06-12.34-4.53-17.4ZM10.25 15.84c-1.52 0-2.76-1.38-2.76-3.07s1.21-3.07 2.76-3.07c1.53 0 2.79 1.38 2.76 3.07 0 1.69-1.23 3.07-2.76 3.07Zm10.19 0c-1.52 0-2.76-1.38-2.76-3.07s1.21-3.07 2.76-3.07c1.54 0 2.79 1.38 2.76 3.07 0 1.69-1.21 3.07-2.76 3.07Z"/></svg></a>
               <a aria-label="Instagram" href="https://www.instagram.com/instantnode.eu" rel="noreferrer" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" stroke="none"/></svg></a>
-              <a aria-label="Trustpilot" href="https://www.trustpilot.com/review/instantnode.eu" rel="noreferrer" target="_blank"><svg viewBox="0 0 33.5 31.3" fill="currentColor"><path d="M33.5 12H20.7L16.8 0 12.8 12 0 12l10.4 7.4-4 12 10.4-7.4 10.4 7.4-4-12Z"/></svg></a>
             </div>
           </div>
           <div class="ftr-col">
@@ -639,6 +624,7 @@
             <a href="https://docs.instantnode.eu" rel="noreferrer" target="_blank">Documentation</a>
             <a href="https://status.instantnode.eu" rel="noreferrer" target="_blank">Status</a>
             <a href="https://instantnode.eu/discord">Discord Community</a>
+            <a href="https://www.trustpilot.com/review/instantnode.eu" rel="noreferrer" target="_blank">Trustpilot</a>
           </div>
           <div class="ftr-col">
             <h4>Legal</h4>
@@ -677,7 +663,7 @@
       </footer>
     </main>
 
-    <script src="/js/lunaris.js?v=ping1" defer></script>
+    <script src="/js/lunaris.js?v=tp1" defer></script>
     <script src="/js/inn-sales.js?v=4" defer></script>
   </body>
 </html>

@@ -1324,32 +1324,23 @@
     Array.prototype.forEach.call(document.querySelectorAll(sel), function (el) { el.textContent = txt; });
   }
 
-  // One request feeds every live figure on the marketing pages. Each value is
+  // One request feeds the live counts on the marketing pages. Each value is
   // only written when the API actually returned it, so a partial or failed
   // response leaves the static number in the markup standing.
   function fillPublicInfo() {
-    var wanted = document.querySelector('.js-customer-count, .js-trustpilot-score, .js-trustpilot-reviews');
+    var wanted = document.querySelector('.js-customer-count, .js-user-count');
     if (!wanted || !window.fetch) return;
     fetch('/api/v1/public/info', { cache: 'no-store', headers: { Accept: 'application/json' } })
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (d) {
-        if (!d) return;
-        // Customers: floored to the nearest 100, so "X,X00+" is never a claim
-        // for more customers than there are.
-        var n = d.stats && d.stats.totalCustomers;
-        if (n && n >= 100) setAll('.js-customer-count', (Math.floor(n / 100) * 100).toLocaleString('en-US') + '+');
-
-        // Rating: one decimal, exactly as Trustpilot states it. Rounding this
-        // up is the kind of embellishment that gets a company in trouble.
-        var tp = d.trustpilot || {};
-        var score = Number(tp.score);
-        if (score > 0 && score <= 5) {
-          setAll('.js-trustpilot-score', score.toFixed(1));
-          // The star row fills to the exact score too - same rule, no rounding up.
-          Array.prototype.forEach.call(document.querySelectorAll('.js-trustpilot-stars'), function (el) { el.style.setProperty('--tp', String(score)); });
-        }
-        var reviews = Number(tp.totalReviews);
-        if (reviews > 0) setAll('.js-trustpilot-reviews', String(reviews));
+        var st = d && d.stats;
+        if (!st) return;
+        // Floored to the nearest 100, so "X,X00+" is never a claim for more
+        // than there are. Customers = accounts that paid at least once.
+        [['.js-customer-count', st.totalCustomers], ['.js-user-count', st.registeredUsers]].forEach(function (f) {
+          var n = Number(f[1]);
+          if (n >= 100) setAll(f[0], (Math.floor(n / 100) * 100).toLocaleString('en-US') + '+');
+        });
       })
       .catch(function () { /* the numbers in the markup stay */ });
   }

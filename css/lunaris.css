@@ -573,7 +573,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .wall { text-align: center; }
 .wall .k { display: block; padding: 26px 0 0; }
 
-/* proof pill: live customer count + Trustpilot score, one link to the profile */
+/* proof pill: live user and customer counts */
 .proof {
   display: inline-flex;
   align-items: center;
@@ -590,7 +590,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   color: #c9c8c4;
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
-.proof:hover { border-color: rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.05); }
+a.proof:hover { border-color: rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.05); }
 .proof b { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
 .proof-part {
   display: inline-flex;
@@ -602,11 +602,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .proof-part + .proof-part { border-left: 1px solid var(--line); }
 .proof-part > svg { width: 16px; height: 16px; color: var(--mute); flex: 0 0 auto; }
 .proof-part > .proof-ext { width: 13px; height: 13px; margin-left: -3px; color: var(--dim); }
-.proof:hover .proof-ext { color: var(--mute); }
-/* stars: grey base row, green row on top clipped to the exact score (--tp of 5) */
-.proof-stars { position: relative; display: block; width: 90px; height: 18px; color: rgba(255, 255, 255, 0.16); flex: 0 0 auto; }
-.proof-stars svg { display: block; width: 90px; height: 18px; }
-.proof-stars-fill { position: absolute; inset: 0; width: calc(var(--tp, 0) / 5 * 100%); overflow: hidden; color: #00b67a; }
+a.proof:hover .proof-ext { color: var(--mute); }
 @media (max-width: 640px) {
   .proof { flex-direction: column; align-items: stretch; border-radius: 22px; padding: 4px 6px; }
   .proof-part { padding: 7px 12px; white-space: normal; justify-content: center; text-align: center; }
