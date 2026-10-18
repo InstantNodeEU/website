@@ -29,13 +29,14 @@
     <link rel="discord:component-embed" type="application/json" href="https://instantnode.eu/discord-embed.json">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://instantnode.eu/"}, {"@type": "ListItem", "position": 2, "name": "License Server", "item": "https://instantnode.eu/license-server"}]}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "InstantLicense", "url": "https://instantnode.eu/license-server", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "description": "A complete license server for your FiveM, Minecraft and Roblox scripts for EUR 4.99 a month: your key format, machine lock, your API and your messages. Hosted by InstantNode in the Netherlands.", "offers": {"@type": "Offer", "price": "4.99", "priceCurrency": "EUR"}, "creator": {"@type": "Organization", "name": "InstantNode", "url": "https://instantnode.eu/"}}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need to write or host any server code?", "acceptedAnswer": {"@type": "Answer", "text": "No. You get a running license server with a dashboard. You decide names, messages and key formats there, the license logic itself is ours and always the same."}}, {"@type": "Question", "name": "Can I keep the keys I already sold?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Import a lizenz.txt or any list of keys, up to 100,000 at once. Keys that already exist are skipped, and every imported key works right away."}}, {"@type": "Question", "name": "How do keys get to my buyers?", "acceptedAnswer": {"@type": "Answer", "text": "Your shop creates a key on every sale through the API, or you hand them out from an imported list. You can also create and copy keys by hand in the dashboard."}}, {"@type": "Question", "name": "What stops a buyer from sharing a key?", "acceptedAnswer": {"@type": "Answer", "text": "The machine lock. A key binds to the first machines that start your script, as many as you allow per product. Everyone else gets your own \"already in use\" message."}}, {"@type": "Question", "name": "What does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "EUR 4.99 a month for the whole license server, paid from your InstantNode balance like every other service. All features are included, with room for up to 250,000 keys."}}, {"@type": "Question", "name": "Where do my scripts send their check?", "acceptedAnswer": {"@type": "Answer", "text": "To your own address, license.instantnode.eu/your-name, or to your own domain such as license.yourshop.com, followed by the path you choose, for example /api/v1/check."}}, {"@type": "Question", "name": "Can I use my own domain?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Add a subdomain like license.yourshop.com in the dashboard and point one CNAME record at your server. The HTTPS certificate is issued for you, and your InstantNode address keeps working."}}, {"@type": "Question", "name": "Which languages can check a license?", "acceptedAnswer": {"@type": "Answer", "text": "Anything that can send an HTTP request. The dashboard gives you ready code for FiveM (Lua), Minecraft (Java), Roblox (Luau), Node.js, Python, C# and cURL, already using your own names."}}, {"@type": "Question", "name": "Where does my license server run?", "acceptedAnswer": {"@type": "Answer", "text": "In our network in Eygelshoven, Netherlands, on the same infrastructure as our game servers."}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need to write or host any server code?", "acceptedAnswer": {"@type": "Answer", "text": "No. You get a running license server with a dashboard. You decide names, messages and key formats there, the license logic itself is ours and always the same."}}, {"@type": "Question", "name": "Can I keep the keys I already sold?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Paste them or load a text or CSV file from your old system, up to 100,000 keys at once. Keys that already exist are skipped, and every imported key works right away."}}, {"@type": "Question", "name": "How do keys get to my buyers?", "acceptedAnswer": {"@type": "Answer", "text": "Your shop creates a key on every sale through the API, or you hand them out from an imported list. You can also create and copy keys by hand in the dashboard."}}, {"@type": "Question", "name": "What stops a buyer from sharing a key?", "acceptedAnswer": {"@type": "Answer", "text": "The machine lock. A key binds to the first machines that start your script, as many as you allow per product. Everyone else gets your own \"already in use\" message."}}, {"@type": "Question", "name": "What does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "EUR 4.99 a month for the whole license server, paid from your InstantNode balance like every other service. All features are included, with room for up to 250,000 keys."}}, {"@type": "Question", "name": "Where do my scripts send their check?", "acceptedAnswer": {"@type": "Answer", "text": "To your own address, license.instantnode.eu/your-name, or to your own domain such as license.yourshop.com, followed by the path you choose, for example /api/v1/check."}}, {"@type": "Question", "name": "Can I use my own domain?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Add a subdomain like license.yourshop.com in the dashboard and point one CNAME record at your server. The HTTPS certificate is issued for you, and your InstantNode address keeps working."}}, {"@type": "Question", "name": "Which languages can check a license?", "acceptedAnswer": {"@type": "Answer", "text": "Anything that can send an HTTP request. The dashboard gives you ready code for FiveM (Lua), Minecraft (Java), Roblox (Luau), Node.js, Python, C# and cURL, already using your own names."}}, {"@type": "Question", "name": "Where does my license server run?", "acceptedAnswer": {"@type": "Answer", "text": "In our network in Eygelshoven, Netherlands, on the same infrastructure as our game servers."}}]}</script>
     <style>
-      /* /license-server only: the example exchange and its tabs */
-      .lx { max-width: 1120px; margin: 0 auto; padding: 0 var(--pad); }
-      .lx-box { border: 1px solid var(--line); border-radius: 16px; background: var(--panel); overflow: hidden; }
+      /* /license-server only: the check demo, the key builder, the dashboard tour and the API examples */
+      .lx, .lc, .kb, .tour { max-width: 1120px; margin: 0 auto; padding: 0 var(--pad); }
+      .lx-box, .lc-box, .kb-box { border: 1px solid var(--line); border-radius: 16px; background: var(--panel); overflow: hidden; }
       .lx-tabs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
-      .lx-tabs button { border: 0; background: transparent; color: var(--mute); font: 500 14px var(--font, inherit); padding: 7px 14px; border-radius: 9px; cursor: pointer; }
+      .lx-tabs button { border: 0; background: transparent; color: var(--mute); font: 500 14px var(--font, inherit); padding: 7px 14px; border-radius: 9px; cursor: pointer; transition: color .15s, background-color .15s; }
+      .lx-tabs button:hover { color: var(--ink); }
       .lx-tabs button[aria-selected="true"] { background: #121214; color: var(--ink); box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); }
       .lx-tabs button:focus-visible { outline: 2px solid var(--ember); outline-offset: 2px; }
       .lx-tabs .lx-note { margin-left: auto; font-size: 13px; color: var(--mute); }
@@ -43,17 +44,99 @@
       .lx-pane[hidden] { display: none; }
       .lx-side { padding: 22px 24px; min-width: 0; }
       .lx-side + .lx-side { border-left: 1px solid var(--line); }
-      .lx-side h3 { margin: 0 0 12px; font-size: 14px; font-weight: 500; color: var(--mute); }
-      .lx-side pre { margin: 0; font: 13.5px/1.7 var(--mono); color: var(--mute); white-space: pre-wrap; overflow-wrap: anywhere; }
-      .lx-side pre b { color: var(--ink); font-weight: 400; }
+      .lx-side h3, .lc-card h3 { margin: 0 0 12px; font-size: 14px; font-weight: 500; color: var(--mute); }
+      .lx-side pre, .lc-card pre { margin: 0; font: 13.5px/1.7 var(--mono); color: var(--mute); white-space: pre-wrap; overflow-wrap: anywhere; }
+      .lx-side pre b, .lc-card pre b { color: var(--ink); font-weight: 400; }
       .lx-facts { display: flex; flex-wrap: wrap; gap: 8px 28px; padding: 14px 24px; border-top: 1px solid var(--line); color: var(--mute); font-size: 14px; }
       .lx-facts b { color: var(--ink); font-weight: 500; }
       .lx-legend { max-width: 1120px; margin: 14px auto 0; padding: 0 var(--pad); font-size: 13px; color: var(--mute); }
       .lx-legend b { color: var(--ink); font-weight: 500; }
+      .pp-why .pp-term-bar, .pp-why .pp-term .d { color: var(--mute); }
+
+      /* the check demo: buyer's PC -> wire -> license server, then what each side gets */
+      .lc-stage { display: grid; grid-template-columns: minmax(0, 1fr) minmax(90px, 1fr) minmax(0, 1fr); align-items: center; padding: clamp(26px, 4vw, 46px) clamp(18px, 3vw, 34px); background: #080809; border-bottom: 1px solid var(--line); }
+      .lc-node { display: flex; flex-direction: column; gap: 5px; min-width: 0; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel-2); }
+      .lc-cap { font-size: 12.5px; color: var(--mute); }
+      .lc-node b { font: 500 14.5px var(--mono); color: var(--ink); overflow-wrap: anywhere; }
+      .lc-node small { font: 12.5px/1.5 var(--mono); color: var(--mute); overflow-wrap: anywhere; }
+      .lc-wire { position: relative; height: 0; margin: 0 16px; border-top: 2px dashed rgba(255,255,255,.22); }
+      .lc-dot { position: absolute; left: 0; top: -6px; width: 10px; height: 10px; border-radius: 50%; background: var(--ember); opacity: 0; }
+      .lc-dot.no { background: var(--rose); }
+      .lc-verdict { align-self: flex-start; margin-top: 6px; padding: 3px 9px; border: 1px solid var(--line); border-radius: 7px; font: 600 12px var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--mute); transition: color .2s, border-color .2s; }
+      .lc[data-result="ok"] .lc-verdict { color: #9cc0ff; border-color: rgba(59,130,246,.45); }
+      .lc[data-result="no"] .lc-verdict { color: #ff8fb4; border-color: rgba(255,47,123,.4); }
+      .lc[data-phase="ask"] .lc-verdict { color: var(--mute); border-color: var(--line); }
+      .lc-out { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr) minmax(0, 1fr); }
+      .lc-card { min-width: 0; padding: 22px 24px; transition: opacity .35s cubic-bezier(.16,1,.3,1), filter .35s cubic-bezier(.16,1,.3,1); }
+      .lc-card + .lc-card { border-left: 1px solid var(--line); }
+      .lc-card.wait { opacity: .3; filter: blur(1.5px); }
+      .lc-msg { font-size: 17px; line-height: 1.45; color: var(--ink); text-wrap: pretty; }
+      .lc-act { margin-top: 10px; font-size: 14px; color: var(--mute); }
+      .lc-you { font-size: 14.5px; line-height: 1.6; color: var(--mute); text-wrap: pretty; }
+      .lc-you b { color: var(--ink); font-weight: 500; }
+
+      /* the key builder */
+      .kb { margin-bottom: clamp(28px, 4vw, 48px); }
+      .kb-box { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); }
+      .kb-ctl { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; padding: 26px; border-right: 1px solid var(--line); }
+      .kb-ctl label { display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: var(--mute); }
+      .kb-ctl label span { display: flex; justify-content: space-between; }
+      .kb-ctl output { color: var(--ink); font: 500 13.5px var(--mono); font-variant-numeric: tabular-nums; }
+      .kb-ctl input[type="text"], .kb-ctl select { height: 42px; padding: 0 12px; border: 1px solid rgba(255,255,255,.12); border-radius: 9px; background: #0a0a0b; color: var(--ink); font: 14px var(--font, inherit); transition: border-color .15s; }
+      .kb-ctl input[type="text"] { font-family: var(--mono); }
+      .kb-ctl input[type="text"]:hover, .kb-ctl select:hover { border-color: rgba(255,255,255,.22); }
+      .kb-ctl input[type="text"]:focus-visible, .kb-ctl select:focus-visible { outline: none; border-color: var(--ember); box-shadow: 0 0 0 3px rgba(59,130,246,.2); }
+      .kb-ctl input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 42px; background: transparent; cursor: pointer; }
+      .kb-ctl input[type="range"]::-webkit-slider-runnable-track { height: 4px; border-radius: 99px; background: rgba(255,255,255,.12); }
+      .kb-ctl input[type="range"]::-moz-range-track { height: 4px; border-radius: 99px; background: rgba(255,255,255,.12); }
+      .kb-ctl input[type="range"]::-moz-range-progress { height: 4px; border-radius: 99px; background: var(--ember); }
+      .kb-ctl input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; margin-top: -7px; border-radius: 50%; background: var(--ink); box-shadow: 0 1px 4px rgba(0,0,0,.5); transition: transform .15s; }
+      .kb-ctl input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border: 0; border-radius: 50%; background: var(--ink); box-shadow: 0 1px 4px rgba(0,0,0,.5); }
+      .kb-ctl input[type="range"]:hover::-webkit-slider-thumb { transform: scale(1.1); }
+      .kb-ctl input[type="range"]:focus-visible { outline: none; }
+      .kb-ctl input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 4px rgba(59,130,246,.35); }
+      .kb-ctl input[type="range"]:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 4px rgba(59,130,246,.35); }
+      .kb-out { display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: 26px clamp(22px, 3vw, 36px); background: #080809; }
+      .kb-key { font: 500 clamp(16px, 1.9vw, 21px)/1.3 var(--mono); letter-spacing: .02em; color: var(--ink); overflow-wrap: anywhere; }
+      .kb-key ~ .kb-key { color: var(--mute); }
+      .kb-bits { margin-top: 6px; font-size: 13.5px; color: var(--mute); }
+
+      /* the dashboard tour */
+      .tour-tabs { width: fit-content; max-width: 100%; margin: 0 auto 26px; padding: 6px; border: 1px solid var(--line); border-radius: 13px; background: var(--panel); justify-content: center; }
+      .tour-panel { display: grid; gap: 22px; }
+      .tour-copy { order: -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); grid-template-rows: auto 1fr; gap: 10px clamp(24px, 4vw, 60px); align-items: start; }
+      a.pp-frame { cursor: zoom-in; transition: border-color .2s; }
+      a.pp-frame:hover { border-color: rgba(255,255,255,.2); }
+      .tour-panel[hidden] { display: none; }
+      .tour-copy > h3, .tour-copy > p { grid-column: 1; }
+      .tour-copy > ul { grid-column: 2; grid-row: 1 / span 2; }
+      .tour-copy h3 { font-size: clamp(21px, 2vw, 25px); font-weight: 500; letter-spacing: -.015em; margin-bottom: 10px; text-wrap: balance; }
+      .tour-copy p { color: var(--mute); font-size: 15.5px; line-height: 1.6; text-wrap: pretty; }
+      .tour-copy ul { list-style: none; display: grid; gap: 10px; }
+      .tour-copy li { display: grid; grid-template-columns: 14px 1fr; gap: 8px; font-size: 14.5px; line-height: 1.55; color: var(--mute); }
+      .tour-copy li::before { content: ""; width: 5px; height: 5px; margin-top: 9px; border-radius: 50%; background: rgba(242,241,238,.45); }
+      .tour-more { margin-top: clamp(40px, 6vw, 72px); }
+
+      @media (max-width: 900px) {
+        .lc-out { grid-template-columns: 1fr; }
+        .lc-card + .lc-card { border-left: 0; border-top: 1px solid var(--line); }
+        .kb-box, .tour-copy { grid-template-columns: 1fr; }
+        .tour-copy > ul { grid-column: 1; grid-row: auto; }
+        .kb-ctl { border-right: 0; border-top: 1px solid var(--line); }
+        .kb-out { order: -1; }
+      }
       @media (max-width: 760px) {
         .lx-pane { grid-template-columns: 1fr; }
         .lx-side + .lx-side { border-left: 0; border-top: 1px solid var(--line); }
         .lx-tabs .lx-note { margin-left: 0; flex-basis: 100%; }
+      }
+      @media (max-width: 620px) {
+        .lc-stage { grid-template-columns: 1fr; }
+        .lc-wire { width: 0; height: 44px; margin: 10px auto; border-top: 0; border-left: 2px dashed rgba(255,255,255,.22); }
+        .lc-dot { top: 0; left: -6px; }
+        .kb-ctl { grid-template-columns: 1fr; }
+        .lc-pick { display: grid; grid-template-columns: 1fr 1fr; }
+        .lc-pick .lx-note { grid-column: 1 / -1; }
       }
     </style>
 </head>
@@ -244,7 +327,7 @@
         <p class="lede rv">Keys, machine lock and a check API that answers in your words. You set it up in minutes in your InstantNode dashboard, we run it in our network in the Netherlands.</p>
         <div class="hero-actions rv">
           <a class="btn btn-light btn-lg" href="/dashboard/license-servers">Get your license server</a>
-          <a class="btn btn-ghost btn-lg" href="#answer">See what you can change</a>
+          <a class="btn btn-ghost btn-lg" href="#how">See how a check works</a>
         </div>
         <div class="pill-row rv">
           <span class="chip"><i class="fa-solid fa-key"></i>Your key format</span>
@@ -262,10 +345,59 @@
         <div class="cells cells-4" style="border-top:0">
           <div class="cell rv"><span class="n" data-no-i18n>€4.99</span><span class="k">a month for the whole server, every feature included</span></div>
           <div class="cell rv"><span class="n" data-no-i18n>12</span><span class="k">answers your buyers read, every one in your words</span></div>
-          <div class="cell rv"><span class="n" data-no-i18n>100k</span><span class="k">keys per import from your old system</span></div>
+          <div class="cell rv"><span class="n" data-no-i18n>100k</span><span class="k">keys per import, pasted or from a file</span></div>
           <div class="cell rv"><span class="n" data-no-i18n>7</span><span class="k">languages of ready check code, FiveM to C#</span></div>
         </div>
       </section>
+
+      <!-- ===== how a check works: the page's one animated moment (js/license-server.js) ===== -->
+      <section class="sec" id="how">
+        <div class="sec-head">
+          <span class="badge rv">How a check works</span>
+          <h2 class="d2 rv">Your script asks.<br />Your server decides.</h2>
+          <p class="lede rv">Every time your script starts, it sends its key to your license server and waits for the answer. Pick a situation and see what your script gets, what your buyer reads and what reaches you.</p>
+        </div>
+        <div class="lc rv" id="lc" data-result="ok">
+          <div class="lc-box">
+            <div class="lx-tabs lc-pick" role="tablist" aria-label="Situations">
+              <button role="tab" id="lc-t1" aria-controls="lc-panel" aria-selected="true">The buyer's own PC</button>
+              <button role="tab" id="lc-t2" aria-controls="lc-panel" aria-selected="false" tabindex="-1">Shared with a friend</button>
+              <button role="tab" id="lc-t3" aria-controls="lc-panel" aria-selected="false" tabindex="-1">Key ran out</button>
+              <button role="tab" id="lc-t4" aria-controls="lc-panel" aria-selected="false" tabindex="-1">Leaked copy</button>
+              <span class="lx-note">Example, not a real server</span>
+            </div>
+            <div id="lc-panel" role="tabpanel" aria-labelledby="lc-t1">
+              <div class="lc-stage" aria-hidden="true">
+                <div class="lc-node lc-pc">
+                  <span class="lc-cap">A PC running your script</span>
+                  <b class="lc-machine" data-no-i18n>nordlicht-01</b>
+                  <small data-no-i18n>sends PJ-7KQM-W2RX-9HTD</small>
+                </div>
+                <div class="lc-wire"><i class="lc-dot"></i></div>
+                <div class="lc-node lc-srv">
+                  <span class="lc-cap">Your license server</span>
+                  <b data-no-i18n>license.instantnode.eu<wbr />/nordlicht</b>
+                  <span class="lc-verdict" data-no-i18n>Valid</span>
+                </div>
+              </div>
+              <div class="lc-out" aria-live="polite">
+                <div class="lc-card"><h3>Your script gets</h3><pre id="lc-json" data-no-i18n>{
+  "data": {
+    "ok": <b>true</b>,
+    "msg": "<b>Welcome back! 23 days left.</b>",
+    "code": "ok"
+  },
+  "signature": "Qm9CR2x5...J5Aw=="
+}</pre></div>
+                <div class="lc-card" id="lc-buyer"><h3>Your buyer reads</h3><p class="lc-msg" id="lc-buyer-msg" data-no-i18n>Welcome back! 23 days left.</p><p class="lc-act" id="lc-buyer-act" data-no-i18n>The script starts.</p></div>
+                <div class="lc-card"><h3>You get</h3><p class="lc-you" id="lc-you" data-no-i18n><b>Nothing to do.</b> The check appears in your live list, with machine and address.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="lx-legend rv">Every message here is the seller's own text, written once in the dashboard. The signature proves to your script that the answer really came from your server.</p>
+      </section>
+
 
       <!-- ===== the answer, three ways ===== -->
       <section class="sec" id="answer">
@@ -329,11 +461,28 @@
         <div class="sec-head">
           <span class="badge rv">Keys</span>
           <h2 class="d2 rv">Keys that look<br />like your brand.</h2>
-          <p class="lede rv">Every product has its own key format, its own lock and its own runtime. Create keys by hand, in batches, or let your shop create one on every sale.</p>
+          <p class="lede rv">Every product has its own key format, its own lock and its own runtime. Try it: this is the same key maker the dashboard uses.</p>
+        </div>
+        <div class="kb rv">
+          <form class="kb-box" id="kb" onsubmit="return false" aria-label="Key format example">
+            <div class="kb-ctl">
+              <label><span>Prefix</span><input type="text" name="prefix" value="PJ-" maxlength="8" autocomplete="off" spellcheck="false" /></label>
+              <label><span>Between blocks</span><select name="sep"><option value="-">Dash</option><option value=".">Dot</option><option value="">Nothing</option></select></label>
+              <label><span>Blocks <output data-for="blocks">3</output></span><input type="range" name="blocks" min="1" max="6" value="3" /></label>
+              <label><span>Characters per block <output data-for="len">4</output></span><input type="range" name="len" min="3" max="8" value="4" /></label>
+              <label style="grid-column:1/-1"><span>Characters</span><select name="set"><option value="upper">Capitals and digits, no look-alikes</option><option value="hex">Hex (0-9, A-F)</option><option value="lower">Lower case and digits</option><option value="alnum">Letters and digits</option></select></label>
+            </div>
+            <div class="kb-out" aria-live="polite" data-no-i18n>
+              <code class="kb-key">PJ-R6SJ-26DJ-HYAR</code>
+              <code class="kb-key">PJ-PU4K-99XZ-FUWJ</code>
+              <code class="kb-key">PJ-NG8Y-H332-K84J</code>
+              <p class="kb-bits">59 bits of randomness, practically impossible to guess.</p>
+            </div>
+          </form>
         </div>
         <div class="cells cells-3">
           <div class="cell rv"><canvas class="art cell-ico" data-art="key" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Your key format</h3><p>Prefix, number of blocks, block length, separator and characters, per product. PJ-7KQM-W2RX-9HTD or one long hex string, your call.</p></div>
-          <div class="cell rv"><canvas class="art cell-ico" data-art="import" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Bring your old keys</h3><p>Import a lizenz.txt or any list, up to 100,000 keys at once. Keys that already exist are skipped, and everything imported works right away.</p></div>
+          <div class="cell rv"><canvas class="art cell-ico" data-art="import" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Bring your old keys</h3><p>Paste the keys you already sold or load a text or CSV file, up to 100,000 at once. Keys that already exist are skipped, and everything imported works right away.</p></div>
           <div class="cell rv"><canvas class="art cell-ico" data-art="braces" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Keys from your shop</h3><p>Give your shop or bot an API key and it creates a license on every sale, with the customer and order number attached.</p></div>
           <div class="cell rv"><canvas class="art cell-ico" data-art="clock" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Runtimes that fit</h3><p>Forever, a fixed number of days, or days counted from the first start. Extend any key with one click.</p></div>
           <div class="cell rv"><canvas class="art cell-ico" data-art="search" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Find any buyer</h3><p>Search by key, customer, note, machine or IP address. Free a slot, extend, suspend or revoke right from the result.</p></div>
@@ -350,14 +499,14 @@
               <h2 class="d2 rv">Shared keys<br />stop working.</h2>
               <p class="lede rv">A key that turns up on a stranger's machine gets refused with your own message, and you hear about it in Discord.</p>
             </div>
-            <div class="pp-term rv" data-no-i18n aria-hidden="true">
-              <div class="pp-term-bar">a check from a second machine</div>
-              <pre>{
-  "valid": false,
-  "code": "hwid_mismatch",
-  "message": "This license is already
-    in use on another machine."
-}</pre>
+            <div class="pp-term rv" data-no-i18n>
+              <div class="pp-term-bar">The message in your Discord channel</div>
+              <pre><span class="p">Nordlicht Scripts</span>
+Key used on another machine
+
+<span class="d">key </span> PJ-7KQM-W2RX-9HTD
+<span class="d">hwid</span> friends-pc-77
+<span class="d">ip  </span> 91.78.99.63</pre>
             </div>
           </div>
           <ol class="pp-rows">
@@ -371,33 +520,78 @@
         </div>
       </section>
 
-      <!-- ===== the dashboard ===== -->
-      <section class="sec sec-flush">
+      <!-- ===== the dashboard: four real screens, example data ===== -->
+      <section class="sec sec-flush" id="dashboard">
         <div class="sec-head" style="padding: clamp(64px,9vw,110px) var(--pad) 0">
           <span class="badge rv">The dashboard</span>
           <h2 class="d2 rv">Run it like it is yours.<br />Because it is.</h2>
-          <p class="lede rv">Find a buyer in one field, see what needs a look, and watch every check come in live.</p>
+          <p class="lede rv">Four screens do most of the work. Click through them, shown with example data.</p>
         </div>
-        <div class="pp-wrap pp-show">
-          <div class="pp-show-shot rv">
-            <div class="pp-frame">
-              <picture>
-                <source srcset="/backgrounds/license-dashboard.webp?v=1" type="image/webp" />
-                <img alt="The InstantLicense dashboard with a search field, the last hour of checks and the latest checks, shown with example data" src="/backgrounds/license-dashboard.png?v=1" width="1800" height="1000" loading="lazy" decoding="async" />
-              </picture>
-            </div>
-            <p class="lx-legend" style="padding:0;margin-top:10px">Shown with example data.</p>
+        <div class="tour rv">
+          <div class="lx-tabs tour-tabs" id="tour-tabs" role="tablist" aria-label="Dashboard screens">
+            <button role="tab" id="tour-t1" aria-controls="tour-p1" aria-selected="true">Overview</button>
+            <button role="tab" id="tour-t2" aria-controls="tour-p2" aria-selected="false" tabindex="-1">Products</button>
+            <button role="tab" id="tour-t3" aria-controls="tour-p3" aria-selected="false" tabindex="-1">Response designer</button>
+            <button role="tab" id="tour-t4" aria-controls="tour-p4" aria-selected="false" tabindex="-1">Buyer page</button>
           </div>
+          <div class="tour-panel" id="tour-p1" role="tabpanel" aria-labelledby="tour-t1">
+            <a class="pp-frame" href="/backgrounds/license-overview.png?v=1" target="_blank" rel="noopener" aria-label="Open this screenshot in full size"><picture><source srcset="/backgrounds/license-overview.webp?v=1" type="image/webp" /><img alt="The overview: a search field, the checks of the last hour, the latest checks and a Needs a look list with keys on other machines" src="/backgrounds/license-overview.png?v=1" width="1800" height="1000" loading="lazy" decoding="async" /></picture></a>
+            <div class="tour-copy">
+              <h3>Everything at a glance</h3>
+              <p>The first screen answers the questions you have most: is everything running, and does anything need you?</p>
+              <ul>
+                <li>One field finds any key, buyer, machine or IP address.</li>
+                <li>Every check of the last hour, live, refused ones in red.</li>
+                <li>Needs a look lists keys on a second machine and licenses about to run out, with the fix right next to them.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tour-panel" id="tour-p2" role="tabpanel" aria-labelledby="tour-t2" hidden>
+            <a class="pp-frame" href="/backgrounds/license-product.png?v=1" target="_blank" rel="noopener" aria-label="Open this screenshot in full size"><picture><source srcset="/backgrounds/license-product.webp?v=1" type="image/webp" /><img alt="A product being edited: name, product code, key format with prefix, blocks and characters, and example keys" src="/backgrounds/license-product.png?v=1" width="1800" height="1000" loading="lazy" decoding="async" /></picture></a>
+            <div class="tour-copy">
+              <h3>One product per script</h3>
+              <p>Each script you sell is a product with its own keys and rules.</p>
+              <ul>
+                <li>Choose how keys look and see example keys while you type.</li>
+                <li>Set how many machines or IP addresses one key may use.</li>
+                <li>Keys run forever, for a fixed time or from their first start.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tour-panel" id="tour-p3" role="tabpanel" aria-labelledby="tour-t3" hidden>
+            <a class="pp-frame" href="/backgrounds/license-response.png?v=1" target="_blank" rel="noopener" aria-label="Open this screenshot in full size"><picture><source srcset="/backgrounds/license-response.webp?v=1" type="image/webp" /><img alt="The response designer: address, names the script sends, the answer fields and a live preview of the answer" src="/backgrounds/license-response.png?v=1" width="1800" height="1000" loading="lazy" decoding="async" /></picture></a>
+            <div class="tour-copy">
+              <h3>Your API, your words</h3>
+              <p>Shape the answer so it fits the code you already have, instead of rewriting your script.</p>
+              <ul>
+                <li>Pick the address, the names your script sends and the fields it gets back.</li>
+                <li>Write all 12 messages yourself, with the buyer's days left or end date filled in.</li>
+                <li>The preview shows the exact answer before you save, and a test box checks a real key.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tour-panel" id="tour-p4" role="tabpanel" aria-labelledby="tour-t4" hidden>
+            <a class="pp-frame" href="/backgrounds/license-buyer.png?v=1" target="_blank" rel="noopener" aria-label="Open this screenshot in full size"><picture><source srcset="/backgrounds/license-buyer.webp?v=1" type="image/webp" /><img alt="The buyer page: a buyer looked up their key and sees the product, the end date, the machines in use and a button to move it" src="/backgrounds/license-buyer.png?v=1" width="1800" height="1000" loading="lazy" decoding="async" /></picture></a>
+            <div class="tour-copy">
+              <h3>Buyers help themselves</h3>
+              <p>Every license server comes with a page for your buyers, under your name.</p>
+              <ul>
+                <li>Buyers look up their key and see how long it runs.</li>
+                <li>A new PC? They move the key themselves, with a cooldown you set.</li>
+                <li>No ticket for you, no account for them.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="pp-wrap pp-show tour-more">
           <div class="pp-feats">
-            <div class="pp-feat rv"><i class="fa-solid fa-magnifying-glass"></i><div><h3>Search first</h3><p>Type a key, a buyer, a machine or an IP address and act on the result straight away.</p></div></div>
-            <div class="pp-feat rv"><i class="fa-solid fa-bell"></i><div><h3>Needs a look</h3><p>Keys on foreign machines, blocked machines knocking and licenses about to run out, each with the fix next to it.</p></div></div>
-            <div class="pp-feat rv"><i class="fa-solid fa-sliders"></i><div><h3>Response designer</h3><p>Rename every field and message and see the exact answer your script will get before you save.</p></div></div>
-            <div class="pp-feat rv"><i class="fa-solid fa-user-check"></i><div><h3>A page for buyers</h3><p>Buyers look up their own key and move it to a new PC, without opening a ticket with you.</p></div></div>
             <div class="pp-feat rv"><i class="fa-solid fa-list-ul"></i><div><h3>Check log</h3><p>Every check of the last 30 days with its answer, machine and address, filterable in a second.</p></div></div>
             <div class="pp-feat rv"><i class="fa-solid fa-plug"></i><div><h3>API keys for your shop</h3><p>Give your shop or bot its own key to create, extend and look up licenses, and revoke it any time.</p></div></div>
+            <div class="pp-feat rv"><i class="fa-solid fa-code"></i><div><h3>Ready check code</h3><p>Copy the check for your platform, already using your address and your field names.</p></div></div>
           </div>
         </div>
       </section>
+
 
       <!-- ===== works with ===== -->
       <section class="statement">
@@ -464,7 +658,7 @@
           <div class="faq has-ping">
           <span class="ping ping--stand" style="--pw:78px;right:34px" aria-hidden="true"><img src="/img/ping/ping-think.webp" width="520" height="748" alt="" loading="lazy" decoding="async" /></span>
           <details class="rv"><summary>Do I need to write or host any server code?</summary><div>No. You get a running license server with a dashboard. You decide names, messages and key formats there, the license logic itself is ours and always the same.</div></details>
-          <details class="rv"><summary>Can I keep the keys I already sold?</summary><div>Yes. Import a lizenz.txt or any list of keys, up to 100,000 at once. Keys that already exist are skipped, and every imported key works right away.</div></details>
+          <details class="rv"><summary>Can I keep the keys I already sold?</summary><div>Yes. Paste them or load a text or CSV file from your old system, up to 100,000 keys at once. Keys that already exist are skipped, and every imported key works right away.</div></details>
           <details class="rv"><summary>How do keys get to my buyers?</summary><div>Your shop creates a key on every sale through the API, or you hand them out from an imported list. You can also create and copy keys by hand in the dashboard.</div></details>
           <details class="rv"><summary>What stops a buyer from sharing a key?</summary><div>The machine lock. A key binds to the first machines that start your script, as many as you allow per product. Everyone else gets your own "already in use" message.</div></details>
           <details class="rv"><summary>What does it cost?</summary><div>EUR 4.99 a month for the whole license server, paid from your InstantNode balance like every other service. All features are included, with room for up to 250,000 keys.</div></details>
@@ -574,33 +768,6 @@
     </main>
 
     <script src="/js/lunaris.js?v=lic1" defer></script>
-    <script>
-      /* /license-server: the example tabs (arrow keys move between them, like any tablist) */
-      (function () {
-        var tabs = [].slice.call(document.querySelectorAll('.lx-tabs [role="tab"]'));
-        var facts = [
-          '<span>Keys <b>PJ-XXXX-XXXX-XXXX</b></span><span>Lock <b>1 machine</b></span><span>Runs <b>30 days from first use</b></span><span>Address <b>license.instantnode.eu/nordlicht</b></span>',
-          '<span>Keys <b>BW-XXXXX-XXXXX</b></span><span>Lock <b>2 machines</b></span><span>Runs <b>forever</b></span><span>Address <b>license.instantnode.eu/blockwerk</b></span>',
-          '<span>Keys <b>24 hex characters</b></span><span>Lock <b>1 experience</b></span><span>Runs <b>365 days</b></span><span>Address <b>license.instantnode.eu/skyforge</b></span>'
-        ];
-        function show(i, focus) {
-          tabs.forEach(function (t, j) {
-            var on = i === j;
-            t.setAttribute('aria-selected', on ? 'true' : 'false');
-            t.tabIndex = on ? 0 : -1;
-            document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
-          });
-          document.getElementById('lx-facts').innerHTML = facts[i];
-          if (focus) tabs[i].focus();
-        }
-        tabs.forEach(function (t, i) {
-          t.addEventListener('click', function () { show(i); });
-          t.addEventListener('keydown', function (e) {
-            if (e.key === 'ArrowRight') show((i + 1) % tabs.length, true);
-            if (e.key === 'ArrowLeft') show((i + tabs.length - 1) % tabs.length, true);
-          });
-        });
-      })();
-    </script>
+    <script src="/js/license-server.js?v=1" defer></script>
   </body>
 </html>
