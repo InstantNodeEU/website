@@ -273,26 +273,34 @@
     return f
   }
 
+  function spans(cls, parts) {
+    var d = el('div', cls)
+    parts.filter(Boolean).forEach(function (x) { d.appendChild(el('span', '', x)) })
+    return d
+  }
   function card(rv, t, c) {
-    var a = el('article', 'quote rv-card')
-    var head = el('div', 'rv-head')
-    head.appendChild(avatar(rv))
-    var w = el('div')
-    w.appendChild(el('b', '', rv.displayName))
-    var meta = [country(rv.country, c), date(rv.createdAt, c)]
-    if (rv.editedAt) meta.push(t.edited)
-    if (rv.paying) meta.push(t.paying)
-    w.appendChild(el('span', '', meta.filter(Boolean).join(' · ')))
-    head.appendChild(w)
-    a.appendChild(head)
-    a.appendChild(stars(rv.rating, t.stars(rv.rating)))
+    var row = el('article', 'rv-row')
+    var score = el('div', 'rv-score')
+    score.appendChild(el('span', 'rv-num', String(rv.rating)))
+    score.appendChild(stars(rv.rating, t.stars(rv.rating)))
+    row.appendChild(score)
+    var a = el('div', 'rv-main')  // text, author, reply and actions
+    row.appendChild(a)
     a.appendChild(el('p', 'rv-body', rv.body))
+    var who = el('div', 'rv-who')
+    who.appendChild(avatar(rv))
+    var w = el('div')
+    var name = el('div', 'rv-name')
+    name.appendChild(el('b', '', rv.displayName))
+    if (rv.paying) { var pc = el('span', 'rv-paid', t.paying); pc.insertAdjacentHTML('afterbegin', CHECK); name.appendChild(pc) }
+    w.appendChild(name)
+    w.appendChild(spans('rv-meta', [country(rv.country, c), date(rv.createdAt, c), rv.editedAt && t.edited]))
     if (rv.details) {
-      var facts = [t.since(month(rv.details.customerSince, c))]
-      if (rv.details.spent) facts.push(t.spent(rv.details.spent))
-      if (rv.details.products.length) facts.push(rv.details.products.map(function (p) { return t.products[p] || p }).join(', '))
-      a.appendChild(el('p', 'rv-facts', facts.join(' · ')))
+      w.appendChild(spans('rv-meta', [t.since(month(rv.details.customerSince, c)), rv.details.spent && t.spent(rv.details.spent),
+        rv.details.products.map(function (p) { return t.products[p] || p }).join(', ')]))
     }
+    who.appendChild(w)
+    a.appendChild(who)
     if (rv.reply) {
       var rep = el('div', 'rv-reply')
       rep.appendChild(el('b', '', t.reply))
@@ -312,11 +320,12 @@
       foot.appendChild(rb)
       a.appendChild(foot)
     }
-    return a
+    return row
   }
 
   /* ---------- helpful ---------- */
 
+  var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'
   var THUMB = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11v9H4v-9h3zM7 11l4-8c1.4 0 2.5 1.1 2.5 2.5V9h5.2c1.2 0 2.1 1.1 1.9 2.3l-1.3 7.2c-.2 1-1 1.5-1.9 1.5H7"/></svg>'
   function helpfulButton(rv, t) {
     var wrap = el('div', 'rv-help')
@@ -357,10 +366,15 @@
   }
 
   function removedCard(rm, t, c) {
-    var a = el('article', 'quote rv-card rv-removed')
-    a.appendChild(el('b', '', t.removedTitle))
-    a.appendChild(el('span', '', t.removedLine(date(rm.removed.at, c), t.cats[rm.removed.category] || rm.removed.category)))
-    a.appendChild(el('span', '', t.written(date(rm.createdAt, c))))
+    var a = el('article', 'rv-row rv-removed')
+    var score = el('div', 'rv-score')
+    score.appendChild(el('span', 'rv-num', '-'))
+    a.appendChild(score)
+    var main = el('div', 'rv-main')
+    main.appendChild(el('b', '', t.removedTitle))
+    main.appendChild(el('span', '', t.removedLine(date(rm.removed.at, c), t.cats[rm.removed.category] || rm.removed.category)))
+    main.appendChild(el('span', '', t.written(date(rm.createdAt, c))))
+    a.appendChild(main)
     return a
   }
 
@@ -380,20 +394,6 @@
     set('.js-mod-removed-by', parts.join(' · '))
     set('.js-mod-reports', m.reports.received + ' / ' + m.reports.resolved)
     set('.js-mod-replies', m.replies)
-  }
-
-  var seen = window.IntersectionObserver ? new IntersectionObserver(function (entries) {
-    var k = 0
-    entries.forEach(function (e) {
-      if (!e.isIntersecting) return
-      seen.unobserve(e.target)
-      e.target.style.transitionDelay = (k++ % 6) * 60 + 'ms'
-      e.target.classList.add('is-in')
-    })
-  }, { rootMargin: '0px 0px -40px 0px' }) : null
-  function reveal(node) {
-    if (!seen || still) { node.classList.add('is-in'); return }
-    seen.observe(node)
   }
 
   // Nothing to show: a card Ping peeks over, with a way back to all reviews.
@@ -443,11 +443,7 @@
     items.sort(by[state.sort])
     msg.hidden = true
     if (!items.length) list.appendChild(noneCard(t.none, t, true))
-    items.forEach(function (it) {
-      var node = it.rv ? card(it.rv, t, c) : removedCard(it.rm, t, c)
-      list.appendChild(node)
-      reveal(node)
-    })
+    items.forEach(function (it) { list.appendChild(it.rv ? card(it.rv, t, c) : removedCard(it.rm, t, c)) })
   }
 
   fetch('/api/v1/public/reviews', { headers: { Accept: 'application/json' } })
