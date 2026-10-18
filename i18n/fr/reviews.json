@@ -47,5 +47,7 @@
  "Do you reward reviews?": "Récompensez-vous les avis ?",
  "No. Nobody gets a discount, credit or anything else for writing a review, whatever the rating.": "Non. Personne ne reçoit de réduction, de crédit ou autre chose pour un avis, quelle que soit la note.",
  "Used InstantNode?": "Vous utilisez InstantNode ?",
- "Tell others how it went. Your review goes online right away, whatever the rating.": "Dites aux autres comment ça s'est passé. Votre avis est mis en ligne immédiatement, quelle que soit la note."
+ "Tell others how it went. Your review goes online right away, whatever the rating.": "Dites aux autres comment ça s'est passé. Votre avis est mis en ligne immédiatement, quelle que soit la note.",
+ "What does Helpful mean?": "Que signifie Utile ?",
+ "Logged-in accounts can mark a review as helpful, once per review, and take the mark back with a second click. Team accounts and the author of the review cannot. Most helpful sorts the list by these marks. We count each account once and do not show who marked a review.": "Les comptes connectés peuvent marquer un avis comme utile, une fois par avis, et annuler ce marquage d'un second clic. Les comptes de l'équipe et l'auteur de l'avis ne le peuvent pas. Les plus utiles trie la liste selon ces marquages. Chaque compte compte une fois et nous n'affichons pas qui a marqué un avis."
 }

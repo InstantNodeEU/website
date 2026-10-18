@@ -22,7 +22,8 @@
       removedTitle: 'Review removed', removedLine: function (d, c) { return 'Removed on ' + d + ' · Reason: ' + c }, written: function (d) { return 'Written on ' + d },
       cats: { insult: 'Insult or threat', personal_data: 'Personal data', spam: 'Spam or advertising', unlawful: 'Other unlawful content', not_genuine: 'Not a genuine experience', other: 'Something else' },
       products: { gameserver: 'Game servers', kvm: 'KVM VPS', lxc: 'LXC VPS', vds: 'VDS', windows: 'Windows Server', storage: 'Storage Server', vps: 'VPS', dedicated: 'Dedicated servers', webspace: 'Web hosting', domain: 'Domains', email: 'E-mail', database: 'Databases', bot: 'Discord bots', ipforwarding: 'IP forwarding' },
-      all: 'All', allProducts: 'All products', sort: { newest: 'Newest first', oldest: 'Oldest first', high: 'Highest rating', low: 'Lowest rating' },
+      all: 'All', allProducts: 'All products', sort: { newest: 'Newest first', oldest: 'Oldest first', high: 'Highest rating', low: 'Lowest rating', helpful: 'Most helpful' },
+      helpful: 'Helpful', foundHelpful: function (n) { return n === 1 ? '1 person found this helpful' : n + ' people found this helpful' }, ownReview: 'This is your review', teamNoLike: 'Team accounts cannot mark reviews', loginToLike: 'Log in to mark this review as helpful',
       filterStars: 'Filter by rating', filterProduct: 'Filter by product', sortBy: 'Sort',
       report: 'Report', reportReason: 'What is wrong with this review?', reportMsg: 'Details (optional)', send: 'Send report', cancel: 'Cancel',
       thanks: 'Thanks. We will look at it and remove the review if it breaks the rules.', reportFailed: 'The report could not be sent. Please try again later.'
@@ -37,7 +38,8 @@
       removedTitle: 'Bewertung entfernt', removedLine: function (d, c) { return 'Entfernt am ' + d + ' · Grund: ' + c }, written: function (d) { return 'Geschrieben am ' + d },
       cats: { insult: 'Beleidigung oder Drohung', personal_data: 'Personenbezogene Daten', spam: 'Spam oder Werbung', unlawful: 'Sonstiger rechtswidriger Inhalt', not_genuine: 'Keine echte Erfahrung', other: 'Etwas anderes' },
       products: { gameserver: 'Gameserver', kvm: 'KVM VPS', lxc: 'LXC VPS', vds: 'VDS', windows: 'Windows Server', storage: 'Storage Server', vps: 'VPS', dedicated: 'Dedicated Server', webspace: 'Webhosting', domain: 'Domains', email: 'E-Mail', database: 'Datenbanken', bot: 'Discord-Bots', ipforwarding: 'IP-Forwarding' },
-      all: 'Alle', allProducts: 'Alle Produkte', sort: { newest: 'Neueste zuerst', oldest: 'Älteste zuerst', high: 'Beste Bewertung', low: 'Schlechteste Bewertung' },
+      all: 'Alle', allProducts: 'Alle Produkte', sort: { newest: 'Neueste zuerst', oldest: 'Älteste zuerst', high: 'Beste Bewertung', low: 'Schlechteste Bewertung', helpful: 'Hilfreichste zuerst' },
+      helpful: 'Hilfreich', foundHelpful: function (n) { return n === 1 ? '1 Person fand das hilfreich' : n + ' Personen fanden das hilfreich' }, ownReview: 'Das ist deine Bewertung', teamNoLike: 'Team-Konten können Bewertungen nicht markieren', loginToLike: 'Melde dich an, um diese Bewertung als hilfreich zu markieren',
       filterStars: 'Nach Bewertung filtern', filterProduct: 'Nach Produkt filtern', sortBy: 'Sortierung',
       report: 'Melden', reportReason: 'Was stimmt mit dieser Bewertung nicht?', reportMsg: 'Details (optional)', send: 'Meldung senden', cancel: 'Abbrechen',
       thanks: 'Danke. Wir sehen uns das an und entfernen die Bewertung, wenn sie gegen die Regeln verstößt.', reportFailed: 'Die Meldung konnte nicht gesendet werden. Bitte versuch es später noch einmal.'
@@ -52,7 +54,8 @@
       removedTitle: 'Avis retiré', removedLine: function (d, c) { return 'Retiré le ' + d + ' · Motif : ' + c }, written: function (d) { return 'Écrit le ' + d },
       cats: { insult: 'Insulte ou menace', personal_data: 'Données personnelles', spam: 'Spam ou publicité', unlawful: 'Autre contenu illicite', not_genuine: "Pas une expérience réelle", other: 'Autre chose' },
       products: { gameserver: 'Serveurs de jeu', kvm: 'VPS KVM', lxc: 'VPS LXC', vds: 'VDS', windows: 'Windows Server', storage: 'Serveur de stockage', vps: 'VPS', dedicated: 'Serveurs dédiés', webspace: 'Hébergement web', domain: 'Domaines', email: 'E-mail', database: 'Bases de données', bot: 'Bots Discord', ipforwarding: 'Redirection IP' },
-      all: 'Tous', allProducts: 'Tous les produits', sort: { newest: 'Plus récents', oldest: 'Plus anciens', high: 'Meilleure note', low: 'Moins bonne note' },
+      all: 'Tous', allProducts: 'Tous les produits', sort: { newest: 'Plus récents', oldest: 'Plus anciens', high: 'Meilleure note', low: 'Moins bonne note', helpful: 'Les plus utiles' },
+      helpful: 'Utile', foundHelpful: function (n) { return n === 1 ? '1 personne a trouvé cet avis utile' : n + ' personnes ont trouvé cet avis utile' }, ownReview: 'C\'est votre avis', teamNoLike: 'Les comptes de l\'équipe ne peuvent pas marquer les avis', loginToLike: 'Connectez-vous pour marquer cet avis comme utile',
       filterStars: 'Filtrer par note', filterProduct: 'Filtrer par produit', sortBy: 'Trier',
       report: 'Signaler', reportReason: "Quel est le problème avec cet avis ?", reportMsg: 'Détails (facultatif)', send: 'Envoyer le signalement', cancel: 'Annuler',
       thanks: "Merci. Nous allons l'examiner et retirer l'avis s'il enfreint les règles.", reportFailed: "Le signalement n'a pas pu être envoyé. Réessayez plus tard."
@@ -67,7 +70,8 @@
       removedTitle: 'Opinión retirada', removedLine: function (d, c) { return 'Retirada el ' + d + ' · Motivo: ' + c }, written: function (d) { return 'Escrita el ' + d },
       cats: { insult: 'Insulto o amenaza', personal_data: 'Datos personales', spam: 'Spam o publicidad', unlawful: 'Otro contenido ilícito', not_genuine: 'No es una experiencia real', other: 'Otra cosa' },
       products: { gameserver: 'Servidores de juegos', kvm: 'VPS KVM', lxc: 'VPS LXC', vds: 'VDS', windows: 'Windows Server', storage: 'Servidor de almacenamiento', vps: 'VPS', dedicated: 'Servidores dedicados', webspace: 'Alojamiento web', domain: 'Dominios', email: 'Correo', database: 'Bases de datos', bot: 'Bots de Discord', ipforwarding: 'Reenvío de IP' },
-      all: 'Todas', allProducts: 'Todos los productos', sort: { newest: 'Más recientes', oldest: 'Más antiguas', high: 'Mejor valoración', low: 'Peor valoración' },
+      all: 'Todas', allProducts: 'Todos los productos', sort: { newest: 'Más recientes', oldest: 'Más antiguas', high: 'Mejor valoración', low: 'Peor valoración', helpful: 'Más útiles' },
+      helpful: 'Útil', foundHelpful: function (n) { return n === 1 ? 'A 1 persona le resultó útil' : 'A ' + n + ' personas les resultó útil' }, ownReview: 'Esta es tu opinión', teamNoLike: 'Las cuentas del equipo no pueden marcar opiniones', loginToLike: 'Inicia sesión para marcar esta opinión como útil',
       filterStars: 'Filtrar por valoración', filterProduct: 'Filtrar por producto', sortBy: 'Ordenar',
       report: 'Denunciar', reportReason: '¿Qué problema tiene esta opinión?', reportMsg: 'Detalles (opcional)', send: 'Enviar denuncia', cancel: 'Cancelar',
       thanks: 'Gracias. La revisaremos y la retiraremos si incumple las normas.', reportFailed: 'No se pudo enviar la denuncia. Inténtalo más tarde.'
@@ -78,6 +82,8 @@
   var failed = false
   var state = { stars: 0, product: '', sort: 'newest', reporting: null, reported: {} }
   var animated = false
+  var likes = null        // { canLike, reason, liked: [ids], ownReviewId } once logged in
+  var csrf = null
   var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   function code() {
@@ -220,7 +226,7 @@
     }
     var ss = el('select', 'rv-sel')
     ss.setAttribute('aria-label', t.sortBy)
-    ;['newest', 'oldest', 'high', 'low'].forEach(function (k) { var o = el('option', '', t.sort[k]); o.value = k; if (state.sort === k) o.selected = true; ss.appendChild(o) })
+    ;['newest', 'oldest', 'high', 'low', 'helpful'].forEach(function (k) { var o = el('option', '', t.sort[k]); o.value = k; if (state.sort === k) o.selected = true; ss.appendChild(o) })
     ss.onchange = function () { state.sort = ss.value; render() }
     right.appendChild(ss)
     bar.appendChild(right)
@@ -299,6 +305,7 @@
       a.appendChild(reportForm(rv, t))
     } else {
       var foot = el('div', 'rv-foot')
+      foot.appendChild(helpfulButton(rv, t))
       var rb = el('button', 'rv-link', t.report)
       rb.type = 'button'
       rb.onclick = function () { state.reporting = rv.id; render() }
@@ -306,6 +313,47 @@
       a.appendChild(foot)
     }
     return a
+  }
+
+  /* ---------- helpful ---------- */
+
+  var THUMB = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11v9H4v-9h3zM7 11l4-8c1.4 0 2.5 1.1 2.5 2.5V9h5.2c1.2 0 2.1 1.1 1.9 2.3l-1.3 7.2c-.2 1-1 1.5-1.9 1.5H7"/></svg>'
+  function helpfulButton(rv, t) {
+    var wrap = el('div', 'rv-help')
+    var on = !!(likes && likes.liked.indexOf(rv.id) >= 0)
+    var b = el('button', 'rv-help-btn' + (on ? ' is-on' : ''))
+    b.type = 'button'
+    b.innerHTML = THUMB
+    b.appendChild(el('span', '', t.helpful))
+    b.setAttribute('aria-pressed', on ? 'true' : 'false')
+    var own = likes && likes.ownReviewId === rv.id
+    if (own || (likes && !likes.canLike)) { b.disabled = true; b.title = own ? t.ownReview : t.teamNoLike }
+    else if (!likes) b.title = t.loginToLike
+    b.onclick = function () {
+      if (!likes) { location.href = '/auth/login?returnTo=' + encodeURIComponent('/reviews'); return }
+      b.disabled = true
+      token().then(function (tk) {
+        return fetch('/api/v1/account/reviews/' + encodeURIComponent(rv.id) + '/helpful', {
+          method: 'POST', credentials: 'same-origin', headers: { Accept: 'application/json', 'x-csrf-token': tk }
+        })
+      }).then(function (r) { return r.ok ? r.json() : Promise.reject(r.status) })
+        .then(function (d) {
+          rv.helpful = d.helpful
+          var i = likes.liked.indexOf(rv.id)
+          if (d.liked && i < 0) likes.liked.push(rv.id)
+          if (!d.liked && i >= 0) likes.liked.splice(i, 1)
+          render()
+        })
+        .catch(function (st) { if (st === 401) { location.href = '/auth/login?returnTo=' + encodeURIComponent('/reviews') } else b.disabled = false })
+    }
+    wrap.appendChild(b)
+    if (rv.helpful) wrap.appendChild(el('span', 'rv-help-n', t.foundHelpful(rv.helpful)))
+    return wrap
+  }
+  function token() {
+    if (csrf) return Promise.resolve(csrf)
+    return fetch('/api/v1/auth/csrf-token', { credentials: 'same-origin', headers: { Accept: 'application/json' } })
+      .then(function (r) { return r.json() }).then(function (d) { csrf = d.csrfToken; return csrf })
   }
 
   function removedCard(rm, t, c) {
@@ -382,14 +430,15 @@
       if (state.stars && rv.rating !== state.stars) return false
       if (state.product && !(rv.details && rv.details.products.indexOf(state.product) >= 0)) return false
       return true
-    }).map(function (rv) { return { at: rv.createdAt, rating: rv.rating, rv: rv } })
+    }).map(function (rv) { return { at: rv.createdAt, rating: rv.rating, helpful: rv.helpful || 0, rv: rv } })
     // Removed reviews have no rating or product: they belong to the unfiltered view.
     if (!state.stars && !state.product) data.removed.forEach(function (rm) { items.push({ at: rm.createdAt, rating: null, rm: rm }) })
     var by = {
       newest: function (a, b) { return a.at < b.at ? 1 : -1 },
       oldest: function (a, b) { return a.at > b.at ? 1 : -1 },
       high: function (a, b) { return (b.rating || -1) - (a.rating || -1) || (a.at < b.at ? 1 : -1) },
-      low: function (a, b) { return (a.rating || 99) - (b.rating || 99) || (a.at < b.at ? 1 : -1) }
+      low: function (a, b) { return (a.rating || 99) - (b.rating || 99) || (a.at < b.at ? 1 : -1) },
+      helpful: function (a, b) { return (b.helpful || -1) - (a.helpful || -1) || (a.at < b.at ? 1 : -1) }
     }
     items.sort(by[state.sort])
     msg.hidden = true
@@ -405,5 +454,9 @@
     .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status) })
     .then(function (d) { data = d; render() })
     .catch(function () { failed = true; render() })
+  fetch('/api/v1/account/review-likes', { credentials: 'same-origin', headers: { Accept: 'application/json' } })
+    .then(function (r) { return r.ok ? r.json() : null })
+    .then(function (d) { if (d && d.ok) { likes = d; if (data) render() } })
+    .catch(function () { /* stays a visitor */ })
   document.addEventListener('inn:lang', render)
 })()
