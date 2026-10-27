@@ -77,7 +77,11 @@
       var a = e.target && e.target.closest && e.target.closest('.inn-sales-off');
       if (a) { e.preventDefault(); e.stopPropagation(); }
     }, true);
-    if (!hit && !/^\/(kvm|lxc|vds|windows-server|storage-server|openclaw)(\.html)?\/?$/.test(location.pathname)) return;
+    // Banner only where a plan is really blocked: a greyed button or a plan of this page's type.
+    var PAGE = { kvm: 'kvm', lxc: 'lxc', vds: 'vds', 'windows-server': 'windows-kvm', 'storage-server': 'storage', openclaw: 'openclaw' };
+    var m = location.pathname.match(/^\/([a-z-]+?)(\.html)?\/?$/), pt = m && PAGE[m[1]];
+    var pageOff = pt && (d.unavailablePlans || []).some(function (k) { return k.toLowerCase().indexOf(pt + ':') === 0; });
+    if (!hit && !pageOff) return;
     if (document.querySelector('.inn-sales-banner')) return;
     var c = d.sizeCap, parts = [];
     if (c.cpu) parts.push(c.cpu + ' vCPU');
