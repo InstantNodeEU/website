@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=17" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=18" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Storage VPS - up to 5 TB | InstantNode</title>
@@ -33,7 +33,7 @@
       "@type": "Product",
       "@id": "https://instantnode.eu/storage-server#product",
       "name": "Storage VPS",
-      "description": "High-capacity storage VPS with up to 5 TB of space at €0.008 per GB. Full root access, snapshots, a dedicated IPv4 and free DDoS protection - resizable at any time.",
+      "description": "High-capacity storage VPS with up to 5 TB of space at €0.008 per GB. Full root access, snapshots, a dedicated IPv4, a /64 IPv6 subnet and free DDoS protection - resizable at any time.",
       "image": "https://instantnode.eu/illustrations/storage-server.webp",
       "url": "https://instantnode.eu/storage-server",
       "brand": {
@@ -91,7 +91,7 @@
           "name": "Is this object storage or a real server?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A real KVM server with its own IPv4 address, full root access and DDoS protection - not a shared bucket. Snapshots and restores are available from the panel."
+            "text": "A real KVM server with its own IPv4 address and /64 IPv6 subnet, full root access and DDoS protection - not a shared bucket. Snapshots and restores are available from the panel."
           }
         },
         {
@@ -333,7 +333,7 @@
               <li>1 - 4 vCPU AMD</li>
               <li>2 - 8 GB DDR4 ECC RAM</li>
               <li>250 - 5,000 GB storage · €0.008 per GB</li>
-              <li>1x IPv4 &amp; DDoS protection</li>
+              <li>1x IPv4, /64 IPv6 &amp; DDoS protection</li>
               <li>Pay only for what you configure</li>
             </ul>
             <a class="btn btn-light" href="/dashboard/containers/create?type=storage">Order now</a>
@@ -400,7 +400,7 @@ Filesystem      Size  Used Avail Use% Mounted on
             <ul class="pp-facts rv">
               <li><b>Eygelshoven, NL</b><span>Datacenter location</span></li>
               <li><b>Always-on</b><span>DDoS protection included</span></li>
-              <li><b>1x IPv4</b><span>Dedicated address included</span></li>
+              <li><b>IPv4 + IPv6</b><span>1x IPv4 and a /64 subnet included</span></li>
               <li><b>GDPR</b><span>EU hosting, EU company</span></li>
             </ul>
           </div>
@@ -431,6 +431,7 @@ Filesystem      Size  Used Avail Use% Mounted on
             <div><dt>Snapshots</dt><dd>Easy snapshots &amp; restores from the panel</dd></div>
             <div><dt>DDoS protection</dt><dd>Included, always-on</dd></div>
             <div><dt>IPv4</dt><dd>1x dedicated IPv4 address included</dd></div>
+            <div><dt>IPv6</dt><dd>/64 IPv6 subnet included</dd></div>
             <div><dt>Above 5 TB</dt><dd>Custom setups via support ticket</dd></div>
             <div><dt>Location</dt><dd>Netherlands / EU - GDPR compliant</dd></div>
             <div><dt>Deployment</dt><dd>Automated - online in about 60 seconds</dd></div>
@@ -496,7 +497,7 @@ Filesystem      Size  Used Avail Use% Mounted on
           <span class="ping ping--stand" style="--pw:78px;right:34px" aria-hidden="true"><img src="/img/ping/ping-think.webp" width="520" height="748" alt="" loading="lazy" decoding="async" /></span>
           <details class="rv"><summary>Can I increase my storage later?</summary><div>Yes. Drag the slider up to 5 TB whenever you need more space - storage costs just €0.008 per GB per month.</div></details>
           <details class="rv"><summary>What can I run on a storage server?</summary><div>Anything - you get full root access over SSH. Popular choices are SFTP and rsync backup targets, Nextcloud, MinIO and other self-hosted storage apps.</div></details>
-          <details class="rv"><summary>Is this object storage or a real server?</summary><div>A real KVM server with its own IPv4 address, full root access and DDoS protection - not a shared bucket. Snapshots and restores are available from the panel.</div></details>
+          <details class="rv"><summary>Is this object storage or a real server?</summary><div>A real KVM server with its own IPv4 address and /64 IPv6 subnet, full root access and DDoS protection - not a shared bucket. Snapshots and restores are available from the panel.</div></details>
           <details class="rv"><summary>What if I need more than 5 TB?</summary><div>No problem - open a <a href="https://instantnode.eu/dashboard/tickets">support ticket</a> and we will set up a custom storage server with exactly the capacity you need.</div></details>
           <details class="rv"><summary>Which payment methods do you accept?</summary><div>We accept PayPal, cryptocurrencies and your InstantNode account balance. Card payments are currently not available.</div></details>
         </div>

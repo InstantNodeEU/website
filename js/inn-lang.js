@@ -29,7 +29,7 @@
   'use strict'
 
   var LS_KEY = 'inn_ui_prefs'
-  var DICT_V = '17'
+  var DICT_V = '18'
   var LANGS = [
     { code: 'en', name: 'English' },
     { code: 'de', name: 'Deutsch' },
