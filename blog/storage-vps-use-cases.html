@@ -6,17 +6,17 @@
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <meta content="width=device-width" name="viewport" />
     <title>7 Things to Do With a Cheap Storage VPS</title>
-    <meta content="Seven practical uses for a cheap storage VPS: offsite 3-2-1 backups, Nextcloud, media libraries, MinIO S3 object storage, archives and more from EUR 0.008/GB." name="description" />
+    <meta content="Seven practical uses for a cheap storage VPS: offsite 3-2-1 backups, Nextcloud, media libraries, MinIO S3 object storage, archives and more from EUR 0.017/GB." name="description" />
     <link href="https://instantnode.eu/blog/storage-vps-use-cases" rel="canonical" />
     <meta content="article" property="og:type" />
     <meta content="https://instantnode.eu/blog/storage-vps-use-cases" property="og:url" />
     <meta content="7 Things to Do With a Cheap Storage VPS" property="og:title" />
-    <meta content="Seven practical uses for a cheap storage VPS: offsite 3-2-1 backups, Nextcloud, media libraries, MinIO S3 object storage, archives and more from EUR 0.008/GB." property="og:description" />
+    <meta content="Seven practical uses for a cheap storage VPS: offsite 3-2-1 backups, Nextcloud, media libraries, MinIO S3 object storage, archives and more from EUR 0.017/GB." property="og:description" />
     <meta content="https://instantnode.eu/blog/og/storage-vps-use-cases.jpg" property="og:image" />
     <meta content="summary_large_image" property="twitter:card" />
     <meta content="https://instantnode.eu/blog/storage-vps-use-cases" property="twitter:url" />
     <meta content="7 Things to Do With a Cheap Storage VPS" property="twitter:title" />
-    <meta content="Seven practical uses for a cheap storage VPS: offsite 3-2-1 backups, Nextcloud, media libraries, MinIO S3 object storage, archives and more from EUR 0.008/GB." property="twitter:description" />
+    <meta content="Seven practical uses for a cheap storage VPS: offsite 3-2-1 backups, Nextcloud, media libraries, MinIO S3 object storage, archives and more from EUR 0.017/GB." property="twitter:description" />
     <meta content="https://instantnode.eu/blog/og/storage-vps-use-cases.jpg" property="twitter:image" />
     <meta content="#060606" name="theme-color" />
     <meta name="darkreader-lock" />
@@ -25,7 +25,7 @@
     <link as="font" href="/fonts/Satoshi.woff" rel="preload" type="font/woff2" crossorigin />
     <link href="/css/fonts.css" rel="stylesheet" />
     <link href="/css/lunaris.css?v=tp8" rel="stylesheet" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://instantnode.eu/blog/storage-vps-use-cases"}, "headline": "7 Things to Do With a Cheap Storage VPS", "description": "Seven practical uses for a cheap storage VPS: offsite 3-2-1 backups, Nextcloud, media libraries, MinIO S3 object storage, archives and more from EUR 0.008/GB.", "image": "https://instantnode.eu/meta-banner.webp?v=5", "author": {"@type": "Organization", "name": "InstantNode", "url": "https://instantnode.eu/"}, "publisher": {"@type": "Organization", "name": "InstantNode", "logo": {"@type": "ImageObject", "url": "https://instantnode.eu/logos/light_logo.png"}}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://instantnode.eu/blog/storage-vps-use-cases"}, "headline": "7 Things to Do With a Cheap Storage VPS", "description": "Seven practical uses for a cheap storage VPS: offsite 3-2-1 backups, Nextcloud, media libraries, MinIO S3 object storage, archives and more from EUR 0.017/GB.", "image": "https://instantnode.eu/meta-banner.webp?v=5", "author": {"@type": "Organization", "name": "InstantNode", "url": "https://instantnode.eu/"}, "publisher": {"@type": "Organization", "name": "InstantNode", "logo": {"@type": "ImageObject", "url": "https://instantnode.eu/logos/light_logo.png"}}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://instantnode.eu/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://instantnode.eu/blog"}, {"@type": "ListItem", "position": 3, "name": "7 Things to Do With a Cheap Storage VPS", "item": "https://instantnode.eu/blog/storage-vps-use-cases"}]}</script>
     <link rel="discord:component-embed" type="application/json" href="https://instantnode.eu/discord-embed.json">
 </head>
@@ -217,13 +217,13 @@
       </section>
 
       <div class="prose">
-<p>A storage VPS is a simple trade: modest CPU and RAM, a huge amount of disk, and a very small bill. At InstantNode you size one with a slider - up to 5 TB at &euro;0.008 per GB, starting at &euro;5.40/mo - and what you get is a full Linux server with root access, not a locked-down web locker. That last part is what makes it interesting: a real OS attached to cheap terabytes can quietly replace a surprising number of subscriptions. Here are seven things people actually do with one.</p>
+<p>A storage VPS is a simple trade: modest CPU and RAM, a huge amount of disk, and a very small bill. At InstantNode you size one with a slider - up to 5 TB at &euro;0.017 per GB, starting at &euro;5.40/mo - and what you get is a full Linux server with root access, not a locked-down web locker. That last part is what makes it interesting: a real OS attached to cheap terabytes can quietly replace a surprising number of subscriptions. Here are seven things people actually do with one.</p>
 
 <h2>1. Offsite backups - finally do 3-2-1 properly</h2>
 <p>The 3-2-1 rule: three copies of your data, on two different media, one of them offsite. Most people have the first two and skip the third, which is exactly the copy that survives fire, theft and ransomware. A storage VPS is the offsite leg: point <code>restic</code>, <code>borg</code> or plain <code>rsync</code> at it on a nightly timer, encrypt on the client side so the server only ever stores ciphertext, and the rule is finally complete for a few euros a month.</p>
 
 <h2>2. Your own cloud with Nextcloud</h2>
-<p>Nextcloud turns the box into a private Dropbox: file sync across devices, share links, phone photo upload, calendars and contacts. The economics are the point - consumer cloud storage charges per user, per month, forever, while a storage VPS charges per gigabyte. When the whole family's photos land on one machine you control, in an EU datacenter, &euro;0.008/GB is hard to argue with.</p>
+<p>Nextcloud turns the box into a private Dropbox: file sync across devices, share links, phone photo upload, calendars and contacts. The economics are the point - consumer cloud storage charges per user, per month, forever, while a storage VPS charges per gigabyte. When the whole family's photos land on one machine you control, in an EU datacenter, &euro;0.017/GB is hard to argue with.</p>
 
 <h2>3. A media library</h2>
 <p>Disc rips, a music collection built over decades, home videos: park the library on the VPS and serve it with Jellyfin or a similar media server. One honest note - a storage VPS deliberately has modest CPU, so plan around direct play rather than heavy video transcoding. Keep files in formats your devices play natively and it works beautifully as the always-on home for a large collection.</p>
@@ -244,11 +244,11 @@
 <p>A few boundaries, so nobody buys the wrong tool: it is not a CDN, and it is not the right home for a busy database or a game server - those workloads want fast cores, not acres of space. It is also not a backup all by itself: one copy on one server is still one copy, which is why it plays the offsite role in the 3-2-1 rule rather than replacing the whole rule. Used for what it is - a large, cheap, always-on disk with a real operating system attached - it is one of the best value-per-euro items in hosting.</p>
 
 <h2>The math, and the fine print</h2>
-<p>At &euro;0.008 per GB, a full terabyte runs about &euro;8 a month, and the slider goes to 5 TB. The trade-off is real and worth restating: storage VPS plans cap out at modest compute, because that is what keeps the price at &euro;0.008. If your workload is CPU-shaped, that is what a <a href="/kvm">KVM VPS</a> is for - up to 32 vCPU and 64 GB RAM - and the two combine well, with the storage box acting as the big quiet disk behind a faster app server. Billing works like the rest of InstantNode: <a href="/blog/hourly-vps-billing-explained">hourly or monthly</a> with monthly saving about 10%, payment by PayPal, crypto or account balance, and free DDoS protection included.</p>
+<p>At &euro;0.017 per GB, a full terabyte runs about &euro;8 a month, and the slider goes to 5 TB. The trade-off is real and worth restating: storage VPS plans cap out at modest compute, because that is what keeps the price at &euro;0.017. If your workload is CPU-shaped, that is what a <a href="/kvm">KVM VPS</a> is for - up to 32 vCPU and 64 GB RAM - and the two combine well, with the storage box acting as the big quiet disk behind a faster app server. Billing works like the rest of InstantNode: <a href="/blog/hourly-vps-billing-explained">hourly or monthly</a> with monthly saving about 10%, payment by PayPal, crypto or account balance, and free DDoS protection included.</p>
               
 <hr />
 <h3>Terabytes without the subscription</h3>
-<p>Slider-sized storage VPS up to 5 TB at €0.008/GB - full root access in an EU datacenter, from €5.40/mo.</p>
+<p>Slider-sized storage VPS up to 5 TB at €0.017/GB - full root access in an EU datacenter, from €5.40/mo.</p>
 <p><a class="btn btn-light" href="/storage-server" style="border-bottom:0">Explore storage VPS</a></p>
       </div>
 
