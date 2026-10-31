@@ -1,18 +1,21 @@
 /* InstantNode 2026 - glyph-halftone art + nav + reveal. No deps. */
 
 /* ---------- christmas ----------
-   Dec 1 to Jan 6 (Europe/Berlin) the site wears some snow: html.xmas for the
-   CSS, a glyph snowfall, the index hero motif. html.advent (Dec 1 to 24) adds
-   the advent toast. ?xmas=1 / ?xmas=0 force both on or off for previews. */
+   Nov 15 to Jan 6 (Europe/Berlin) the site wears some snow: html.xmas for the
+   CSS, a glyph snowfall, the index hero motif, Ping in his hat. html.advent
+   (Dec 1 to 24) adds the advent toast, html.advent-soon (Nov 15 to 30) a
+   teaser for it. ?xmas=1 / ?xmas=0 force it on or off for previews,
+   ?xmas=soon shows the November state. */
 (function () {
-  var q = /[?&]xmas=([01])/.exec(location.search), md = '';
+  var q = /[?&]xmas=(0|1|soon)/.exec(location.search), md = '';
   try { md = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Berlin', month: '2-digit', day: '2-digit' }).format(new Date()); }
   catch (e) { var n = new Date(); md = (n.getMonth() + 1) + '-' + n.getDate(); }
   var m = parseInt(md, 10), d = parseInt(md.split('-')[1], 10);
-  var xmas = q ? q[1] === '1' : m === 12 || (m === 1 && d <= 6);
-  var advent = q ? q[1] === '1' : m === 12 && d <= 24;
-  if (xmas) document.documentElement.classList.add('xmas');
-  if (advent) document.documentElement.classList.add('advent');
+  if (q) { m = q[1] === '0' ? 6 : q[1] === 'soon' ? 11 : 12; d = q[1] === 'soon' ? 20 : 1; }
+  var cl = document.documentElement.classList;
+  if ((m === 11 && d >= 15) || m === 12 || (m === 1 && d <= 6)) cl.add('xmas');
+  if (m === 12 && d <= 24) cl.add('advent');
+  if (m === 11 && d >= 15) cl.add('advent-soon');
 })();
 
 (function () {
@@ -1519,10 +1522,19 @@
 
 /* Advent toast (html.advent, see the christmas block at the top): takes the
    slot of the page's own toast. Built here, after inn-lang has snapshotted the
-   page, so it is worded per language like the review line further down. */
+   page, so it is worded per language like the review line further down. In
+   the second half of November (html.advent-soon) it announces the calendar,
+   under its own key so dismissing the teaser does not hide the real one. */
 (function () {
-  if (!document.documentElement.classList.contains('advent') || /^\/advent(\.html)?$/.test(location.pathname)) return;
-  var T = {
+  var cl = document.documentElement.classList, soon = cl.contains('advent-soon');
+  if (!(cl.contains('advent') || soon) || /^\/advent(\.html)?$/.test(location.pathname)) return;
+  var key = soon ? 'advent2026soon' : 'advent2026';
+  var T = soon ? {
+    en: ['Advent calendar', 'Starts on 1 December: a new door every day until Christmas Eve, with credit, vouchers, upgrades and servers.', 'Have a look', 'Dismiss announcement'],
+    de: ['Adventskalender', 'Ab 1. Dezember jeden Tag ein neues Türchen bis Heiligabend, mit Guthaben, Gutscheinen, Upgrades und Servern.', 'Schon mal reinschauen', 'Ankündigung schließen'],
+    fr: ['Calendrier de l\'Avent', 'Dès le 1er décembre, une nouvelle case chaque jour jusqu\'à la veille de Noël, avec du crédit, des bons, des upgrades et des serveurs.', 'Découvrir', 'Fermer l\'annonce'],
+    es: ['Calendario de Adviento', 'Desde el 1 de diciembre, una puerta nueva cada día hasta Nochebuena, con saldo, cupones, mejoras y servidores.', 'Echar un vistazo', 'Cerrar anuncio'],
+  } : {
     en: ['Advent calendar', 'A new door every day from 1 to 24 December, with credit, vouchers, upgrades and servers.', 'See the calendar', 'Dismiss announcement'],
     de: ['Adventskalender', 'Vom 1. bis 24. Dezember jeden Tag ein neues Türchen, mit Guthaben, Gutscheinen, Upgrades und Servern.', 'Zum Kalender', 'Ankündigung schließen'],
     fr: ['Calendrier de l\'Avent', 'Une nouvelle case chaque jour du 1er au 24 décembre, avec du crédit, des bons, des upgrades et des serveurs.', 'Voir le calendrier', 'Fermer l\'annonce'],
@@ -1533,7 +1545,7 @@
   var icon = old && old.querySelector('.in-announce__icon');
   var bar = document.createElement('div');
   bar.className = 'in-announce';
-  bar.setAttribute('data-key', 'advent2026');
+  bar.setAttribute('data-key', key);
   bar.innerHTML = (icon ? icon.outerHTML : '') +
     '<div><p class="in-announce__title"></p><p class="in-announce__text"></p><a class="in-announce__btn" href="/advent"></a></div>' +
     '<button class="in-announce__close" type="button">&#10005;</button>';
@@ -1547,7 +1559,7 @@
   word();
   document.addEventListener('inn:lang', word);
   document.body.appendChild(bar);
-  try { if (!localStorage.getItem('in-announce-advent2026')) bar.classList.add('is-open'); } catch (e) { bar.classList.add('is-open'); }
+  try { if (!localStorage.getItem('in-announce-' + key)) bar.classList.add('is-open'); } catch (e) { bar.classList.add('is-open'); }
 })();
 
 /* ---------- Ping in a christmas hat (xmas) ----------
