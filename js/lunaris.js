@@ -1,4 +1,20 @@
 /* InstantNode 2026 - glyph-halftone art + nav + reveal. No deps. */
+
+/* ---------- christmas ----------
+   Dec 1 to Jan 6 (Europe/Berlin) the site wears some snow: html.xmas for the
+   CSS, a glyph snowfall, the index hero motif. html.advent (Dec 1 to 24) adds
+   the advent toast. ?xmas=1 / ?xmas=0 force both on or off for previews. */
+(function () {
+  var q = /[?&]xmas=([01])/.exec(location.search), md = '';
+  try { md = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Berlin', month: '2-digit', day: '2-digit' }).format(new Date()); }
+  catch (e) { var n = new Date(); md = (n.getMonth() + 1) + '-' + n.getDate(); }
+  var m = parseInt(md, 10), d = parseInt(md.split('-')[1], 10);
+  var xmas = q ? q[1] === '1' : m === 12 || (m === 1 && d <= 6);
+  var advent = q ? q[1] === '1' : m === 12 && d <= 24;
+  if (xmas) document.documentElement.classList.add('xmas');
+  if (advent) document.documentElement.classList.add('advent');
+})();
+
 (function () {
   'use strict';
 
@@ -768,6 +784,61 @@
           hash(i, Math.floor(unit)) > 0.55) return 1;           /* status LED */
       return 0.16 + 0.18 * fbm(u * 24, v * 24);
     },
+    /* christmas hero: a fir built from rack units (slats, LED baubles, a
+       bright lower edge on every tier), a star on top, server-shaped presents
+       at its foot, the aisle of racks behind it under fresh snow.
+       Swapped in for `racks` on the index via data-art-xmas. */
+    xtree: function (u, v, a, c, cu) {
+      a = a || 1; c = c || 0.03; cu = cu || 0.01;
+      var X = (u - 0.5) * a, Y = v, gx = cu * a;           /* gx = one glyph column in X */
+      var GROUND = 0.88, base = GROUND - c * 0.5, k;
+      if (Y > GROUND + c * 0.6) {                            /* floor haze */
+        return clamp01(1 - (Y - GROUND) / (1 - GROUND)) * 0.18 * (0.4 + fbm(u * 26, v * 12));
+      }
+      if (Y > GROUND - c * (0.4 + 1.2 * fbm(u * 9, 3.1))) return 0.75 + 0.15 * fbm(u * 30, v * 20);   /* snow drift */
+      /* presents: small servers with a ribbon and a bow */
+      var G = [[-0.42, 0.075, 0.1], [-0.27, 0.05, 0.065], [0.27, 0.065, 0.085], [0.42, 0.05, 0.12]];
+      for (k = 0; k < G.length; k++) {
+        var bx = X - G[k][0], hw = G[k][1], top = base - G[k][2];
+        if (Math.abs(bx) < hw && Y > top && Y < base) {
+          if (Math.abs(bx) < gx * 0.55) return 1;                                  /* ribbon */
+          if (Y - top < c || hw - Math.abs(bx) < gx) return 0.9;                   /* lid + sides */
+          return ((Y - top) / c | 0) % 2 ? 0.12 : 0.42;                            /* unit slats */
+        }
+        if (Y < top && Y > top - c * 1.3 && Math.abs(Math.abs(bx) - gx * 1.3) < gx * 0.8) return 0.85;   /* bow */
+      }
+      /* star */
+      var sy = Y - 0.42, r = Math.sqrt(X * X + sy * sy), th = Math.atan2(X, -sy);
+      if (r < 0.055 * (0.42 + 0.58 * Math.pow(Math.abs(Math.cos(2.5 * th)), 3))) return 1;
+      /* fir: three rack tiers below the CTA, each one overhangs the next */
+      var T = [[0.47, 0.03, 0.14], [0.58, 0.08, 0.22], [0.69, 0.13, 0.3]];
+      var TH = 0.13, reach = -1;
+      for (k = 0; k < T.length; k++) {
+        var t = (Y - T[k][0]) / TH;
+        if (t < 0 || t > 1) continue;
+        var half = T[k][1] + (T[k][2] - T[k][1]) * t, s = half - Math.abs(X);
+        if (half > reach) reach = half;
+        if (s < 0) continue;
+        if ((1 - t) * TH < c) return 0.95;                                          /* snowy lower edge */
+        if (s < gx * 1.2) return 0.88;                                              /* flank */
+        var row = ((Y - T[k][0]) / c) | 0;
+        if (row % 2 && hash(k * 7 + Math.floor(X / (gx * 4)), row) > 0.7) return 1;    /* LED bauble */
+        return row % 2 ? 0.3 : 0.07;                                                /* unit slats */
+      }
+      if (Math.abs(X) < gx * 1.2 && Y > 0.8) return 0.7;                            /* trunk */
+      /* the aisle behind, dimmed, with a clean halo around the tree */
+      var flake = hash(Math.floor(u / cu), Math.floor(v / c)) > 0.975 ? 0.3 : fbm(u * 8, v * 8) * 0.05;
+      if (Y < 0.47 ? r < 0.13 : Math.abs(X) < Math.max(reach, 0.05) + 0.12) return flake;
+      var N = 13, i = Math.floor(u * N), f = u * N - i, pad = 0.06;
+      var rtop = GROUND - (0.42 + hash(i * 1.7, 4.3) * 0.4);
+      if (f < pad || f > 1 - pad) return flake;
+      if (Y < rtop) return Y > rtop - c * (0.6 + 1.1 * fbm(u * 40, i)) ? 0.85 : flake;   /* snow cap */
+      if (f < pad + 0.05 || f > 1 - pad - 0.05) return 0.45;                         /* side rails */
+      var unit = (Y - rtop) * 30, uf = unit - Math.floor(unit);
+      if (uf < 0.34) return 0.28 + 0.15 * fbm(u * 30, v * 30);
+      if (f > pad + 0.08 && f < pad + 0.17 && hash(i, Math.floor(unit)) > 0.55) return 0.55;
+      return 0.08 + 0.1 * fbm(u * 24, v * 24);
+    },
     /* tiny terraria world: starry sky, trees, grass line, dirt/stone
        layers with carved caves and bright ore pockets */
     world: function (u, v, a) {
@@ -1014,7 +1085,8 @@
 
   function renderArt(cv) {
     cv.dataset.drawn = '1';
-    var shape = SHAPES[cv.dataset.art] || SHAPES.wave;
+    var art = cv.dataset.artXmas && document.documentElement.classList.contains('xmas') ? cv.dataset.artXmas : cv.dataset.art;
+    var shape = SHAPES[art] || SHAPES.wave;
     var hotU = parseFloat(cv.dataset.hotx || '0.5');
     var hotV = parseFloat(cv.dataset.hoty || '0.6');
     var rect = cv.getBoundingClientRect();
@@ -1290,6 +1362,59 @@
     renderAll();
   }
 
+  /* ---------- snowfall (xmas) ----------
+     One fixed canvas behind the page: sparse glyph flakes in three depth
+     layers, ~15 fps, one in 25 catches the blue. rAF already stops while the
+     tab is hidden; dt is capped so nothing jumps on return. Reduced motion
+     gets one still scatter. */
+  if (document.documentElement.classList.contains('xmas')) (function () {
+    var cv = document.createElement('canvas');
+    cv.className = 'snow';
+    cv.setAttribute('aria-hidden', 'true');
+    document.body.insertBefore(cv, document.body.firstChild);
+    var ctx = cv.getContext('2d'), W = 0, H = 0, flakes = [], prev = 0, sT;
+    var LAYER = [{ ch: '.', px: 10, a: 0.22, vy: 9 }, { ch: ':', px: 12, a: 0.32, vy: 17 }, { ch: '*', px: 14, a: 0.42, vy: 28 }];
+    function flake(y) {
+      var z = Math.random() < 0.55 ? 0 : Math.random() < 0.7 ? 1 : 2;
+      return { x: Math.random() * W, y: y, z: z, ph: Math.random() * 6.3, blue: Math.random() < 0.04 };
+    }
+    function size() {
+      var dpr = Math.min(2, window.devicePixelRatio || 1), refill = innerWidth !== W;
+      W = innerWidth; H = innerHeight;               /* height-only resizes (mobile URL bar) keep the flakes */
+      cv.width = W * dpr; cv.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      if (!refill) return;
+      flakes = [];
+      for (var n = Math.round(W * H / 9000); n > 0; n--) flakes.push(flake(Math.random() * H));
+    }
+    function draw(now, dt) {
+      ctx.clearRect(0, 0, W, H);
+      for (var z = 0; z < 3; z++) {
+        var L = LAYER[z];
+        ctx.font = L.px + 'px "JetBrains Mono", monospace';
+        for (var i = 0; i < flakes.length; i++) {
+          var f = flakes[i];
+          if (f.z !== z) continue;
+          f.y += L.vy * dt;
+          if (f.y > H + 12) { flakes[i] = f = flake(-12); f.z = z; }
+          ctx.fillStyle = f.blue ? 'rgba(59,130,246,' + (L.a + 0.25) + ')' : 'rgba(242,241,238,' + L.a + ')';
+          ctx.fillText(L.ch, f.x + Math.sin(now * 0.0005 + f.ph) * (6 + z * 6), f.y);
+        }
+      }
+    }
+    function tick(now) {
+      requestAnimationFrame(tick);
+      if (now - prev < 66) return;
+      draw(now, Math.min(0.1, (now - prev) / 1000));
+      prev = now;
+    }
+    size();
+    if (calm) { draw(0, 0); window.addEventListener('resize', function () { clearTimeout(sT); sT = setTimeout(function () { size(); draw(0, 0); }, 180); }); return; }
+    window.addEventListener('resize', function () { clearTimeout(sT); sT = setTimeout(size, 180); });
+    requestAnimationFrame(function (t) { prev = t; tick(t); });
+  })();
+
   /* ---------- easter egg ----------
      Konami code on desktop, five taps on the footer logo on touch.
      Opens a glyph "transmission" panel. Nothing here talks to a server. */
@@ -1367,6 +1492,39 @@
     bar.classList.remove('is-open');
     try { localStorage.setItem('in-announce-' + (bar.dataset.key || 'default'), '1'); } catch (e2) {}
   });
+})();
+
+/* Advent toast (html.advent, see the christmas block at the top): takes the
+   slot of the page's own toast. Built here, after inn-lang has snapshotted the
+   page, so it is worded per language like the review line further down. */
+(function () {
+  if (!document.documentElement.classList.contains('advent') || /^\/advent(\.html)?$/.test(location.pathname)) return;
+  var T = {
+    en: ['Advent calendar', 'A new door every day from 1 to 24 December, with credit, vouchers, upgrades and servers.', 'See the calendar', 'Dismiss announcement'],
+    de: ['Adventskalender', 'Vom 1. bis 24. Dezember jeden Tag ein neues Türchen, mit Guthaben, Gutscheinen, Upgrades und Servern.', 'Zum Kalender', 'Ankündigung schließen'],
+    fr: ['Calendrier de l\'Avent', 'Une nouvelle case chaque jour du 1er au 24 décembre, avec du crédit, des bons, des upgrades et des serveurs.', 'Voir le calendrier', 'Fermer l\'annonce'],
+    es: ['Calendario de Adviento', 'Una puerta nueva cada día del 1 al 24 de diciembre, con saldo, cupones, mejoras y servidores.', 'Ver el calendario', 'Cerrar anuncio'],
+  };
+  var old = document.getElementById('in-announce');
+  if (old) old.classList.remove('is-open');
+  var icon = old && old.querySelector('.in-announce__icon');
+  var bar = document.createElement('div');
+  bar.className = 'in-announce';
+  bar.setAttribute('data-key', 'advent2026');
+  bar.innerHTML = (icon ? icon.outerHTML : '') +
+    '<div><p class="in-announce__title"></p><p class="in-announce__text"></p><a class="in-announce__btn" href="/advent"></a></div>' +
+    '<button class="in-announce__close" type="button">&#10005;</button>';
+  function word() {
+    var t = T[window.innLang && window.innLang.current ? window.innLang.current() : 'en'] || T.en;
+    bar.querySelector('.in-announce__title').textContent = t[0];
+    bar.querySelector('.in-announce__text').textContent = t[1];
+    bar.querySelector('.in-announce__btn').textContent = t[2];
+    bar.querySelector('.in-announce__close').setAttribute('aria-label', t[3]);
+  }
+  word();
+  document.addEventListener('inn:lang', word);
+  document.body.appendChild(bar);
+  try { if (!localStorage.getItem('in-announce-advent2026')) bar.classList.add('is-open'); } catch (e) { bar.classList.add('is-open'); }
 })();
 
 /* Auth-aware header + live customer count.
