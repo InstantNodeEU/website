@@ -1386,7 +1386,8 @@
   }
 
   /* ---------- snowfall (xmas) ----------
-     One fixed canvas behind the page: sparse glyph flakes in three depth
+     One canvas behind the first screen (it scrolls away with the hero and
+     fades out before the content): sparse glyph flakes in three depth
      layers, ~15 fps, one in 25 catches the blue. rAF already stops while the
      tab is hidden; dt is capped so nothing jumps on return. Reduced motion
      gets one still scatter. */
@@ -1404,7 +1405,7 @@
     function size() {
       var dpr = Math.min(2, window.devicePixelRatio || 1), refill = innerWidth !== W;
       W = innerWidth; H = innerHeight;               /* height-only resizes (mobile URL bar) keep the flakes */
-      cv.width = W * dpr; cv.height = H * dpr;
+      cv.width = W * dpr; cv.height = H * dpr; cv.style.height = H + 'px';
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       if (!refill) return;
@@ -1428,7 +1429,7 @@
     }
     function tick(now) {
       requestAnimationFrame(tick);
-      if (now - prev < 66) return;
+      if (now - prev < 66 || scrollY > H) return;   /* scrolled past: nothing to draw */
       draw(now, Math.min(0.1, (now - prev) / 1000));
       prev = now;
     }
