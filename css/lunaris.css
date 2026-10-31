@@ -1442,10 +1442,7 @@ a.proof-part:hover { color: var(--ink); }
 
 /* ---------- christmas (html.xmas, set by js/lunaris.js) ---------- */
 /* glyph snowfall: fixed behind everything; panels and cards cover it */
-/* the first screen only, fading out before the content: behind tables and
-   text the flakes read as noise */
-.snow { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; pointer-events: none;
-  -webkit-mask-image: linear-gradient(#000 45%, transparent 92%); mask-image: linear-gradient(#000 45%, transparent 92%); }
+.snow { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 /* a snow cap on the rack part of the header mark (logo img is 28px high) */
 html.xmas .hdr-logo { position: relative; }
 html.xmas .hdr-logo::before {
