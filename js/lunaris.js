@@ -839,6 +839,29 @@
       if (f > pad + 0.08 && f < pad + 0.17 && hash(i, Math.floor(unit)) > 0.55) return 0.55;
       return 0.08 + 0.1 * fbm(u * 24, v * 24);
     },
+    /* advent door 24: the present behind the double door - a box with rack
+       slats, a ribbon cross, a two-loop bow and a little snow under it */
+    gift: function (u, v, a, c, cu) {
+      a = a || 1; c = c || 0.04; cu = cu || 0.03;
+      var X = (u - 0.5) * a, Y = v, gx = cu * a, k;
+      var hw = 0.3 * a, top = 0.4, lid = 0.49, bot = 0.84;
+      for (k = -1; k <= 1; k += 2) {                                              /* bow loops */
+        var ex = (X - k * 0.12 * a) / (0.13 * a), ey = (Y - (top - 0.075)) / 0.075, e = ex * ex + ey * ey;
+        if (e < 1) return e > 0.42 ? 0.95 : 0.1;
+      }
+      if (Math.abs(X) < gx * 1.6 && Math.abs(Y - (top - 0.07)) < c * 1.3) return 1;  /* knot */
+      var inLid = Math.abs(X) < hw + 0.035 * a && Y > top && Y < lid;
+      var inBox = Math.abs(X) < hw && Y >= lid && Y < bot;
+      if (inLid || inBox) {
+        if (Math.abs(X) < gx * 1.7) return 1;                                     /* ribbon down */
+        if (inBox && Math.abs(Y - (lid + bot) / 2) < c * 0.95) return 1;          /* ribbon across */
+        if (inLid) return Y - top < c ? 0.95 : 0.62;                              /* lid */
+        if (hw - Math.abs(X) < gx * 1.1) return 0.85;                             /* sides */
+        return ((Y - lid) / c | 0) % 2 ? 0.12 : 0.4;                              /* unit slats */
+      }
+      if (Y >= bot && Y < bot + c * 1.4 && Math.abs(X) < hw + 0.08 * a) return 0.45 + 0.35 * fbm(u * 22, 3.3);   /* snow */
+      return hash(Math.floor(u / cu), Math.floor(v / c)) > 0.972 ? 0.32 : 0;      /* flakes */
+    },
     /* tiny terraria world: starry sky, trees, grass line, dirt/stone
        layers with carved caves and bright ore pockets */
     world: function (u, v, a) {
@@ -1527,6 +1550,18 @@
   try { if (!localStorage.getItem('in-announce-advent2026')) bar.classList.add('is-open'); } catch (e) { bar.classList.add('is-open'); }
 })();
 
+/* ---------- Ping in a christmas hat (xmas) ----------
+   Every ping-<pose>.webp has a ping-<pose>-xmas.webp twin rendered with the
+   exact same framing and crop, so swapping the src is all it takes. Runs after
+   the advent toast above, which copies the page's toast icon. */
+(function () {
+  if (!document.documentElement.classList.contains('xmas')) return;
+  Array.prototype.forEach.call(document.querySelectorAll('img[src*="/img/ping/ping-"]'), function (img) {
+    var src = img.getAttribute('src');
+    if (src.indexOf('-xmas.webp') < 0) img.setAttribute('src', src.replace(/\.webp/, '-xmas.webp'));
+  });
+})();
+
 /* Auth-aware header + live customer count.
    Both live here because js/app.js, where an earlier attempt at the header sat,
    is not loaded by a single page on the site - it never ran. lunaris.js is on
@@ -1653,8 +1688,9 @@
     tip = document.createElement('div');
     tip.className = 'ping-tip';
     tip.setAttribute('role', 'tooltip');
-    tip.innerHTML = '<span class="ping-head" aria-hidden="true"><img src="/img/ping/ping-head.webp" width="256" height="285" alt="" />' +
-      '<img src="/img/ping/ping-head-blink.webp" width="256" height="285" alt="" /></span><span></span>';
+    var hat = document.documentElement.classList.contains('xmas') ? '-xmas' : '';
+    tip.innerHTML = '<span class="ping-head" aria-hidden="true"><img src="/img/ping/ping-head' + hat + '.webp" width="256" height="285" alt="" />' +
+      '<img src="/img/ping/ping-head-blink' + hat + '.webp" width="256" height="285" alt="" /></span><span></span>';
     txt = tip.lastChild;
     document.body.appendChild(tip);
   }

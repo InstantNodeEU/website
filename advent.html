@@ -28,7 +28,7 @@
     <link href="css/product.css?v=8" rel="stylesheet" />
     <style>
       /* /advent: 24 closed doors in a halftone grid, then the tier and door tables */
-      .adv-doors { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; max-width: 880px; margin: 0 auto; padding: 0 var(--pad); }
+      .adv-doors { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 10px; max-width: 960px; margin: 0 auto; padding: 0 var(--pad); }
       .door { aspect-ratio: 1; position: relative; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 12px;
         background: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px) 0 0 / 9px 9px, var(--panel);
         font-family: var(--mono); font-size: clamp(18px, 2.6vw, 30px); color: var(--mute); letter-spacing: 0.04em; }
@@ -36,6 +36,17 @@
       .door.is-today { border-color: var(--ember); color: var(--ink); box-shadow: inset 0 0 0 1px var(--ember); }
       .door.is-today::after { color: var(--ember); }
       .door.is-past { opacity: 0.32; }
+      /* door 24: a double door over three rows and columns (23 + 9 = 32 cells, so
+         8 and 4 columns both come out even), the present glyphs on it, Ping in his
+         christmas hat sitting on its top edge */
+      .adv-doors { grid-auto-flow: dense; }
+      .adv-doors.has-ping { margin-top: 162px; }
+      .door--24 { grid-column: -4 / -1; grid-row: 1 / span 3; aspect-ratio: auto; color: var(--ink); background: var(--panel); }
+      .door--24 > canvas.art { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: inherit; }
+      .door--24::before { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; margin-left: -1px; background: var(--void); box-shadow: 1px 0 0 var(--line); }
+      .door--24::after { content: ':    :'; white-space: pre; right: auto; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: var(--mute); }
+      .door-num { position: absolute; left: 7%; top: 6%; font-size: clamp(28px, 4.4vw, 52px); line-height: 1; }
+      .door--24 > .ping { --pw: 112px; right: 8%; }
       .adv-note { text-align: center; color: var(--dim); font-size: 13px; margin-top: 22px; padding: 0 var(--pad); }
       .adv-scroll { overflow-x: auto; margin-top: 8px; }
       .adv-table { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 0.95rem; }
@@ -50,6 +61,7 @@
       .adv-terms { list-style: none; border-top: 1px solid var(--line); }
       .adv-terms li { border-bottom: 1px solid var(--line); padding: 16px 0; color: var(--mute); line-height: 1.6; }
       @media (max-width: 760px) { .adv-doors { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; } .adv-how { grid-template-columns: 1fr; } }
+      @media (max-width: 760px) { .adv-doors.has-ping { margin-top: 122px; } .door--24 > .ping { --pw: 84px; } }
     </style>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://instantnode.eu/"}, {"@type": "ListItem", "position": 2, "name": "Advent calendar", "item": "https://instantnode.eu/advent"}]}</script>
     <link rel="discord:component-embed" type="application/json" href="https://instantnode.eu/discord-embed.json">
@@ -237,7 +249,12 @@
 
       <!-- ===== the doors ===== -->
       <section class="sec sec-flush" id="doors">
-        <div class="adv-doors rv" data-no-i18n aria-label="24 doors, 1 to 24 December">
+        <div class="adv-doors has-ping rv" data-no-i18n aria-label="24 doors, 1 to 24 December">
+          <div class="door door--24 ping-host" data-day="24">
+            <canvas class="art" data-art="gift" data-cell="9" data-hoty="0.4" aria-hidden="true"></canvas>
+            <span class="door-num">24</span>
+            <span class="ping ping--ledge ping--sit" aria-hidden="true"><img src="/img/ping/ping-sit-xmas.webp" width="520" height="959" alt="" decoding="async" /><img src="/img/ping/ping-sit-happy-xmas.webp" width="520" height="959" alt="" decoding="async" /></span>
+          </div>
           <div class="door" data-day="7">07</div>
           <div class="door" data-day="15">15</div>
           <div class="door" data-day="1">01</div>
@@ -245,7 +262,6 @@
           <div class="door" data-day="10">10</div>
           <div class="door" data-day="19">19</div>
           <div class="door" data-day="3">03</div>
-          <div class="door" data-day="24">24</div>
           <div class="door" data-day="12">12</div>
           <div class="door" data-day="5">05</div>
           <div class="door" data-day="17">17</div>
@@ -458,6 +474,6 @@
         });
       })();
     </script>
-    <script src="/js/lunaris.js?v=xmas1" defer></script>
+    <script src="/js/lunaris.js?v=xmas2" defer></script>
   </body>
 </html>
