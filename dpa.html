@@ -212,111 +212,120 @@
       <section class="prose-hero">
         <span class="badge rv">Legal</span>
         <h1 class="d2 rv">Data Processing Agreement</h1>
-        <p class="lede rv">Last updated: August 23, 2026 (v1.0)</p>
+        <p class="lede rv">Last updated: October 31, 2026 (v2.0)</p>
       </section>
 
       <div class="prose">
 <p style="font-size:.85rem;color:#9ca3af;margin-bottom:24px;">English version &middot; <a href="/de/avv" style="text-decoration:underline;">Deutsche Fassung</a></p>
 <section>
-    <p>This Data Processing Agreement (DPA) applies between the customer as controller and InstantNode as processor within the meaning of Article 28 GDPR, wherever the customer stores or processes personal data of their own users on infrastructure booked from InstantNode. It supplements our <a href="/terms">Terms of Service</a>. Where the customer accepts it electronically in the panel or in text form, the requirement of Article 28(9) GDPR is met.</p>
+    <p>This Data Processing Agreement (DPA) applies between the customer as controller and InstantNode as processor within the meaning of Article 28 GDPR, wherever the customer stores or processes personal data of their own users on infrastructure booked from InstantNode. It supplements our <a href="/terms">Terms of Service</a>. Where the customer accepts it electronically in the panel or in text form, the requirement of Article 28(9) GDPR is met. A signable version (INN-AVV-2026, version 2.0, in German) is available on request at <a href="mailto:contact@instantnode.eu">contact@instantnode.eu</a>; its content matches this page.</p>
     <p>For the personal data of the customer themselves, in particular account, billing and support data, InstantNode is the controller. That processing is governed by our <a href="/privacy">Privacy Policy</a> and not by this DPA.</p>
 </section>
 
 <section>
     <h2>1. Subject matter, nature and purpose</h2>
-    <p>InstantNode processes personal data on behalf of the customer exclusively to provide the booked hosting, server, infrastructure and management services, including operation, storage, backup, monitoring, abuse defence and support. The processing consists of storing, hosting, transmitting, backing up and, where technically necessary for the provision of the service, otherwise handling the data.</p>
-    <p>The duration of the processing corresponds to the term of the underlying service. The types of personal data and the categories of data subjects are determined by the customer, since InstantNode has no influence on which content the customer stores. Typically they include contact and account data, usage and connection data, communication content and any other data the customer chooses to store, relating to the customer's own customers, employees, users or communication partners.</p>
+    <p>InstantNode processes personal data on behalf of the customer exclusively to provide the booked hosting, server, infrastructure and management services, including operation, storage, backup, monitoring, filtering of attack traffic, abuse defence and support. The processing consists of storing, hosting, running, transmitting, backing up and, where technically necessary for the provision of the service, otherwise handling the data.</p>
+    <p>The duration of the processing corresponds to the term of the underlying service until deletion under Section 9. The types of personal data and the categories of data subjects are determined by the customer, since InstantNode has no influence on which content the customer stores. Typically they include contact and account data, usage and connection data, communication content and any other data the customer chooses to store, relating to the customer's own customers, employees, users or communication partners.</p>
 </section>
 
 <section>
     <h2>2. Instructions</h2>
-    <p>InstantNode processes the data only on documented instructions from the customer. The booking of a service and the settings made in the panel constitute such an instruction. Verbal instructions must be confirmed in text form. InstantNode informs the customer without undue delay if, in its opinion, an instruction infringes data protection law, and may suspend the execution of that instruction until it is confirmed or changed. Where InstantNode is required by Union or Member State law to process the data otherwise, it informs the customer of that legal requirement before processing, unless that law prohibits such information on important grounds of public interest.</p>
+    <p>InstantNode processes the data only on documented instructions from the customer, including with regard to transfers to third countries. The booking of a service, the settings made in the panel and through the API and the backup schedules set by the customer constitute such instructions; further instructions are given in text form, usually by ticket. Verbal instructions must be confirmed in text form. The ticket system and the activity log of the panel serve as the register of instructions.</p>
+    <p>InstantNode informs the customer without undue delay if, in its opinion, an instruction infringes data protection law, and may suspend the execution of that instruction until it is confirmed or changed. Where InstantNode is required by Union or Member State law to process the data otherwise, it informs the customer of that legal requirement before processing, unless that law prohibits such information on important grounds of public interest.</p>
 </section>
 
 <section>
-    <h2>3. Confidentiality</h2>
-    <p>InstantNode ensures that the persons authorised to process the personal data have committed themselves to confidentiality or are under an appropriate statutory obligation of confidentiality, and that they are instructed in the applicable data protection requirements.</p>
+    <h2>3. No disclosure and no own use</h2>
+    <p>The customer's data belongs to the customer. InstantNode does not sell, rent, share or make it available to any third party and does not use it for its own purposes. In particular, content is not analysed, evaluated or used to train AI models, for advertising or for product development. Aggregated technical metrics without reference to content (resource and traffic usage, connection counts) are used only for capacity planning, billing, the Fair Use Policy and abuse defence.</p>
+    <p>InstantNode accesses the content of customer data only where the customer asks for it in a ticket, where it is technically necessary for provisioning, backup, restore or fault clearing, to investigate a specific and documented suspicion of abuse or a security incident, or under a binding legal obligation. Disclosures to authorities or third parties take place only on the basis of a legally binding order under Union or Member State law (Art. 48 GDPR); the customer is informed beforehand where this is permitted. Network protection such as DDoS filtering and packet filtering works on traffic patterns and connection data only, not on content.</p>
 </section>
 
 <section>
-    <h2>4. Security of processing</h2>
-    <p>InstantNode implements the technical and organisational measures set out in Annex 2 in accordance with Article 32 GDPR. The measures are subject to technical progress; InstantNode may replace them with equivalent or better measures. A reduction of the level of protection is not permitted.</p>
+    <h2>4. Confidentiality</h2>
+    <p>InstantNode ensures that the persons authorised to process the personal data have committed themselves to confidentiality in writing or are under an appropriate statutory obligation of confidentiality, and that they are instructed in the applicable data protection requirements. Access is limited to what each role requires; administrative accounts are protected by two-factor authentication.</p>
 </section>
 
 <section>
-    <h2>5. Sub-processors</h2>
-    <p>The customer grants general written authorisation for the engagement of sub-processors. The sub-processors engaged at the time this DPA is concluded are listed in Annex 3. InstantNode imposes on every sub-processor data protection obligations equivalent to those in this DPA and remains fully liable to the customer for their performance.</p>
+    <h2>5. Security of processing</h2>
+    <p>InstantNode implements the technical and organisational measures set out in Annex 2 in accordance with Article 32 GDPR. The measures are subject to technical progress; InstantNode may replace them with equivalent or better measures. A reduction of the level of protection is not permitted. Security within the customer's instances (guest operating system, applications, the customer's own credentials) is the customer's responsibility.</p>
+</section>
+
+<section>
+    <h2>6. Sub-processors</h2>
+    <p>The customer grants general written authorisation for the engagement of sub-processors. The sub-processors engaged at the time this DPA is concluded are listed in Annex 3. InstantNode imposes on every sub-processor data protection obligations equivalent to those in this DPA and remains liable to the customer for their performance.</p>
     <p>InstantNode informs the customer of any intended addition or replacement of a sub-processor at least 14 days in advance in text form or in the panel. The customer may object to the change on reasoned data protection grounds within that period. If the objection is justified and no reasonable alternative exists, the customer may terminate the affected service with effect from the end of the paid period; further claims are excluded.</p>
 </section>
 
 <section>
-    <h2>6. Assistance</h2>
-    <p>Taking into account the nature of the processing, InstantNode assists the customer by appropriate technical and organisational measures in fulfilling the customer's obligation to respond to requests for exercising data subject rights under Chapter III GDPR. Requests addressed directly to InstantNode are forwarded to the customer without undue delay and are not answered by InstantNode itself.</p>
-    <p>InstantNode assists the customer in ensuring compliance with the obligations under Articles 32 to 36 GDPR, taking into account the nature of the processing and the information available to it. Assistance going beyond the effort typical for the service may be invoiced at the rates then in force, unless the need for assistance is attributable to InstantNode.</p>
+    <h2>7. Assistance</h2>
+    <p>Taking into account the nature of the processing, InstantNode assists the customer by appropriate technical and organisational measures in responding to requests for exercising data subject rights under Chapter III GDPR, in particular through the export, correction and deletion functions of the panel. Requests addressed directly to InstantNode are forwarded to the customer within three working days and are not answered by InstantNode itself.</p>
+    <p>InstantNode assists the customer in ensuring compliance with the obligations under Articles 32 to 36 GDPR, taking into account the nature of the processing and the information available to it. Assistance going beyond the effort typical for the service may be invoiced at the rates then in force after prior notice, unless the need for assistance is attributable to InstantNode.</p>
 </section>
 
 <section>
-    <h2>7. Personal data breaches</h2>
-    <p>InstantNode notifies the customer without undue delay after becoming aware of a personal data breach affecting data processed on behalf of the customer, and provides the information available to it that the customer needs for its own notification under Articles 33 and 34 GDPR.</p>
+    <h2>8. Personal data breaches</h2>
+    <p>InstantNode notifies the customer of a personal data breach affecting data processed on behalf of the customer without undue delay and at the latest within 48 hours after becoming aware of it. The notification contains, as far as known, the nature of the breach, the categories and approximate number of data subjects and records concerned, the likely consequences, the measures taken and a contact point; information may be provided in phases. The customer decides whether and how a supervisory authority or data subjects are notified.</p>
 </section>
 
 <section>
-    <h2>8. Deletion and return</h2>
-    <p>After the end of the service, InstantNode deletes the data processed on behalf of the customer, including existing backups, unless Union or Member State law requires further storage. Backups are deleted when the service ends; log data is deleted after the retention periods stated in the Privacy Policy. Before the service ends, the customer is responsible for exporting their data through the functions available in the panel.</p>
+    <h2>9. Return and deletion</h2>
+    <p>During the term the customer can export and delete their data at any time through the functions of the panel and of the booked service (file manager, SFTP, console, database and mailbox access, backups). After the end of a service the customer chooses between return and deletion: return takes place by export before the service ends; on request in text form received before the end, InstantNode makes an existing backup of the instance available for download for 7 days.</p>
+    <p>When a service ends, InstantNode deletes the instance, its storage volumes and all backups managed in the panel, including permanent backup slots, unless a statutory retention obligation applies. Log data is deleted after the periods stated in the Privacy Policy (14 days for access logs, 30 days for error logs, 90 days for security and audit logs). The deletion is confirmed in text form on request.</p>
 </section>
 
 <section>
-    <h2>9. Evidence and audits</h2>
-    <p>InstantNode makes available to the customer the information necessary to demonstrate compliance with the obligations under Article 28 GDPR, as a rule in the form of this DPA, Annex 2 and written information. Where this is not sufficient, the customer may carry out an inspection or have one carried out by an auditor bound to confidentiality and not competing with InstantNode, during business hours, after at least four weeks' notice in text form, at most once per calendar year and without disrupting operations. An inspection may not extend to data or systems of other customers. The customer bears the cost of the inspection unless it reveals a material breach attributable to InstantNode.</p>
+    <h2>10. Evidence and audits</h2>
+    <p>InstantNode makes available to the customer the information necessary to demonstrate compliance with the obligations under Article 28 GDPR, as a rule in the form of this DPA, Annex 2 and written information. Where this is not sufficient, the customer may carry out an inspection or have one carried out by an auditor bound to confidentiality and not competing with InstantNode, during business hours, after at least four weeks' notice in text form, at most once per calendar year and without disrupting operations. Inspections required by a supervisory authority or following a personal data breach are exempt from that limit. An inspection may not extend to data or systems of other customers. The customer bears the cost unless the inspection reveals a material breach attributable to InstantNode.</p>
 </section>
 
 <section>
-    <h2>10. International transfers</h2>
-    <p>The data processed on behalf of the customer is stored in the European Union. Where a sub-processor listed in Annex 3 processes data outside the EU or the EEA, this takes place only on the basis of an adequacy decision, the EU Standard Contractual Clauses or another safeguard permitted under Chapter V GDPR.</p>
+    <h2>11. Location of processing and international transfers</h2>
+    <p>The data processed on behalf of the customer is stored and processed exclusively on servers in the data centre in Eygelshoven, Netherlands, within the European Union, both on servers operated by InstantNode itself and on rented servers. InstantNode itself does not transfer this data to third countries. Where a sub-processor listed in Annex 3 processes data outside the EU or the EEA, this takes place only on the basis of an adequacy decision, the EU Standard Contractual Clauses or another safeguard permitted under Chapter V GDPR.</p>
 </section>
 
 <section>
-    <h2>11. Liability and precedence</h2>
-    <p>Liability is governed by Article 82 GDPR and, as between the parties, by the liability provisions of the Terms of Service. In the event of contradictions, this DPA takes precedence over the Terms of Service in matters of processing on behalf of the customer.</p>
+    <h2>12. Liability and precedence</h2>
+    <p>Liability is governed by Article 82 GDPR and, as between the parties, by the liability provisions of the Terms of Service. In the event of contradictions, this DPA takes precedence over the Terms of Service in matters of processing on behalf of the customer. Where a signed version exists, it prevails.</p>
 </section>
 
 <section>
     <h2>Annex 1: Details of the processing</h2>
     <ul>
-        <li><strong>Subject matter:</strong> provision of the hosting, server and infrastructure services booked by the customer.</li>
-        <li><strong>Duration:</strong> the term of the respective service.</li>
-        <li><strong>Nature and purpose:</strong> storage, hosting, transmission, backup, monitoring, abuse defence, support.</li>
+        <li><strong>Subject matter:</strong> provision of the hosting, server, infrastructure and management services booked by the customer (virtual and dedicated servers, game servers, Discord bot hosting, web hosting, managed databases and email, license servers, IP forwarding, domains).</li>
+        <li><strong>Duration:</strong> the term of the respective service until deletion under Section 9.</li>
+        <li><strong>Nature and purpose:</strong> storage, hosting, execution, transmission, backup, monitoring of resource usage, filtering of attack traffic, abuse defence, support on request.</li>
         <li><strong>Types of personal data:</strong> determined by the customer; typically master and contact data, access and usage data, connection and log data, communication content, payment-related data and any further content stored by the customer.</li>
-        <li><strong>Categories of data subjects:</strong> determined by the customer; typically the customer's own customers, users, members, employees and communication partners.</li>
+        <li><strong>Categories of data subjects:</strong> determined by the customer; typically the customer's own customers, users, players, members, employees and communication partners.</li>
     </ul>
 </section>
 
 <section>
     <h2>Annex 2: Technical and organisational measures (Art. 32 GDPR)</h2>
     <ul>
-        <li><strong>Physical access control:</strong> the servers are operated in a data centre of Skylink Data Centers B.V. in the Netherlands with the access controls, power and fire protection measures customary there. InstantNode has no data centre of its own.</li>
-        <li><strong>System access control:</strong> individual accounts, passwords stored only as cryptographic hashes, two-factor authentication and passkeys (WebAuthn) available and recommended for all accounts, session management with expiry, administrative access restricted to the owner and to persons expressly authorised by him and bound to confidentiality.</li>
-        <li><strong>Data access control:</strong> role-based permissions in the panel, separation of customer, reseller and administrator roles, logging of administrative actions.</li>
-        <li><strong>Separation control:</strong> tenant separation through virtualisation (KVM and LXC under Proxmox), container isolation for bot hosting, separate credentials and networks per instance.</li>
-        <li><strong>Transmission control:</strong> TLS encryption for the website, the panel and the API; encrypted administrative access.</li>
-        <li><strong>Network security:</strong> packet filtering at host level, per-instance egress filtering, DDoS protection at the data centre and through the upstream CDN and proxy.</li>
-        <li><strong>Availability control:</strong> monitoring and a public status page, optional customer-configured backups with at most three rolling copies kept for at most seven days, plus customer-booked permanent backup slots, target availability of 99.9 % as an annual average.</li>
-        <li><strong>Input control:</strong> access logs retained for 14 days, error logs for 30 days, security and audit logs for 90 days, each with automatic deletion afterwards.</li>
-        <li><strong>Deletion control:</strong> deletion of customer data and backups when the service ends; scheduled deletion of log data.</li>
-        <li><strong>Organisational measures:</strong> written confidentiality commitments, documented incident response and notification process, review of the measures when systems change.</li>
+        <li><strong>Physical access control:</strong> the servers are located exclusively in the data centre of Skylink Data Centers B.V. in Eygelshoven, Netherlands, partly as InstantNode's own colocation and partly as dedicated servers rented from Tube-Hosting, with the access control, video surveillance, power and fire protection measures customary there. InstantNode operates no data centre of its own and stores no customer data on office premises or mobile devices.</li>
+        <li><strong>System access control:</strong> individual accounts, passwords stored only as cryptographic hashes, two-factor authentication and passkeys (WebAuthn) available for all accounts and mandatory for administrative accounts, session management with expiry, SSH access to servers by key only, administrative access restricted to the owner and to persons expressly authorised by him and bound to confidentiality.</li>
+        <li><strong>Data access control:</strong> role-based permissions in the panel with separate customer, reseller, staff and administrator ranks, access to customer instances only through the panel and only for a specific ticket, logging of all administrative actions.</li>
+        <li><strong>Separation control:</strong> tenant separation through virtualisation (KVM and LXC under Proxmox VE), container isolation with separate network namespaces for bot and game server hosting, separate credentials and networks per instance, separate database users and mailbox domains per customer.</li>
+        <li><strong>Transmission control:</strong> TLS encryption for the website, the panel, the API, webmail and mail protocols, encrypted administrative access, no transmission of customer data by email or messenger.</li>
+        <li><strong>Network security:</strong> packet filtering at host level, per-instance egress filtering and rate limits, DDoS filtering of incoming and outgoing traffic of InstantNode's own IP addresses (PletX via Tube-Hosting) and through the upstream proxy for the website and panel, blocking of well-known abuse ports, no inspection of communication content.</li>
+        <li><strong>Availability control:</strong> redundant power and network at the data centre, monitoring and a public status page, target availability of 99.9 % as an annual average, customer-configurable backups (at most three per server, kept for at most seven days) and bookable permanent backup slots.</li>
+        <li><strong>Input control:</strong> access logs retained for 14 days, error logs for 30 days, security and audit logs for 90 days, each followed by automatic deletion; the panel activity log serves as the register of instructions.</li>
+        <li><strong>Deletion control:</strong> deletion of instances, volumes and backups when a service ends, scheduled deletion of log data, deletion confirmation on request.</li>
+        <li><strong>Organisational measures:</strong> written staff non-disclosure and data protection agreements with contractual penalty, a documented incident response and notification process, review of the measures whenever systems change, no use of customer data for own purposes.</li>
     </ul>
 </section>
 
 <section>
     <h2>Annex 3: Sub-processors</h2>
     <ul>
-        <li><strong>Skylink Data Centers B.V.</strong>, Netherlands: data centre and physical server infrastructure. Processing location: EU.</li>
-        <li><strong>Cloudflare</strong>: content delivery network, reverse proxy and DDoS protection. Processing location: EU and USA, on the basis of the EU Standard Contractual Clauses and the EU-US Data Privacy Framework.</li>
-        <li><strong>Feather</strong>: game server management interface, where the customer books a game server. The current registered office and processing location are provided on request.</li>
-        <li><strong>Porkbun LLC</strong>, USA: domain registration and WHOIS data, where the customer registers or transfers a domain. Processing location: USA, on the basis of the EU Standard Contractual Clauses.</li>
+        <li><strong>Skylink Data Centers B.V.</strong>, Eygelshoven (Kerkrade), Netherlands: data centre, colocation and physical network infrastructure for the servers operated by InstantNode itself. Processing location: EU (Netherlands).</li>
+        <li><strong>Ferdinand Zink trading as Tube-Hosting</strong>, Bad Königshofen i. Grabfeld, Germany: rented dedicated servers in the data centre in Eygelshoven; connection of InstantNode's own IP addresses to the internet and DDoS filtering of their traffic with the PletX technology (connection and traffic data only, no content). Processing location: EU.</li>
+        <li><strong>noez GmbH</strong>, Frankfurt am Main, Germany: provision of the IP address ranges acquired by InstantNode and publication of the reverse DNS records (PTR) the customer sets in the panel; no access to customer data or traffic. Processing location: EU (Germany).</li>
+        <li><strong>Cloudflare, Inc.</strong>, USA (with its EU entities): content delivery network, reverse proxy and DDoS protection for the website, the panel and the API, and for customer hostnames the customer chooses to proxy. Processing location: EU and USA, on the basis of the EU Standard Contractual Clauses and the EU-US Data Privacy Framework.</li>
+        <li><strong>Porkbun LLC</strong>, Oregon, USA: domain registration and WHOIS data, where the customer registers or transfers a domain. Processing location: USA, on the basis of the EU Standard Contractual Clauses.</li>
     </ul>
-    <p>Payment service providers (Stripe, PayPal, OxaPay) act as independent controllers for the payment transaction and are therefore not sub-processors within the meaning of this DPA.</p>
-    <p>This list is current as at the date shown at the top of this page. Changes are announced in accordance with Section 5.</p>
+    <p>Payment service providers (Stripe, PayPal, OxaPay, SumUp) act as independent controllers for the payment transaction and are not sub-processors. Managed email, web hosting and DNS for InstantNode's own zones are operated by InstantNode itself on its own servers.</p>
+    <p>This list is current as at the date shown at the top of this page. Changes are announced in accordance with Section 6.</p>
 </section>
       </div>
 
