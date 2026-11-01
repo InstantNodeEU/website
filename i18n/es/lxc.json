@@ -100,7 +100,7 @@
  "Can I resize my VPS later?": "¿Puedo redimensionar mi VPS más adelante?",
  "Yes. Scale up to 32 vCPU, 64 GB RAM and 1 TB of NVMe storage whenever you need to. You only pay for the resources you configure.": "Sí. Escala hasta 32 vCPU, 64 GB de RAM y 1 TB de almacenamiento NVMe cuando lo necesites. Solo pagas los recursos que configures.",
  "Yes - use our free Server Importer. The wizard connects to your old server over SFTP and pulls your data onto your new VPS for you.": "Sí - usa nuestro <a href=\"/dashboard/import\">Importador de servidores</a> gratuito. El asistente se conecta a tu antiguo servidor por SFTP y trae tus datos a tu nuevo VPS.",
- "We accept PayPal, cryptocurrencies and your InstantNode account balance. Card payments are currently not available.": "Aceptamos PayPal, criptomonedas y tu saldo de InstantNode. Los pagos con tarjeta no están disponibles por el momento.",
+ "We accept card payments, Apple Pay, Google Pay, Klarna, Wero, cryptocurrencies, bank transfer and your InstantNode account balance.": "Aceptamos tarjeta, Apple Pay, Google Pay, Klarna, Wero, criptomonedas, transferencia bancaria y tu saldo de InstantNode.",
  "Ready for full control?": "¿Listo para el control total?",
  "Deploy your VPS": "Desplegar tu VPS",
  "One datacenter,right in the heart of Europe": "Un centro de datos,<br>en el corazón de Europa",

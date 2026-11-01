@@ -58,7 +58,7 @@
  "Do you back it up?": "Faites-vous des sauvegardes ?",
  "Yes, backups are part of every plan, free included. Exports through phpMyAdmin are yours to take at any time as well.": "Oui, les sauvegardes font partie de chaque offre, gratuite comprise. Vous pouvez aussi exporter via phpMyAdmin à tout moment.",
  "How do I pay?": "Comment payer ?",
- "You top up your InstantNode balance with PayPal, card or cryptocurrency, and the subscription is paid from that balance each month. Cancel any time.": "Vous rechargez votre solde InstantNode avec PayPal, carte ou cryptomonnaie, et l'abonnement est payé chaque mois depuis ce solde. Résiliable à tout moment.",
+ "You top up your InstantNode balance by card, Apple Pay, Google Pay, Klarna, Wero, crypto or bank transfer, and the subscription is paid from that balance each month. Cancel any time.": "Vous rechargez votre solde InstantNode par carte, Apple Pay, Google Pay, Klarna, Wero, crypto ou virement bancaire, et l'abonnement est payé chaque mois depuis ce solde. Résiliable à tout moment.",
  "Need a database, not a server?": "Besoin d'une base de données, pas d'un serveur ?",
  "Start on the free plan with 512 MB, upgrade when your app grows. Full phpMyAdmin and backups are included on every plan.": "Commencez avec l'offre gratuite et 512 Mo, passez au niveau supérieur quand votre appli grandit. phpMyAdmin complet et sauvegardes sont inclus dans chaque offre.",
  "No card required. One free database per account, paid plans from €1.50/mo.": "Aucune carte requise. Une base gratuite par compte, offres payantes dès €1.50/mois.",

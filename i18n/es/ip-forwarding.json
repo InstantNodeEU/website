@@ -54,7 +54,7 @@
  "Does it add latency?": "¿Añade latencia?",
  "Traffic takes the route through our datacenter in the Netherlands, so the distance between your machine and us is added. For players and visitors in Europe that is usually only a few milliseconds.": "El tráfico pasa por nuestro centro de datos en los Países Bajos, así que se suma la distancia entre tu máquina y nosotros. Para jugadores y visitantes en Europa suelen ser solo unos milisegundos.",
  "How do I pay?": "¿Cómo pago?",
- "You top up your InstantNode balance with PayPal, card or cryptocurrency, and each forwarding is paid from that balance every month. Cancel any time in the panel.": "Recargas tu saldo de InstantNode con PayPal, tarjeta o criptomonedas, y cada reenvío se paga cada mes desde ese saldo. Cancela cuando quieras en el panel.",
+ "You top up your InstantNode balance by card, Apple Pay, Google Pay, Klarna, Wero, crypto or bank transfer, and each forwarding is paid from that balance every month. Cancel any time in the panel.": "Recargas tu saldo de InstantNode con tarjeta, Apple Pay, Google Pay, Klarna, Wero, cripto o transferencia bancaria, y cada reenvío se paga cada mes desde ese saldo. Cancela cuando quieras en el panel.",
  "Run it at home, show it to the world.": "Ejecútalo en casa, muéstralo al mundo.",
  "A protected IPv4 for your own machine, all ports, connected over WireGuard in a few minutes.": "Una IPv4 protegida para tu propia máquina, todos los puertos, conectada por WireGuard en pocos minutos.",
  "€3.99 per IP and month, up to 10 per account. Cancel any time.": "3,99 € por IP y mes, hasta 10 por cuenta. Cancela cuando quieras.",

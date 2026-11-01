@@ -92,7 +92,7 @@
  "Yes. Scale up to 32 vCPU, 64 GB RAM and 1 TB of NVMe storage whenever you need to. You only pay for the resources you configure.": "Oui. Passez jusqu'à 32 vCPU, 64 Go de RAM et 1 To de stockage NVMe quand vous en avez besoin. Vous ne payez que les ressources configurées.",
  "Yes. Always-on DDoS mitigation is included with each KVM VPS at no extra cost.": "Oui. Une mitigation anti-DDoS permanente est incluse avec chaque KVM VPS, sans frais supplémentaires.",
  "Yes - use our free Server Importer. The wizard connects to your old server over SFTP and pulls your data onto your new VPS for you.": "Oui - utilisez notre <a href=\"/dashboard/import\">importateur de serveurs</a> gratuit. L'assistant se connecte à votre ancien serveur en SFTP et rapatrie vos données sur votre nouveau VPS.",
- "We accept PayPal, cryptocurrencies and your InstantNode account balance. Card payments are currently not available.": "Nous acceptons PayPal, les cryptomonnaies et votre solde InstantNode. Le paiement par carte n'est pas disponible pour le moment.",
+ "We accept card payments, Apple Pay, Google Pay, Klarna, Wero, cryptocurrencies, bank transfer and your InstantNode account balance.": "Nous acceptons la carte, Apple Pay, Google Pay, Klarna, Wero, les cryptomonnaies, le virement bancaire et votre solde InstantNode.",
  "Ready for full control?": "Prêt pour un contrôle total ?",
  "Deploy a KVM VPS with full root access in seconds - and only pay for what you need.": "Déployez un KVM VPS avec accès root complet en quelques secondes - et ne payez que ce dont vous avez besoin.",
  "Deploy your VPS": "Déployer votre VPS",

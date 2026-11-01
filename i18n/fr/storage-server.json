@@ -97,7 +97,7 @@
  "Locked out? Set a new root password from the panel. The server keeps running - no rescue mode needed.": "Bloqué dehors ? Définissez un nouveau mot de passe root depuis le panel. Le serveur continue de tourner - pas de mode rescue nécessaire.",
  "99.9% availability": "Disponibilité 99,9 %",
  "Backed by our SLA with pro-rata credits and a public live status page at status.instantnode.eu.": "Garanti par notre SLA avec crédits au prorata et une page de statut publique en direct sur status.instantnode.eu.",
- "We accept PayPal, cryptocurrencies and your InstantNode account balance. Card payments are currently not available.": "Nous acceptons PayPal, les cryptomonnaies et votre solde InstantNode. Le paiement par carte n'est pas disponible pour le moment.",
+ "We accept card payments, Apple Pay, Google Pay, Klarna, Wero, cryptocurrencies, bank transfer and your InstantNode account balance.": "Nous acceptons la carte, Apple Pay, Google Pay, Klarna, Wero, les cryptomonnaies, le virement bancaire et votre solde InstantNode.",
  "Deploy now": "Déployer maintenant",
  "One datacenter,right in the heart of Europe": "Un datacenter,<br>au cœur de l'Europe",
  "Every server runs in our datacenter in Eygelshoven, Netherlands - on the German border, with short routes into Benelux, Germany, France and beyond.": "Chaque serveur tourne dans notre datacenter à Eygelshoven, aux Pays-Bas - à la frontière allemande, avec des routes courtes vers le Benelux, l'Allemagne, la France et au-delà.",

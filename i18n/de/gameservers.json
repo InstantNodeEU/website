@@ -105,7 +105,7 @@
  "Do you protect against DDoS attacks?": "Schützt ihr vor DDoS-Angriffen?",
  "Yes - always-on DDoS protection is included free with every game server. That means attacks are mitigated before they reach your players.": "Ja - dauerhaft aktiver DDoS-Schutz ist bei jedem Gameserver kostenlos enthalten. Angriffe werden abgewehrt, bevor sie deine Spieler erreichen.",
  "What payment methods do you accept?": "Welche Zahlungsmethoden akzeptiert ihr?",
- "We accept PayPal, cryptocurrency and your InstantNode account balance. Card payments are currently not available.": "Wir akzeptieren PayPal, Kryptowährung und dein InstantNode-Guthaben. Kartenzahlungen sind derzeit nicht verfügbar.",
+ "We accept card payments, Apple Pay, Google Pay, Klarna, Wero, cryptocurrency, bank transfer and your InstantNode account balance.": "Wir akzeptieren Karte, Apple Pay, Google Pay, Klarna, Wero, Kryptowährung, Überweisung und dein InstantNode-Guthaben.",
  "Where are the servers hosted?": "Wo werden die Server gehostet?",
  "In the EU. Our game servers run in our Eygelshoven (Netherlands) datacenter - the location shown on every plan. It's GDPR-compliant European infrastructure.": "In der EU. Unsere Gameserver laufen in unserem Rechenzentrum in Eygelshoven (Niederlande) - der Standort steht bei jedem Tarif. DSGVO-konforme europäische Infrastruktur.",
  "Start your game server.": "Starte deinen Gameserver.",

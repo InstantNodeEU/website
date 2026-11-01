@@ -130,5 +130,5 @@
  "Netherlands / EU - GDPR compliant": "Pays-Bas / UE - conforme au RGPD",
  "Deployment": "Déploiement",
  "Automated - online in about 60 seconds": "Automatisé - en ligne en environ 60 secondes",
- "We accept PayPal, cryptocurrencies and your InstantNode account balance. Card payments are currently not available.": "Nous acceptons PayPal, les cryptomonnaies et votre solde InstantNode. Le paiement par carte n'est pas disponible pour le moment."
+ "We accept card payments, Apple Pay, Google Pay, Klarna, Wero, cryptocurrencies, bank transfer and your InstantNode account balance.": "Nous acceptons la carte, Apple Pay, Google Pay, Klarna, Wero, les cryptomonnaies, le virement bancaire et votre solde InstantNode."
 }

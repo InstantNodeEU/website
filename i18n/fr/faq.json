@@ -27,7 +27,7 @@
  "Billing & payments": "Facturation & paiements",
  "How does billing work?": "Comment fonctionne la facturation ?",
  "Your account runs on a prepaid balance. Servers bill hourly (or monthly if you prefer), and the cost is drawn from your balance - so you are never surprised by an invoice at the end of the month. Top up whenever, cancel whenever.": "Votre compte fonctionne avec un solde prépayé. Les serveurs sont facturés à l'heure (ou au mois si vous préférez), et le coût est prélevé sur votre solde - vous n'êtes donc jamais surpris par une facture en fin de mois. Rechargez quand vous voulez, résiliez quand vous voulez.",
- "PayPal, credit/debit card, and a wide range of cryptocurrencies (BTC, ETH, USDT, USDC, LTC, DOGE, SOL, XMR and more). Crypto top-ups don't even require an email.": "PayPal, carte de crédit/débit et un large choix de cryptomonnaies (BTC, ETH, USDT, USDC, LTC, DOGE, SOL, XMR et plus). Les recharges en crypto ne demandent même pas d'e-mail.",
+ "Credit/debit card, Apple Pay, Google Pay, Klarna, Wero, Revolut Pay, bank transfer and a wide range of cryptocurrencies (BTC, ETH, USDT, USDC, LTC, DOGE, SOL, XMR and more). Crypto top-ups don't even require an email.": "Carte de crédit/débit, Apple Pay, Google Pay, Klarna, Wero, Revolut Pay, virement bancaire et un large choix de cryptomonnaies (BTC, ETH, USDT, USDC, LTC, DOGE, SOL, XMR et plus). Les recharges en crypto ne demandent même pas d'e-mail.",
  "Do you charge VAT?": "Facturez-vous la TVA ?",
  "No. InstantNode is a small business under § 19 UStG (Kleinunternehmerregelung), so no VAT is added or shown - the price you see is the price you pay.": "Non. InstantNode est une petite entreprise au sens du § 19 UStG (Kleinunternehmerregelung), aucune TVA n'est donc ajoutée ni indiquée - le prix affiché est le prix payé.",
  "Is there a minimum contract or setup fee?": "Y a-t-il un engagement minimum ou des frais d'installation ?",
@@ -61,6 +61,6 @@
  "Join our Discord": "Rejoindre notre Discord",
  "FAQ | InstantNode": "FAQ | InstantNode",
  "FAQ - Frequently asked questions | InstantNode": "FAQ - Questions fréquentes | InstantNode",
- "Frequently asked questions about InstantNode: how fast servers deploy, KVM vs LXC vs VDS, billing and payments (PayPal, card, crypto), refunds, EU/GDPR hosting and support.": "Questions fréquentes sur InstantNode : rapidité de déploiement des serveurs, KVM vs LXC vs VDS, facturation et paiements (PayPal, carte, crypto), remboursements, hébergement UE/RGPD et support.",
+ "Frequently asked questions about InstantNode: how fast servers deploy, KVM vs LXC vs VDS, billing and payments (card, Apple Pay, Google Pay, Klarna, crypto), refunds, EU/GDPR hosting and support.": "Questions fréquentes sur InstantNode : rapidité de déploiement des serveurs, KVM vs LXC vs VDS, facturation et paiements (carte, Apple Pay, Google Pay, Klarna, crypto), remboursements, hébergement UE/RGPD et support.",
  "Getting started": "Pour commencer"
 }

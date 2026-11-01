@@ -125,7 +125,7 @@
  "Free with the Server Importer": "Gratis con el <a href=\"/dashboard/import\" style=\"border-bottom:1px solid var(--dim)\">Importador de servidores</a>",
  "Deployment": "Despliegue",
  "Automated - online in about 60 seconds": "Automático - en línea en unos 60 segundos",
- "We accept PayPal, cryptocurrencies and your InstantNode account balance. Card payments are currently not available.": "Aceptamos PayPal, criptomonedas y tu saldo de InstantNode. Los pagos con tarjeta no están disponibles por el momento.",
+ "We accept card payments, Apple Pay, Google Pay, Klarna, Wero, cryptocurrencies, bank transfer and your InstantNode account balance.": "Aceptamos tarjeta, Apple Pay, Google Pay, Klarna, Wero, criptomonedas, transferencia bancaria y tu saldo de InstantNode.",
  "Ready for full control?": "¿Listo para el control total?",
  "Deploy your VPS": "Desplegar tu VPS",
  "Need bare-metal power or more capacity? Compare our storage servers and game servers.": "¿Necesitas más potencia o capacidad? Compara nuestros <a href=\"/storage-server\" style=\"color:var(--mute);border-bottom:1px solid var(--dim)\">servidores de almacenamiento</a> y <a href=\"/gameservers\" style=\"color:var(--mute);border-bottom:1px solid var(--dim)\">servidores de juego</a>.",
