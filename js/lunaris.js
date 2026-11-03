@@ -1644,11 +1644,11 @@
         if (d && d.reviews) { reviewSummary = d.reviews; renderReviewLines(); }
         var st = d && d.stats;
         if (!st) return;
-        // Floored to the nearest 100, so "X,X00+" is never a claim for more
-        // than there are. Customers = accounts that paid at least once.
-        [['.js-customer-count', st.totalCustomers], ['.js-user-count', st.registeredUsers]].forEach(function (f) {
-          var n = Number(f[1]);
-          if (n >= 100) setAll(f[0], (Math.floor(n / 100) * 100).toLocaleString('en-US') + '+');
+        // Floored (customers to 50, users to 100), so "X+" is never a claim
+        // for more than there are. Customers = accounts that paid at least once.
+        [['.js-customer-count', st.totalCustomers, 50], ['.js-user-count', st.registeredUsers, 100]].forEach(function (f) {
+          var n = Number(f[1]), step = f[2];
+          if (n >= 100) setAll(f[0], (Math.floor(n / step) * step).toLocaleString('en-US') + '+');
         });
         // Support median rounded up and uptime floored by the API: the page
         // never shows us faster or more available than measured.
