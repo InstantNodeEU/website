@@ -119,7 +119,7 @@
     <symbol id="fa-gauge" viewBox="0 0 512 512"><path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm320 96c0-26.9-16.5-49.9-40-59.3L280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 172.7c-23.5 9.5-40 32.5-40 59.3 0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-16 80a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM400 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></symbol>
     </svg>
     <!-- Announcement bar. Visibility is decided before paint; the close
-         button is wired in js/lunaris.js?v=xmas4. -->
+         button is wired in js/lunaris.js?v=xmas6. -->
     <div class="in-announce" data-key="import2026" id="in-announce">
       <div class="in-announce__icon has-ping"><span class="ping-head" style="--pw:38px" aria-hidden="true"><img src="/img/ping/ping-head.webp" width="256" height="285" alt="" decoding="async" /><img src="/img/ping/ping-head-blink.webp" width="256" height="285" alt="" decoding="async" /></span></div>
       <div>
@@ -305,9 +305,9 @@
             <div class="plan-price">€0.99<small>/ month</small></div>
             <p class="plan-desc">Perfect for a first website</p>
             <ul>
-              <li>10 GB storage</li>
-              <li>1 GB RAM</li>
-              <li>1 core</li>
+              <li>25 GB storage</li>
+              <li>512 MB RAM</li>
+              <li>0.5 vCPU</li>
               <li>1 free MySQL database</li>
               <li>Free Let's Encrypt SSL</li>
             </ul>
@@ -318,9 +318,9 @@
             <div class="plan-price">€1.99<small>/ month</small></div>
             <p class="plan-desc">For growing personal sites</p>
             <ul>
-              <li>25 GB storage</li>
-              <li>2 GB RAM</li>
-              <li>1 core</li>
+              <li>50 GB storage</li>
+              <li>768 MB RAM</li>
+              <li>0.5 vCPU</li>
               <li>1 free MySQL database</li>
               <li>Free Let's Encrypt SSL</li>
             </ul>
@@ -332,9 +332,9 @@
             <div class="plan-price">€3.99<small>/ month</small></div>
             <p class="plan-desc">The all-round sweet spot</p>
             <ul>
-              <li>50 GB storage</li>
-              <li>3 GB RAM</li>
-              <li>2 cores</li>
+              <li>150 GB storage</li>
+              <li>1 GB RAM</li>
+              <li>1 vCPU</li>
               <li>1 free MySQL database</li>
               <li>Free Let's Encrypt SSL</li>
             </ul>
@@ -345,9 +345,9 @@
             <div class="plan-price">€5.99<small>/ month</small></div>
             <p class="plan-desc">For busy WordPress &amp; apps</p>
             <ul>
-              <li>100 GB storage</li>
-              <li>4 GB RAM</li>
-              <li>2 cores</li>
+              <li>350 GB storage</li>
+              <li>1.5 GB RAM</li>
+              <li>1 vCPU</li>
               <li>1 free MySQL database</li>
               <li>Free Let's Encrypt SSL</li>
             </ul>
@@ -358,9 +358,9 @@
             <div class="plan-price">€8.99<small>/ month</small></div>
             <p class="plan-desc">For high-traffic sites</p>
             <ul>
-              <li>200 GB storage</li>
-              <li>6 GB RAM</li>
-              <li>3 cores</li>
+              <li>500 GB storage</li>
+              <li>2 GB RAM</li>
+              <li>2 vCPU</li>
               <li>1 free MySQL database</li>
               <li>Free Let's Encrypt SSL</li>
             </ul>
@@ -371,9 +371,9 @@
             <div class="plan-price">€13.99<small>/ month</small></div>
             <p class="plan-desc">Maximum headroom</p>
             <ul>
-              <li>350 GB storage</li>
-              <li>8 GB RAM</li>
-              <li>4 cores</li>
+              <li>1.5 TB storage</li>
+              <li>3 GB RAM</li>
+              <li>2 vCPU</li>
               <li>1 free MySQL database</li>
               <li>Free Let's Encrypt SSL</li>
             </ul>
@@ -397,7 +397,7 @@
           </div>
           <ol class="pp-rows">
             <li class="rv"><div><h3>Free SSL, always on</h3><p>Automatic HTTPS for each website and subdomain, issued and renewed for you. You never touch a certificate.</p></div></li>
-            <li class="rv"><div><h3>Hard resource limits</h3><p>RAM, CPU, disk and process count are enforced per site with a cgroup slice and disk quota. Change your allocation live, with no downtime.</p></div></li>
+            <li class="rv"><div><h3>Hard resource limits</h3><p>RAM, CPU, disk and process count are enforced per site with a cgroup slice and disk quota. Upgrade your plan live, with no downtime.</p></div></li>
             <li class="rv"><div><h3>True tenant isolation</h3><p>No customer can see another tenant's files, credentials or processes. This comes from a locked-down web root, a hidden process list, private temp and a root-only secret store.</p></div></li>
             <li class="rv"><div><h3>Live usage and history</h3><p>Watch RAM, CPU, disk and processes update live in your panel. A history chart shows you when it is time to size up.</p></div></li>
             <li class="rv"><div><h3>Threat-actor finder</h3><p>A built-in scanner scores your site for miners, scanners, web shells and rogue cron jobs. It is tuned to keep false positives low.</p></div></li>
@@ -472,7 +472,7 @@
             <div><dt>Runtime</dt><dd>Static by default. Switch on a runtime when you need one, then install real apps from the built-in app store</dd></div>
             <div><dt>App store</dt><dd>WordPress, Nextcloud, Moodle, Laravel, Matomo, phpMyAdmin and 20+ more, plus GitHub starter templates</dd></div>
             <div><dt>Database</dt><dd>1 free MySQL database included with each plan</dd></div>
-            <div><dt>Resources</dt><dd>Fixed RAM, CPU, disk and process count per site, enforced with a cgroup slice and disk quota. Resize live with no downtime</dd></div>
+            <div><dt>Resources</dt><dd>Fixed RAM, CPU, disk and process count per site, enforced with a cgroup slice and disk quota. Upgrade live with no downtime</dd></div>
             <div><dt>Isolation</dt><dd>Full cross-tenant isolation - no one can see another site's files, credentials or processes</dd></div>
             <div><dt>SSL certificates</dt><dd>Free automatic HTTPS on each website and subdomain, renewed for you</dd></div>
             <div><dt>Domains</dt><dd>1 domain and unlimited subdomains, each as its own folder in your web root</dd></div>
@@ -529,7 +529,7 @@
           <details class="rv"><summary>Do I get SSH access?</summary><div>Yes. Each webspace gets SSH and SFTP access into your web root. You also get a web file manager and config editors in the panel, plus a one-click SSO into the full admin. Manage your site however you prefer.</div></details>
           <details class="rv"><summary>Which apps can I install?</summary><div>The app store installs real, working apps in one click. Choices include WordPress, Nextcloud, Moodle, Laravel, Matomo, phpMyAdmin and over 25 more, plus GitHub starter templates. Each install hands you the site URL plus its admin and database credentials.</div></details>
           <details class="rv"><summary>Are other customers isolated from me?</summary><div>Yes. Each webspace runs in its own cgroup slice with a disk quota. The platform is hardened, so no customer can see another tenant's files, credentials or processes. A built-in scanner also flags miners, web shells and other abuse.</div></details>
-          <details class="rv"><summary>Can I change my plan later?</summary><div>Yes. Upgrade or downgrade at any time. The new RAM, CPU and disk limits apply live, with no downtime and no reinstall. You can watch your usage in the panel to know when it is time to size up.</div></details>
+          <details class="rv"><summary>Can I change my plan later?</summary><div>Yes. Upgrade at any time. The new RAM, CPU and disk limits apply live, with no downtime and no reinstall. You can watch your usage in the panel to know when it is time to size up.</div></details>
           <details class="rv"><summary>Is SSL really free, and how fast is setup?</summary><div>SSL is free and automatic on each website and subdomain, and it renews itself. Webspaces are provisioned right after checkout, so your hosting - including SSL and the panel - is ready within minutes.</div></details>
         </div>
         </div>
@@ -633,6 +633,6 @@
       </footer>
     </main>
 
-    <script src="/js/lunaris.js?v=xmas4" defer></script>
+    <script src="/js/lunaris.js?v=xmas6" defer></script>
   </body>
 </html>
