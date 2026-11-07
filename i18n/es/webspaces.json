@@ -44,7 +44,6 @@
  "Free SSL, always on": "SSL gratuito, siempre activo",
  "Automatic HTTPS for each website and subdomain, issued and renewed for you. You never touch a certificate.": "HTTPS automático para cada web y subdominio, emitido y renovado por nosotros. Nunca tocas un certificado.",
  "Hard resource limits": "Límites de recursos estrictos",
- "RAM, CPU, disk and process count are enforced per site with a cgroup slice and disk quota. Change your allocation live, with no downtime.": "RAM, CPU, disco y número de procesos se imponen por sitio con un slice de cgroup y una cuota de disco. Cambia tu asignación en vivo, sin tiempo de inactividad.",
  "True tenant isolation": "Aislamiento real entre clientes",
  "No customer can see another tenant's files, credentials or processes. This comes from a locked-down web root, a hidden process list, private temp and a root-only secret store.": "Ningún cliente puede ver los archivos, credenciales o procesos de otro. Esto viene de una raíz web bloqueada, una lista de procesos oculta, un temp privado y un almacén de secretos solo para root.",
  "Live usage and history": "Uso en vivo e historial",
@@ -83,7 +82,6 @@
  "App store": "Tienda de apps",
  "WordPress, Nextcloud, Moodle, Laravel, Matomo, phpMyAdmin and 20+ more, plus GitHub starter templates": "WordPress, Nextcloud, Moodle, Laravel, Matomo, phpMyAdmin y más de 20 más, además de plantillas de inicio de GitHub",
  "1 free MySQL database included with each plan": "1 base de datos MySQL gratuita incluida en cada plan",
- "Fixed RAM, CPU, disk and process count per site, enforced with a cgroup slice and disk quota. Resize live with no downtime": "RAM, CPU, disco y número de procesos fijos por sitio, impuestos con un slice de cgroup y una cuota de disco. Redimensiona en vivo sin tiempo de inactividad",
  "Isolation": "Aislamiento",
  "Full cross-tenant isolation - no one can see another site's files, credentials or processes": "Aislamiento completo entre clientes - nadie puede ver los archivos, credenciales o procesos de otro sitio",
  "SSL certificates": "Certificados SSL",
@@ -117,7 +115,6 @@
  "Are other customers isolated from me?": "¿Están los otros clientes aislados de mí?",
  "Yes. Each webspace runs in its own cgroup slice with a disk quota. The platform is hardened, so no customer can see another tenant's files, credentials or processes. A built-in scanner also flags miners, web shells and other abuse.": "Sí. Cada webspace se ejecuta en su propio slice de cgroup con una cuota de disco. La plataforma está endurecida, así que ningún cliente puede ver los archivos, credenciales o procesos de otro. Un escáner integrado también detecta mineros, web shells y otros abusos.",
  "Can I change my plan later?": "¿Puedo cambiar de plan más adelante?",
- "Yes. Upgrade or downgrade at any time. The new RAM, CPU and disk limits apply live, with no downtime and no reinstall. You can watch your usage in the panel to know when it is time to size up.": "Sí. Sube o baja de plan cuando quieras. Los nuevos límites de RAM, CPU y disco se aplican en vivo, sin tiempo de inactividad ni reinstalación. Puedes ver tu uso en el panel para saber cuándo toca subir.",
  "Is SSL really free, and how fast is setup?": "¿El SSL es realmente gratis y cuánto tarda la configuración?",
  "SSL is free and automatic on each website and subdomain, and it renews itself. Webspaces are provisioned right after checkout, so your hosting - including SSL and the panel - is ready within minutes.": "El SSL es gratuito y automático en cada web y subdominio, y se renueva solo. Los webspaces se aprovisionan justo después del pago, así que tu hosting - incluidos SSL y panel - está listo en minutos.",
  "Ready to put your site online?": "¿Listo para poner tu web en línea?",
@@ -131,5 +128,13 @@
  "Why InstantNode": "Por qué InstantNode",
  "Plans": "Planes",
  "Access": "Acceso",
- "Perfect for": "Perfecto para"
+ "Perfect for": "Perfecto para",
+ "Yes. Upgrade at any time. The new RAM, CPU and disk limits apply live, with no downtime and no reinstall. You can watch your usage in the panel to know when it is time to size up.": "Sí. Sube de plan cuando quieras. Los nuevos límites de RAM, CPU y disco se aplican en vivo, sin tiempo de inactividad ni reinstalación. Puedes ver tu uso en el panel para saber cuándo toca subir.",
+ "150 GB storage": "150 GB de almacenamiento",
+ "500 GB storage": "500 GB de almacenamiento",
+ "1.5 TB storage": "1,5 TB de almacenamiento",
+ "1.5 GB RAM": "1,5 GB de RAM",
+ "0.5 vCPU": "0,5 vCPU",
+ "RAM, CPU, disk and process count are enforced per site with a cgroup slice and disk quota. Upgrade your plan live, with no downtime.": "RAM, CPU, disco y número de procesos se imponen por sitio con un slice de cgroup y una cuota de disco. Mejora tu plan en vivo, sin tiempo de inactividad.",
+ "Fixed RAM, CPU, disk and process count per site, enforced with a cgroup slice and disk quota. Upgrade live with no downtime": "RAM, CPU, disco y número de procesos fijos por sitio, impuestos con un slice de cgroup y una cuota de disco. Mejora de plan en vivo sin tiempo de inactividad"
 }
