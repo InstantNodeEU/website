@@ -74,5 +74,20 @@
  "64 cores": "64 Kerne",
  "16 cores": "16 Kerne",
  "Always-on DDoS protection and a 99.9% uptime target on every node.": "Dauerhafter DDoS-Schutz und 99,9 % Uptime-Ziel auf jedem Node.",
- "Rack elevation: two 2U AMD EPYC nodes and one 1U AMD Ryzen 9 5950X node": "Rack-Ansicht: zwei 2U-Nodes mit AMD EPYC und ein 1U-Node mit AMD Ryzen 9 5950X"
+ "Rack elevation: two 2U AMD EPYC nodes and one 1U AMD Ryzen 9 5950X node": "Rack-Ansicht: zwei 2U-Nodes mit AMD EPYC und ein 1U-Node mit AMD Ryzen 9 5950X",
+ "Our Hardware - AMD EPYC & Ryzen | InstantNode": "Unsere Hardware - AMD EPYC & Ryzen | InstantNode",
+ "The hardware behind InstantNode: AMD EPYC 7763 and 7713 nodes with 64 cores, 128 threads and 1 TB ECC RAM each, plus Ryzen 9 5950X game nodes with 128 GB.": "Die Hardware hinter InstantNode: AMD EPYC 7763- und 7713-Nodes mit je 64 Kernen, 128 Threads und 1 TB ECC-RAM, plus Ryzen 9 5950X Game-Nodes mit 128 GB.",
+ "We run three node types: AMD EPYC 7763 and EPYC 7713 with 1 TB of ECC memory each for servers and hosting, and high-frequency Ryzen 9 5950X dedicated to game servers.": "Wir betreiben drei Node-Typen: AMD EPYC 7763 und EPYC 7713 mit je 1 TB ECC-Speicher für Server und Hosting sowie hochgetaktete Ryzen 9 5950X nur für Gameserver.",
+ "Rack elevation: three AMD EPYC nodes and two AMD Ryzen 9 5950X nodes": "Rack-Ansicht: drei Nodes mit AMD EPYC und zwei Nodes mit AMD Ryzen 9 5950X",
+ "Game server node GS-01": "Gameserver-Node GS-01",
+ "Game server node GS-02": "Gameserver-Node GS-02",
+ "64 cores · 1 TB ECC": "64 Kerne · 1 TB ECC",
+ "64 cores · 1 TB ECC each": "je 64 Kerne · 1 TB ECC",
+ "GS-01 · 16 cores · 128 GB": "GS-01 · 16 Kerne · 128 GB",
+ "GS-02 · 16 cores · 128 GB": "GS-02 · 16 Kerne · 128 GB",
+ "threads": "Threads",
+ "nodes": "Nodes",
+ "Two of our nodes run this CPU: the same 64 Zen 3 cores and 128 threads as the 7763, each with a full terabyte of ECC memory.": "Zwei unserer Nodes laufen mit dieser CPU: dieselben 64 Zen-3-Kerne und 128 Threads wie beim 7763, jeweils mit einem vollen Terabyte ECC-Speicher.",
+ "Our second dedicated game server node: the same high-frequency 16 Zen 3 cores and 128 GB of memory. New game servers are placed on whichever node has the most headroom.": "Unser zweiter dedizierter Gameserver-Node: dieselben hochgetakteten 16 Zen-3-Kerne und 128 GB Arbeitsspeicher. Neue Gameserver landen auf dem Node mit der meisten Reserve.",
+ "Enterprise compute · 2 nodes": "Enterprise-Compute · 2 Nodes"
 }

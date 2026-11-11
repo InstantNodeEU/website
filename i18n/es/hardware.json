@@ -74,5 +74,20 @@
  "64 cores": "64 núcleos",
  "16 cores": "16 núcleos",
  "Always-on DDoS protection and a 99.9% uptime target on every node.": "Protección DDoS siempre activa y un objetivo de disponibilidad del 99,9 % en cada nodo.",
- "Rack elevation: two 2U AMD EPYC nodes and one 1U AMD Ryzen 9 5950X node": "Vista del rack: dos nodos AMD EPYC de 2U y un nodo AMD Ryzen 9 5950X de 1U"
+ "Rack elevation: two 2U AMD EPYC nodes and one 1U AMD Ryzen 9 5950X node": "Vista del rack: dos nodos AMD EPYC de 2U y un nodo AMD Ryzen 9 5950X de 1U",
+ "Our Hardware - AMD EPYC & Ryzen | InstantNode": "Nuestro hardware - AMD EPYC & Ryzen | InstantNode",
+ "The hardware behind InstantNode: AMD EPYC 7763 and 7713 nodes with 64 cores, 128 threads and 1 TB ECC RAM each, plus Ryzen 9 5950X game nodes with 128 GB.": "El hardware detrás de InstantNode: nodos AMD EPYC 7763 y 7713 con 64 núcleos, 128 hilos y 1 TB de RAM ECC cada uno, además de nodos de juego Ryzen 9 5950X con 128 GB.",
+ "We run three node types: AMD EPYC 7763 and EPYC 7713 with 1 TB of ECC memory each for servers and hosting, and high-frequency Ryzen 9 5950X dedicated to game servers.": "Operamos tres tipos de nodo: AMD EPYC 7763 y EPYC 7713 con 1 TB de memoria ECC cada uno para servidores y hosting, y Ryzen 9 5950X de alta frecuencia dedicados a servidores de juego.",
+ "Rack elevation: three AMD EPYC nodes and two AMD Ryzen 9 5950X nodes": "Vista del rack: tres nodos AMD EPYC y dos nodos AMD Ryzen 9 5950X",
+ "64 cores · 1 TB ECC": "64 núcleos · 1 TB ECC",
+ "64 cores · 1 TB ECC each": "64 núcleos · 1 TB ECC cada uno",
+ "GS-01 · 16 cores · 128 GB": "GS-01 · 16 núcleos · 128 GB",
+ "GS-02 · 16 cores · 128 GB": "GS-02 · 16 núcleos · 128 GB",
+ "threads": "hilos",
+ "nodes": "nodos",
+ "Two of our nodes run this CPU: the same 64 Zen 3 cores and 128 threads as the 7763, each with a full terabyte of ECC memory.": "Dos de nuestros nodos usan esta CPU: los mismos 64 núcleos Zen 3 y 128 hilos que el 7763, cada uno con un terabyte completo de memoria ECC.",
+ "Our second dedicated game server node: the same high-frequency 16 Zen 3 cores and 128 GB of memory. New game servers are placed on whichever node has the most headroom.": "Nuestro segundo nodo dedicado a servidores de juego: los mismos 16 núcleos Zen 3 de alta frecuencia y 128 GB de memoria. Los nuevos servidores de juego se colocan en el nodo con más margen.",
+ "Enterprise compute · 2 nodes": "Computación empresarial · 2 nodos",
+ "Game server node GS-01": "Nodo de servidores de juego GS-01",
+ "Game server node GS-02": "Nodo de servidores de juego GS-02"
 }
