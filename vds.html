@@ -2,21 +2,21 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=22" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=23" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>VDS - Dedicated Core Servers | InstantNode</title>
-    <meta content="VDS with dedicated, pinned AMD EPYC cores - guaranteed CPU performance, NVMe storage and DDoS protection. 8 plans from 8.49 euro/mo." name="description" />
+    <meta content="VDS with dedicated, pinned AMD EPYC cores - guaranteed CPU performance, NVMe storage and DDoS protection. 10 plans from 8.99 euro/mo." name="description" />
     <meta content="KVM VPS, NVMe VPS, cheap VPS Europe, VPS hosting Netherlands, AMD EPYC VPS, Linux VPS" name="keywords" />
     <link href="https://instantnode.eu/vds" rel="canonical" />
     <meta content="website" property="og:type" />
     <meta content="https://instantnode.eu/vds" property="og:url" />
     <meta content="VDS - Dedicated Core Servers | InstantNode" property="og:title" />
-    <meta content="VDS with dedicated, pinned AMD EPYC cores - guaranteed CPU performance, NVMe storage and DDoS protection. 8 plans from 8.49 euro/mo." property="og:description" />
+    <meta content="VDS with dedicated, pinned AMD EPYC cores - guaranteed CPU performance, NVMe storage and DDoS protection. 10 plans from 8.99 euro/mo." property="og:description" />
     <meta content="https://instantnode.eu/meta-banner.webp?v=5" property="og:image" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="VDS - Dedicated Core Servers | InstantNode" name="twitter:title" />
-    <meta content="VDS with dedicated, pinned AMD EPYC cores - guaranteed CPU performance, NVMe storage and DDoS protection. 8 plans from 8.49 euro/mo." name="twitter:description" />
+    <meta content="VDS with dedicated, pinned AMD EPYC cores - guaranteed CPU performance, NVMe storage and DDoS protection. 10 plans from 8.99 euro/mo." name="twitter:description" />
     <meta content="https://instantnode.eu/meta-banner.webp?v=5" name="twitter:image" />
     <meta content="#060606" name="theme-color" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media=&#39;all&#39;" />
     <meta name="darkreader-lock" />
@@ -34,7 +34,7 @@
       "@type": "Product",
       "@id": "https://instantnode.eu/vds#product",
       "name": "VDS - Dedicated Core Server",
-      "description": "VDS with dedicated, pinned AMD EPYC cores - guaranteed CPU performance, NVMe storage and DDoS protection. 8 fixed plans from 8.49 euro per month.",
+      "description": "VDS with dedicated, pinned AMD EPYC cores - guaranteed CPU performance, NVMe storage and DDoS protection. 10 fixed plans from 8.99 euro per month.",
       "image": "https://instantnode.eu/illustrations/vds.webp",
       "url": "https://instantnode.eu/vds",
       "brand": {
@@ -44,8 +44,8 @@
       "offers": {
         "@type": "AggregateOffer",
         "url": "https://instantnode.eu/vds",
-        "lowPrice": "8.49",
-        "highPrice": "119.99",
+        "lowPrice": "8.99",
+        "highPrice": "87.99",
         "offerCount": 8,
         "priceCurrency": "EUR",
         "availability": "https://schema.org/InStock"
@@ -86,7 +86,7 @@
           "name": "Can I resize my VPS later?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Scale up to 32 vCPU, 64 GB RAM and 1 TB of NVMe storage whenever you need to - you only pay for the resources you configure."
+            "text": "Yes. You can move to a larger VDS plan at any time, up to 16 dedicated cores, 48 GB RAM and 480 GB of NVMe storage."
           }
         },
         {
@@ -319,7 +319,7 @@
 
       <!-- ===== hero ===== -->
       <section class="hero">
-        <span class="badge rv">VDS &middot; from &euro;8.49/mo</span>
+        <span class="badge rv">VDS &middot; from &euro;8.99/mo</span>
         <h1 class="d1 rv">Dedicated cores,<br />zero neighbors.</h1>
         <p class="lede rv">Physical EPYC cores pinned to your VM - consistent performance at 3 a.m. and at peak hour. Pinned AMD EPYC 7763 cores, NVMe SSD and free DDoS protection.</p>
         <div class="hero-actions rv">
@@ -345,8 +345,20 @@
         </div>
         <div class="plans plans-4">
           <div class="plan rv">
+            <div class="plan-name">Sif</div>
+            <div class="plan-price">&euro;8.99<small>/ month</small></div>
+            <p class="plan-desc">The smallest way in</p>
+            <ul>
+              <li>2 dedicated cores</li>
+              <li>2 GB DDR4 ECC RAM</li>
+              <li>20 GB NVMe SSD</li>
+              <li>DDoS protection</li>
+            </ul>
+            <a class="btn btn-ghost" href="/dashboard/containers/create?type=vds&amp;plan=Sif">Deploy Sif</a>
+          </div>
+          <div class="plan rv">
             <div class="plan-name">Freya</div>
-            <div class="plan-price">&euro;8.49<small>/ month</small></div>
+            <div class="plan-price">&euro;11.99<small>/ month</small></div>
             <p class="plan-desc">The dedicated entry point</p>
             <ul>
               <li>2 dedicated cores</li>
@@ -357,8 +369,20 @@
             <a class="btn btn-ghost" href="/dashboard/containers/create?type=vds&amp;plan=Freya">Deploy Freya</a>
           </div>
           <div class="plan rv">
+            <div class="plan-name">Idun</div>
+            <div class="plan-price">&euro;14.99<small>/ month</small></div>
+            <p class="plan-desc">Small core count, more memory</p>
+            <ul>
+              <li>2 dedicated cores</li>
+              <li>8 GB DDR4 ECC RAM</li>
+              <li>60 GB NVMe SSD</li>
+              <li>DDoS protection</li>
+            </ul>
+            <a class="btn btn-ghost" href="/dashboard/containers/create?type=vds&amp;plan=Idun">Deploy Idun</a>
+          </div>
+          <div class="plan rv">
             <div class="plan-name">Tyr</div>
-            <div class="plan-price">&euro;15.99<small>/ month</small></div>
+            <div class="plan-price">&euro;21.99<small>/ month</small></div>
             <p class="plan-desc">Small apps, real consistency</p>
             <ul>
               <li>4 dedicated cores</li>
@@ -369,8 +393,20 @@
             <a class="btn btn-ghost" href="/dashboard/containers/create?type=vds&amp;plan=Tyr">Deploy Tyr</a>
           </div>
           <div class="plan rv">
+            <div class="plan-name">Vali</div>
+            <div class="plan-price">&euro;27.99<small>/ month</small></div>
+            <p class="plan-desc">Databases that need memory</p>
+            <ul>
+              <li>4 dedicated cores</li>
+              <li>16 GB DDR4 ECC RAM</li>
+              <li>120 GB NVMe SSD</li>
+              <li>DDoS protection</li>
+            </ul>
+            <a class="btn btn-ghost" href="/dashboard/containers/create?type=vds&amp;plan=Vali">Deploy Vali</a>
+          </div>
+          <div class="plan rv">
             <div class="plan-name">Thor</div>
-            <div class="plan-price">&euro;24.49<small>/ month</small></div>
+            <div class="plan-price">&euro;33.99<small>/ month</small></div>
             <p class="plan-desc">Game servers &amp; databases</p>
             <ul>
               <li>6 dedicated cores</li>
@@ -380,9 +416,21 @@
             </ul>
             <a class="btn btn-ghost" href="/dashboard/containers/create?type=vds&amp;plan=Thor">Deploy Thor</a>
           </div>
+          <div class="plan rv">
+            <div class="plan-name">Magni</div>
+            <div class="plan-price">&euro;39.99<small>/ month</small></div>
+            <p class="plan-desc">CPU-heavy, memory-light</p>
+            <ul>
+              <li>8 dedicated cores</li>
+              <li>16 GB DDR4 ECC RAM</li>
+              <li>160 GB NVMe SSD</li>
+              <li>DDoS protection</li>
+            </ul>
+            <a class="btn btn-ghost" href="/dashboard/containers/create?type=vds&amp;plan=Magni">Deploy Magni</a>
+          </div>
           <div class="plan plan-hot rv">
             <div class="plan-name">Heimdall <span class="badge" style="font-size:11px;padding:3px 10px">Recommended</span></div>
-            <div class="plan-price">&euro;33.99<small>/ month</small></div>
+            <div class="plan-price">&euro;46.99<small>/ month</small></div>
             <p class="plan-desc">Busy production workloads</p>
             <ul>
               <li>8 dedicated cores</li>
@@ -394,7 +442,7 @@
           </div>
           <div class="plan rv">
             <div class="plan-name">Allfather</div>
-            <div class="plan-price">&euro;48.99<small>/ month</small></div>
+            <div class="plan-price">&euro;67.99<small>/ month</small></div>
             <p class="plan-desc">Heavy multi-service hosts</p>
             <ul>
               <li>12 dedicated cores</li>
@@ -406,7 +454,7 @@
           </div>
           <div class="plan rv">
             <div class="plan-name">Baldur</div>
-            <div class="plan-price">&euro;62.99<small>/ month</small></div>
+            <div class="plan-price">&euro;87.99<small>/ month</small></div>
             <p class="plan-desc">Panels &amp; virtualization</p>
             <ul>
               <li>16 dedicated cores</li>
@@ -415,30 +463,6 @@
               <li>DDoS protection</li>
             </ul>
             <a class="btn btn-ghost" href="/dashboard/containers/create?type=vds&amp;plan=Baldur">Deploy Baldur</a>
-          </div>
-          <div class="plan rv">
-            <div class="plan-name">Fenrir</div>
-            <div class="plan-price">&euro;91.99<small>/ month</small></div>
-            <p class="plan-desc">Serious sustained compute</p>
-            <ul>
-              <li>24 dedicated cores</li>
-              <li>64 GB DDR4 ECC RAM</li>
-              <li>720 GB NVMe SSD</li>
-              <li>DDoS protection</li>
-            </ul>
-            <a class="btn btn-ghost" href="/dashboard/containers/create?type=vds&amp;plan=Fenrir">Deploy Fenrir</a>
-          </div>
-          <div class="plan rv">
-            <div class="plan-name">Surtr</div>
-            <div class="plan-price">&euro;119.99<small>/ month</small></div>
-            <p class="plan-desc">The whole battalion</p>
-            <ul>
-              <li>32 dedicated cores</li>
-              <li>96 GB DDR4 ECC RAM</li>
-              <li>960 GB NVMe SSD</li>
-              <li>DDoS protection</li>
-            </ul>
-            <a class="btn btn-ghost" href="/dashboard/containers/create?type=vds&amp;plan=Surtr">Deploy Surtr</a>
           </div>
         </div>
       </section>
@@ -575,10 +599,10 @@ Model name:   AMD EPYC 7763 64-Core Processor
         </div>
         <div class="pp-wrap pp-spec">
           <dl class="rv">
-            <div><dt>CPU</dt><dd>2 - 32 dedicated cores &middot; pinned AMD EPYC 7763</dd></div>
+            <div><dt>CPU</dt><dd>2 - 16 dedicated cores &middot; pinned AMD EPYC</dd></div>
             <div><dt>Scheduling</dt><dd>Host-core pinning + top priority - your cores are never shared away</dd></div>
-            <div><dt>RAM</dt><dd>4 - 96 GB DDR4 ECC</dd></div>
-            <div><dt>Storage</dt><dd>40 - 960 GB NVMe SSD</dd></div>
+            <div><dt>RAM</dt><dd>2 - 48 GB DDR4 ECC</dd></div>
+            <div><dt>Storage</dt><dd>20 - 480 GB NVMe SSD</dd></div>
             <div><dt>Virtualization</dt><dd>KVM - full hardware virtualization</dd></div>
             <div><dt>Operating systems</dt><dd>Debian 12 / 13, Ubuntu 22.04 / 24.04 / 26.04, Rocky Linux 9, AlmaLinux 9, CentOS Stream 9</dd></div>
             <div><dt>DDoS protection</dt><dd>Included on every plan, always-on</dd></div>
@@ -589,7 +613,7 @@ Model name:   AMD EPYC 7763 64-Core Processor
             <div><dt>Migration</dt><dd>Free with the <a href="/dashboard/import" style="border-bottom:1px solid var(--dim)">Server Importer</a></dd></div>
             <div><dt>Deployment</dt><dd>Automated - online in about 60 seconds</dd></div>
           </dl>
-          <div class="pp-spec-price rv"><span>Plans</span><b>8 fixed plans - Freya &euro;8.49/mo (2 cores / 4 GB / 40 GB) up to Surtr &euro;119.99/mo (32 cores / 96 GB / 960 GB)</b></div>
+          <div class="pp-spec-price rv"><span>Plans</span><b>10 fixed plans - Sif &euro;8.99/mo (2 cores / 2 GB / 20 GB) up to Baldur &euro;87.99/mo (16 cores / 48 GB / 480 GB)</b></div>
         </div>
       </section>
 

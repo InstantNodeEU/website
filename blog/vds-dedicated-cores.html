@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=22" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=23" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <meta content="width=device-width" name="viewport" />
     <title>VDS: dedicated CPU cores, explained</title>
@@ -221,7 +221,7 @@
 <h2>What pinning changes in practice</h2>
 <p>Consistency. A shared vCPU delivers excellent performance on average but can wobble when a neighbor spikes. A pinned core delivers the same performance at 3 a.m. and at peak hour. That matters for game servers where a tick that takes 60 ms instead of 40 ms is a visible stutter, for databases where p99 latency is the number that pages you, and for anything real-time: voice, trading bots, CI runners with strict timeouts.</p>
 <h2>The plans</h2>
-<p>Eight fixed presets, all NVMe-backed, all with a dedicated IPv4 - from <strong>Freya</strong> (2 dedicated cores, 4 GB RAM) at &euro;6.99/mo through <strong>Tyr</strong> (4 cores), <strong>Thor</strong> (6), <strong>Heimdall</strong> (8), <strong>Allfather</strong> (12), <strong>Baldur</strong> (16) and <strong>Fenrir</strong> (24) up to <strong>Surtr</strong> with 32 dedicated cores, 96 GB RAM and nearly a terabyte of NVMe at &euro;94.99/mo. The pool of dedicated cores is finite by nature - when it is sold out, it is sold out, and we would rather tell you that at checkout than oversell a product whose entire point is not being oversold.</p>
+<p>Ten fixed presets, all NVMe-backed, all with a dedicated IPv4 - from <strong>Sif</strong> (2 dedicated cores, 2 GB RAM) at &euro;8.99/mo through <strong>Freya</strong> and <strong>Idun</strong> (2 cores), <strong>Tyr</strong> and <strong>Vali</strong> (4), <strong>Thor</strong> (6), <strong>Magni</strong> and <strong>Heimdall</strong> (8) and <strong>Allfather</strong> (12) up to <strong>Baldur</strong> with 16 dedicated cores, 48 GB RAM and 480 GB of NVMe at &euro;87.99/mo. The pool of dedicated cores is finite by nature - when it is sold out, it is sold out, and we would rather tell you that at checkout than oversell a product whose entire point is not being oversold.</p>
 <h2>Do you actually need one?</h2>
 <p>Honest answer: if you are hosting a website, a Discord bot, a small modpack or a dev box, no - a standard <a href="/kvm">KVM VPS</a> at a third of the price will serve you identically. Buy a VDS when you have measured CPU steal, when your workload is latency-sensitive under sustained load, or when you resell capacity and want your customers isolated from noisy neighbors. Both product lines run the same NVMe storage, the same network, the same panel, the same <a href="/blog/instantnode-api-automation">API</a> - the only difference is who owns the cores.</p>
               
