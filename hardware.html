@@ -274,7 +274,7 @@
               <span class="hw-unit__pwr"></span>
               <span class="hw-unit__ear"></span>
             </a>
-            <a class="hw-unit hw-u1" href="#node-ryzen5950x-2" aria-label="AMD Ryzen 9 5950X (GS-02)">
+            <a class="hw-unit hw-u1" href="#node-ryzen5950x" aria-label="AMD Ryzen 9 5950X (GS-02)">
               <span class="hw-unit__ear"></span>
               <span class="hw-unit__label"><b>Ryzen 9 5950X</b><small>Game server node GS-02</small></span>
               <span class="hw-unit__bays"><i style="--d:0.52s"></i><i style="--d:0.89s"></i><i style="--d:1.26s"></i><i style="--d:1.63s"></i></span>
@@ -292,8 +292,7 @@
             <div class="hw-legend">
             <a class="hw-leg rv" href="#node-epyc7763"><span class="hw-leg__u">1×</span><span><b>AMD EPYC 7763</b><small>64 cores · 1 TB ECC</small></span><i class="fa-solid fa-arrow-right"></i></a>
             <a class="hw-leg rv" href="#node-epyc7713"><span class="hw-leg__u">2×</span><span><b>AMD EPYC 7713</b><small>64 cores · 1 TB ECC each</small></span><i class="fa-solid fa-arrow-right"></i></a>
-            <a class="hw-leg rv" href="#node-ryzen5950x"><span class="hw-leg__u">1×</span><span><b>AMD Ryzen 9 5950X</b><small>GS-01 · 16 cores · 128 GB</small></span><i class="fa-solid fa-arrow-right"></i></a>
-            <a class="hw-leg rv" href="#node-ryzen5950x-2"><span class="hw-leg__u">1×</span><span><b>AMD Ryzen 9 5950X</b><small>GS-02 · 16 cores · 128 GB</small></span><i class="fa-solid fa-arrow-right"></i></a>
+            <a class="hw-leg rv" href="#node-ryzen5950x"><span class="hw-leg__u">2×</span><span><b>AMD Ryzen 9 5950X</b><small>16 cores · 128 GB each</small></span><i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -317,7 +316,7 @@
           <p class="lede rv">Every square below is one physical core.</p>
         </div>
         <div class="pp-wrap hw-explorer rv">
-          <div class="hw-tabs"><input type="radio" name="hwnode" id="t-epyc7763" checked><label for="t-epyc7763">AMD EPYC 7763</label><input type="radio" name="hwnode" id="t-epyc7713"><label for="t-epyc7713">AMD EPYC 7713</label><input type="radio" name="hwnode" id="t-ryzen5950x"><label for="t-ryzen5950x">Ryzen 9 5950X · GS-01</label><input type="radio" name="hwnode" id="t-ryzen5950x-2"><label for="t-ryzen5950x-2">Ryzen 9 5950X · GS-02</label></div>
+          <div class="hw-tabs"><input type="radio" name="hwnode" id="t-epyc7763" checked><label for="t-epyc7763">AMD EPYC 7763</label><input type="radio" name="hwnode" id="t-epyc7713"><label for="t-epyc7713">AMD EPYC 7713</label><input type="radio" name="hwnode" id="t-ryzen5950x"><label for="t-ryzen5950x">AMD Ryzen 9 5950X</label></div>
           <div class="hw-panels">
           <div class="hw-panel" id="node-epyc7763">
             <div class="hw-die hw-die--64" aria-hidden="true">
@@ -349,21 +348,9 @@
               <span class="hw-die__tag">16 cores · 32 threads</span>
             </div>
             <div class="hw-panel__copy">
-              <span class="k">Game server node GS-01</span>
+              <span class="k">Game server nodes</span>
               <h3 class="d3">AMD Ryzen 9 5950X</h3>
-              <p class="lede">High-frequency cores dedicated to lag-free game server hosting. Game servers love single-thread speed, so these 16 Zen 3 cores run nothing else - your tick rate stays stable even at peak hours.</p>
-              <dl class="hw-spec"><div><dt>Processor</dt><dd>AMD Ryzen 9 5950X</dd></div><div><dt>Cores</dt><dd>16 cores / 32 threads (Zen 3)</dd></div><div><dt>Memory</dt><dd>128 GB DDR4</dd></div></dl>
-            </div>
-          </div>
-          <div class="hw-panel" id="node-ryzen5950x-2">
-            <div class="hw-die hw-die--16" aria-hidden="true">
-              <div class="hw-die__cores"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-              <span class="hw-die__tag">16 cores · 32 threads</span>
-            </div>
-            <div class="hw-panel__copy">
-              <span class="k">Game server node GS-02</span>
-              <h3 class="d3">AMD Ryzen 9 5950X</h3>
-              <p class="lede">Our second dedicated game server node: the same high-frequency 16 Zen 3 cores and 128 GB of memory. New game servers are placed on whichever node has the most headroom.</p>
+              <p class="lede">High-frequency cores dedicated to lag-free game server hosting. Game servers love single-thread speed, so these 16 Zen 3 cores run nothing else - your tick rate stays stable even at peak hours. We run two of these nodes, and new game servers are placed on whichever has the most headroom.</p>
               <dl class="hw-spec"><div><dt>Processor</dt><dd>AMD Ryzen 9 5950X</dd></div><div><dt>Cores</dt><dd>16 cores / 32 threads (Zen 3)</dd></div><div><dt>Memory</dt><dd>128 GB DDR4</dd></div></dl>
             </div>
           </div>
@@ -390,12 +377,7 @@
               <div><span class="hw-bar"><i style="width:100%"></i><em>1 TB ECC</em></span></div>
             </div>
             <div class="hw-cmp__row rv">
-              <div class="hw-cmp__name"><b>AMD Ryzen 9 5950X</b><small>Game server node GS-01</small></div>
-              <div><span class="hw-bar"><i style="width:25%"></i><em>16 cores</em></span></div>
-              <div><span class="hw-bar"><i style="width:12%"></i><em>128 GB</em></span></div>
-            </div>
-            <div class="hw-cmp__row rv">
-              <div class="hw-cmp__name"><b>AMD Ryzen 9 5950X</b><small>Game server node GS-02</small></div>
+              <div class="hw-cmp__name"><b>AMD Ryzen 9 5950X</b><small>Game server nodes · 2 nodes</small></div>
               <div><span class="hw-bar"><i style="width:25%"></i><em>16 cores</em></span></div>
               <div><span class="hw-bar"><i style="width:12%"></i><em>128 GB</em></span></div>
             </div>

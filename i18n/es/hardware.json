@@ -89,5 +89,7 @@
  "Our second dedicated game server node: the same high-frequency 16 Zen 3 cores and 128 GB of memory. New game servers are placed on whichever node has the most headroom.": "Nuestro segundo nodo dedicado a servidores de juego: los mismos 16 núcleos Zen 3 de alta frecuencia y 128 GB de memoria. Los nuevos servidores de juego se colocan en el nodo con más margen.",
  "Enterprise compute · 2 nodes": "Computación empresarial · 2 nodos",
  "Game server node GS-01": "Nodo de servidores de juego GS-01",
- "Game server node GS-02": "Nodo de servidores de juego GS-02"
+ "Game server node GS-02": "Nodo de servidores de juego GS-02",
+ "Game server nodes · 2 nodes": "Nodos de servidores de juego · 2 nodos",
+ "16 cores · 128 GB each": "16 núcleos · 128 GB cada uno"
 }

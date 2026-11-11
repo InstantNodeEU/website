@@ -89,5 +89,8 @@
  "nodes": "Nodes",
  "Two of our nodes run this CPU: the same 64 Zen 3 cores and 128 threads as the 7763, each with a full terabyte of ECC memory.": "Zwei unserer Nodes laufen mit dieser CPU: dieselben 64 Zen-3-Kerne und 128 Threads wie beim 7763, jeweils mit einem vollen Terabyte ECC-Speicher.",
  "Our second dedicated game server node: the same high-frequency 16 Zen 3 cores and 128 GB of memory. New game servers are placed on whichever node has the most headroom.": "Unser zweiter dedizierter Gameserver-Node: dieselben hochgetakteten 16 Zen-3-Kerne und 128 GB Arbeitsspeicher. Neue Gameserver landen auf dem Node mit der meisten Reserve.",
- "Enterprise compute · 2 nodes": "Enterprise-Compute · 2 Nodes"
+ "Enterprise compute · 2 nodes": "Enterprise-Compute · 2 Nodes",
+ "Game server nodes · 2 nodes": "Gameserver-Nodes · 2 Nodes",
+ "16 cores · 128 GB each": "je 16 Kerne · 128 GB",
+ "High-frequency cores dedicated to lag-free game server hosting. Game servers love single-thread speed, so these 16 Zen 3 cores run nothing else - your tick rate stays stable even at peak hours. We run two of these nodes, and new game servers are placed on whichever has the most headroom.": "Hochgetaktete Kerne nur für lagfreies Gameserver-Hosting. Gameserver lieben Single-Thread-Geschwindigkeit, deshalb laufen auf diesen 16 Zen-3-Kernen keine anderen Dienste - deine Tickrate bleibt auch zu Stoßzeiten stabil. Wir betreiben zwei dieser Nodes, neue Gameserver landen auf dem mit der meisten Reserve."
 }
