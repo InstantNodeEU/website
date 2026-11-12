@@ -1599,7 +1599,11 @@
   function checkSession() {
     if (!window.fetch) return;
     fetch('/api/v1/profile/me', { credentials: 'same-origin', headers: { Accept: 'application/json' } })
-      .then(function (r) { if (r.ok) markSignedIn(); })
+      .then(function (r) {
+        if (r.ok) markSignedIn();
+        // auth-handoff.js only animates "Log in" for a visitor known to have no session
+        else if (r.status === 401) document.documentElement.setAttribute('data-signed-out', '');
+      })
       .catch(function () { /* signed out, or the API is down: leave "Log in" */ });
   }
 
@@ -1732,4 +1736,12 @@
   document.addEventListener('focusin', function (e) { var el = pick(e); if (el !== cur) { hide(); if (el) show(el); } });
   document.addEventListener('focusout', hide);
   addEventListener('scroll', hide, { passive: true });
+})();
+
+/** "Log in" grows into the account panel: that script lives in its own file, loaded from here because every page has this one */
+(function () {
+  var s = document.createElement('script');
+  s.src = '/js/auth-handoff.js?v=4';
+  s.async = true;
+  document.head.appendChild(s);
 })();
