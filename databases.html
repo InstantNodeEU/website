@@ -85,7 +85,7 @@
         {
           "@type": "Question",
           "name": "Do you back it up?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, backups are part of every plan, free included. You can also take your own dump at any time, with phpMyAdmin or mysqldump on MariaDB and pg_dump on PostgreSQL." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, on every engine and every plan, free included. Every database is dumped each night, and the dumps are kept for 7 days on a second server. If you need one restored, open a ticket and support does it for you. You can also take your own dump at any time, with phpMyAdmin or mysqldump on MariaDB and pg_dump on PostgreSQL." }
         },
         {
           "@type": "Question",
@@ -421,7 +421,7 @@
               <li>1 database</li>
               <li>Backups included</li>
               </ul>
-              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Free</a>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create?engine=postgres">Order Free</a>
             </div>
             <div class="plan rv">
               <div class="plan-name">Starter</div>
@@ -433,7 +433,7 @@
               <li>Access from anywhere</li>
               <li>1 database</li>
               </ul>
-              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Starter</a>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create?engine=postgres">Order Starter</a>
             </div>
             <div class="plan plan-hot ping-host rv">
               <span class="ping ping--ledge ping--peek" style="--pw:124px;right:22px" aria-hidden="true"><img src="/img/ping/ping-peek.webp" width="520" height="393" alt="" loading="lazy" decoding="async" /><img src="/img/ping/ping-peek-happy.webp" width="520" height="393" alt="" loading="lazy" decoding="async" /></span>
@@ -446,7 +446,7 @@
               <li>Access from anywhere</li>
               <li>1 database</li>
               </ul>
-              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Plus</a>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create?engine=postgres">Order Plus</a>
             </div>
             <div class="plan rv">
               <div class="plan-name">Pro</div>
@@ -458,7 +458,7 @@
               <li>Access from anywhere</li>
               <li>1 database</li>
               </ul>
-              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Pro</a>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create?engine=postgres">Order Pro</a>
             </div>
             <div class="plan rv">
               <div class="plan-name">Business</div>
@@ -470,7 +470,7 @@
               <li>Access from anywhere</li>
               <li>1 database</li>
               </ul>
-              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Business</a>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create?engine=postgres">Order Business</a>
             </div>
             <div class="plan rv">
               <div class="plan-name">Scale</div>
@@ -482,7 +482,7 @@
               <li>Access from anywhere</li>
               <li>1 database</li>
               </ul>
-              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Scale</a>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create?engine=postgres">Order Scale</a>
             </div>
           </div>
         </div>
@@ -498,8 +498,9 @@
               <li>3 connections</li>
               <li>From InstantNode servers only</li>
               <li>1 Redis instance</li>
+              <li>Backups included</li>
               </ul>
-              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Free</a>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create?engine=redis">Order Free</a>
             </div>
             <div class="plan rv">
               <div class="plan-name">Starter</div>
@@ -511,7 +512,7 @@
               <li>Access from anywhere</li>
               <li>1 Redis instance</li>
               </ul>
-              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Starter</a>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create?engine=redis">Order Starter</a>
             </div>
             <div class="plan plan-hot rv">
               <div class="plan-name">Plus</div>
@@ -523,7 +524,7 @@
               <li>Access from anywhere</li>
               <li>1 Redis instance</li>
               </ul>
-              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Plus</a>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create?engine=redis">Order Plus</a>
             </div>
             <div class="plan rv">
               <div class="plan-name">Pro</div>
@@ -535,7 +536,7 @@
               <li>Access from anywhere</li>
               <li>1 Redis instance</li>
               </ul>
-              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Pro</a>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create?engine=redis">Order Pro</a>
             </div>
           </div>
         </div>
@@ -575,7 +576,7 @@
           <details class="rv"><summary>Which engines can I pick?</summary><div>MariaDB, the drop-in MySQL replacement, with phpMyAdmin. PostgreSQL 18 for apps built on Postgres. Redis 8 as an in-memory store for caches, sessions and queues. Anything that speaks the matching protocol connects, from PHP, Node, Python and Java apps to WordPress on MariaDB.</div></details>
           <details class="rv"><summary>Can I connect from outside InstantNode?</summary><div>On paid plans, yes. You get a host, port and credentials and can connect from anywhere, including your machine at home or an app hosted elsewhere. Free plans only accept connections from InstantNode servers: our VPS, VDS, game servers, Discord bot hosting and web hosting. phpMyAdmin works on every MariaDB plan, free included.</div></details>
           <details class="rv"><summary>What happens when I hit the storage limit?</summary><div>On MariaDB and PostgreSQL a usage sweep enforces the quota, and you are told before it bites. On Redis the plan size is the memory limit: once it is full, writes are refused and no keys are evicted. Upgrading is instant and keeps your data.</div></details>
-          <details class="rv"><summary>Do you back it up?</summary><div>Yes, backups are part of every plan, free included. You can also take your own dump at any time, with phpMyAdmin or mysqldump on MariaDB and pg_dump on PostgreSQL.</div></details>
+          <details class="rv"><summary>Do you back it up?</summary><div>Yes, on every engine and every plan, free included. Every database is dumped each night, and the dumps are kept for 7 days on a second server. If you need one restored, open a ticket and support does it for you. You can also take your own dump at any time, with phpMyAdmin or mysqldump on MariaDB and pg_dump on PostgreSQL.</div></details>
           <details class="rv"><summary>How do I pay?</summary><div>You top up your InstantNode balance by card, Apple Pay, Google Pay, Klarna, Wero, crypto or bank transfer, and the subscription is paid from that balance each month. Cancel any time.</div></details>
         </div>
       </section>
