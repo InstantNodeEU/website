@@ -2,20 +2,20 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=26" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=27" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <title>Managed MariaDB Database Hosting | InstantNode</title>
-    <meta content="Managed MariaDB from €0. Created in seconds with full phpMyAdmin, backups and NVMe storage, isolated by grants and a connection quota. Hosted in the Netherlands, free plan with no time limit." name="description" />
+    <title>Managed MariaDB, PostgreSQL and Redis | InstantNode</title>
+    <meta content="Managed MariaDB, PostgreSQL 18 and Redis 8 from €0. Created in seconds, with backups, NVMe storage and phpMyAdmin for MariaDB. Free plans connect from InstantNode servers, paid plans from anywhere. Hosted in the Netherlands." name="description" />
     <link href="https://instantnode.eu/databases" rel="canonical" />
     <meta content="website" property="og:type" />
     <meta content="https://instantnode.eu/databases" property="og:url" />
-    <meta content="Managed MariaDB Database Hosting | InstantNode" property="og:title" />
-    <meta content="Managed MariaDB from €0. Created in seconds with full phpMyAdmin, backups and NVMe storage, isolated by grants and a connection quota. Hosted in the Netherlands, free plan with no time limit." property="og:description" />
+    <meta content="Managed MariaDB, PostgreSQL and Redis | InstantNode" property="og:title" />
+    <meta content="Managed MariaDB, PostgreSQL 18 and Redis 8 from €0. Created in seconds, with backups, NVMe storage and phpMyAdmin for MariaDB. Free plans connect from InstantNode servers, paid plans from anywhere. Hosted in the Netherlands." property="og:description" />
     <meta content="https://instantnode.eu/meta-banner.webp?v=5" property="og:image" />
     <meta content="summary_large_image" name="twitter:card" />
-    <meta content="Managed MariaDB Database Hosting | InstantNode" name="twitter:title" />
-    <meta content="Managed MariaDB from €0. Created in seconds with full phpMyAdmin, backups and NVMe storage, isolated by grants and a connection quota. Hosted in the Netherlands, free plan with no time limit." name="twitter:description" />
+    <meta content="Managed MariaDB, PostgreSQL and Redis | InstantNode" name="twitter:title" />
+    <meta content="Managed MariaDB, PostgreSQL 18 and Redis 8 from €0. Created in seconds, with backups, NVMe storage and phpMyAdmin for MariaDB. Free plans connect from InstantNode servers, paid plans from anywhere. Hosted in the Netherlands." name="twitter:description" />
     <meta content="https://instantnode.eu/meta-banner.webp?v=5" name="twitter:image" />
     <meta content="#060606" name="theme-color" />
     <meta name="darkreader-lock" />
@@ -29,20 +29,20 @@
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Web Hosting (Webspace)",
-  "description": "Fixed-plan web hosting with a free MySQL database, unlimited subdomains and free SSL included. Serves static by default, switch on a runtime and install real apps (WordPress, Nextcloud, Moodle and more) from the built-in app store. Hard-isolated resources, live-resizable with no downtime.",
+  "name": "Managed Databases",
+  "description": "Managed MariaDB, PostgreSQL 18 and Redis 8, created in seconds from the InstantNode panel. One free plan per account and engine for use from InstantNode servers, paid plans reachable from anywhere. Hosted in Eygelshoven, Netherlands.",
   "brand": {
     "@type": "Brand",
     "name": "InstantNode"
   },
   "url": "https://instantnode.eu/databases",
-  "image": "https://instantnode.eu/illustrations/webspaces.webp?v=1",
+  "image": "https://instantnode.eu/backgrounds/panel-database.png?v=1",
   "offers": {
     "@type": "AggregateOffer",
     "priceCurrency": "EUR",
-    "lowPrice": "0.99",
-    "highPrice": "13.99",
-    "offerCount": "6",
+    "lowPrice": "0.00",
+    "highPrice": "22.00",
+    "offerCount": "16",
     "availability": "https://schema.org/InStock",
     "url": "https://instantnode.eu/databases"
   }
@@ -53,7 +53,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://instantnode.eu/" },
-        { "@type": "ListItem", "position": 2, "name": "Web Hosting", "item": "https://instantnode.eu/databases" }
+        { "@type": "ListItem", "position": 2, "name": "Managed Databases", "item": "https://instantnode.eu/databases" }
       ]
     }
     </script>
@@ -64,33 +64,50 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Which payment methods can I use?",
-          "acceptedAnswer": { "@type": "Answer", "text": "You top up your InstantNode balance by card, Apple Pay, Google Pay, Klarna, Wero, crypto or bank transfer - all services are then paid from that prepaid balance. Top up your balance once and pay for any service from it - webspaces renew monthly and you can cancel at any time." }
+          "name": "Is the free plan really free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every engine has one: 64 MB and 3 connections on MariaDB and PostgreSQL, 32 MB and 3 connections on Redis. No time limit and no card, one free database per account and engine. Free plans only accept connections from InstantNode servers. Upgrading is instant and keeps your data: from a free plan you pay the first month of the new plan, between paid plans only the difference for the rest of the billing period." }
         },
         {
           "@type": "Question",
-          "name": "Can I run WordPress on a webspace?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Pick the WordPress template and it comes pre-configured with WP-CLI and PHP 8.3, or use the 1-click installer from the panel. Free SSL is enabled automatically on your domain." }
+          "name": "Which engines can I pick?",
+          "acceptedAnswer": { "@type": "Answer", "text": "MariaDB, the drop-in MySQL replacement, with phpMyAdmin. PostgreSQL 18 for apps built on Postgres. Redis 8 as an in-memory store for caches, sessions and queues. Anything that speaks the matching protocol connects, from PHP, Node, Python and Java apps to WordPress on MariaDB." }
         },
         {
           "@type": "Question",
-          "name": "Is SSL really included for free?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every website and subdomain gets an automatic HTTPS certificate at no extra cost, and it renews itself - you never have to touch it." }
+          "name": "Can I connect from outside InstantNode?",
+          "acceptedAnswer": { "@type": "Answer", "text": "On paid plans, yes. You get a host, port and credentials and can connect from anywhere, including your machine at home or an app hosted elsewhere. Free plans only accept connections from InstantNode servers: our VPS, VDS, game servers, Discord bot hosting and web hosting. phpMyAdmin works on every MariaDB plan, free included." }
         },
         {
           "@type": "Question",
-          "name": "How quickly is my webspace online?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Webspaces are provisioned automatically right after checkout - your hosting is typically ready within minutes, including SSL and a control panel for files, databases and domains." }
+          "name": "What happens when I hit the storage limit?",
+          "acceptedAnswer": { "@type": "Answer", "text": "On MariaDB and PostgreSQL a usage sweep enforces the quota, and you are told before it bites. On Redis the plan size is the memory limit: once it is full, writes are refused and no keys are evicted. Upgrading is instant and keeps your data." }
         },
         {
           "@type": "Question",
-          "name": "Do I need to buy a database separately?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Every webspace plan, from Starter to Ultimate, already includes one free MySQL database - there is nothing extra to purchase." }
+          "name": "Do you back it up?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, backups are part of every plan, free included. You can also take your own dump at any time, with phpMyAdmin or mysqldump on MariaDB and pg_dump on PostgreSQL." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I pay?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You top up your InstantNode balance by card, Apple Pay, Google Pay, Klarna, Wero, crypto or bank transfer, and the subscription is paid from that balance each month. Cancel any time." }
         }
       ]
     }
     </script>
     <link rel="discord:component-embed" type="application/json" href="https://instantnode.eu/discord-embed.json">
+    <style>
+      /* /databases only: engine tabs (same buttons as the tabs on /license-server) */
+      .db-engines { display: flex; justify-content: center; padding: 0 var(--pad); }
+      .db-engines .lx-tabs { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 6px; padding: 6px; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); }
+      .lx-tabs button { border: 0; background: transparent; color: var(--mute); font: 500 14px var(--font, inherit); padding: 7px 14px; border-radius: 9px; cursor: pointer; transition: color .15s, background-color .15s; }
+      .lx-tabs button:hover { color: var(--ink); }
+      .lx-tabs button[aria-selected="true"] { background: #121214; color: var(--ink); box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); }
+      .lx-tabs button:focus-visible { outline: 2px solid var(--ember); outline-offset: 2px; }
+      .db-note { max-width: 640px; margin: 18px auto 0; padding: 0 var(--pad); text-align: center; color: var(--mute); font-size: 14px; }
+      .db-pane .plans-2 { grid-template-columns: repeat(2, 1fr); max-width: min(820px, calc(100% - 2 * var(--pad))); margin: 40px auto 0; }
+      @media (max-width: 900px) { .db-pane .plans-2 { grid-template-columns: 1fr; } }
+    </style>
 </head>
   <body>
     <!-- Icons: Font Awesome Free 7.3.1 (solid) by Fonticons, Inc. - https://fontawesome.com
@@ -186,7 +203,7 @@
             </button>
             <div class="cat-menu">
               <div class="cat-col">
-                <a class="mm-card" href="/databases"><svg class="mm-ico" aria-hidden="true"><use href="#fa-db"/></svg><span class="mm-card-h"><span class="mm-card-t">Managed Databases</span><span class="badge">Free plan</span></span><span class="mm-card-d">MariaDB with full phpMyAdmin - no server to run or patch.</span></a>
+                <a class="mm-card" href="/databases"><svg class="mm-ico" aria-hidden="true"><use href="#fa-db"/></svg><span class="mm-card-h"><span class="mm-card-t">Managed Databases</span><span class="badge">Free plan</span></span><span class="mm-card-d">MariaDB, PostgreSQL and Redis - no server to run or patch.</span></a>
                 <a class="mm-card" href="/email"><svg class="mm-ico" aria-hidden="true"><use href="#fa-mail"/></svg><span class="mm-card-h"><span class="mm-card-t">Managed Email</span><span class="badge">Free plan</span></span><span class="mm-card-d">Mailboxes on your own domain. Webmail on every plan, IMAP and SMTP on paid plans.</span></a>
                 <a class="mm-card" href="/ip-forwarding"><svg class="mm-ico" aria-hidden="true"><use href="#fa-network"/></svg><span class="mm-card-h"><span class="mm-card-t">IP Forwarding</span><span class="badge">New</span></span><span class="mm-card-d">Your own protected IPv4, forwarded over WireGuard to your machine at home or anywhere.</span></a>
                 <a class="mm-card" href="/license-server"><svg class="mm-ico" aria-hidden="true" viewBox="0 0 512 512"><path d="M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0 160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391c-4.5 4.5-7 10.6-7 17v80c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24v-40h40c13.3 0 24-10.7 24-24v-40h40c6.4 0 12.5-2.5 17-7l33.3-33.3c16.9 5.4 35 8.3 53.7 8.3zm40-256a40 40 0 1 1 0 80 40 40 0 1 1 0-80z"/></svg><span class="mm-card-h"><span class="mm-card-t">License Server</span><span class="badge">New</span></span><span class="mm-card-d">Your own license server for scripts and plugins, with machine lock and your own API.</span></a>
@@ -276,14 +293,14 @@
       <section class="hero">
         <span class="badge rv">Managed Databases · free plan included</span>
         <h1 class="d1 rv">A database,<br />without a server.</h1>
-        <p class="lede rv">Managed MariaDB for your app. Create it in the panel, get the credentials straight away and manage it in full phpMyAdmin. Backups, updates and tuning are ours. Start on the free plan and keep it as long as you like.</p>
+        <p class="lede rv">Managed MariaDB, PostgreSQL and Redis for your app. Create one in the panel and get the credentials straight away, with full phpMyAdmin for MariaDB. Backups, updates and tuning are ours. Start on a free plan and keep it as long as you like.</p>
         <div class="hero-actions rv">
           <a class="btn btn-light btn-lg" href="/dashboard/databases/create">Start free</a>
           <a class="btn btn-ghost btn-lg" href="#plans">See plans</a>
         </div>
         <div class="pill-row rv">
           <span class="chip"><i class="fa-solid fa-bolt"></i>Ready in seconds</span>
-          <span class="chip"><i class="fa-solid fa-table"></i>Full phpMyAdmin</span>
+          <span class="chip"><i class="fa-solid fa-database"></i>MariaDB, PostgreSQL, Redis</span>
           <span class="chip"><i class="fa-solid fa-rotate"></i>Backups included</span>
         </div>
         <div class="hero-art">
@@ -296,83 +313,230 @@
         <div class="sec-head" style="padding: clamp(64px,9vw,110px) var(--pad) 0">
           <span class="badge rv">Pick your database plan</span>
           <h2 class="d2 rv">Starts free,<br />scales to 40 GB</h2>
-          <p class="lede rv">Every plan is MariaDB with full phpMyAdmin access. Plans differ in storage and how many connections your app may hold open. The free plan only accepts connections from InstantNode servers.</p>
+          <p class="lede rv">Pick an engine, then a plan. Plans differ in size and in how many connections your app may hold open. Free plans only accept connections from InstantNode servers, paid plans can be reached from anywhere.</p>
         </div>
-        <div class="plans has-ping" style="--above:91px">
-          <div class="plan rv">
-            <div class="plan-name">Free</div>
-            <div class="plan-price">€0<small>/ month</small></div>
-            <p class="plan-desc">For a side project</p>
-            <ul>
-            <li>64 MB storage</li>
-            <li>3 connections</li>
-            <li>From InstantNode servers only</li>
-            <li>1 database</li>
-            <li>Full phpMyAdmin</li>
-            <li>Backups included</li>
-            </ul>
-            <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Free</a>
+        <div class="db-engines rv">
+          <div class="lx-tabs" role="tablist" aria-label="Database engine">
+            <button type="button" role="tab" id="db-t1" aria-controls="mariadb" aria-selected="true">MariaDB</button>
+            <button type="button" role="tab" id="db-t2" aria-controls="postgresql" aria-selected="false" tabindex="-1">PostgreSQL 18</button>
+            <button type="button" role="tab" id="db-t3" aria-controls="redis" aria-selected="false" tabindex="-1">Redis 8</button>
           </div>
-          <div class="plan rv">
-            <div class="plan-name">Starter</div>
-            <div class="plan-price">€1.50<small>/ month</small></div>
-            <p class="plan-desc">A small app in production</p>
-            <ul>
-            <li>2 GB storage</li>
-            <li>25 connections</li>
-            <li>1 database</li>
-            <li>Full phpMyAdmin</li>
-            </ul>
-            <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Starter</a>
+        </div>
+        <div class="db-pane" id="mariadb" role="tabpanel" aria-labelledby="db-t1">
+          <p class="db-note">MySQL compatible, with full phpMyAdmin on every plan, free included.</p>
+          <div class="plans has-ping" style="--above:91px">
+            <div class="plan rv">
+              <div class="plan-name">Free</div>
+              <div class="plan-price">€0<small>/ month</small></div>
+              <p class="plan-desc">For a side project</p>
+              <ul>
+              <li>64 MB storage</li>
+              <li>3 connections</li>
+              <li>From InstantNode servers only</li>
+              <li>1 database</li>
+              <li>Full phpMyAdmin</li>
+              <li>Backups included</li>
+              </ul>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Free</a>
+            </div>
+            <div class="plan rv">
+              <div class="plan-name">Starter</div>
+              <div class="plan-price">€1.50<small>/ month</small></div>
+              <p class="plan-desc">A small app in production</p>
+              <ul>
+              <li>2 GB storage</li>
+              <li>25 connections</li>
+              <li>Access from anywhere</li>
+              <li>1 database</li>
+              <li>Full phpMyAdmin</li>
+              </ul>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Starter</a>
+            </div>
+            <div class="plan plan-hot ping-host rv">
+              <span class="ping ping--ledge ping--peek" style="--pw:124px;right:22px" aria-hidden="true"><img src="/img/ping/ping-peek.webp" width="520" height="393" alt="" loading="lazy" decoding="async" /><img src="/img/ping/ping-peek-happy.webp" width="520" height="393" alt="" loading="lazy" decoding="async" /></span>
+              <div class="plan-name">Plus</div>
+              <div class="plan-price">€3.00<small>/ month</small></div>
+              <p class="plan-desc">The one most people pick</p>
+              <ul>
+              <li>5 GB storage</li>
+              <li>50 connections</li>
+              <li>Access from anywhere</li>
+              <li>1 database</li>
+              <li>Full phpMyAdmin</li>
+              </ul>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Plus</a>
+            </div>
+            <div class="plan rv">
+              <div class="plan-name">Pro</div>
+              <div class="plan-price">€6.00<small>/ month</small></div>
+              <p class="plan-desc">A busy application</p>
+              <ul>
+              <li>10 GB storage</li>
+              <li>75 connections</li>
+              <li>Access from anywhere</li>
+              <li>1 database</li>
+              <li>Full phpMyAdmin</li>
+              </ul>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Pro</a>
+            </div>
+            <div class="plan rv">
+              <div class="plan-name">Business</div>
+              <div class="plan-price">€12.00<small>/ month</small></div>
+              <p class="plan-desc">Serious traffic</p>
+              <ul>
+              <li>20 GB storage</li>
+              <li>100 connections</li>
+              <li>Access from anywhere</li>
+              <li>1 database</li>
+              <li>Full phpMyAdmin</li>
+              </ul>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Business</a>
+            </div>
+            <div class="plan rv">
+              <div class="plan-name">Scale</div>
+              <div class="plan-price">€22.00<small>/ month</small></div>
+              <p class="plan-desc">The big end</p>
+              <ul>
+              <li>40 GB storage</li>
+              <li>150 connections</li>
+              <li>Access from anywhere</li>
+              <li>1 database</li>
+              <li>Full phpMyAdmin</li>
+              </ul>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Scale</a>
+            </div>
           </div>
-          <div class="plan plan-hot ping-host rv">
-            <span class="ping ping--ledge ping--peek" style="--pw:124px;right:22px" aria-hidden="true"><img src="/img/ping/ping-peek.webp" width="520" height="393" alt="" loading="lazy" decoding="async" /><img src="/img/ping/ping-peek-happy.webp" width="520" height="393" alt="" loading="lazy" decoding="async" /></span>
-            <div class="plan-name">Plus</div>
-            <div class="plan-price">€3.00<small>/ month</small></div>
-            <p class="plan-desc">The one most people pick</p>
-            <ul>
-            <li>5 GB storage</li>
-            <li>50 connections</li>
-            <li>1 database</li>
-            <li>Full phpMyAdmin</li>
-            </ul>
-            <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Plus</a>
+        </div>
+        <div class="db-pane" id="postgresql" role="tabpanel" aria-labelledby="db-t2" hidden>
+          <p class="db-note">PostgreSQL 18 with the same plans and prices as MariaDB. There is no phpMyAdmin here: connect with psql, pgAdmin or any other PostgreSQL client.</p>
+          <div class="plans has-ping" style="--above:91px">
+            <div class="plan rv">
+              <div class="plan-name">Free</div>
+              <div class="plan-price">€0<small>/ month</small></div>
+              <p class="plan-desc">For a side project</p>
+              <ul>
+              <li>64 MB storage</li>
+              <li>3 connections</li>
+              <li>From InstantNode servers only</li>
+              <li>1 database</li>
+              <li>Backups included</li>
+              </ul>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Free</a>
+            </div>
+            <div class="plan rv">
+              <div class="plan-name">Starter</div>
+              <div class="plan-price">€1.50<small>/ month</small></div>
+              <p class="plan-desc">A small app in production</p>
+              <ul>
+              <li>2 GB storage</li>
+              <li>25 connections</li>
+              <li>Access from anywhere</li>
+              <li>1 database</li>
+              </ul>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Starter</a>
+            </div>
+            <div class="plan plan-hot ping-host rv">
+              <span class="ping ping--ledge ping--peek" style="--pw:124px;right:22px" aria-hidden="true"><img src="/img/ping/ping-peek.webp" width="520" height="393" alt="" loading="lazy" decoding="async" /><img src="/img/ping/ping-peek-happy.webp" width="520" height="393" alt="" loading="lazy" decoding="async" /></span>
+              <div class="plan-name">Plus</div>
+              <div class="plan-price">€3.00<small>/ month</small></div>
+              <p class="plan-desc">The one most people pick</p>
+              <ul>
+              <li>5 GB storage</li>
+              <li>50 connections</li>
+              <li>Access from anywhere</li>
+              <li>1 database</li>
+              </ul>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Plus</a>
+            </div>
+            <div class="plan rv">
+              <div class="plan-name">Pro</div>
+              <div class="plan-price">€6.00<small>/ month</small></div>
+              <p class="plan-desc">A busy application</p>
+              <ul>
+              <li>10 GB storage</li>
+              <li>75 connections</li>
+              <li>Access from anywhere</li>
+              <li>1 database</li>
+              </ul>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Pro</a>
+            </div>
+            <div class="plan rv">
+              <div class="plan-name">Business</div>
+              <div class="plan-price">€12.00<small>/ month</small></div>
+              <p class="plan-desc">Serious traffic</p>
+              <ul>
+              <li>20 GB storage</li>
+              <li>100 connections</li>
+              <li>Access from anywhere</li>
+              <li>1 database</li>
+              </ul>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Business</a>
+            </div>
+            <div class="plan rv">
+              <div class="plan-name">Scale</div>
+              <div class="plan-price">€22.00<small>/ month</small></div>
+              <p class="plan-desc">The big end</p>
+              <ul>
+              <li>40 GB storage</li>
+              <li>150 connections</li>
+              <li>Access from anywhere</li>
+              <li>1 database</li>
+              </ul>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Scale</a>
+            </div>
           </div>
-          <div class="plan rv">
-            <div class="plan-name">Pro</div>
-            <div class="plan-price">€6.00<small>/ month</small></div>
-            <p class="plan-desc">A busy application</p>
-            <ul>
-            <li>10 GB storage</li>
-            <li>75 connections</li>
-            <li>1 database</li>
-            <li>Full phpMyAdmin</li>
-            </ul>
-            <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Pro</a>
-          </div>
-          <div class="plan rv">
-            <div class="plan-name">Business</div>
-            <div class="plan-price">€12.00<small>/ month</small></div>
-            <p class="plan-desc">Serious traffic</p>
-            <ul>
-            <li>20 GB storage</li>
-            <li>100 connections</li>
-            <li>1 database</li>
-            <li>Full phpMyAdmin</li>
-            </ul>
-            <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Business</a>
-          </div>
-          <div class="plan rv">
-            <div class="plan-name">Scale</div>
-            <div class="plan-price">€22.00<small>/ month</small></div>
-            <p class="plan-desc">The big end</p>
-            <ul>
-            <li>40 GB storage</li>
-            <li>150 connections</li>
-            <li>1 database</li>
-            <li>Full phpMyAdmin</li>
-            </ul>
-            <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Scale</a>
+        </div>
+        <div class="db-pane" id="redis" role="tabpanel" aria-labelledby="db-t3" hidden>
+          <p class="db-note">Redis 8, every database an instance of its own. The plan size is the memory limit: when it is full, writes are refused and no keys are evicted.</p>
+          <div class="plans plans-2">
+            <div class="plan rv">
+              <div class="plan-name">Free</div>
+              <div class="plan-price">€0<small>/ month</small></div>
+              <p class="plan-desc">For a side project</p>
+              <ul>
+              <li>32 MB memory</li>
+              <li>3 connections</li>
+              <li>From InstantNode servers only</li>
+              <li>1 Redis instance</li>
+              </ul>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Free</a>
+            </div>
+            <div class="plan rv">
+              <div class="plan-name">Starter</div>
+              <div class="plan-price">€1.00<small>/ month</small></div>
+              <p class="plan-desc">Caches and sessions of a small app</p>
+              <ul>
+              <li>128 MB memory</li>
+              <li>50 connections</li>
+              <li>Access from anywhere</li>
+              <li>1 Redis instance</li>
+              </ul>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Starter</a>
+            </div>
+            <div class="plan plan-hot rv">
+              <div class="plan-name">Plus</div>
+              <div class="plan-price">€2.50<small>/ month</small></div>
+              <p class="plan-desc">The one most people pick</p>
+              <ul>
+              <li>512 MB memory</li>
+              <li>100 connections</li>
+              <li>Access from anywhere</li>
+              <li>1 Redis instance</li>
+              </ul>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Plus</a>
+            </div>
+            <div class="plan rv">
+              <div class="plan-name">Pro</div>
+              <div class="plan-price">€5.00<small>/ month</small></div>
+              <p class="plan-desc">Larger caches and job queues</p>
+              <ul>
+              <li>1 GB memory</li>
+              <li>200 connections</li>
+              <li>Access from anywhere</li>
+              <li>1 Redis instance</li>
+              </ul>
+              <a class="btn btn-ghost btn-sm" href="/dashboard/databases/create">Order Pro</a>
+            </div>
           </div>
         </div>
       </section>
@@ -393,8 +557,8 @@
         </div></div>
         <div class="pp-wrap pp-feats" style="--cols:3">
             <div class="pp-feat rv"><i class="fa-solid fa-bolt"></i><div><h3>Ready in seconds</h3><p>Ordering creates the database, the user and the grants, then hands you the credentials. There is no server to pick, patch or reboot.</p></div></div>
-            <div class="pp-feat rv"><i class="fa-solid fa-code"></i><div><h3>Full phpMyAdmin</h3><p>Browse tables, run queries, import and export dumps. Not a cut-down web console - the real thing, in InstantNode colours.</p></div></div>
-            <div class="pp-feat rv"><i class="fa-solid fa-lock"></i><div><h3>Isolated by grants and quota</h3><p>Your database is yours alone. Grants keep other tenants out and a per-plan connection cap keeps one busy app from starving the rest.</p></div></div>
+            <div class="pp-feat rv"><i class="fa-solid fa-code"></i><div><h3>phpMyAdmin for MariaDB</h3><p>Browse tables, run queries, import and export dumps. Not a cut-down web console - the real thing, in InstantNode colours. PostgreSQL and Redis work with the client you already use.</p></div></div>
+            <div class="pp-feat rv"><i class="fa-solid fa-lock"></i><div><h3>Isolated by grants and quota</h3><p>Your database is yours alone. Grants keep other tenants out, every Redis database runs as an instance of its own, and a per-plan connection cap keeps one busy app from starving the rest.</p></div></div>
             <div class="pp-feat rv"><i class="fa-solid fa-hard-drive"></i><div><h3>NVMe underneath</h3><p>Everything runs on NVMe storage on our own hardware, so a query does not wait on a disk queue shared with a hundred neighbours.</p></div></div>
             <div class="pp-feat rv"><i class="fa-solid fa-location-dot"></i><div><h3>Central EU location</h3><p>Hosted in Eygelshoven, Netherlands - low latency across Germany, Benelux and most of Europe.</p></div></div>
             <div class="pp-feat rv"><i class="fa-solid fa-headset"></i><div><h3>Support that answers</h3><p>A ticket reaches a person who runs the platform. Connection trouble from your side included.</p></div></div>
@@ -407,11 +571,11 @@
           <h2 class="d2 rv">Questions,<br />answered.</h2>
         </div>
         <div class="faq" style="max-width:760px;margin:0 auto">
-          <details class="rv"><summary>Is the free plan really free?</summary><div>Yes. 64 MB with 3 connections from InstantNode servers, no time limit and no card. One free database per account. Upgrading charges only the difference for the rest of the month.</div></details>
-          <details class="rv"><summary>Which engine is it?</summary><div>MariaDB, the drop-in MySQL replacement. Anything that speaks the MySQL protocol connects: PHP, Node, Python, Java, Laravel, WordPress and the rest.</div></details>
-          <details class="rv"><summary>Can I connect from outside InstantNode?</summary><div>On paid plans, yes. You get a host, port, user and password and can connect from anywhere, including your machine at home or an app hosted elsewhere. The free plan only accepts connections from InstantNode servers: our VPS, VDS, game servers, Discord bot hosting and web hosting. phpMyAdmin works on every plan, free included.</div></details>
-          <details class="rv"><summary>What happens when I hit the storage limit?</summary><div>A usage sweep enforces the quota, and you are told before it bites. Upgrading is instant and does not move your data.</div></details>
-          <details class="rv"><summary>Do you back it up?</summary><div>Yes, backups are part of every plan, free included. Exports through phpMyAdmin are yours to take at any time as well.</div></details>
+          <details class="rv"><summary>Is the free plan really free?</summary><div>Yes. Every engine has one: 64 MB and 3 connections on MariaDB and PostgreSQL, 32 MB and 3 connections on Redis. No time limit and no card, one free database per account and engine. Free plans only accept connections from InstantNode servers. Upgrading is instant and keeps your data: from a free plan you pay the first month of the new plan, between paid plans only the difference for the rest of the billing period.</div></details>
+          <details class="rv"><summary>Which engines can I pick?</summary><div>MariaDB, the drop-in MySQL replacement, with phpMyAdmin. PostgreSQL 18 for apps built on Postgres. Redis 8 as an in-memory store for caches, sessions and queues. Anything that speaks the matching protocol connects, from PHP, Node, Python and Java apps to WordPress on MariaDB.</div></details>
+          <details class="rv"><summary>Can I connect from outside InstantNode?</summary><div>On paid plans, yes. You get a host, port and credentials and can connect from anywhere, including your machine at home or an app hosted elsewhere. Free plans only accept connections from InstantNode servers: our VPS, VDS, game servers, Discord bot hosting and web hosting. phpMyAdmin works on every MariaDB plan, free included.</div></details>
+          <details class="rv"><summary>What happens when I hit the storage limit?</summary><div>On MariaDB and PostgreSQL a usage sweep enforces the quota, and you are told before it bites. On Redis the plan size is the memory limit: once it is full, writes are refused and no keys are evicted. Upgrading is instant and keeps your data.</div></details>
+          <details class="rv"><summary>Do you back it up?</summary><div>Yes, backups are part of every plan, free included. You can also take your own dump at any time, with phpMyAdmin or mysqldump on MariaDB and pg_dump on PostgreSQL.</div></details>
           <details class="rv"><summary>How do I pay?</summary><div>You top up your InstantNode balance by card, Apple Pay, Google Pay, Klarna, Wero, crypto or bank transfer, and the subscription is paid from that balance each month. Cancel any time.</div></details>
         </div>
       </section>
@@ -419,9 +583,9 @@
       <section class="cta-final">
         <canvas class="art" data-art="wave" data-hotx="0.5" data-hoty="0.85" height="260"></canvas>
         <h2 class="d1 rv">Need a database, not a server?</h2>
-        <p class="lede rv">Start on the free plan with 64 MB, upgrade when your app grows. Full phpMyAdmin and backups are included on every plan.</p>
+        <p class="lede rv">Start on a free plan, upgrade when your app grows. Backups are included on every plan, phpMyAdmin on every MariaDB plan.</p>
         <span class="ping-cta ping-host rv"><span class="ping " style="--pw:88px;" aria-hidden="true"><img src="/img/ping/ping-point-r.webp" width="520" height="705" alt="" loading="lazy" decoding="async" /><img src="/img/ping/ping-point-r-happy.webp" width="520" height="705" alt="" loading="lazy" decoding="async" /></span><a class="btn btn-light btn-lg" href="/dashboard/databases/create">Start free</a></span>
-        <p class="rv" style="color:var(--dim);font-size:13px">No card required. One free database per account, paid plans from €1.50/mo.</p>
+        <p class="rv" style="color:var(--dim);font-size:13px">No card required. One free database per account and engine, paid plans from €1.00/mo.</p>
       </section>
       <!-- ===== footer ===== -->
       <footer class="ftr ping-host">
@@ -513,6 +677,41 @@
       </footer>
     </main>
 
+    <script>
+      /* /databases: engine tabs. Without JS the MariaDB plans stay on screen. /databases#redis opens a tab. */
+      (function () {
+        var tabs = [].slice.call(document.querySelectorAll('.db-engines [role="tab"]'));
+        if (!tabs.length) return;
+        function pick(i, focus) {
+          tabs.forEach(function (t, j) {
+            var on = i === j, pane = document.getElementById(t.getAttribute('aria-controls'));
+            t.setAttribute('aria-selected', on ? 'true' : 'false');
+            t.tabIndex = on ? 0 : -1;
+            if (!pane) return;
+            pane.hidden = !on;
+            if (on) [].forEach.call(pane.querySelectorAll('.rv'), function (el) { el.classList.add('in'); });
+          });
+          if (focus) tabs[i].focus();
+        }
+        tabs.forEach(function (t, i) {
+          t.addEventListener('click', function () { pick(i, false); });
+          t.addEventListener('keydown', function (e) {
+            var n = tabs.length, k = e.key;
+            if (k !== 'ArrowRight' && k !== 'ArrowLeft' && k !== 'Home' && k !== 'End') return;
+            e.preventDefault();
+            pick(k === 'Home' ? 0 : k === 'End' ? n - 1 : (i + (k === 'ArrowRight' ? 1 : n - 1)) % n, true);
+          });
+        });
+        var h = location.hash.slice(1);
+        tabs.forEach(function (t, i) {
+          if (h && t.getAttribute('aria-controls') === h) {
+            pick(i, false);
+            var p = document.getElementById('plans');
+            if (p) p.scrollIntoView();
+          }
+        });
+      })();
+    </script>
     <script src="/js/lunaris.js?v=xmas7" defer></script>
   </body>
 </html>
