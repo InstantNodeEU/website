@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=24" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=25" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Managed MariaDB Database Hosting | InstantNode</title>
@@ -187,7 +187,7 @@
             <div class="cat-menu">
               <div class="cat-col">
                 <a class="mm-card" href="/databases"><svg class="mm-ico" aria-hidden="true"><use href="#fa-db"/></svg><span class="mm-card-h"><span class="mm-card-t">Managed Databases</span><span class="badge">Free plan</span></span><span class="mm-card-d">MariaDB with full phpMyAdmin - no server to run or patch.</span></a>
-                <a class="mm-card" href="/email"><svg class="mm-ico" aria-hidden="true"><use href="#fa-mail"/></svg><span class="mm-card-h"><span class="mm-card-t">Managed Email</span><span class="badge">Free plan</span></span><span class="mm-card-d">Mailboxes on your own domain, with webmail and every protocol.</span></a>
+                <a class="mm-card" href="/email"><svg class="mm-ico" aria-hidden="true"><use href="#fa-mail"/></svg><span class="mm-card-h"><span class="mm-card-t">Managed Email</span><span class="badge">Free plan</span></span><span class="mm-card-d">Mailboxes on your own domain. Webmail on every plan, IMAP and SMTP on paid plans.</span></a>
                 <a class="mm-card" href="/ip-forwarding"><svg class="mm-ico" aria-hidden="true"><use href="#fa-network"/></svg><span class="mm-card-h"><span class="mm-card-t">IP Forwarding</span><span class="badge">New</span></span><span class="mm-card-d">Your own protected IPv4, forwarded over WireGuard to your machine at home or anywhere.</span></a>
                 <a class="mm-card" href="/license-server"><svg class="mm-ico" aria-hidden="true" viewBox="0 0 512 512"><path d="M336 352c97.2 0 176-78.8 176-176S433.2 0 336 0 160 78.8 160 176c0 18.7 2.9 36.8 8.3 53.7L7 391c-4.5 4.5-7 10.6-7 17v80c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24v-40h40c13.3 0 24-10.7 24-24v-40h40c6.4 0 12.5-2.5 17-7l33.3-33.3c16.9 5.4 35 8.3 53.7 8.3zm40-256a40 40 0 1 1 0 80 40 40 0 1 1 0-80z"/></svg><span class="mm-card-h"><span class="mm-card-t">License Server</span><span class="badge">New</span></span><span class="mm-card-d">Your own license server for scripts and plugins, with machine lock and your own API.</span></a>
               </div>
@@ -296,7 +296,7 @@
         <div class="sec-head" style="padding: clamp(64px,9vw,110px) var(--pad) 0">
           <span class="badge rv">Pick your database plan</span>
           <h2 class="d2 rv">Starts free,<br />scales to 40 GB</h2>
-          <p class="lede rv">Every plan is MariaDB with full phpMyAdmin access. Plans differ in storage and how many connections your app may hold open.</p>
+          <p class="lede rv">Every plan is MariaDB with full phpMyAdmin access. Plans differ in storage and how many connections your app may hold open. The free plan only accepts connections from InstantNode servers.</p>
         </div>
         <div class="plans has-ping" style="--above:91px">
           <div class="plan rv">
@@ -305,7 +305,8 @@
             <p class="plan-desc">For a side project</p>
             <ul>
             <li>64 MB storage</li>
-            <li>10 connections</li>
+            <li>3 connections</li>
+            <li>From InstantNode servers only</li>
             <li>1 database</li>
             <li>Full phpMyAdmin</li>
             <li>Backups included</li>
@@ -406,9 +407,9 @@
           <h2 class="d2 rv">Questions,<br />answered.</h2>
         </div>
         <div class="faq" style="max-width:760px;margin:0 auto">
-          <details class="rv"><summary>Is the free plan really free?</summary><div>Yes. 64 MB with 10 connections, no time limit and no card. One free database per account. Upgrading charges only the difference for the rest of the month.</div></details>
+          <details class="rv"><summary>Is the free plan really free?</summary><div>Yes. 64 MB with 3 connections from InstantNode servers, no time limit and no card. One free database per account. Upgrading charges only the difference for the rest of the month.</div></details>
           <details class="rv"><summary>Which engine is it?</summary><div>MariaDB, the drop-in MySQL replacement. Anything that speaks the MySQL protocol connects: PHP, Node, Python, Java, Laravel, WordPress and the rest.</div></details>
-          <details class="rv"><summary>Can I connect from outside InstantNode?</summary><div>Yes. You get a host, port, user and password and can connect from anywhere, including your machine at home or an app hosted elsewhere.</div></details>
+          <details class="rv"><summary>Can I connect from outside InstantNode?</summary><div>On paid plans, yes. You get a host, port, user and password and can connect from anywhere, including your machine at home or an app hosted elsewhere. The free plan only accepts connections from InstantNode servers: our VPS, VDS, game servers, Discord bot hosting and web hosting. phpMyAdmin works on every plan, free included.</div></details>
           <details class="rv"><summary>What happens when I hit the storage limit?</summary><div>A usage sweep enforces the quota, and you are told before it bites. Upgrading is instant and does not move your data.</div></details>
           <details class="rv"><summary>Do you back it up?</summary><div>Yes, backups are part of every plan, free included. Exports through phpMyAdmin are yours to take at any time as well.</div></details>
           <details class="rv"><summary>How do I pay?</summary><div>You top up your InstantNode balance by card, Apple Pay, Google Pay, Klarna, Wero, crypto or bank transfer, and the subscription is paid from that balance each month. Cancel any time.</div></details>
