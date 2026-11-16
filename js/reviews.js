@@ -286,7 +286,7 @@
     row.appendChild(score)
     var a = el('div', 'rv-main')  // text, author, reply and actions
     row.appendChild(a)
-    a.appendChild(el('p', 'rv-body', rv.body))
+    if (rv.body) a.appendChild(el('p', 'rv-body', rv.body))  // stars alone are a review too
     var who = el('div', 'rv-who')
     who.appendChild(avatar(rv))
     var w = el('div')
