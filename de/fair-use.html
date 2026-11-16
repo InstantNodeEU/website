@@ -214,7 +214,7 @@
       <section class="prose-hero">
         <span class="badge">Rechtliches</span>
         <h1 class="d2">Fair-Use-Richtlinie</h1>
-        <p class="lede">Stand: 16. November 2026 (v1.2)</p>
+        <p class="lede">Stand: 16. November 2026 (v1.3)</p>
       </section>
 
       <!-- ===== content ===== -->
@@ -228,7 +228,19 @@
 <section>
     <h2>Ressourcengrenzen bei Shared-Produkten</h2>
     <ul>
-        <li><strong>Prozessor.</strong> Eine Dauerlast im Mittel über 70 % der Ihrer Instanz zugewiesenen Cores über 60 Minuten führt dazu, dass wir Sie kontaktieren. Eine Dauerlast im Mittel über 90 % über 30 Minuten berechtigt uns, die CPU-Priorität der Instanz zu senken.</li>
+        <li><strong>Prozessor.</strong> Liegt die Last im Mittel über 60 Minuten über der Kontaktschwelle, kontaktieren wir Sie. Liegt sie im Mittel über 30 Minuten über der Begrenzungsschwelle und hält sie nach unserer Kontaktaufnahme an, dürfen wir die CPU der Instanz vorübergehend begrenzen. Beide Schwellen beziehen sich auf die Ihrer Instanz zugewiesenen Cores und hängen vom Produkt ab. Kurze Lastspitzen zählen nicht.
+            <table>
+                <thead><tr><th>Produkt</th><th>Kontakt (60-Minuten-Mittel)</th><th>Begrenzung (30-Minuten-Mittel)</th></tr></thead>
+                <tbody>
+                    <tr><td>LXC-, KVM-, Storage- und OpenClaw-VPS</td><td>über 85 %</td><td>über 90 %</td></tr>
+                    <tr><td>Discord-Bot-Hosting</td><td>über 85 %</td><td>über 90 %</td></tr>
+                    <tr><td>Gameserver</td><td>über 90 %</td><td>über 95 %</td></tr>
+                    <tr><td>Windows-KVM-VPS</td><td>über 95 %</td><td>über 98 %</td></tr>
+                    <tr><td>Webspaces</td><td>über 50 %</td><td>über 70 %</td></tr>
+                    <tr><td>VDS</td><td colspan="2">ausgenommen, die Cores sind fest zugewiesen</td></tr>
+                </tbody>
+            </table>
+        </li>
         <li><strong>Arbeitsspeicher und Disk-I/O.</strong> Dauerhaftes Swapping oder eine anhaltende Sättigung des Disk-I/O eines Nodes durch eine einzelne Instanz berechtigt uns, die I/O-Priorität dieser Instanz zu senken. Ein Node gilt als gesättigt, wenn der gesamte Disk-I/O aller Gäste über 30 Minuten 1 GB/s überschreitet; betroffen ist nur eine Instanz, die mehr als die Hälfte davon verursacht.</li>
         <li><strong>Netzwerk.</strong> Der ausgehende Verkehr ist auf 1 Gbit/s je Instanz begrenzt. Mehr als 2.000 gleichzeitige ausgehende Verbindungen einer Instanz oder ein anhaltender ausgehender Verkehr, der andere Kunden auf demselben Node messbar beeinträchtigt, berechtigt uns zur Drosselung oder Filterung. Neue ausgehende Verbindungen sind auf 2.000 pro Sekunde je Instanz begrenzt (Burst 4.000). Wer Verbindungen wiederverwendet (Keep-Alive, Connection-Pooling), erreicht deutlich mehr Anfragen pro Sekunde.</li>
         <li><strong>Automatische Backups.</strong> Backups folgen dem von Ihnen im Panel eingestellten Zeitplan; pro Server werden höchstens drei normale Backups für jeweils höchstens sieben Tage vorgehalten; Backups in einem gebuchten permanenten Slot bleiben, bis Sie sie löschen. Bei Beendigung des Dienstes werden sämtliche Backups gelöscht.</li>
@@ -252,7 +264,7 @@
 
 <section>
     <h2>Wie wir vorgehen</h2>
-    <p>In der Regel eskalieren wir in Stufen. Wir kontaktieren Sie zuerst per E-Mail und im Panel, und Sie haben mindestens 24 Stunden Zeit zu antworten. Eine Antwort stoppt die Automatik, den Fall übernimmt dann ein Mensch. Bleibt eine Reaktion vollständig aus, reduzieren wir die betroffene Ressource, beim Prozessor auf die Hälfte der zugewiesenen Kerne. Erst nach weiteren 72 Stunden ohne Antwort sperren wir die Leistung. Jede Beschränkung wird automatisch aufgehoben, sobald Ihre Nutzung 24 Stunden lang innerhalb der Grenzen bleibt. Bei Gefahr im Verzug für die Sicherheit, Integrität oder Verfügbarkeit unserer Systeme oder für Dritte, etwa bei einem laufenden Angriff oder einem aktiven Miner, können wir sofort und ohne Vorankündigung handeln.</p>
+    <p>In der Regel eskalieren wir in Stufen. Wir kontaktieren Sie zuerst per E-Mail und im Panel, und Sie haben mindestens 24 Stunden Zeit zu antworten. Eine Antwort stoppt die Automatik, den Fall übernimmt dann ein Mensch. Bleibt eine Reaktion vollständig aus, reduzieren wir die betroffene Ressource, beim Prozessor auf die Hälfte der zugewiesenen Kerne. Erst nach weiteren 72 Stunden ohne Antwort sperren wir die Leistung. Bleibt Ihre Nutzung 24 Stunden lang innerhalb der Grenzen, schließen wir den Fall automatisch und heben eine Reduzierung auf. Eine Blockierung des ausgehenden Versands eines Managed-Email-Abonnements hebt nur unser Team auf. Eine Sperre wird nie automatisch aufgehoben: Nur unser Team hebt sie auf, und geschieht das nicht, wird die Leistung wie unten beschrieben zum Ende des bezahlten Zeitraums gelöscht. Bei Gefahr im Verzug für die Sicherheit, Integrität oder Verfügbarkeit unserer Systeme oder für Dritte, etwa bei einem laufenden Angriff oder einem aktiven Miner, können wir sofort und ohne Vorankündigung handeln.</p>
     <p>Eine gesperrte Leistung bleibt bis zum Ende des bereits bezahlten Zeitraums abgeschaltet und wird danach gelöscht, wie jede andere gesperrte Leistung: bei stündlicher Abrechnung mit der nächsten stündlichen Abbuchung, bei monatlicher Abrechnung zum Ende des bezahlten Monats. Nach dieser Richtlinie gesperrte Managed-Email-Abonnements werden auf die gleiche Weise zum Ende ihres bezahlten Monats entfernt. Halten Sie eine Sperre für unberechtigt, eröffnen Sie bitte sofort ein Support-Ticket; ist der Fall vorher geklärt, heben wir die Sperre auf.</p>
     <p>Schränken wir eine Leistung ein, sperren oder beenden wir sie, erhalten Sie eine Begründung in Textform nach Artikel 17 der Verordnung (EU) 2022/2065 (DSA). Sie können einer Maßnahme jederzeit unter <a href="mailto:contact@instantnode.eu">contact@instantnode.eu</a> widersprechen; wir prüfen den Widerspruch und nehmen die Maßnahme zurück, wenn er berechtigt ist.</p>
 </section>

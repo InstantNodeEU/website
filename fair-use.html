@@ -212,7 +212,7 @@
       <section class="prose-hero">
         <span class="badge rv">Legal</span>
         <h1 class="d2 rv">Fair Use Policy</h1>
-        <p class="lede rv">Last updated: November 16, 2026 (v1.2)</p>
+        <p class="lede rv">Last updated: November 16, 2026 (v1.3)</p>
       </section>
 
       <div class="prose">
@@ -225,7 +225,19 @@
 <section>
     <h2>Resource limits on shared products</h2>
     <ul>
-        <li><strong>Processor.</strong> A sustained average above 70 % of the cores allocated to your instance over 60 minutes leads us to contact you. A sustained average above 90 % over 30 minutes allows us to reduce the CPU priority of the instance.</li>
+        <li><strong>Processor.</strong> A sustained average above the contact threshold over 60 minutes leads us to contact you. A sustained average above the cap threshold over 30 minutes allows us to apply a temporary CPU cap if the usage continues after we have contacted you. Both thresholds are a share of the cores allocated to your instance and depend on the product. Short bursts and peaks do not count.
+            <table>
+                <thead><tr><th>Product</th><th>Contact (60-minute average)</th><th>Cap (30-minute average)</th></tr></thead>
+                <tbody>
+                    <tr><td>LXC, KVM, Storage and OpenClaw VPS</td><td>above 85 %</td><td>above 90 %</td></tr>
+                    <tr><td>Discord bot hosting</td><td>above 85 %</td><td>above 90 %</td></tr>
+                    <tr><td>Game servers</td><td>above 90 %</td><td>above 95 %</td></tr>
+                    <tr><td>Windows KVM VPS</td><td>above 95 %</td><td>above 98 %</td></tr>
+                    <tr><td>Web hosting</td><td>above 50 %</td><td>above 70 %</td></tr>
+                    <tr><td>VDS</td><td colspan="2">exempt, the cores are dedicated</td></tr>
+                </tbody>
+            </table>
+        </li>
         <li><strong>Memory and disk I/O.</strong> Continuous swapping, or sustained saturation of a node's disk I/O caused by a single instance, allows us to reduce the I/O priority of that instance. A node counts as saturated when the combined disk I/O of all guests exceeds 1 GB/s over 30 minutes, and only an instance causing more than half of it is affected.</li>
         <li><strong>Network.</strong> Outbound traffic is shaped to 1 Gbit/s per instance. More than 2,000 concurrent outbound connections from one instance, or sustained outbound traffic that measurably degrades other customers on the same node, allows us to throttle or filter the traffic. New outbound connections are limited to 2,000 per second per instance (burst 4,000). Reusing connections (keep-alive, connection pooling) gets you far more requests per second than this.</li>
         <li><strong>Automatic backups.</strong> Backups follow the schedule you set in the panel; at most three regular backups are kept per server, each for at most seven days; backups you put into a paid permanent slot stay until you delete them. All of them are deleted when the service ends.</li>
@@ -249,7 +261,7 @@
 
 <section>
     <h2>How we act</h2>
-    <p>As a rule we escalate in steps. We contact you first by email and in your panel, and you have at least 24 hours to respond. A reply stops the automation and a person takes over the case. If we hear nothing at all, we reduce the affected resource, for the processor to half of the cores allocated to the instance. Only after a further 72 hours without a reply do we suspend the service. Every restriction is lifted automatically once your usage stays inside the limits for 24 hours. Where there is imminent danger to the security, integrity or availability of our systems or to third parties, for example in the case of an ongoing attack or an active miner, we may act immediately and without prior notice.</p>
+    <p>As a rule we escalate in steps. We contact you first by email and in your panel, and you have at least 24 hours to respond. A reply stops the automation and a person takes over the case. If we hear nothing at all, we reduce the affected resource, for the processor to half of the cores allocated to the instance. Only after a further 72 hours without a reply do we suspend the service. Once your usage has stayed inside the limits for 24 hours, we close the case automatically and lift any reduction. A block on outgoing mail of a Managed Email subscription is lifted only by our staff. A suspension is never lifted automatically: only our staff lift it, and if they do not, the service is deleted at the end of the paid period as described below. Where there is imminent danger to the security, integrity or availability of our systems or to third parties, for example in the case of an ongoing attack or an active miner, we may act immediately and without prior notice.</p>
     <p>A suspended service stays switched off until the end of the period you have already paid for and is then deleted, like any other suspended service: a service billed by the hour at the next hourly charge, a service billed monthly at the end of the paid month. Managed Email subscriptions suspended under this policy are removed the same way at the end of their paid month. If you think a suspension is wrong, open a support ticket right away; if the case is resolved before then, we lift the suspension.</p>
     <p>If we restrict, suspend or terminate a service, you receive a statement of reasons in text form pursuant to Article 17 of Regulation (EU) 2022/2065 (DSA). You can object to a measure at any time at <a href="mailto:contact@instantnode.eu">contact@instantnode.eu</a>; we will review it and reverse the measure if the objection is justified.</p>
 </section>
