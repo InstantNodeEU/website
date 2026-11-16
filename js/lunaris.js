@@ -1639,6 +1639,7 @@
   // One request feeds the live counts on the marketing pages. Each value is
   // only written when the API actually returned it, so a partial or failed
   // response leaves the static number in the markup standing.
+  var SPARKS = ['support', 'uptime', 'countries', 'customers'];
   function fillPublicInfo() {
     var wanted = document.querySelector('.js-customer-count, .js-user-count, .js-support-median, .js-uptime, .js-countries, .js-review-line, .js-review-pill');
     if (!wanted || !window.fetch) return;
@@ -1647,6 +1648,10 @@
       .then(function (d) {
         if (d && d.reviews) { reviewSummary = d.reviews; renderReviewLines(); }
         var st = d && d.stats;
+        if (window.innSpark) {
+          if (st && st.series) window.innSpark.feed(st.series, st);
+          window.innSpark.fail(SPARKS);
+        }
         if (!st) return;
         // Floored (customers to 50, users to 100), so "X+" is never a claim
         // for more than there are. Customers = accounts that paid at least once.
@@ -1661,7 +1666,7 @@
         if (Number(st.uptime90) > 0) setAll('.js-uptime', Number(st.uptime90).toFixed(2) + '%');
         if (Number(st.countries) >= 10) setAll('.js-countries', Math.floor(st.countries / 10) * 10 + '+');
       })
-      .catch(function () { /* the numbers in the markup stay */ });
+      .catch(function () { if (window.innSpark) window.innSpark.fail(SPARKS); /* the numbers in the markup stay */ });
   }
 
   function checkMaintenance() {
@@ -1744,4 +1749,254 @@
   s.src = '/js/auth-handoff.js?v=4';
   s.async = true;
   document.head.appendChild(s);
+})();
+
+/* ---------- stat tile charts ----------
+   A .spark[data-spark] at the foot of a .stats-x tile draws a small chart in
+   the same glyph ramp as the art: support (weekly median) and ddos (attacks per
+   month) as bars, uptime as day columns (several days per column on narrow
+   tiles, the worst day counts), customers as a curve that is only a shape
+   (the API sends it normalised, no counts), countries as share rows. Data comes
+   from fillPublicInfo (series of /api/v1/public/info) or ddos-flow.js; a tile
+   whose data never arrives just hides its chart. Drawn once on scroll-in. */
+(function () {
+  'use strict';
+  var RAMP = ' ..::--=+*#%@', CELL = 7, TOP = RAMP.length - 1;
+  var calm = !window.matchMedia || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var WORDS = {
+    en: { week: 'Week of', none: 'no tickets', nodata: 'not measured', more: 'more', att: 'attacks' },
+    de: { week: 'Woche ab', none: 'keine Tickets', nodata: 'nicht gemessen', more: 'weitere', att: 'Angriffe' },
+    fr: { week: 'Semaine du', none: 'aucun ticket', nodata: 'non mesuré', more: 'autres', att: 'attaques' },
+    es: { week: 'Semana del', none: 'sin tickets', nodata: 'sin medición', more: 'más', att: 'ataques' }
+  };
+  function lang() {
+    var l = window.innLang && window.innLang.current ? window.innLang.current() : document.documentElement.lang;
+    l = String(l || 'en').slice(0, 2);
+    return WORDS[l] ? l : 'en';
+  }
+  function w() { return WORDS[lang()]; }
+  function date(iso, month) {
+    var o = month ? { month: 'short', year: 'numeric', timeZone: 'UTC' } : { day: 'numeric', month: 'short', timeZone: 'UTC' };
+    return new Date(iso + (month ? '-15' : '') + 'T12:00:00Z').toLocaleDateString(lang(), o);
+  }
+  function addDays(iso, n) { return new Date(Date.parse(iso + 'T00:00:00Z') + n * 864e5).toISOString().slice(0, 10); }
+  function addMonths(ym, n) {
+    var p = ym.split('-'), t = +p[0] * 12 + (+p[1] - 1) + n;
+    return Math.floor(t / 12) + '-' + ('0' + (t % 12 + 1)).slice(-2);
+  }
+  function clamp01(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+  function max(a) { var m = 0; a.forEach(function (x) { if (x > m) m = x; }); return m || 1; }
+  function range(g, fmt) { return g.a === g.b ? fmt(g.a) : fmt(g.a) + ' - ' + fmt(g.b); }
+
+  /* kind -> chart spec from the raw series */
+  var KINDS = {
+    support: function (s) {
+      if (!s || !s.to || !s.weeks || !s.weeks.length) return null;
+      var n = s.weeks.length, m = max(s.weeks);
+      return { type: 'bars', agg: 'max', items: s.weeks.map(function (v, i) {
+        var a = addDays(s.to, -((n - 1 - i) * 7 + 6));
+        return { v: v, a: a, b: a };
+      }), h: function (v) { return Math.sqrt(v / m); }, tip: function (g) {
+        return w().week + ' ' + date(g.a) + ' · ' + (g.v == null ? w().none : g.v < 60 ? g.v + ' min' : Math.round(g.v / 6) / 10 + ' h');
+      } };
+    },
+    uptime: function (s) {
+      if (!s || !s.from || !s.days || !s.days.length) return null;
+      return { type: 'bars', agg: 'min', items: s.days.map(function (v, i) {
+        var a = addDays(s.from, i);
+        return { v: v, a: a, b: a };
+      }), h: function (v) { return 1 - clamp01((100 - v) / 1.5) * 0.85; }, tip: function (g) {
+        return range(g, function (d) { return date(d); }) + ' · ' + (g.v == null ? w().nodata : (g.v >= 100 ? '100' : g.v.toFixed(2)) + '%');
+      } };
+    },
+    ddos: function (s) {
+      if (!s || !s.from || !s.counts || !s.counts.length) return null;
+      var m = max(s.counts);
+      return { type: 'bars', agg: 'sum', items: s.counts.map(function (v, i) {
+        var a = addMonths(s.from, i);
+        return { v: v, a: a, b: a };
+      }), h: function (v) { return Math.sqrt(v / m); }, tip: function (g) {
+        return range(g, function (d) { return date(d, true); }) + ' · ' + g.v.toLocaleString(lang()) + ' ' + w().att;
+      } };
+    },
+    customers: function (s) {
+      return s && s.length > 1 ? { type: 'curve', vals: s } : null;
+    },
+    countries: function (s, st) {
+      if (!s || !s.length) return null;
+      return { type: 'share', top: s, more: Math.max(0, Math.floor((Number(st && st.countries) || 0) / 10) * 10 - s.length) };
+    }
+  };
+
+  function glyph(ctx, d, x, y, tone) {
+    var ch = RAMP[Math.min(TOP, (d * TOP) | 0)];
+    if (ch === ' ') return;
+    var g = 60 + d * 140;
+    ctx.fillStyle = tone === 'blue' ? 'rgb(' + ((g + (59 - g) * 0.8) | 0) + ',' + ((g + (120 + d * 70 - g) * 0.85) | 0) + ',' + ((g + (255 - g) * 0.9) | 0) + ')'
+      : tone === 'ink' ? 'rgb(242,241,238)' : 'rgb(' + (g | 0) + ',' + (g | 0) + ',' + (g | 0) + ')';
+    ctx.fillText(ch, x, y);
+  }
+
+  /* one visual bar per item when there is room for a gap column, otherwise
+     one column per slice of items (worst/total of the slice) */
+  function layout(S) {
+    var it = S.spec.items, n = it.length, cols = S.cols, groups = [], col = [];
+    if (n * 2 <= cols) {
+      var slot = cols / n;
+      it.forEach(function (x) { groups.push({ v: x.v, a: x.a, b: x.b }); });
+      for (var c = 0; c < cols; c++) {
+        var i = Math.floor(c / slot);
+        col.push(c === Math.ceil((i + 1) * slot) - 1 ? -1 : i);
+      }
+    } else {
+      for (var k = 0; k < cols; k++) {
+        var a = Math.floor(k * n / cols), b = Math.max(a + 1, Math.floor((k + 1) * n / cols)), v = null;
+        for (var j = a; j < b; j++) {
+          var x = it[j].v;
+          if (x == null) continue;
+          v = v == null ? x : S.spec.agg === 'min' ? Math.min(v, x) : S.spec.agg === 'sum' ? v + x : Math.max(v, x);
+        }
+        groups.push({ v: v, a: it[a].a, b: it[b - 1].b });
+        col.push(k);
+      }
+    }
+    S.groups = groups; S.col = col;
+  }
+
+  function paint(el, p) {
+    var S = el._s, ctx = S.ctx, rows = S.rows, cols = S.cols, spec = S.spec;
+    ctx.clearRect(0, 0, S.W, S.H);
+    var X = function (c) { return c * CELL + CELL / 2; }, Y = function (r) { return S.H - r * CELL - CELL / 2; };
+    if (spec.type === 'bars') {
+      for (var c = 0; c < cols && c < p * cols; c++) {
+        var gi = S.col[c];
+        if (gi < 0) continue;
+        /* needle: a bright head at the value over a dotted stem; no value = a dot on the floor */
+        var g = S.groups[gi], head = g.v == null ? -1 : Math.max(0, Math.round(clamp01(spec.h(g.v)) * rows) - 1);
+        var tone = gi === S.hover ? 'ink' : gi === S.groups.length - 1 ? 'blue' : 'grey';
+        if (head < 0) { glyph(ctx, 0.12, X(c), Y(0), tone); continue; }
+        for (var r = 0; r <= head; r++) glyph(ctx, r === head ? 0.86 : 0.3, X(c), Y(r), tone);
+      }
+    } else if (spec.type === 'curve') {
+      var v = spec.vals, n = v.length, prev = -1;
+      for (var k = 0; k < cols && k < p * cols; k++) {
+        var x = cols > 1 ? k / (cols - 1) * (n - 1) : 0, i = Math.floor(x), f = x - i;
+        var y = i + 1 < n ? v[i] + (v[i + 1] - v[i]) * f : v[n - 1];
+        var line = Math.round(clamp01(y) * (rows - 1)), hot = k >= cols - 2;
+        for (var rr = 0; rr <= line; rr++) {
+          var dd = rr === line ? 0.86 : prev >= 0 && rr > prev ? 0.7 : 0.14 + 0.3 * rr / Math.max(1, line);
+          glyph(ctx, dd, X(k), Y(rr), hot && rr >= Math.min(line, prev < 0 ? line : prev + 1) ? 'blue' : 'grey');
+        }
+        prev = line;
+      }
+    } else {
+      var lh = S.H / 6, top = spec.top, x0 = 26, pw = ctx.measureText('00%').width + 8, chars = Math.max(4, Math.floor((S.W - x0 - pw) / 6.5));
+      ctx.textAlign = 'left';
+      top.forEach(function (t, i) {
+        var yy = lh * i + lh / 2, fill = Math.round(t.p / max(top.map(function (q) { return q.p; })) * chars * p);
+        ctx.fillStyle = 'rgb(210,209,205)';
+        ctx.fillText(t.c, 0, yy);
+        for (var q = 0; q < chars; q++) glyph(ctx, q < fill ? 0.9 : 0.12, x0 + q * 6.5 + 3, yy, q < fill && i === 0 ? 'blue' : 'grey');
+        ctx.textAlign = 'right';
+        ctx.fillStyle = 'rgb(143,142,137)';
+        ctx.fillText(t.p + '%', S.W, yy);
+        ctx.textAlign = 'left';
+      });
+      if (spec.more) {
+        ctx.fillStyle = 'rgb(143,142,137)';
+        ctx.fillText('+' + spec.more + ' ' + w().more, 0, lh * top.length + lh / 2);
+      }
+      ctx.textAlign = 'center';
+    }
+  }
+
+  function setup(el) {
+    var cv = el.querySelector('canvas') || el.appendChild(document.createElement('canvas'));
+    var W = el.clientWidth || 240, H = cv.clientHeight || 78, dpr = Math.min(2, window.devicePixelRatio || 1);
+    cv.width = W * dpr; cv.height = H * dpr;
+    var ctx = cv.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.textBaseline = 'middle';
+    ctx.textAlign = 'center';
+    var S = el._s = { ctx: ctx, W: W, H: H, spec: el._spec, cols: Math.floor(W / CELL), rows: Math.floor(H / CELL), hover: -1 };
+    ctx.font = S.spec.type === 'share' ? '10.5px ' + MONO : (CELL + 1) + 'px ' + MONO;
+    if (S.spec.type === 'bars') layout(S);
+    if (S.spec.type === 'share') {
+      cv.setAttribute('role', 'img');
+      cv.setAttribute('aria-label', S.spec.top.map(function (t) { return t.c + ' ' + t.p + '%'; }).join(', '));
+    } else cv.setAttribute('aria-hidden', 'true');
+  }
+  var MONO = '"JetBrains Mono", ui-monospace, monospace';
+
+  function tips(el) {
+    if (el._s.spec.type !== 'bars' || el._tipped) return;
+    el._tipped = true;
+    var tip = el.appendChild(document.createElement('span'));
+    tip.className = 'spark-tip';
+    tip.hidden = true;
+    function move(e) {
+      var S = el._s, r = el.getBoundingClientRect(), c = Math.floor((e.clientX - r.left) / CELL), gi = S.col[Math.max(0, Math.min(S.cols - 1, c))];
+      if (gi == null || gi < 0) gi = S.col[Math.max(0, c - 1)];
+      if (gi == null || gi < 0) return;
+      if (gi !== S.hover) { S.hover = gi; paint(el, 1); }
+      tip.textContent = S.spec.tip(S.groups[gi]);
+      tip.hidden = false;
+      var half = tip.offsetWidth / 2, x = Math.max(half, Math.min(S.W - half, c * CELL + CELL / 2));
+      tip.style.left = x + 'px';
+    }
+    function leave() { tip.hidden = true; el._s.hover = -1; paint(el, 1); }
+    el.addEventListener('pointermove', move);
+    el.addEventListener('pointerdown', move);
+    el.addEventListener('pointerleave', leave);
+  }
+
+  function play(el) {
+    setup(el);
+    tips(el);
+    el._played = true;
+    var t0 = 0;
+    (function step(now) {
+      if (!t0) t0 = now;
+      var p = calm ? 1 : Math.min(1, (now - t0) / 900);
+      paint(el, 1 - Math.pow(1 - p, 3));
+      if (p < 1) requestAnimationFrame(step);
+    })(performance.now());
+  }
+
+  var io;
+  function feed(series, st) {
+    Array.prototype.forEach.call(document.querySelectorAll('.spark[data-spark]'), function (el) {
+      var k = el.dataset.spark;
+      if (!series || !(k in series)) return;
+      var spec = KINDS[k] && KINDS[k](series[k], st);
+      if (!spec) { el.hidden = true; return; }
+      el._spec = spec;
+      el.hidden = false;
+      if (!('IntersectionObserver' in window)) { play(el); return; }
+      io = io || new IntersectionObserver(function (en) {
+        en.forEach(function (e) { if (e.isIntersecting) { io.unobserve(e.target); play(e.target); } });
+      }, { rootMargin: '0px 0px -40px 0px' });
+      io.observe(el);
+    });
+  }
+  /* sparks nobody fed (API down, old cache) disappear instead of leaving a gap */
+  function fail(kinds) {
+    Array.prototype.forEach.call(document.querySelectorAll('.spark[data-spark]'), function (el) {
+      if (!el._spec && kinds.indexOf(el.dataset.spark) >= 0) el.hidden = true;
+    });
+  }
+  function redraw() {
+    Array.prototype.forEach.call(document.querySelectorAll('.spark[data-spark]'), function (el) {
+      if (el._played) { setup(el); paint(el, 1); }
+    });
+  }
+  var rw = innerWidth, rt;
+  window.addEventListener('resize', function () {
+    if (innerWidth === rw) return;
+    rw = innerWidth;
+    clearTimeout(rt);
+    rt = setTimeout(redraw, 150);
+  });
+  document.addEventListener('inn:lang', redraw);
+  window.innSpark = { feed: feed, fail: fail };
 })();

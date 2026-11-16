@@ -156,3 +156,62 @@
 /* stats strip: brand font, no accent/gradient numbers */
 .stats .k { font-family: var(--font); letter-spacing: 0; text-transform: none; font-size: 13.5px; color: var(--mute); }
 .stats .n, .stats .n * { background: none !important; -webkit-text-fill-color: currentColor; color: var(--ink) !important; }
+
+/* stat tiles: flat panel, a bold figure, its label, and (on measured tiles)
+   a small glyph chart at the foot, drawn by the "stat tile charts" block in
+   js/lunaris.js. Opt-in with .stats-x on the section, the plain .stats strips
+   stay as they are. Figures stay ink (rule above). */
+.stats-x .cell {
+  --tile-pad: clamp(20px, 2.2vw, 28px);
+  --tile-n: clamp(38px, 4.2vw, 54px);
+  display: flex;
+  flex-direction: column;
+  padding: var(--tile-pad);
+  text-align: left;
+  border-color: var(--line);
+  transition: opacity 0.7s ease var(--tile-d, 0s), transform 0.7s ease var(--tile-d, 0s), border-color 0.25s ease;
+}
+.stats-x .cell:nth-child(2) { --tile-d: 0.07s; }
+.stats-x .cell:nth-child(3) { --tile-d: 0.14s; }
+.stats-x .cell:nth-child(4) { --tile-d: 0.21s; }
+.stats-x .cell:hover { border-color: rgba(255, 255, 255, 0.16); }
+.stats-x .n {
+  font-size: var(--tile-n);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+}
+.stats-x .k { margin-top: 10px; font-size: 14px; line-height: 1.5; max-width: 26ch; text-wrap: pretty; overflow-wrap: break-word; }
+/* .tile-fit on a card: a figure with a unit ("111 Gbit/s") stays on one line
+   and shrinks with its tile instead of wrapping and pushing the label down */
+@supports (width: 1cqi) {
+  .stats-x .tile-fit { container-type: inline-size; }
+  /* line box keeps the height of a regular figure, so the labels stay level */
+  .stats-x .tile-fit .n { white-space: nowrap; font-size: min(var(--tile-n), 20cqi); line-height: var(--tile-n); }
+}
+/* the chart sits on the bottom edge, so charts line up across a row */
+.stats-x .spark { position: relative; height: 78px; margin-top: auto; padding-top: 24px; box-sizing: content-box; touch-action: pan-y; }
+.stats-x .spark[hidden] { display: none; }
+.stats-x .spark canvas { display: block; width: 100%; height: 78px; }
+.stats-x .spark-tip {
+  position: absolute;
+  top: -4px;
+  transform: translateX(-50%);
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-2);
+  color: var(--ink);
+  font-size: 12.5px;
+  line-height: 1.3;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.stats-x .spark-tip[hidden] { display: none; }
+/* phones: one tile per row, the charts need the width */
+@media (max-width: 560px) {
+  .stats-x .cells-4 { grid-template-columns: 1fr; gap: 10px; }
+  .stats-x .cell { --tile-pad: 18px; --tile-n: clamp(34px, 10vw, 42px); }
+  .stats-x .k { font-size: 13.5px; max-width: none; }
+}

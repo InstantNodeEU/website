@@ -195,6 +195,8 @@
     if (!d || !d.top || !d.top.length || !(d.total > 0) || !(d.top[0].gbps > 0)) return;
     data = d;
     render();
+    // attacks per month under the "filtered so far" tile (chart lives in lunaris.js)
+    if (window.innSpark && d.months) window.innSpark.feed({ ddos: d.months });
     document.addEventListener('inn:lang', render);
   }).catch(function () {});
 })();
