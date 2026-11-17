@@ -79,5 +79,16 @@
  "9 vectors · 7 min": "9 Vektoren · 7 Min.",
  "For scale": "Zum Vergleich",
  "a typical server port": "ein typischer Serverport",
- "Included on every product, from the smallest game server to a dedicated VDS, from the first minute.": "Bei jedem Produkt inklusive, <span class=\"dim\">vom kleinsten Gameserver bis zum dedizierten VDS,</span> ab der ersten Minute."
+ "Included on every product, from the smallest game server to a dedicated VDS, from the first minute.": "Bei jedem Produkt inklusive, <span class=\"dim\">vom kleinsten Gameserver bis zum dedizierten VDS,</span> ab der ersten Minute.",
+ "In your panel": "In deinem Panel",
+ "Every attack,in your panel.": "Jeder Angriff,<br>in deinem Panel.",
+ "KVM VPS, VDS and LXC servers have a DDoS tab. It shows what reached your addresses and what the filter dropped, from the day each address became yours.": "KVM VPS, VDS und LXC-Server haben einen DDoS-Tab. Er zeigt, was bei deinen Adressen angekommen ist und was der Filter verworfen hat, ab dem Tag, an dem die Adresse dir gehört.",
+ "Traffic per address": "Traffic pro Adresse",
+ "Passed and dropped traffic for each of your IPv4 addresses, from the last 10 minutes up to one week, next to the filter profiles that are active on it.": "Durchgelassener und verworfener Traffic für jede deiner IPv4-Adressen, von den letzten 10 Minuten bis zu einer Woche, dazu die Filterprofile, die darauf aktiv sind.",
+ "Every attack, kept": "Jeder Angriff, gespeichert",
+ "Start, duration, peak, attack type and the most targeted ports of every attack. The list stays, the graph covers the last seven days.": "Beginn, Dauer, Spitze, Angriffsart und die meistangegriffenen Ports jedes Angriffs. Die Liste bleibt, der Graph zeigt die letzten sieben Tage.",
+ "Alerts": "Warnungen",
+ "A bell in the panel for every attack, and an email for the first one, then at most one per address every six hours. You can turn the emails off in your profile.": "Eine Glocke im Panel bei jedem Angriff und eine Mail beim ersten, danach höchstens eine pro Adresse alle sechs Stunden. Die Mails kannst du in deinem Profil abschalten.",
+ "Can I see the attacks on my server?": "Kann ich die Angriffe auf meinen Server sehen?",
+ "Yes, on KVM VPS, VDS and LXC servers: the DDoS tab in the panel shows passed and dropped traffic per address and every attack since the address became yours, and you get an alert by bell and email. Game servers and web hosting share their addresses with other customers, so they do not have the tab.": "Ja, bei KVM VPS, VDS und LXC-Servern: Der DDoS-Tab im Panel zeigt durchgelassenen und verworfenen Traffic pro Adresse und jeden Angriff, seit die Adresse dir gehört, und du bekommst eine Warnung per Glocke und Mail. Gameserver und Webhosting teilen ihre Adressen mit anderen Kunden, deshalb haben sie den Tab nicht."
 }

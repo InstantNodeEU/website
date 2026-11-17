@@ -94,7 +94,7 @@
           "name": "Is DDoS protection included?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Always-on DDoS mitigation is included with every KVM VPS at no extra cost."
+            "text": "Yes. Always-on DDoS mitigation is included with every VDS at no extra cost. Every attack on your addresses shows up in the DDoS tab of your panel."
           }
         },
         {
@@ -645,7 +645,7 @@ Model name:   AMD EPYC 7763 64-Core Processor
           <details class="rv"><summary>What does "dedicated cores" actually mean?</summary><div>Your VM is pinned to specific physical EPYC cores on the host and gets top scheduling priority on them. Unlike a shared vCPU, your compute does not wobble when a neighbor gets busy - performance is the same at 3 a.m. and at peak hour. The pool of dedicated cores is finite; when it is sold out we say so instead of overselling.</div></details>
           <details class="rv"><summary>VDS or regular KVM VPS - which one do I need?</summary><div>For websites, bots, small game servers and dev boxes, a <a href="/kvm">KVM VPS</a> is the better deal. Pick a VDS when your workload is latency-sensitive under sustained load: busy game servers, databases, CI runners, panels hosting several services. We wrote an honest comparison <a href="/blog/vds-dedicated-cores">on the blog</a>.</div></details>
           <details class="rv"><summary>Can I resize my VDS later?</summary><div>VDS plans are fixed presets - that is what makes the core pool plannable. To grow, deploy a bigger plan and move over (the <a href="/dashboard/import">Server Importer</a> makes that painless), or open a ticket and we will help with the switch.</div></details>
-          <details class="rv"><summary>Is DDoS protection included?</summary><div>Yes. Always-on DDoS mitigation is included with every VDS at no extra cost.</div></details>
+          <details class="rv"><summary>Is DDoS protection included?</summary><div>Yes. Always-on DDoS mitigation is included with every VDS at no extra cost. Every attack on your addresses shows up in the DDoS tab of your panel.</div></details>
           <details class="rv"><summary>Which payment methods do you accept?</summary><div>We accept card payments, Apple Pay, Google Pay, Klarna, Wero, cryptocurrencies, bank transfer and your InstantNode account balance.</div></details>
         </div>
         </div>

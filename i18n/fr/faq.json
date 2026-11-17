@@ -66,5 +66,7 @@
  "FAQ | InstantNode": "FAQ | InstantNode",
  "FAQ - Frequently asked questions | InstantNode": "FAQ - Questions fréquentes | InstantNode",
  "Frequently asked questions about InstantNode: how fast servers deploy, KVM vs LXC vs VDS, billing and payments (card, Apple Pay, Google Pay, Klarna, crypto), refunds, EU/GDPR hosting and support.": "Questions fréquentes sur InstantNode : rapidité de déploiement des serveurs, KVM vs LXC vs VDS, facturation et paiements (carte, Apple Pay, Google Pay, Klarna, crypto), remboursements, hébergement UE/RGPD et support.",
- "Getting started": "Pour commencer"
+ "Getting started": "Pour commencer",
+ "Can I see the attacks on my server?": "Puis-je voir les attaques sur mon serveur ?",
+ "Yes, on KVM VPS, VDS and LXC servers: the DDoS tab in the panel shows passed and dropped traffic per address and every attack since the address became yours, and you get an alert by bell and email. Game servers and web hosting share their addresses with other customers, so they do not have the tab.": "Oui, sur les serveurs KVM VPS, VDS et LXC : l'onglet DDoS du panel montre le trafic transmis et bloqué par adresse et chaque attaque depuis que l'adresse est à toi, et tu reçois une alerte par cloche et par e-mail. Les serveurs de jeu et l'hébergement web partagent leurs adresses avec d'autres clients, ils n'ont donc pas cet onglet."
 }

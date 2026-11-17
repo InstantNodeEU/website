@@ -45,7 +45,8 @@
     }
   ]
 }</script>
-    <script type="application/ld+json">{
+    <script type="application/ld+json">
+{
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
@@ -63,6 +64,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "No. Filtering is always on for every IP in our network. If your server keeps getting hit on one port, open a ticket and we add a filter profile for its protocol."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see the attacks on my server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, on KVM VPS, VDS and LXC servers: the DDoS tab in the panel shows passed and dropped traffic per address and every attack since the address became yours, and you get an alert by bell and email. Game servers and web hosting share their addresses with other customers, so they do not have the tab."
       }
     },
     {
@@ -106,7 +115,8 @@
       }
     }
   ]
-}</script>
+}
+</script>
     <style>
       /* /ddos-protection only: the filter animation and two small blocks */
       .dd-wrap { max-width: 1120px; margin: 0 auto; padding: 0 var(--pad); }
@@ -421,6 +431,20 @@
         </div>
       </section>
 
+      <!-- ===== the DDoS tab in the panel ===== -->
+      <section class="sec" id="panel">
+        <div class="sec-head">
+          <span class="badge rv">In your panel</span>
+          <h2 class="d2 rv">Every attack,<br />in your panel.</h2>
+          <p class="lede rv">KVM VPS, VDS and LXC servers have a DDoS tab. It shows what reached your addresses and what the filter dropped, from the day each address became yours.</p>
+        </div>
+        <ol class="pp-steps dd-steps" style="--n:3">
+          <li class="rv"><h3>Traffic per address</h3><p>Passed and dropped traffic for each of your IPv4 addresses, from the last 10 minutes up to one week, next to the filter profiles that are active on it.</p></li>
+          <li class="rv"><h3>Every attack, kept</h3><p>Start, duration, peak, attack type and the most targeted ports of every attack. The list stays, the graph covers the last seven days.</p></li>
+          <li class="rv"><h3>Alerts</h3><p>A bell in the panel for every attack, and an email for the first one, then at most one per address every six hours. You can turn the emails off in your profile.</p></li>
+        </ol>
+      </section>
+
       <!-- ===== attack types ===== -->
       <section class="sec sec-bg-host">
         <div class="sec-head">
@@ -492,6 +516,7 @@
         <div class="faq" style="max-width:760px;margin:0 auto">
           <details class="rv"><summary>Does DDoS protection cost extra?</summary><div>No. It is included on every service, from the smallest game server to a VDS, and there is nothing to book or switch on.</div></details>
           <details class="rv"><summary>Do I have to configure anything?</summary><div>No. Filtering is always on for every IP in our network. If your server keeps getting hit on one port, open a ticket and we add a filter profile for its protocol.</div></details>
+          <details class="rv"><summary>Can I see the attacks on my server?</summary><div>Yes, on KVM VPS, VDS and LXC servers: the DDoS tab in the panel shows passed and dropped traffic per address and every attack since the address became yours, and you get an alert by bell and email. Game servers and web hosting share their addresses with other customers, so they do not have the tab.</div></details>
           <details class="rv"><summary>What happens to my server during an attack?</summary><div>The attack is dropped in the network and your players and visitors keep getting through. Very small floods can stay below the detection thresholds and reach your server, where the normal limits of your software deal with them.</div></details>
           <details class="rv"><summary>Are websites protected?</summary><div>Yes, against volumetric and application-layer floods. HTTPS requests that look exactly like real visitors can only be told apart by your web server or by a proxy that holds your certificate, so for sites under heavy, targeted attacks we recommend Cloudflare in front.</div></details>
           <details class="rv"><summary>Can I protect a server that is not hosted with you?</summary><div>Yes, with <a href="/ip-forwarding">IP forwarding</a>: a protected IPv4 from our network, forwarded over WireGuard to your server wherever it runs. €3.99 a month.</div></details>
