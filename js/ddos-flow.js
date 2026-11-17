@@ -154,7 +154,7 @@
 (function () {
   var bars = document.getElementById('dd-bars');
   if (!bars || !window.fetch) return;
-  var WORDS = { en: ['vectors', 'min'], de: ['Vektoren', 'Min.'], fr: ['vecteurs', 'min'], es: ['vectores', 'min'] };
+  var WORDS = { en: ['vectors', 'min', 'vector'], de: ['Vektoren', 'Min.', 'Vektor'], fr: ['vecteurs', 'min', 'vecteur'], es: ['vectores', 'min', 'vector'] };
   var data, io;
   function lang() { var l = (document.documentElement.lang || 'en').slice(0, 2); return WORDS[l] ? l : 'en'; }
   /* a fresh node, so inn-lang never writes its dictionary value back over it */
@@ -185,7 +185,7 @@
       li.setAttribute('data-no-i18n', '');
       li.style.setProperty('--w', (a.gbps / max * 100).toFixed(1) + '%');
       li.innerHTML = '<span class="dd-date">' + p[2] + '.' + p[1] + '.' + p[0] + '</span><span class="dd-bar"><i></i></span><b>' + a.gbps +
-        ' Gbit/s</b><span class="dd-meta">' + a.vectors + ' ' + w[0] + (a.minutes ? ' \u00b7 ' + a.minutes + ' ' + w[1] : '') + '</span>';
+        ' Gbit/s</b><span class="dd-meta">' + a.vectors + ' ' + (a.vectors === 1 ? w[2] : w[0]) + (a.minutes ? ' \u00b7 ' + a.minutes + ' ' + w[1] : '') + '</span>';
       bars.insertBefore(li, ref);
       reveal(li);
     });
