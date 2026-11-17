@@ -205,7 +205,7 @@
       <section class="prose-hero">
         <span class="badge rv">Legal</span>
         <h1 class="d2 rv">Privacy Policy</h1>
-        <p class="lede rv">Last updated: November 16, 2026 (v2.11)</p>
+        <p class="lede rv">Last updated: November 17, 2026 (v2.12)</p>
       </section>
 
       <div class="prose">
@@ -373,6 +373,13 @@
     <h2>23. Logging, Misuse Detection and Webhooks</h2>
     <p>To secure and make the panel operation traceable, we log administrative and user-related actions. In this process, request metadata, status codes, user agent, paths, form data, session reference, user identifier, role information and security-relevant events may be processed in particular.</p>
     <p>Depending on the configuration, such action logs may additionally be transmitted to an external webhook service, currently in particular Discord webhooks. Sensitive fields are reduced or redacted where possible, but the transmission may nevertheless contain personal data. The legal basis is Art. 6(1)(f) GDPR on the basis of our legitimate interest in operational monitoring, misuse prevention and incident response.</p>
+    <p><strong>Checks at sign-up and orders.</strong> To prevent fraud, spam and other misuse of our servers, we automatically check at sign-up and at every order:</p>
+    <ul>
+      <li>whether your IP address belongs to a VPN, proxy, Tor or hosting/data centre network. For this we compare it with publicly available lists that we download and store on our own servers. Your IP address is not sent to third parties for this check;</li>
+      <li>whether your IP address or a payment card used in your account was used in the last 30 days by a customer account that we suspended for misuse;</li>
+      <li>whether the country of your payment card, which our payment provider Stripe reports to us together with a pseudonymous card identifier (fingerprint), matches the country of your IP address as determined by Cloudflare, and which payment methods you have used.</li>
+    </ul>
+    <p>Depending on the result, the sign-up or order is refused, or your account can run only one server until it is 14 days old and you have paid at least 10 EUR in total. The legal basis is Art. 6(1)(b) GDPR (steps prior to entering into a contract) and Art. 6(1)(f) GDPR on the basis of our legitimate interest in protecting our infrastructure, our IP addresses and third parties from misuse. See section 28 for your rights regarding these automated decisions.</p>
 </section>
 
 <section>
@@ -417,8 +424,10 @@
 </section>
 
 <section>
-    <h2>28. No Automated Individual Decision-Making</h2>
-    <p>Solely automated decision-making within the meaning of Art. 22 GDPR, including profiling, does not take place in our current panel operation, unless otherwise stated in this Privacy Policy.</p>
+    <h2>28. Automated Decisions at Sign-up and Orders</h2>
+    <p>The checks described in section 23 can lead to a sign-up or order being refused, or to a limit on the number of your servers, without a person reviewing the individual case. This is a decision within the meaning of Art. 22 GDPR. It is necessary for entering into the contract with you, because we can only provide our services if they are not used for misuse (Art. 22(2)(a) GDPR).</p>
+    <p>You can at any time ask for the case to be reviewed by a member of our staff, state your point of view and contest the decision. Write to <a href="mailto:contact@instantnode.eu">contact@instantnode.eu</a> or open a support ticket. We then review the case manually and can unlock your account.</p>
+    <p>Apart from this, no solely automated decision-making within the meaning of Art. 22 GDPR, including profiling, takes place in our panel operation.</p>
 </section>
 
 <section>
