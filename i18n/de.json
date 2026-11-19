@@ -244,5 +244,13 @@
  "Calculated automatically from our own systems. Support and uptime cover the last 90 days, countries come from the billing addresses of paying customers.": "Automatisch aus unseren eigenen Systemen berechnet. Support und Verfügbarkeit beziehen sich auf die letzten 90 Tage, die Länder auf die Rechnungsadressen zahlender Kunden.",
  "Uptime of website, panel and server nodes": "Verfügbarkeit von Website, Panel und Server-Nodes",
  "Customer reviews": "Kundenbewertungen",
- "from €8.99/mo": "ab €8.99/Monat"
+ "from €8.99/mo": "ab €8.99/Monat",
+ "Private networks (VPC)": "Private Netzwerke (VPC)",
+ "Connect your serversover a private network": "Verbinde deine Server<br>über ein privates Netzwerk",
+ "Several networks per server": "Mehrere Netzwerke pro Server",
+ "Up to 3 networks per account. A server can be in several of them at once, with one extra network adapter per network.": "Bis zu 3 Netzwerke pro Konto. Ein Server kann in mehreren davon gleichzeitig sein, mit einem zusätzlichen Netzwerkadapter pro Netzwerk.",
+ "Your subnet or ours": "Dein Subnetz oder unseres",
+ "Automatic (10.77.x.0/24) or your own private subnet: 10.x, 172.16-31.x or 192.168.x, from /16 to /28. You choose it when you create the network and cannot change it later.": "Automatisch (10.77.x.0/24) oder dein eigenes privates Subnetz: 10.x, 172.16-31.x oder 192.168.x, von /16 bis /28. Du wählst es beim Anlegen des Netzwerks, später lässt es sich nicht mehr ändern.",
+ "Only your servers": "Nur deine Server",
+ "Only your own servers in the same network can reach each other. Networks work across all our nodes over VXLAN, with an MTU of 1450.": "Nur deine eigenen Server im selben Netzwerk erreichen sich gegenseitig. Die Netzwerke funktionieren über alle unsere Nodes hinweg per VXLAN, mit einer MTU von 1450."
 }

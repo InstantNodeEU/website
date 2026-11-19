@@ -112,5 +112,6 @@
  "GDPR": "RGPD",
  "EU hosting, EU company": "Alojamiento en la UE, empresa de la UE",
  "Still unsure? Our support team answers on Discord and by ticket.": "¿Aún tienes dudas? Nuestro soporte responde en Discord y por ticket.",
- "A server in the InstantNode panel: specs, live resources, SSH access, billing and one-click management": "Un servidor en el panel de InstantNode: especificaciones, recursos en vivo, acceso SSH, facturación y gestión con un clic"
+ "A server in the InstantNode panel: specs, live resources, SSH access, billing and one-click management": "Un servidor en el panel de InstantNode: especificaciones, recursos en vivo, acceso SSH, facturación y gestión con un clic",
+ "Free with every LXC VPS. Manage your networks in the panel under Private networks, on a server's Network tab or through the API. Your server gets its address configured automatically.": "Gratis con cada LXC VPS. Gestiona tus redes en el panel en Redes privadas, en la pestaña Red de un servidor o mediante la <a href=\"/developers\" style=\"border-bottom:1px solid var(--dim)\">API</a>. Tu servidor recibe su dirección configurada automáticamente."
 }

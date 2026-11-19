@@ -125,5 +125,6 @@
  "Still unsure? Our support team answers on Discord and by ticket.": "Encore un doute ? Notre support répond sur Discord et par ticket.",
  "A server in the InstantNode panel: specs, live resources, SSH access, billing and one-click management": "Un serveur dans le panel InstantNode : caractéristiques, ressources en direct, accès SSH, facturation et gestion en un clic",
  "Central EU location": "Emplacement central dans l'UE",
- "Hosted in Eygelshoven, Netherlands - low latency across Germany, Benelux and most of Europe.": "Hébergé à Eygelshoven, Pays-Bas - faible latence vers l'Allemagne, le Benelux et la majeure partie de l'Europe."
+ "Hosted in Eygelshoven, Netherlands - low latency across Germany, Benelux and most of Europe.": "Hébergé à Eygelshoven, Pays-Bas - faible latence vers l'Allemagne, le Benelux et la majeure partie de l'Europe.",
+ "Free with every Windows Server. Manage your networks in the panel under Private networks, on a server's Network tab or through the API. On Windows you set the shown address on the new network adapter yourself, without a gateway.": "Gratuit avec chaque Windows Server. Gérez vos réseaux dans le panel sous Réseaux privés, dans l'onglet Réseau d'un serveur ou via l'<a href=\"/developers\" style=\"border-bottom:1px solid var(--dim)\">API</a>. Sous Windows, vous configurez vous-même l'adresse affichée sur la nouvelle carte réseau, sans passerelle."
 }

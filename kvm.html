@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=27" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=28" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>KVM VPS Hosting Europe - NVMe &amp; EPYC | InstantNode</title>
@@ -376,6 +376,20 @@ web: Up 4 seconds
             <div class="pp-feat rv"><i class="fa-solid fa-key"></i><div><h3>Root password reset</h3><p>Locked out? Set a new root password from the panel while the server keeps running. No rescue mode needed.</p></div></div>
             <div class="pp-feat rv"><i class="fa-solid fa-signal"></i><div><h3>99.9% uptime</h3><p>Backed by our SLA with pro-rata credits and a public live status page at status.instantnode.eu.</p></div></div>
           </div>
+        </div>
+      </section>
+
+      <!-- ===== private networks ===== -->
+      <section class="sec sec-flush">
+        <div class="sec-head" style="padding: clamp(64px,9vw,110px) var(--pad) 0">
+          <span class="badge rv">Private networks (VPC)</span>
+          <h2 class="d2 rv">Connect your servers<br />over a private network</h2>
+          <p class="lede rv">Free with every KVM VPS. Manage your networks in the panel under Private networks, on a server's Network tab or through the <a href="/developers" style="border-bottom:1px solid var(--dim)">API</a>. The address is configured automatically, and KVM servers finish the setup on the next reboot.</p>
+        </div>
+        <div class="pp-wrap pp-trio">
+          <div class="rv"><canvas class="art cell-ico" data-art="nodes" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Several networks per server</h3><p>Up to 3 networks per account. A server can be in several of them at once, with one extra network adapter per network.</p></div>
+          <div class="rv"><canvas class="art cell-ico" data-art="sliders" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Your subnet or ours</h3><p>Automatic (10.77.x.0/24) or your own private subnet: 10.x, 172.16-31.x or 192.168.x, from /16 to /28. You choose it when you create the network and cannot change it later.</p></div>
+          <div class="rv"><canvas class="art cell-ico" data-art="vault" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Only your servers</h3><p>Only your own servers in the same network can reach each other. Networks work across all our nodes over VXLAN, with an MTU of 1450.</p></div>
         </div>
       </section>
 

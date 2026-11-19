@@ -2,8 +2,8 @@
   "openapi": "3.0.3",
   "info": {
     "title": "InstantNode PAT API",
-    "version": "1.4.0",
-    "description": "The **Personal Access Token (PAT) API** is the single API surface for your InstantNode account. It operates strictly on the token owner's own resources - read your services, control power, provision and manage vServers, game servers, Discord bots, webspaces, domains and managed email (mail domains, mailboxes, passwords, aliases), run and schedule backups, manage host firewall rules, and read billing history.\n\n**Base URL:** `https://instantnode.eu/api/pat`  •  **Auth:** `Authorization: Bearer inpat_...`  •  JSON in, JSON out; every response carries an `ok` boolean.\n\n**Retired:** the old reseller API (`/api/resell`) now returns `410 Gone` - PATs are the single API surface.\n\n**Poll politely:** at most once per 30 seconds per endpoint; excessive polling may be rate-limited (`429`).\n\n**Panel-only surfaces** return `403 not_available_via_api` by design (account-security / abuse boundaries): the file manager, console/VNC access, live SSE streams, sharing/manager management, server **deletion** (servers always run to the end of the paid billing period - cancel by disabling auto-renew), secret-token rotation, cancelling a Managed Email subscription (it purges every mailbox), and payments/top-ups.\n\n**Compatibility:** breaking changes ship under a new version prefix; additive fields may appear within `v1` at any time - ignore unknown fields.",
+    "version": "1.5.0",
+    "description": "The **Personal Access Token (PAT) API** is the single API surface for your InstantNode account. It operates strictly on the token owner's own resources - read your services, control power, provision and manage vServers, game servers, Discord bots, webspaces, domains and managed email (mail domains, mailboxes, passwords, aliases), run and schedule backups, manage host firewall rules and private networks (VPC), and read billing history.\n\n**Base URL:** `https://instantnode.eu/api/pat`  •  **Auth:** `Authorization: Bearer inpat_...`  •  JSON in, JSON out; every response carries an `ok` boolean.\n\n**Retired:** the old reseller API (`/api/resell`) now returns `410 Gone` - PATs are the single API surface.\n\n**Poll politely:** at most once per 30 seconds per endpoint; excessive polling may be rate-limited (`429`).\n\n**Panel-only surfaces** return `403 not_available_via_api` by design (account-security / abuse boundaries): the file manager, console/VNC access, live SSE streams, sharing/manager management, server **deletion** (servers always run to the end of the paid billing period - cancel by disabling auto-renew), secret-token rotation, cancelling a Managed Email subscription (it purges every mailbox), and payments/top-ups.\n\n**Compatibility:** breaking changes ship under a new version prefix; additive fields may appear within `v1` at any time - ignore unknown fields.",
     "contact": {
       "name": "InstantNode",
       "url": "https://instantnode.eu/contact"
@@ -35,6 +35,10 @@
     {
       "name": "Firewall",
       "description": "Host-level firewall rules, up to 50 per server."
+    },
+    {
+      "name": "Private networks",
+      "description": "Free private networks (VPC) between your own servers - up to 3 per account, across all our nodes."
     },
     {
       "name": "Game servers",
@@ -7428,6 +7432,555 @@
           }
         }
       }
+    },
+    "/v1/private-networks": {
+      "get": {
+        "tags": [
+          "Private networks"
+        ],
+        "summary": "List private networks",
+        "description": "Your private networks with their members, plus `servers` (your servers that can join), `max` (networks per account) and `mtu`. Private networks are free.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "example": {
+                  "ok": true,
+                  "max": 3,
+                  "mtu": 1450,
+                  "networks": [
+                    {
+                      "id": 12,
+                      "name": "backend",
+                      "subnet": "10.77.12.0/24",
+                      "netmask": "255.255.255.0",
+                      "connected": false,
+                      "address": null,
+                      "members": [
+                        {
+                          "containerId": "3f9c2a71-0b4d-4d8f-a1c2-e9b7d4f0a8c3",
+                          "name": "web-1",
+                          "address": "10.77.12.10",
+                          "self": false
+                        },
+                        {
+                          "containerId": "8b1e5d20-6c3a-4f7e-9d12-0a4b7c9e2f51",
+                          "name": "db-1",
+                          "address": "10.77.12.11",
+                          "self": false
+                        }
+                      ]
+                    }
+                  ],
+                  "servers": [
+                    {
+                      "id": "3f9c2a71-0b4d-4d8f-a1c2-e9b7d4f0a8c3",
+                      "name": "web-1",
+                      "status": "running",
+                      "windows": false
+                    },
+                    {
+                      "id": "8b1e5d20-6c3a-4f7e-9d12-0a4b7c9e2f51",
+                      "name": "db-1",
+                      "status": "running",
+                      "windows": false
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Private networks"
+        ],
+        "summary": "Create a private network",
+        "description": "Up to 3 networks per account. Without `subnet` the network gets an automatic `10.77.x.0/24`. Your own `subnet` must be private (10.x, 172.16-31.x or 192.168.x), /16 to /28, written as the network address, and must not overlap your other networks. The subnet cannot be changed later. Returns 409 `private_network_limit`, `invalid_subnet`, `subnet_overlap` or `private_network_unavailable`.",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "maxLength": 64
+                  },
+                  "subnet": {
+                    "type": "string",
+                    "description": "e.g. \"192.168.10.0/24\". Omit for an automatic 10.77.x.0/24."
+                  }
+                }
+              },
+              "example": {
+                "name": "backend",
+                "subnet": "192.168.10.0/24"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "example": {
+                  "ok": true,
+                  "network": {
+                    "id": 12,
+                    "name": "backend",
+                    "subnet": "192.168.10.0/24"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/private-networks/{networkId}": {
+      "patch": {
+        "tags": [
+          "Private networks"
+        ],
+        "summary": "Rename a private network",
+        "description": "Change the name of a network. Returns 404 `network_not_found`.",
+        "parameters": [
+          {
+            "name": "networkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Private network id (from the list endpoint)."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "maxLength": 64
+                  }
+                },
+                "required": [
+                  "name"
+                ]
+              },
+              "example": {
+                "name": "backend"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "example": {
+                  "ok": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Private networks"
+        ],
+        "summary": "Delete a private network",
+        "description": "Every server leaves the network and loses its address in it, then the network is deleted. This cannot be undone. Returns 404 `network_not_found`.",
+        "parameters": [
+          {
+            "name": "networkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Private network id (from the list endpoint)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "example": {
+                  "ok": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/private-networks/{networkId}/members": {
+      "post": {
+        "tags": [
+          "Private networks"
+        ],
+        "summary": "Add a server to a private network",
+        "description": "Adds one extra network adapter to the server. A server can be in several of your networks at once. LXC and Linux servers get the address configured automatically; KVM servers finish the setup on the next reboot (`rebootRequired`). On Windows (`manualConfig: true`) set `address` with `netmask` on the new network adapter yourself, without a gateway. Returns 409 `private_network_full`, `no_free_nic_slot` or `private_network_unavailable`, 404 `network_not_found`.",
+        "parameters": [
+          {
+            "name": "networkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Private network id (from the list endpoint)."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "containerId": {
+                    "type": "string",
+                    "description": "Server id (UUID)."
+                  }
+                },
+                "required": [
+                  "containerId"
+                ]
+              },
+              "example": {
+                "containerId": "3f9c2a71-0b4d-4d8f-a1c2-e9b7d4f0a8c3"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "example": {
+                  "ok": true,
+                  "address": "10.77.12.12",
+                  "netmask": "255.255.255.0",
+                  "manualConfig": false,
+                  "rebootRequired": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/private-networks/{networkId}/members/{containerId}": {
+      "delete": {
+        "tags": [
+          "Private networks"
+        ],
+        "summary": "Remove a server from a private network",
+        "description": "The server leaves the network and loses its address in it. Returns 404 `network_not_found`.",
+        "parameters": [
+          {
+            "name": "networkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Private network id (from the list endpoint)."
+          },
+          {
+            "name": "containerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Server id (UUID)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "example": {
+                  "ok": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/containers/{id}/private-network": {
+      "get": {
+        "tags": [
+          "Private networks"
+        ],
+        "summary": "Private networks of a server",
+        "description": "All your private networks, each with `connected` and this server's `address` in it, plus `manualConfig` (true on Windows), `max` and `mtu`.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource id (UUID)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "example": {
+                  "ok": true,
+                  "mtu": 1450,
+                  "max": 3,
+                  "manualConfig": false,
+                  "networks": [
+                    {
+                      "id": 12,
+                      "name": "backend",
+                      "subnet": "10.77.12.0/24",
+                      "netmask": "255.255.255.0",
+                      "connected": true,
+                      "address": "10.77.12.10",
+                      "members": [
+                        {
+                          "containerId": "3f9c2a71-0b4d-4d8f-a1c2-e9b7d4f0a8c3",
+                          "name": "web-1",
+                          "address": "10.77.12.10",
+                          "self": true
+                        },
+                        {
+                          "containerId": "8b1e5d20-6c3a-4f7e-9d12-0a4b7c9e2f51",
+                          "name": "db-1",
+                          "address": "10.77.12.11",
+                          "self": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/containers/{id}/private-network/connect": {
+      "post": {
+        "tags": [
+          "Private networks"
+        ],
+        "summary": "Connect a server to a private network",
+        "description": "Joins the network `networkId` with one extra network adapter. LXC and Linux servers get the address configured automatically; KVM servers finish the setup on the next reboot (`rebootRequired`). On Windows (`manualConfig: true`) set `address` with `netmask` on the new network adapter yourself, without a gateway. Returns 409 `private_network_full`, `no_free_nic_slot` or `private_network_unavailable`, 404 `network_not_found`.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource id (UUID)."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "networkId": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "networkId"
+                ]
+              },
+              "example": {
+                "networkId": 12
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "example": {
+                  "ok": true,
+                  "networkId": 12,
+                  "address": "10.77.12.12",
+                  "netmask": "255.255.255.0",
+                  "manualConfig": false,
+                  "rebootRequired": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/containers/{id}/private-network/disconnect": {
+      "post": {
+        "tags": [
+          "Private networks"
+        ],
+        "summary": "Disconnect a server from a private network",
+        "description": "Leaves the network `networkId`. Without `networkId` the server leaves all your networks.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource id (UUID)."
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "networkId": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "networkId": 12
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "example": {
+                  "ok": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -7905,6 +8458,54 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          }
+        }
+      },
+      "PrivateNetwork": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "subnet": {
+            "type": "string",
+            "example": "10.77.12.0/24"
+          },
+          "netmask": {
+            "type": "string",
+            "example": "255.255.255.0"
+          },
+          "connected": {
+            "type": "boolean",
+            "description": "Only on the per-server endpoint: this server is in the network."
+          },
+          "address": {
+            "type": "string",
+            "nullable": true,
+            "description": "This server's address in the network (per-server endpoint)."
+          },
+          "members": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "containerId": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                },
+                "self": {
+                  "type": "boolean"
+                }
+              }
+            }
           }
         }
       }
