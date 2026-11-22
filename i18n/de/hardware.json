@@ -11,7 +11,7 @@
  "uptime target": "Uptime-Ziel",
  "to deploy a server": "für die Bereitstellung eines Servers",
  "Enterprise compute": "Enterprise-Rechenleistung",
- "Powers our KVM & Windows VPS, web hosting, dedicated and bot services. 64 Zen 3 cores and 128 threads of enterprise-grade compute, paired with error-correcting ECC memory so a flipped bit never becomes your problem.": "Treibt unsere KVM- & Windows-VPS, Webhosting, Dedicated- und Bot-Dienste an. 64 Zen-3-Kerne und 128 Threads Enterprise-Rechenleistung, kombiniert mit fehlerkorrigierendem ECC-Speicher, damit ein gekipptes Bit nie dein Problem wird.",
+ "Powers our EPYC KVM & Windows VPS, web hosting, dedicated and bot services. 64 Zen 3 cores and 128 threads of enterprise-grade compute, paired with error-correcting ECC memory so a flipped bit never becomes your problem.": "Treibt unsere EPYC-KVM- & Windows-VPS, Webhosting, Dedicated- und Bot-Dienste an. 64 Zen-3-Kerne und 128 Threads Enterprise-Rechenleistung, kombiniert mit fehlerkorrigierendem ECC-Speicher, damit ein gekipptes Bit nie dein Problem wird.",
  "Cores": "Kerne",
  "64 cores / 128 threads (Zen 3)": "64 Kerne / 128 Threads (Zen 3)",
  "Our second enterprise node: the same 64 Zen 3 cores and 128 threads as the 7763, a full terabyte of ECC memory, mirrored U.2 NVMe for the system plus a large U.2 NVMe data pool - all behind a redundant 2 × 10 Gbit/s uplink.": "Unser zweiter Enterprise-Node: dieselben 64 Zen-3-Kerne und 128 Threads wie beim 7763, ein volles Terabyte ECC-Speicher, gespiegeltes U.2-NVMe für das System plus ein großer U.2-NVMe-Datenpool - alles hinter einem redundanten 2 × 10 Gbit/s Uplink.",
