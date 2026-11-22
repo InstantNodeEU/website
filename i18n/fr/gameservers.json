@@ -111,7 +111,7 @@
  "Start your game server.": "Lancez votre serveur de jeu.",
  "Pick a plan, choose your game and be online in about 60 seconds.": "Choisissez une offre, choisissez votre jeu et soyez en ligne en environ 60 secondes.",
  "Create your server": "Créer votre serveur",
- "Need raw compute instead? Compare our EPYC KVM and storage servers.": "Besoin de puissance de calcul brute ? Comparez nos <a href=\"/kvm\" style=\"color:var(--mute);border-bottom:1px solid var(--dim)\">EPYC KVM</a> et <a href=\"/storage-server\" style=\"color:var(--mute);border-bottom:1px solid var(--dim)\">serveurs de stockage</a>.",
+ "Need raw compute instead? Compare our EPYC KVM and storage servers.": "Besoin de puissance de calcul brute ? Comparez nos <a href=\"/epyc-kvm\" style=\"color:var(--mute);border-bottom:1px solid var(--dim)\">EPYC KVM</a> et <a href=\"/storage-server\" style=\"color:var(--mute);border-bottom:1px solid var(--dim)\">serveurs de stockage</a>.",
  "Game Server Hosting - Palworld, Minecraft & more | InstantNode": "Hébergement de serveurs de jeu - Palworld, Minecraft & plus | InstantNode",
  "Game server hosting from €6.99/mo - Palworld, Minecraft, Rust & 50+ games. Instant setup, NVMe storage, free DDoS protection, SFTP access & backups in the EU.": "Hébergement de serveurs de jeu dès €6.99/mois - Palworld, Minecraft, Rust & 50+ jeux. Installation instantanée, stockage NVMe, protection anti-DDoS gratuite, accès SFTP & sauvegardes dans l'UE.",
  "See plans": "Voir les offres",

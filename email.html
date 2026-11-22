@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=30" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=32" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Managed Email Hosting on Your Domain | InstantNode</title>
@@ -77,7 +77,7 @@
     <symbol id="fa-gauge" viewBox="0 0 512 512"><path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm320 96c0-26.9-16.5-49.9-40-59.3L280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 172.7c-23.5 9.5-40 32.5-40 59.3 0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-16 80a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM400 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></symbol>
     </svg>
     <!-- Announcement bar. Visibility is decided before paint; the close
-         button is wired in js/lunaris.js?v=xmas8. -->
+         button is wired in js/lunaris.js?v=xmas9. -->
     <div class="in-announce" data-key="import2026" id="in-announce">
       <div class="in-announce__icon has-ping"><span class="ping-head" style="--pw:38px" aria-hidden="true"><img src="/img/ping/ping-head.webp" width="256" height="285" alt="" decoding="async" /><img src="/img/ping/ping-head-blink.webp" width="256" height="285" alt="" decoding="async" /></span></div>
       <div>
@@ -104,7 +104,8 @@
             <div class="cat-menu cat-menu--2">
               <div class="cat-col">
                 <div class="k mm-sec">Virtual servers</div>
-                <a class="mm-card" href="/kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-chip"/></svg><span class="mm-card-h"><span class="mm-card-t">EPYC KVM</span><span class="badge">Most popular</span></span><span class="mm-card-d">Full virtual machines with their own kernel, full root and Docker support.</span></a>
+                <a class="mm-card" href="/epyc-kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-chip"/></svg><span class="mm-card-h"><span class="mm-card-t">EPYC KVM</span><span class="badge">Most popular</span></span><span class="mm-card-d">Full virtual machines with their own kernel, full root and Docker support.</span></a>
+                <a class="mm-card" href="/ryzen-kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-gauge"/></svg><span class="mm-card-h"><span class="mm-card-t">Ryzen KVM</span><span class="badge">New</span></span><span class="mm-card-d">KVM on the AMD Ryzen 9 5950X - high single-core speed for game servers and build jobs.</span></a>
                 <a class="mm-card" href="/lxc"><svg class="mm-ico" aria-hidden="true"><use href="#fa-cube"/></svg><span class="mm-card-h"><span class="mm-card-t">LXC VPS</span></span><span class="mm-card-d">Lightweight Linux virtual servers - the best value for a standard, always-on server.</span></a>
                 <a class="mm-card" href="/vds"><svg class="mm-ico" aria-hidden="true"><use href="#fa-bolt"/></svg><span class="mm-card-h"><span class="mm-card-t">VDS</span></span><span class="mm-card-d">Dedicated EPYC cores pinned to your VM - guaranteed performance.</span></a>
               </div>
@@ -201,7 +202,8 @@
           <button type="button" aria-pressed="false" data-lang="es" lang="es">Español</button>
         </div>
         <div class="m-group">Servers</div>
-        <a href="/kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-chip"/></svg>EPYC KVM</a>
+        <a href="/epyc-kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-chip"/></svg>EPYC KVM</a>
+        <a href="/ryzen-kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-gauge"/></svg>Ryzen KVM</a>
         <a href="/lxc"><svg class="mm-ico" aria-hidden="true"><use href="#fa-cube"/></svg>LXC VPS</a>
         <a href="/vds"><svg class="mm-ico" aria-hidden="true"><use href="#fa-bolt"/></svg>VDS</a>
         <a href="/windows-server"><svg class="mm-ico" aria-hidden="true"><use href="#fa-panes"/></svg>Windows Server</a>
@@ -413,7 +415,8 @@
           <div class="ftr-col">
             <h4>Products</h4>
             <a href="/gameservers">Game Servers</a>
-            <a href="/kvm">EPYC KVM</a>
+            <a href="/epyc-kvm">EPYC KVM</a>
+            <a href="/ryzen-kvm">Ryzen KVM</a>
             <a href="/lxc">LXC VPS</a>
             <a href="/vds">VDS</a>
             <a href="/windows-server">Windows Server</a>
@@ -488,6 +491,6 @@
       </footer>
     </main>
 
-    <script src="/js/lunaris.js?v=xmas8" defer></script>
+    <script src="/js/lunaris.js?v=xmas9" defer></script>
   </body>
 </html>

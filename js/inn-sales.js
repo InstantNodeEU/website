@@ -18,7 +18,7 @@
     var links = Array.prototype.slice.call(document.querySelectorAll(SEL));
     // On the VPS product pages the hero "Deploy now / Deploy your VPS" buttons
     // go to /dashboard; they sell this page's product, so they are paused too.
-    if (/^\/(kvm|lxc|vds|windows-server|storage-server|openclaw)(\.html)?\/?$/.test(location.pathname)) {
+    if (/^\/(kvm|epyc-kvm|ryzen-kvm|lxc|vds|windows-server|storage-server|openclaw)(\.html)?\/?$/.test(location.pathname)) {
       Array.prototype.forEach.call(document.querySelectorAll('a[href="/dashboard"]'), function (a) {
         if (/^\s*(Deploy|Build|Order)/i.test(a.textContent) && links.indexOf(a) < 0) { a.classList.add('inn-sales-off'); links.push(a); }
       });
@@ -78,20 +78,22 @@
       if (a) { e.preventDefault(); e.stopPropagation(); }
     }, true);
     // Banner only where a plan is really blocked: a greyed button or a plan of this page's type.
-    var PAGE = { kvm: 'kvm', lxc: 'lxc', vds: 'vds', 'windows-server': 'windows-kvm', 'storage-server': 'storage', openclaw: 'openclaw' };
+    var PAGE = { kvm: 'kvm', 'epyc-kvm': 'kvm', 'ryzen-kvm': 'ryzen-kvm', lxc: 'lxc', vds: 'vds', 'windows-server': 'windows-kvm', 'storage-server': 'storage', openclaw: 'openclaw' };
     var m = location.pathname.match(/^\/([a-z-]+?)(\.html)?\/?$/), pt = m && PAGE[m[1]];
     var pageOff = pt && (d.unavailablePlans || []).some(function (k) { return k.toLowerCase().indexOf(pt + ':') === 0; });
     if (!hit && !pageOff) return;
     if (document.querySelector('.inn-sales-banner')) return;
-    var c = d.sizeCap, parts = [];
+    var c = d.sizeCap || {}, parts = [];
     if (c.cpu) parts.push(c.cpu + ' vCPU');
     if (c.ramGb) parts.push(c.ramGb + ' GB RAM');
     if (c.diskGb) parts.push(c.diskGb + ' GB disk');
     var b = document.createElement('div');
     b.className = 'inn-sales-banner';
     b.setAttribute('role', 'status');
-    b.innerHTML = '<strong>Limited availability:</strong> while we expand capacity, new VPS can be ordered up to ' +
-      parts.join(' / ') + '. Larger plans will be back soon. Existing servers are not affected.';
+    b.innerHTML = parts.length
+      ? '<strong>Limited availability:</strong> while we expand capacity, new VPS can be ordered up to ' +
+        parts.join(' / ') + '. Larger plans will be back soon. Existing servers are not affected.'
+      : '<strong>Some plans are sold out right now.</strong> They will be back as soon as we add capacity. Existing servers are not affected.';
     var main = document.querySelector('main') || document.body;
     main.insertBefore(b, main.firstChild);
   }
@@ -101,7 +103,8 @@
       .then(function (d) {
         if (!d || !d.ok) return;
         if (d.vpsOrdersPaused) return paused();
-        if (d.sizeCap) capped(d);
+        // Sold-out plans ("type:Label") are greyed out even without a size cap.
+        if (d.sizeCap || (d.unavailablePlans && d.unavailablePlans.length)) capped(d);
       })
       .catch(function () {});
   }

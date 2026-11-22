@@ -252,5 +252,6 @@
  "Your subnet or ours": "Dein Subnetz oder unseres",
  "Automatic (10.77.x.0/24) or your own private subnet: 10.x, 172.16-31.x or 192.168.x, from /16 to /28. You choose it when you create the network and cannot change it later.": "Automatisch (10.77.x.0/24) oder dein eigenes privates Subnetz: 10.x, 172.16-31.x oder 192.168.x, von /16 bis /28. Du wählst es beim Anlegen des Netzwerks, später lässt es sich nicht mehr ändern.",
  "Only your servers": "Nur deine Server",
- "Only your own servers in the same network can reach each other. Networks work across all our nodes over VXLAN, with an MTU of 1450.": "Nur deine eigenen Server im selben Netzwerk erreichen sich gegenseitig. Die Netzwerke funktionieren über alle unsere Nodes hinweg per VXLAN, mit einer MTU von 1450."
+ "Only your own servers in the same network can reach each other. Networks work across all our nodes over VXLAN, with an MTU of 1450.": "Nur deine eigenen Server im selben Netzwerk erreichen sich gegenseitig. Die Netzwerke funktionieren über alle unsere Nodes hinweg per VXLAN, mit einer MTU von 1450.",
+ "KVM on the AMD Ryzen 9 5950X - high single-core speed for game servers and build jobs.": "KVM auf dem AMD Ryzen 9 5950X - hohe Single-Core-Leistung für Gameserver und Build-Jobs."
 }

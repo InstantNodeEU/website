@@ -91,5 +91,20 @@
  "Game server node GS-01": "Nodo de servidores de juego GS-01",
  "Game server node GS-02": "Nodo de servidores de juego GS-02",
  "Game server nodes · 2 nodes": "Nodos de servidores de juego · 2 nodos",
- "16 cores · 128 GB each": "16 núcleos · 128 GB cada uno"
+ "16 cores · 128 GB each": "16 núcleos · 128 GB cada uno",
+ "The hardware behind InstantNode: AMD EPYC 7763 and 7713 nodes with 64 cores, 128 threads and 1 TB ECC RAM each, plus Ryzen 9 5950X nodes with 128 GB for game servers and Ryzen KVM.": "El hardware detrás de InstantNode: nodos AMD EPYC 7763 y 7713 con 64 núcleos, 128 hilos y 1 TB de RAM ECC cada uno, además de nodos Ryzen 9 5950X con 128 GB para servidores de juego y Ryzen KVM.",
+ "We run three node types: AMD EPYC 7763 and EPYC 7713 with 1 TB of ECC memory each for servers and hosting, and high-frequency Ryzen 9 5950X for game servers and Ryzen KVM.": "Operamos tres tipos de nodo: AMD EPYC 7763 y EPYC 7713 con 1 TB de memoria ECC cada uno para servidores y hosting, y Ryzen 9 5950X de alta frecuencia para servidores de juego y Ryzen KVM.",
+ "AMD Ryzen 9 5950X (Ryzen KVM)": "AMD Ryzen 9 5950X (Ryzen KVM)",
+ "Ryzen KVM node": "Nodo Ryzen KVM",
+ "Game server node": "Nodo de servidores de juego",
+ "Game servers · 16 cores · 128 GB": "Servidores de juego · 16 núcleos · 128 GB",
+ "Ryzen KVM · 16 cores · 128 GB": "Ryzen KVM · 16 núcleos · 128 GB",
+ "Ryzen 9 5950X (game servers)": "Ryzen 9 5950X (servidores de juego)",
+ "Ryzen 9 5950X (Ryzen KVM)": "Ryzen 9 5950X (Ryzen KVM)",
+ "The node behind Ryzen KVM. 16 Zen 3 cores with up to 4.9 GHz boost, shared only between Ryzen KVM servers, on NVMe storage with a 10 GbE uplink.": "El nodo detrás de <a href=\"/ryzen-kvm\">Ryzen KVM</a>. 16 núcleos Zen 3 con boost de hasta 4,9 GHz, compartidos solo entre servidores Ryzen KVM, sobre almacenamiento NVMe con enlace de 10 GbE.",
+ "16 cores / 32 threads (Zen 3), up to 4.9 GHz": "16 núcleos / 32 hilos (Zen 3), hasta 4,9 GHz",
+ "2x 1 TB Samsung 990 PRO NVMe": "2x 1 TB Samsung 990 PRO NVMe",
+ "System disks": "Discos de sistema",
+ "2x 250 GB SATA SSD": "2x 250 GB SSD SATA",
+ "Hypervisor": "Hipervisor"
 }

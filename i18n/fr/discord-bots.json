@@ -74,7 +74,7 @@
  "Get your bot online for €0.90": "Mettez votre bot en ligne pour €0.90",
  "Deploy your Discord bot in seconds and keep it running 24/7 - auto-restarts included. Pay by card, Apple Pay, Google Pay, crypto or account balance.": "Déployez votre bot Discord en quelques secondes et gardez-le en marche 24/7 - redémarrages automatiques inclus. Payez par carte, Apple Pay, Google Pay, en crypto ou avec votre solde.",
  "Host your bot now": "Héberger votre bot maintenant",
- "Need a full server instead? Compare our EPYC KVM and LXC VPS.": "Besoin d'un serveur complet ? Comparez nos <a href=\"/kvm\" style=\"color:var(--mute);border-bottom:1px solid var(--dim)\">EPYC KVM</a> et <a href=\"/lxc\" style=\"color:var(--mute);border-bottom:1px solid var(--dim)\">LXC VPS</a>.",
+ "Need a full server instead? Compare our EPYC KVM and LXC VPS.": "Besoin d'un serveur complet ? Comparez nos <a href=\"/epyc-kvm\" style=\"color:var(--mute);border-bottom:1px solid var(--dim)\">EPYC KVM</a> et <a href=\"/lxc\" style=\"color:var(--mute);border-bottom:1px solid var(--dim)\">LXC VPS</a>.",
  "24/7 Discord Bot Hosting | InstantNode": "Hébergement de bots Discord 24/7 | InstantNode",
  "Host your Discord bot 24/7 from €0.90/mo - 0.5 vCPU, 768 MB RAM, 1 GB NVMe, auto-restart, instant deploy and a full file manager. Node.js, Python & more.": "Hébergez votre bot Discord 24/7 dès €0.90/mois - 0,5 vCPU, 768 Mo de RAM, 1 Go NVMe, redémarrage automatique, déploiement instantané et gestionnaire de fichiers complet. Node.js, Python & plus.",
  "Component": "Composant",

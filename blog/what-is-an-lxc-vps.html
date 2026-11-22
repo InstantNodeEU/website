@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=30" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=32" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <meta content="width=device-width" name="viewport" />
     <title>What Is an LXC VPS? A Plain-English Guide</title>
@@ -56,7 +56,7 @@
     <symbol id="fa-gauge" viewBox="0 0 512 512"><path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm320 96c0-26.9-16.5-49.9-40-59.3L280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 172.7c-23.5 9.5-40 32.5-40 59.3 0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-16 80a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM400 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></symbol>
     </svg>
     <!-- Announcement bar. Visibility is decided before paint; the close
-         button is wired in js/lunaris.js?v=xmas8. -->
+         button is wired in js/lunaris.js?v=xmas9. -->
     <div class="in-announce" data-key="import2026" id="in-announce">
       <div class="in-announce__icon has-ping"><span class="ping-head" style="--pw:38px" aria-hidden="true"><img src="/img/ping/ping-head.webp" width="256" height="285" alt="" decoding="async" /><img src="/img/ping/ping-head-blink.webp" width="256" height="285" alt="" decoding="async" /></span></div>
       <div>
@@ -83,7 +83,8 @@
             <div class="cat-menu cat-menu--2">
               <div class="cat-col">
                 <div class="k mm-sec">Virtual servers</div>
-                <a class="mm-card" href="/kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-chip"/></svg><span class="mm-card-h"><span class="mm-card-t">EPYC KVM</span><span class="badge">Most popular</span></span><span class="mm-card-d">Full virtual machines with their own kernel, full root and Docker support.</span></a>
+                <a class="mm-card" href="/epyc-kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-chip"/></svg><span class="mm-card-h"><span class="mm-card-t">EPYC KVM</span><span class="badge">Most popular</span></span><span class="mm-card-d">Full virtual machines with their own kernel, full root and Docker support.</span></a>
+                <a class="mm-card" href="/ryzen-kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-gauge"/></svg><span class="mm-card-h"><span class="mm-card-t">Ryzen KVM</span><span class="badge">New</span></span><span class="mm-card-d">KVM on the AMD Ryzen 9 5950X - high single-core speed for game servers and build jobs.</span></a>
                 <a class="mm-card" href="/lxc"><svg class="mm-ico" aria-hidden="true"><use href="#fa-cube"/></svg><span class="mm-card-h"><span class="mm-card-t">LXC VPS</span></span><span class="mm-card-d">Lightweight Linux virtual servers - the best value for a standard, always-on server.</span></a>
                 <a class="mm-card" href="/vds"><svg class="mm-ico" aria-hidden="true"><use href="#fa-bolt"/></svg><span class="mm-card-h"><span class="mm-card-t">VDS</span></span><span class="mm-card-d">Dedicated EPYC cores pinned to your VM - guaranteed performance.</span></a>
               </div>
@@ -180,7 +181,8 @@
           <button type="button" aria-pressed="false" data-lang="es" lang="es">Español</button>
         </div>
         <div class="m-group">Servers</div>
-        <a href="/kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-chip"/></svg>EPYC KVM</a>
+        <a href="/epyc-kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-chip"/></svg>EPYC KVM</a>
+        <a href="/ryzen-kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-gauge"/></svg>Ryzen KVM</a>
         <a href="/lxc"><svg class="mm-ico" aria-hidden="true"><use href="#fa-cube"/></svg>LXC VPS</a>
         <a href="/vds"><svg class="mm-ico" aria-hidden="true"><use href="#fa-bolt"/></svg>VDS</a>
         <a href="/windows-server"><svg class="mm-ico" aria-hidden="true"><use href="#fa-panes"/></svg>Windows Server</a>
@@ -219,21 +221,21 @@
       <div class="prose">
 <p>An LXC VPS is the cheapest way to get a real, always-on Linux server - often less than half the price of a comparable virtual machine. But "cheaper" comes from a genuine technical difference, not a discount gimmick. Here is what an LXC VPS actually is, what it is brilliant at, and the one limit you should know before you buy.</p>
 <h2>What an LXC VPS actually is</h2>
-<p>LXC (Linux Containers) is operating-system-level virtualization. Instead of emulating virtual hardware and booting a whole guest OS the way a <a href="/kvm">KVM VPS</a> does, an LXC container is an isolated slice of the host: your own root filesystem, processes, users and network, all fenced off from every other tenant - but sharing the host's Linux kernel. At InstantNode every container is <em>unprivileged</em> and confined by AppArmor, and lxcfs makes <code>/proc</code>, load and memory show <em>your</em> numbers, not the host's.</p>
+<p>LXC (Linux Containers) is operating-system-level virtualization. Instead of emulating virtual hardware and booting a whole guest OS the way a <a href="/epyc-kvm">KVM VPS</a> does, an LXC container is an isolated slice of the host: your own root filesystem, processes, users and network, all fenced off from every other tenant - but sharing the host's Linux kernel. At InstantNode every container is <em>unprivileged</em> and confined by AppArmor, and lxcfs makes <code>/proc</code>, load and memory show <em>your</em> numbers, not the host's.</p>
 <h2>Why it is cheaper</h2>
 <p>There is no second kernel to boot and no virtual hardware to emulate, so the overhead is close to zero and the host can run more containers per machine. That density is exactly why an LXC VPS starts at €1.50/mo while an equivalent KVM starts higher - you are paying for the same AMD EPYC cores and NVMe storage, just without the hypervisor tax.</p>
 <h2>What it is great for</h2>
 <p>Anything that is "a normal Linux server" runs beautifully: web apps and APIs, Discord and Telegram bots, reverse proxies, small databases, Git servers, monitoring agents, cron jobs, VPNs, game-server panels. It boots in a second or two, so it is also perfect for throwaway or short-lived work. Docker runs fine inside it for the vast majority of images.</p>
 <h2>The one limit to know</h2>
-<p>Because the kernel is shared, you cannot load custom kernel modules, run your own kernel, or nest full virtual machines inside an LXC VPS. If your project needs any of those - a custom kernel, KVM-inside-KVM, or the very hardest isolation between tenants - that is what our <a href="/kvm">EPYC KVM</a> is for. For everything else, LXC gives you the same hardware for less.</p>
+<p>Because the kernel is shared, you cannot load custom kernel modules, run your own kernel, or nest full virtual machines inside an LXC VPS. If your project needs any of those - a custom kernel, KVM-inside-KVM, or the very hardest isolation between tenants - that is what our <a href="/epyc-kvm">EPYC KVM</a> is for. For everything else, LXC gives you the same hardware for less.</p>
 <h2>LXC or KVM?</h2>
-<p>Simple rule: pick <a href="/lxc">LXC</a> when you want the best value for a standard Linux workload, and <a href="/kvm">KVM</a> when you need kernel-level control or maximum isolation. Both run on the same EU hardware, both give you full root, and you can start on one and migrate later.</p>
-<p>Spin one up in seconds: <a href="/lxc">LXC VPS</a> from €1.50/mo, or compare it with a full <a href="/kvm">EPYC KVM</a>.</p>
+<p>Simple rule: pick <a href="/lxc">LXC</a> when you want the best value for a standard Linux workload, and <a href="/epyc-kvm">KVM</a> when you need kernel-level control or maximum isolation. Both run on the same EU hardware, both give you full root, and you can start on one and migrate later.</p>
+<p>Spin one up in seconds: <a href="/lxc">LXC VPS</a> from €1.50/mo, or compare it with a full <a href="/epyc-kvm">EPYC KVM</a>.</p>
               
 <hr />
 <h3>Get a real virtual machine</h3>
 <p>Full root access, your own kernel, NVMe storage - an EPYC KVM deployed in about 60 seconds.</p>
-<p><a class="btn btn-light" href="/kvm" style="border-bottom:0">Explore EPYC KVM</a></p>
+<p><a class="btn btn-light" href="/epyc-kvm" style="border-bottom:0">Explore EPYC KVM</a></p>
       </div>
 
       <footer class="ftr ping-host">
@@ -250,7 +252,8 @@
           <div class="ftr-col">
             <h4>Products</h4>
             <a href="/gameservers">Game Servers</a>
-            <a href="/kvm">EPYC KVM</a>
+            <a href="/epyc-kvm">EPYC KVM</a>
+            <a href="/ryzen-kvm">Ryzen KVM</a>
             <a href="/lxc">LXC VPS</a>
             <a href="/vds">VDS</a>
             <a href="/windows-server">Windows Server</a>
@@ -325,6 +328,6 @@
       </footer>
     </main>
 
-    <script src="/js/lunaris.js?v=xmas8" defer></script>
+    <script src="/js/lunaris.js?v=xmas9" defer></script>
   </body>
 </html>

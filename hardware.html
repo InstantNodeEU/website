@@ -2,20 +2,20 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=30" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=32" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Our Hardware - AMD EPYC &amp; Ryzen | InstantNode</title>
-    <meta content="The hardware behind InstantNode: AMD EPYC 7763 and 7713 nodes with 64 cores, 128 threads and 1 TB ECC RAM each, plus Ryzen 9 5950X game nodes with 128 GB." name="description" />
+    <meta content="The hardware behind InstantNode: AMD EPYC 7763 and 7713 nodes with 64 cores, 128 threads and 1 TB ECC RAM each, plus Ryzen 9 5950X nodes with 128 GB for game servers and Ryzen KVM." name="description" />
     <link href="https://instantnode.eu/hardware" rel="canonical" />
     <meta content="website" property="og:type" />
     <meta content="https://instantnode.eu/hardware" property="og:url" />
     <meta content="Our Hardware - AMD EPYC &amp; Ryzen | InstantNode" property="og:title" />
-    <meta content="The hardware behind InstantNode: AMD EPYC 7763 and 7713 nodes with 64 cores, 128 threads and 1 TB ECC RAM each, plus Ryzen 9 5950X game nodes with 128 GB." property="og:description" />
+    <meta content="The hardware behind InstantNode: AMD EPYC 7763 and 7713 nodes with 64 cores, 128 threads and 1 TB ECC RAM each, plus Ryzen 9 5950X nodes with 128 GB for game servers and Ryzen KVM." property="og:description" />
     <meta content="https://instantnode.eu/meta-banner.webp?v=5" property="og:image" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="Our Hardware - AMD EPYC &amp; Ryzen | InstantNode" name="twitter:title" />
-    <meta content="The hardware behind InstantNode: AMD EPYC 7763 and 7713 nodes with 64 cores, 128 threads and 1 TB ECC RAM each, plus Ryzen 9 5950X game nodes with 128 GB." name="twitter:description" />
+    <meta content="The hardware behind InstantNode: AMD EPYC 7763 and 7713 nodes with 64 cores, 128 threads and 1 TB ECC RAM each, plus Ryzen 9 5950X nodes with 128 GB for game servers and Ryzen KVM." name="twitter:description" />
     <meta content="https://instantnode.eu/meta-banner.webp?v=5" name="twitter:image" />
     <meta content="#060606" name="theme-color" />
     <meta name="darkreader-lock" />
@@ -65,7 +65,7 @@
     <symbol id="fa-gauge" viewBox="0 0 512 512"><path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm320 96c0-26.9-16.5-49.9-40-59.3L280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 172.7c-23.5 9.5-40 32.5-40 59.3 0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-16 80a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM400 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></symbol>
     </svg>
     <!-- Announcement bar. Visibility is decided before paint; the close
-         button is wired in js/lunaris.js?v=xmas8. -->
+         button is wired in js/lunaris.js?v=xmas9. -->
     <div class="in-announce" data-key="import2026" id="in-announce">
       <div class="in-announce__icon has-ping"><span class="ping-head" style="--pw:38px" aria-hidden="true"><img src="/img/ping/ping-head.webp" width="256" height="285" alt="" decoding="async" /><img src="/img/ping/ping-head-blink.webp" width="256" height="285" alt="" decoding="async" /></span></div>
       <div>
@@ -92,7 +92,8 @@
             <div class="cat-menu cat-menu--2">
               <div class="cat-col">
                 <div class="k mm-sec">Virtual servers</div>
-                <a class="mm-card" href="/kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-chip"/></svg><span class="mm-card-h"><span class="mm-card-t">EPYC KVM</span><span class="badge">Most popular</span></span><span class="mm-card-d">Full virtual machines with their own kernel, full root and Docker support.</span></a>
+                <a class="mm-card" href="/epyc-kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-chip"/></svg><span class="mm-card-h"><span class="mm-card-t">EPYC KVM</span><span class="badge">Most popular</span></span><span class="mm-card-d">Full virtual machines with their own kernel, full root and Docker support.</span></a>
+                <a class="mm-card" href="/ryzen-kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-gauge"/></svg><span class="mm-card-h"><span class="mm-card-t">Ryzen KVM</span><span class="badge">New</span></span><span class="mm-card-d">KVM on the AMD Ryzen 9 5950X - high single-core speed for game servers and build jobs.</span></a>
                 <a class="mm-card" href="/lxc"><svg class="mm-ico" aria-hidden="true"><use href="#fa-cube"/></svg><span class="mm-card-h"><span class="mm-card-t">LXC VPS</span></span><span class="mm-card-d">Lightweight Linux virtual servers - the best value for a standard, always-on server.</span></a>
                 <a class="mm-card" href="/vds"><svg class="mm-ico" aria-hidden="true"><use href="#fa-bolt"/></svg><span class="mm-card-h"><span class="mm-card-t">VDS</span></span><span class="mm-card-d">Dedicated EPYC cores pinned to your VM - guaranteed performance.</span></a>
               </div>
@@ -189,7 +190,8 @@
           <button type="button" aria-pressed="false" data-lang="es" lang="es">Español</button>
         </div>
         <div class="m-group">Servers</div>
-        <a href="/kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-chip"/></svg>EPYC KVM</a>
+        <a href="/epyc-kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-chip"/></svg>EPYC KVM</a>
+        <a href="/ryzen-kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-gauge"/></svg>Ryzen KVM</a>
         <a href="/lxc"><svg class="mm-ico" aria-hidden="true"><use href="#fa-cube"/></svg>LXC VPS</a>
         <a href="/vds"><svg class="mm-ico" aria-hidden="true"><use href="#fa-bolt"/></svg>VDS</a>
         <a href="/windows-server"><svg class="mm-ico" aria-hidden="true"><use href="#fa-panes"/></svg>Windows Server</a>
@@ -223,7 +225,7 @@
       <section class="hero">
         <span class="badge rv">Our Hardware</span>
         <h1 class="d1 rv">Built on hardware<br />that performs</h1>
-        <p class="lede rv">We run three node types: AMD EPYC 7763 and EPYC 7713 with 1 TB of ECC memory each for servers and hosting, and high-frequency Ryzen 9 5950X dedicated to game servers.</p>
+        <p class="lede rv">We run three node types: AMD EPYC 7763 and EPYC 7713 with 1 TB of ECC memory each for servers and hosting, and high-frequency Ryzen 9 5950X for game servers and Ryzen KVM.</p>
         <div class="hero-actions rv">
           <a class="btn btn-light btn-lg" href="/dashboard">Create server</a>
           <a class="btn btn-ghost btn-lg" href="#rack">See the nodes</a>
@@ -274,9 +276,9 @@
               <span class="hw-unit__pwr"></span>
               <span class="hw-unit__ear"></span>
             </a>
-            <a class="hw-unit hw-u1" href="#node-ryzen5950x" aria-label="AMD Ryzen 9 5950X (GS-02)">
+            <a class="hw-unit hw-u1" href="#node-ryzen5950x-2" aria-label="AMD Ryzen 9 5950X (Ryzen KVM)">
               <span class="hw-unit__ear"></span>
-              <span class="hw-unit__label"><b>Ryzen 9 5950X</b><small>Game server node GS-02</small></span>
+              <span class="hw-unit__label"><b>Ryzen 9 5950X</b><small>Ryzen KVM node</small></span>
               <span class="hw-unit__bays"><i style="--d:0.52s"></i><i style="--d:0.89s"></i><i style="--d:1.26s"></i><i style="--d:1.63s"></i></span>
               <span class="hw-unit__vent"></span>
               <span class="hw-unit__pwr"></span>
@@ -292,7 +294,8 @@
             <div class="hw-legend">
             <a class="hw-leg rv" href="#node-epyc7763"><span class="hw-leg__u">1×</span><span><b>AMD EPYC 7763</b><small>64 cores · 1 TB ECC</small></span><i class="fa-solid fa-arrow-right"></i></a>
             <a class="hw-leg rv" href="#node-epyc7713"><span class="hw-leg__u">2×</span><span><b>AMD EPYC 7713</b><small>64 cores · 1 TB ECC each</small></span><i class="fa-solid fa-arrow-right"></i></a>
-            <a class="hw-leg rv" href="#node-ryzen5950x"><span class="hw-leg__u">2×</span><span><b>AMD Ryzen 9 5950X</b><small>16 cores · 128 GB each</small></span><i class="fa-solid fa-arrow-right"></i></a>
+            <a class="hw-leg rv" href="#node-ryzen5950x"><span class="hw-leg__u">1×</span><span><b>AMD Ryzen 9 5950X</b><small>Game servers · 16 cores · 128 GB</small></span><i class="fa-solid fa-arrow-right"></i></a>
+            <a class="hw-leg rv" href="#node-ryzen5950x-2"><span class="hw-leg__u">1×</span><span><b>AMD Ryzen 9 5950X</b><small>Ryzen KVM · 16 cores · 128 GB</small></span><i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -316,7 +319,7 @@
           <p class="lede rv">Every square below is one physical core.</p>
         </div>
         <div class="pp-wrap hw-explorer rv">
-          <div class="hw-tabs"><input type="radio" name="hwnode" id="t-epyc7763" checked><label for="t-epyc7763">AMD EPYC 7763</label><input type="radio" name="hwnode" id="t-epyc7713"><label for="t-epyc7713">AMD EPYC 7713</label><input type="radio" name="hwnode" id="t-ryzen5950x"><label for="t-ryzen5950x">AMD Ryzen 9 5950X</label></div>
+          <div class="hw-tabs"><input type="radio" name="hwnode" id="t-epyc7763" checked><label for="t-epyc7763">AMD EPYC 7763</label><input type="radio" name="hwnode" id="t-epyc7713"><label for="t-epyc7713">AMD EPYC 7713</label><input type="radio" name="hwnode" id="t-ryzen5950x"><label for="t-ryzen5950x">Ryzen 9 5950X (game servers)</label><input type="radio" name="hwnode" id="t-ryzen5950x-2"><label for="t-ryzen5950x-2">Ryzen 9 5950X (Ryzen KVM)</label></div>
           <div class="hw-panels">
           <div class="hw-panel" id="node-epyc7763">
             <div class="hw-die hw-die--64" aria-hidden="true">
@@ -348,10 +351,22 @@
               <span class="hw-die__tag">16 cores · 32 threads</span>
             </div>
             <div class="hw-panel__copy">
-              <span class="k">Game server nodes</span>
+              <span class="k">Game server node</span>
               <h3 class="d3">AMD Ryzen 9 5950X</h3>
-              <p class="lede">High-frequency cores dedicated to lag-free game server hosting. Game servers love single-thread speed, so these 16 Zen 3 cores run nothing else - your tick rate stays stable even at peak hours. We run two of these nodes, and new game servers are placed on whichever has the most headroom.</p>
+              <p class="lede">High-frequency cores dedicated to lag-free game server hosting. Game servers love single-thread speed, so these 16 Zen 3 cores run nothing else - your tick rate stays stable even at peak hours.</p>
               <dl class="hw-spec"><div><dt>Processor</dt><dd>AMD Ryzen 9 5950X</dd></div><div><dt>Cores</dt><dd>16 cores / 32 threads (Zen 3)</dd></div><div><dt>Memory</dt><dd>128 GB DDR4</dd></div></dl>
+            </div>
+          </div>
+          <div class="hw-panel" id="node-ryzen5950x-2">
+            <div class="hw-die hw-die--16" aria-hidden="true">
+              <div class="hw-die__cores"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <span class="hw-die__tag">16 cores · 32 threads</span>
+            </div>
+            <div class="hw-panel__copy">
+              <span class="k">Ryzen KVM node</span>
+              <h3 class="d3">AMD Ryzen 9 5950X</h3>
+              <p class="lede">The node behind <a href="/ryzen-kvm">Ryzen KVM</a>. 16 Zen 3 cores with up to 4.9 GHz boost, shared only between Ryzen KVM servers, on NVMe storage with a 10 GbE uplink.</p>
+              <dl class="hw-spec"><div><dt>Processor</dt><dd>AMD Ryzen 9 5950X</dd></div><div><dt>Cores</dt><dd>16 cores / 32 threads (Zen 3), up to 4.9 GHz</dd></div><div><dt>Memory</dt><dd>128 GB DDR4</dd></div><div><dt>Storage</dt><dd>2x 1 TB Samsung 990 PRO NVMe</dd></div><div><dt>System disks</dt><dd>2x 250 GB SATA SSD</dd></div><div><dt>Network</dt><dd>10 GbE</dd></div><div><dt>Hypervisor</dt><dd>Proxmox VE 9.2</dd></div></dl>
             </div>
           </div>
           </div>
@@ -377,7 +392,12 @@
               <div><span class="hw-bar"><i style="width:100%"></i><em>1 TB ECC</em></span></div>
             </div>
             <div class="hw-cmp__row rv">
-              <div class="hw-cmp__name"><b>AMD Ryzen 9 5950X</b><small>Game server nodes · 2 nodes</small></div>
+              <div class="hw-cmp__name"><b>AMD Ryzen 9 5950X</b><small>Game server node</small></div>
+              <div><span class="hw-bar"><i style="width:25%"></i><em>16 cores</em></span></div>
+              <div><span class="hw-bar"><i style="width:12%"></i><em>128 GB</em></span></div>
+            </div>
+            <div class="hw-cmp__row rv">
+              <div class="hw-cmp__name"><b>AMD Ryzen 9 5950X</b><small>Ryzen KVM node</small></div>
               <div><span class="hw-bar"><i style="width:25%"></i><em>16 cores</em></span></div>
               <div><span class="hw-bar"><i style="width:12%"></i><em>128 GB</em></span></div>
             </div>
@@ -408,7 +428,8 @@
           <div class="ftr-col">
             <h4>Products</h4>
             <a href="/gameservers">Game Servers</a>
-            <a href="/kvm">EPYC KVM</a>
+            <a href="/epyc-kvm">EPYC KVM</a>
+            <a href="/ryzen-kvm">Ryzen KVM</a>
             <a href="/lxc">LXC VPS</a>
             <a href="/vds">VDS</a>
             <a href="/windows-server">Windows Server</a>
@@ -501,6 +522,6 @@
       document.addEventListener("DOMContentLoaded", function () { pick(location.hash); });
     })();
     </script>
-    <script src="/js/lunaris.js?v=xmas8" defer></script>
+    <script src="/js/lunaris.js?v=xmas9" defer></script>
   </body>
 </html>

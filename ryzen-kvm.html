@@ -2,22 +2,22 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=30" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=32" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <title>EPYC KVM - VPS Hosting Europe on NVMe | InstantNode</title>
+    <title>Ryzen KVM - High-Frequency VPS on AMD Ryzen 9 5950X | InstantNode</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media=&#39;all&#39;" />
-    <meta content="EPYC KVM hosting in the Netherlands (EU) on AMD EPYC 7763 hardware - NVMe storage, full root access, free DDoS protection. From €2.00/mo, scale up to 32 vCPU &amp; 64 GB RAM." name="description" />
-    <meta content="EPYC KVM, KVM VPS, NVMe VPS, cheap VPS Europe, VPS hosting Netherlands, AMD EPYC VPS, Linux VPS" name="keywords" />
-    <link href="https://instantnode.eu/kvm" rel="canonical" />
+    <meta content="Ryzen KVM in the Netherlands (EU) on the AMD Ryzen 9 5950X with up to 4.9 GHz boost - NVMe storage, full root access, free DDoS protection. Four fixed plans from €10.99/mo." name="description" />
+    <meta content="Ryzen KVM, Ryzen VPS, Ryzen 9 5950X VPS, high frequency VPS, game server VPS, NVMe VPS Netherlands, Linux VPS" name="keywords" />
+    <link href="https://instantnode.eu/ryzen-kvm" rel="canonical" />
     <meta content="website" property="og:type" />
-    <meta content="https://instantnode.eu/kvm" property="og:url" />
-    <meta content="EPYC KVM - VPS Hosting Europe on NVMe | InstantNode" property="og:title" />
-    <meta content="EPYC KVM hosting in the Netherlands (EU) on AMD EPYC 7763 hardware - NVMe storage, full root access, free DDoS protection. From €2.00/mo, scale up to 32 vCPU &amp; 64 GB RAM." property="og:description" />
+    <meta content="https://instantnode.eu/ryzen-kvm" property="og:url" />
+    <meta content="Ryzen KVM - High-Frequency VPS on AMD Ryzen 9 5950X | InstantNode" property="og:title" />
+    <meta content="Ryzen KVM in the Netherlands (EU) on the AMD Ryzen 9 5950X with up to 4.9 GHz boost - NVMe storage, full root access, free DDoS protection. Four fixed plans from €10.99/mo." property="og:description" />
     <meta content="https://instantnode.eu/meta-banner.webp?v=5" property="og:image" />
     <meta content="summary_large_image" name="twitter:card" />
-    <meta content="EPYC KVM - VPS Hosting Europe on NVMe | InstantNode" name="twitter:title" />
-    <meta content="EPYC KVM hosting in the Netherlands (EU) on AMD EPYC 7763 hardware - NVMe storage, full root access, free DDoS protection. From €2.00/mo, scale up to 32 vCPU &amp; 64 GB RAM." name="twitter:description" />
+    <meta content="Ryzen KVM - High-Frequency VPS on AMD Ryzen 9 5950X | InstantNode" name="twitter:title" />
+    <meta content="Ryzen KVM in the Netherlands (EU) on the AMD Ryzen 9 5950X with up to 4.9 GHz boost - NVMe storage, full root access, free DDoS protection. Four fixed plans from €10.99/mo." name="twitter:description" />
     <meta content="https://instantnode.eu/meta-banner.webp?v=5" name="twitter:image" />
     <meta content="#060606" name="theme-color" />
     <meta name="darkreader-lock" />
@@ -27,36 +27,153 @@
     <link href="css/fonts.css" rel="stylesheet" />
     <link href="css/lunaris.css?v=xmas1" rel="stylesheet" />
     <link href="css/product.css?v=11" rel="stylesheet" />
+    <style>.rz-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,72px);align-items:center;max-width:1280px;margin:0 auto;padding:clamp(70px,10vw,130px) var(--pad) clamp(40px,6vw,72px)}
+.rz-copy{display:flex;flex-direction:column;align-items:flex-start;gap:24px;text-align:left}
+.rz-copy .lede{margin:0;max-width:540px}
+.rz-copy .hero-actions{justify-content:flex-start}
+.rz-die{margin:0;border:1px solid var(--line);border-radius:20px;background:var(--panel);padding:16px 16px 14px}
+.rz-die .art{display:block;width:100%;height:300px}
+.rz-die figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-top:10px}
+.rz-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));max-width:1280px;margin:0 auto;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rz-strip>div{padding:24px clamp(16px,2.5vw,32px)}
+.rz-strip>div+div{border-left:1px solid var(--line)}
+.rz-strip b{display:block;font-size:clamp(24px,3vw,34px);font-weight:500;letter-spacing:-.02em;margin-bottom:4px}
+.rz-strip>div:first-child b{color:var(--ember)}
+.rz-strip span{color:var(--mute);font-size:14px}
+.rz-plans .spec-scroll{max-width:1000px}
+.rz-plans .spec th:first-child,.rz-plans .spec td:first-child{width:auto}
+.rz-plans .spec td b{color:var(--ink);font-weight:500;font-size:16px}
+.rz-plans .spec td:last-child,.rz-plans .spec th:last-child{text-align:right}
+.rz-plans .spec td,.rz-plans .spec th{white-space:nowrap}
+.rz-plans .spec td small{color:var(--dim);font-size:12px}
+.rz-note{max-width:1000px;margin:16px auto 0;color:var(--mute);font-size:14px;line-height:1.6;text-align:center}
+.rz-vs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,24px);max-width:1080px;margin:0 auto}
+.rz-vs>div{display:flex;flex-direction:column;align-items:flex-start;border:1px solid var(--line);border-radius:20px;padding:clamp(24px,3vw,36px);background:var(--panel)}
+.rz-vs>.rz-this{border-color:rgba(59,130,246,.45)}
+.rz-vs .cell-ico{margin:0 0 14px -6px}
+.rz-vs h3{font-size:22px;font-weight:500;letter-spacing:-.01em;margin:6px 0 16px}
+.rz-vs ul{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:10px;flex:1}
+.rz-vs li{position:relative;padding-left:22px;color:var(--mute);font-size:15px;line-height:1.55}
+.rz-vs li::before{content:"+";position:absolute;left:0;font-family:var(--mono);color:var(--dim)}
+.rz-vs .rz-this li::before{color:var(--ember)}
+.rz-both{max-width:1080px;margin:20px auto 0;color:var(--mute);font-size:14.5px;line-height:1.6;text-align:center}
+.rz-incl{list-style:none;padding:0;margin:0 auto;max-width:1080px;columns:2;column-gap:clamp(32px,5vw,72px)}
+.rz-incl li{break-inside:avoid;display:grid;grid-template-columns:150px 1fr;gap:20px;padding:17px 0;border-top:1px solid var(--line)}
+.rz-incl b{font-weight:500;font-size:15px}
+.rz-incl span{color:var(--mute);font-size:15px;line-height:1.5}
+.rz-os-k{max-width:1080px;margin:clamp(36px,5vw,56px) auto 18px}
+@media (max-width:860px){.rz-hero{grid-template-columns:1fr}.rz-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.rz-strip>div:nth-child(3){border-left:0}.rz-strip>div:nth-child(n+3){border-top:1px solid var(--line)}.rz-vs{grid-template-columns:1fr}.rz-incl{columns:1}.rz-incl li{grid-template-columns:120px 1fr}}</style>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Product",
-      "@id": "https://instantnode.eu/kvm#product",
-      "name": "EPYC KVM Hosting",
-      "description": "EPYC KVM hosting in the Netherlands (EU) on AMD EPYC 7763 hardware with NVMe storage, full root access and free DDoS protection. Configurable up to 32 vCPU, 64 GB RAM and 1 TB NVMe.",
-      "image": "https://instantnode.eu/illustrations/kvm.webp",
-      "url": "https://instantnode.eu/kvm",
-      "brand": { "@type": "Brand", "name": "InstantNode" },
-      "offers": { "@type": "Offer", "url": "https://instantnode.eu/kvm", "price": "2.00", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
+      "@id": "https://instantnode.eu/ryzen-kvm#product",
+      "name": "Ryzen KVM Hosting",
+      "description": "KVM virtual servers in the Netherlands (EU) on the AMD Ryzen 9 5950X (16 cores / 32 threads, up to 4.9 GHz boost) with NVMe storage, full root access and free DDoS protection. Four fixed Linux plans from 2 vCPU / 4 GB to 8 vCPU / 16 GB.",
+      "image": "https://instantnode.eu/meta-banner.webp?v=5",
+      "url": "https://instantnode.eu/ryzen-kvm",
+      "brand": {
+        "@type": "Brand",
+        "name": "InstantNode"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Ryzen KVM Skadi (2 vCPU / 4 GB RAM / 40 GB NVMe)",
+          "url": "https://instantnode.eu/ryzen-kvm#plans",
+          "price": "10.99",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Ryzen KVM Ullr (4 vCPU / 8 GB RAM / 80 GB NVMe)",
+          "url": "https://instantnode.eu/ryzen-kvm#plans",
+          "price": "19.99",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Ryzen KVM Njord (6 vCPU / 12 GB RAM / 120 GB NVMe)",
+          "url": "https://instantnode.eu/ryzen-kvm#plans",
+          "price": "28.99",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Ryzen KVM Forseti (8 vCPU / 16 GB RAM / 160 GB NVMe)",
+          "url": "https://instantnode.eu/ryzen-kvm#plans",
+          "price": "37.99",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://instantnode.eu/kvm#breadcrumbs",
+      "@id": "https://instantnode.eu/ryzen-kvm#breadcrumbs",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://instantnode.eu/" },
-        { "@type": "ListItem", "position": 2, "name": "EPYC KVM", "item": "https://instantnode.eu/kvm" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://instantnode.eu/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ryzen KVM",
+          "item": "https://instantnode.eu/ryzen-kvm"
+        }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://instantnode.eu/kvm#faq",
+      "@id": "https://instantnode.eu/ryzen-kvm#faq",
       "mainEntity": [
-        { "@type": "Question", "name": "Can I install my own operating system?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Reinstall to any of our supported images: Debian 12 and 13, Ubuntu 22.04 to 26.04, Rocky Linux 9 and 10, AlmaLinux 9 and 10, CentOS Stream 9, Fedora 42, openSUSE Leap 15.6, Arch Linux or even Proxmox VE 9. Proxmox VE 9 has nested virtualization enabled, so you can run your own VMs inside your VPS. You do this straight from the control panel in a couple of clicks." } },
-        { "@type": "Question", "name": "Can I resize my VPS later?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Scale up to 32 vCPU, 64 GB RAM and 1 TB of NVMe storage whenever you need to. You only pay for the resources you configure." } },
-        { "@type": "Question", "name": "Is DDoS protection included?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Always-on DDoS mitigation is included with each EPYC KVM at no extra cost. Every attack on your addresses shows up in the DDoS tab of your panel." } },
-        { "@type": "Question", "name": "Can I migrate my existing server to InstantNode?", "acceptedAnswer": { "@type": "Answer", "text": "Yes - use our free Server Importer at /dashboard/import. The wizard connects to your old server over SFTP and pulls your data onto your new VPS for you." } },
-        { "@type": "Question", "name": "Which payment methods do you accept?", "acceptedAnswer": { "@type": "Answer", "text": "We accept card payments, Apple Pay, Google Pay, Klarna, Wero, cryptocurrencies, bank transfer and your InstantNode account balance." } }
+        {
+          "@type": "Question",
+          "name": "What is the difference to EPYC KVM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both are full KVM virtual machines. Ryzen KVM runs on the AMD Ryzen 9 5950X with fewer but faster cores (up to 4.9 GHz boost), in four fixed plans. EPYC KVM runs on AMD EPYC, scales up to 32 vCPU and 64 GB RAM with a custom configurator and also offers Proxmox VE."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the cores dedicated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Ryzen KVM uses shared vCPUs on the Ryzen host. If you need cores reserved only for you, look at our VDS plans."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I run Windows?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Ryzen KVM is Linux only, with 13 images to choose from. For Windows, see our Windows Server plans."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I upgrade later?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Move to any larger Ryzen KVM plan from the panel, up to Forseti with 8 vCPU, 16 GB RAM and 160 GB NVMe. Custom sizes are not available."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is DDoS protection included?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Always-on DDoS mitigation is included with each Ryzen KVM at no extra cost. Every attack on your addresses shows up in the DDoS tab of your panel."
+          }
+        }
       ]
     }
   ]
@@ -90,7 +207,7 @@
     <symbol id="fa-gauge" viewBox="0 0 512 512"><path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm320 96c0-26.9-16.5-49.9-40-59.3L280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 172.7c-23.5 9.5-40 32.5-40 59.3 0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-16 80a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM400 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></symbol>
     </svg>
     <!-- Announcement bar. Visibility is decided before paint; the close
-         button is wired in js/lunaris.js?v=xmas8. -->
+         button is wired in js/lunaris.js?v=xmas9. -->
     <div class="in-announce" data-key="import2026" id="in-announce">
       <div class="in-announce__icon has-ping"><span class="ping-head" style="--pw:38px" aria-hidden="true"><img src="/img/ping/ping-head.webp" width="256" height="285" alt="" decoding="async" /><img src="/img/ping/ping-head-blink.webp" width="256" height="285" alt="" decoding="async" /></span></div>
       <div>
@@ -117,7 +234,8 @@
             <div class="cat-menu cat-menu--2">
               <div class="cat-col">
                 <div class="k mm-sec">Virtual servers</div>
-                <a class="mm-card" href="/kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-chip"/></svg><span class="mm-card-h"><span class="mm-card-t">EPYC KVM</span><span class="badge">Most popular</span></span><span class="mm-card-d">Full virtual machines with their own kernel, full root and Docker support.</span></a>
+                <a class="mm-card" href="/epyc-kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-chip"/></svg><span class="mm-card-h"><span class="mm-card-t">EPYC KVM</span><span class="badge">Most popular</span></span><span class="mm-card-d">Full virtual machines with their own kernel, full root and Docker support.</span></a>
+                <a class="mm-card" href="/ryzen-kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-gauge"/></svg><span class="mm-card-h"><span class="mm-card-t">Ryzen KVM</span><span class="badge">New</span></span><span class="mm-card-d">KVM on the AMD Ryzen 9 5950X - high single-core speed for game servers and build jobs.</span></a>
                 <a class="mm-card" href="/lxc"><svg class="mm-ico" aria-hidden="true"><use href="#fa-cube"/></svg><span class="mm-card-h"><span class="mm-card-t">LXC VPS</span></span><span class="mm-card-d">Lightweight Linux virtual servers - the best value for a standard, always-on server.</span></a>
                 <a class="mm-card" href="/vds"><svg class="mm-ico" aria-hidden="true"><use href="#fa-bolt"/></svg><span class="mm-card-h"><span class="mm-card-t">VDS</span></span><span class="mm-card-d">Dedicated EPYC cores pinned to your VM - guaranteed performance.</span></a>
               </div>
@@ -214,7 +332,8 @@
           <button type="button" aria-pressed="false" data-lang="es" lang="es">Español</button>
         </div>
         <div class="m-group">Servers</div>
-        <a href="/kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-chip"/></svg>EPYC KVM</a>
+        <a href="/epyc-kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-chip"/></svg>EPYC KVM</a>
+        <a href="/ryzen-kvm"><svg class="mm-ico" aria-hidden="true"><use href="#fa-gauge"/></svg>Ryzen KVM</a>
         <a href="/lxc"><svg class="mm-ico" aria-hidden="true"><use href="#fa-cube"/></svg>LXC VPS</a>
         <a href="/vds"><svg class="mm-ico" aria-hidden="true"><use href="#fa-bolt"/></svg>VDS</a>
         <a href="/windows-server"><svg class="mm-ico" aria-hidden="true"><use href="#fa-panes"/></svg>Windows Server</a>
@@ -244,161 +363,146 @@
 
     <main class="frame">
 
-      <!-- ===== hero ===== -->
-      <section class="hero">
-        <span class="badge rv">EPYC KVM · from €2.00/mo</span>
-        <h1 class="d1 rv">Your own<br />virtual machine.</h1>
-        <p class="lede rv">Full root access on enterprise hardware - AMD EPYC 7763, NVMe SSD and free DDoS protection. Deploy an EPYC KVM in seconds, and scale it any time.</p>
-        <div class="hero-actions rv">
-          <a class="btn btn-light btn-lg" href="/dashboard">Deploy now</a>
-          <a class="btn btn-ghost btn-lg" href="#plans">See plans</a>
+      <!-- ===== hero: copy left, lit core right ===== -->
+      <section class="rz-hero">
+        <div class="rz-copy">
+          <span class="badge rv">Ryzen KVM · from €10.99/mo</span>
+          <h1 class="d1 rv">One fast core<br />beats waiting.</h1>
+          <p class="lede rv">Full root access on the AMD Ryzen 9 5950X with up to 4.9 GHz boost, NVMe storage and free DDoS protection. Built for workloads that care about single-core speed.</p>
+          <div class="hero-actions rv">
+            <a class="btn btn-light btn-lg" href="#plans">See plans</a>
+            <a class="btn btn-ghost btn-lg" href="#compare">Ryzen or EPYC?</a>
+          </div>
         </div>
-        <div class="pill-row rv">
-          <span class="herolol"><i class="fa-solid fa-key"></i>Full root access</span>
-          <span class="herolol"><i class="fa-solid fa-bolt-lightning"></i>Enterprise NVMe</span>
-          <span class="herolol"><i class="fa-regular fa-clock"></i>Online in ~60 seconds</span>
-        </div>
-        <div class="hero-art">
-          <canvas class="art" data-art="chip" data-hotx="0.5" data-hoty="0.55" height="320"></canvas>
-        </div>
+        <figure class="rz-die rv">
+          <canvas class="art" data-art="coreburst" data-hotx="0.62" data-hoty="0.4" data-cell="10"></canvas>
+          <figcaption data-no-i18n>Ryzen 9 5950X · 16 cores · up to 4.9 GHz</figcaption>
+        </figure>
       </section>
 
-      <!-- ===== plans ===== -->
-      <section class="sec sec-flush" id="plans">
-        <div class="sec-head" style="padding: clamp(64px,9vw,110px) var(--pad) 0">
-          <span class="badge rv">Pick your EPYC KVM plan</span>
-          <h2 class="d2 rv">Two ready-made plans,<br />or build your own</h2>
-          <p class="lede rv">From just €2.00/mo. Full root access &amp; DDoS protection included, billed monthly from your prepaid balance - cancel anytime.</p>
-        </div>
-        <div class="plans has-ping" style="--above:91px">
-          <div class="plan rv">
-            <div class="plan-name">Loki</div>
-            <div class="plan-price">€4.55<small>/ month</small></div>
-            <p class="plan-desc">Perfect for getting started</p>
-            <ul>
-              <li>2 vCPU - dedicated AMD power</li>
-              <li>4 GB RAM</li>
-              <li>40 GB SSD</li>
-              <li>DDoS protection</li>
-              <li>Hosted in the EU (NL)</li>
-            </ul>
-            <a class="btn btn-ghost" href="/dashboard/containers/create?type=kvm&amp;plan=Loki">Deploy Loki</a>
-          </div>
-          <div class="plan plan-hot ping-host rv">
-            <span class="ping ping--ledge ping--peek" style="--pw:124px;right:22px" aria-hidden="true"><img src="/img/ping/ping-peek.webp" width="520" height="393" alt="" loading="lazy" decoding="async" /><img src="/img/ping/ping-peek-happy.webp" width="520" height="393" alt="" loading="lazy" decoding="async" /></span>
-            <div class="plan-name">Odin <span class="badge" style="font-size:11px;padding:3px 10px">Recommended</span></div>
-            <div class="plan-price">€17.96<small>/ month</small></div>
-            <p class="plan-desc">Power for demanding workloads</p>
-            <ul>
-              <li>8 vCPU - dedicated AMD power</li>
-              <li>16 GB RAM</li>
-              <li>160 GB SSD</li>
-              <li>DDoS protection</li>
-              <li>Hosted in the EU (NL)</li>
-            </ul>
-            <a class="btn btn-light" href="/dashboard/containers/create?type=kvm&amp;plan=Odin">Deploy Odin</a>
-          </div>
-          <div class="plan rv">
-            <div class="plan-name">Build your own</div>
-            <div class="plan-price">€2.00<small>from / month</small></div>
-            <p class="plan-desc">Drag the sliders to size your VPS exactly</p>
-            <ul>
-              <li>1 - 32 vCPU AMD</li>
-              <li>2 - 64 GB DDR4 ECC RAM</li>
-              <li>10 - 1,000 GB NVMe SSD</li>
-              <li>1x IPv4, /64 IPv6 &amp; DDoS protection</li>
-              <li>Pay only for what you configure</li>
-            </ul>
-            <a class="btn btn-ghost" href="/dashboard/containers/create?type=kvm">Configure yours</a>
-          </div>
-        </div>
+      <!-- ===== key figures ===== -->
+      <section class="rz-strip">
+        <div class="rv"><b>4.9 GHz</b><span>Maximum boost clock</span></div>
+        <div class="rv"><b>16 / 32</b><span>Cores / threads per node</span></div>
+        <div class="rv"><b>NVMe</b><span>Storage on every plan</span></div>
+        <div class="rv"><b>10 GbE</b><span>Node uplink</span></div>
       </section>
 
-      <!-- ===== why ===== -->
-      <section class="sec">
-        <div class="pp-wrap pp-why">
-          <div class="pp-why-l">
-            <div class="pp-head">
-          <span class="badge rv">Why InstantNode</span>
-          <h2 class="d2 rv">Why host your VPS with us</h2>
+      <!-- ===== plans: compact table ===== -->
+      <section class="sec rz-plans" id="plans">
+        <div class="sec-head">
+          <span class="badge rv">Pick your Ryzen KVM plan</span>
+          <h2 class="d2 rv">Four fixed plans<br />on the Ryzen 9 5950X</h2>
         </div>
-            <div class="pp-term rv" data-no-i18n aria-hidden="true">
-              <div class="pp-term-bar">ssh root@srv-4f1c9a</div>
-              <pre><span class="p">root@srv-4f1c9a:~#</span> systemd-detect-virt
-kvm
-<span class="p">root@srv-4f1c9a:~#</span> nproc
-2
-<span class="p">root@srv-4f1c9a:~#</span> free -h --si | awk '/Mem/{print $2}'
-4.1G
-<span class="p">root@srv-4f1c9a:~#</span> docker run -d --name web -p 80:80 nginx
-3f9c2a71e0b4d8f6a1c2e9b7d4f0a8c3
-<span class="p">root@srv-4f1c9a:~#</span> docker ps --format "{{.Names}}: {{.Status}}"
-web: Up 4 seconds
-<span class="p">root@srv-4f1c9a:~#</span> </pre>
-            </div>
-            <div class="why-mark why-shot rv" style="--lap:-40px" aria-hidden="true"><span class="prod"><canvas class="art prod-pool" data-art="pool" data-hotx="0.5" data-hoty="0.5" data-cell="6"></canvas><img src="/img/3d/vmcube.webp" width="700" height="736" alt="" loading="lazy" decoding="async" /></span></div>
-          </div>
-          <ol class="pp-rows">
-            <li class="rv"><div><h3>Full root access</h3><p>Complete control over your virtual machine - install any software, any stack, any config.</p></div></li>
-            <li class="rv"><div><h3>Instant deployment</h3><p>Spin up your VPS in seconds with our automated provisioning, no waiting around.</p></div></li>
-            <li class="rv"><div><h3>Enterprise NVMe</h3><p>Each plan runs on fast NVMe storage for snappy I/O and quick boots.</p></div></li>
-            <li class="rv"><div><h3>DDoS protection</h3><p>Premium always-on DDoS mitigation keeps your services online under attack.</p></div></li>
-            <li class="rv"><div><h3>Up to 1 Gbit/s network</h3><p>Each VPS gets up to 1 Gbit/s as standard, with up to 2.5 Gbit/s available at checkout.</p></div></li>
-            <li class="rv"><div><h3>Central EU location</h3><p>Hosted in Eygelshoven, Netherlands - low latency across Germany, Benelux and most of Europe.</p></div></li>
-          </ol>
+        <div class="spec-scroll rv">
+          <table class="spec">
+            <thead><tr><th>Plan</th><th>vCPU</th><th>RAM</th><th>NVMe</th><th>Monthly</th><th></th></tr></thead>
+            <tbody>
+              <tr class="plan-row">
+                <td><b>Skadi</b></td>
+                <td>2 vCPU</td>
+                <td>4 GB</td>
+                <td>40 GB</td>
+                <td><b>€10.99</b></td>
+                <td><a class="btn btn-ghost btn-sm" href="/dashboard/containers/create?type=ryzen-kvm&amp;plan=Skadi">Deploy Skadi</a></td>
+              </tr>
+              <tr class="plan-row">
+                <td><b>Ullr</b> <small>Recommended</small></td>
+                <td>4 vCPU</td>
+                <td>8 GB</td>
+                <td>80 GB</td>
+                <td><b>€19.99</b></td>
+                <td><a class="btn btn-light btn-sm" href="/dashboard/containers/create?type=ryzen-kvm&amp;plan=Ullr">Deploy Ullr</a></td>
+              </tr>
+              <tr class="plan-row">
+                <td><b>Njord</b></td>
+                <td>6 vCPU</td>
+                <td>12 GB</td>
+                <td>120 GB</td>
+                <td><b>€28.99</b></td>
+                <td><a class="btn btn-ghost btn-sm" href="/dashboard/containers/create?type=ryzen-kvm&amp;plan=Njord">Deploy Njord</a></td>
+              </tr>
+              <tr class="plan-row">
+                <td><b>Forseti</b></td>
+                <td>8 vCPU</td>
+                <td>16 GB</td>
+                <td>160 GB</td>
+                <td><b>€37.99</b></td>
+                <td><a class="btn btn-ghost btn-sm" href="/dashboard/containers/create?type=ryzen-kvm&amp;plan=Forseti">Deploy Forseti</a></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+        <p class="rz-note rv">From €10.99/mo. Full root access &amp; DDoS protection included, billed hourly or monthly from your prepaid balance - cancel anytime. Move up to a bigger plan whenever you need it.</p>
       </section>
 
-      <!-- ===== panel ===== -->
+      <!-- ===== Ryzen vs EPYC ===== -->
+      <section class="sec sec-flush" id="compare" style="padding-bottom:clamp(64px,9vw,120px)">
+        <div class="sec-head" style="padding: clamp(32px,5vw,64px) var(--pad) clamp(36px,5vw,56px)">
+          <span class="badge rv">Ryzen vs EPYC</span>
+          <h2 class="d2 rv">Two KVM lines,<br />two strengths</h2>
+          <p class="lede rv">Both are shared KVM virtual machines with full root access, DDoS protection and the same panel. The difference is the CPU underneath.</p>
+        </div>
+        <div class="rz-vs" style="padding:0 var(--pad)">
+          <div class="rz-this rv">
+            <canvas class="art cell-ico" data-art="gauge" data-tint="off" data-cell="3.6" width="92" height="92"></canvas>
+            <span class="k">Ryzen KVM</span>
+            <h3>Fewer cores, higher clock</h3>
+            <ul>
+              <li>One thread decides your speed: game servers, builds, real-time apps</li>
+              <li>Up to 4.9 GHz boost on Zen 3</li>
+              <li>Four fixed plans from 2 to 8 vCPU</li>
+              <li>Linux only, 13 images</li>
+            </ul>
+            <a class="btn btn-light btn-sm" href="#plans">See the plans</a>
+          </div>
+          <div class="rv">
+            <canvas class="art cell-ico" data-art="chip" data-tint="off" data-cell="3.6" width="92" height="92"></canvas>
+            <span class="k">EPYC KVM</span>
+            <h3>More cores, more room</h3>
+            <ul>
+              <li>Your workload spreads across many cores</li>
+              <li>Up to 32 vCPU and 64 GB RAM</li>
+              <li>Custom sizes with the configurator</li>
+              <li>Proxmox VE with nested virtualization</li>
+            </ul>
+            <a class="btn btn-ghost btn-sm" href="/epyc-kvm">Go to EPYC KVM</a>
+          </div>
+        </div>
+        <p class="rz-both rv" style="padding:0 var(--pad)">Need Windows? Our <a href="/windows-server" style="border-bottom:1px solid var(--dim)">Windows Server</a> plans run on AMD EPYC.</p>
+      </section>
+
+      <!-- ===== use cases ===== -->
       <section class="sec sec-flush">
-        <div class="sec-head" style="padding: clamp(64px,9vw,110px) var(--pad) 0">
-          <span class="badge rv">The InstantNode panel</span>
-          <h2 class="d2 rv">A control panel that does<br />the heavy lifting</h2>
-          <p class="lede rv">Install apps, schedule backups, manage your firewall and share access - all without touching a terminal.</p>
-        </div>
-        <div class="pp-wrap pp-show">
-          <div class="pp-show-shot rv">
-            <div class="pp-frame">
-              <picture>
-                <source srcset="/backgrounds/panel-service.webp?v=3" type="image/webp" />
-                <img alt="A server in the InstantNode panel: specs, live resources, SSH access, billing and one-click management" src="/backgrounds/panel-service.png?v=3" width="1800" height="820" loading="lazy" decoding="async" />
-              </picture>
-            </div>
-          </div>
-          <div class="pp-feats">
-            <div class="pp-feat rv"><i class="fa-solid fa-cubes"></i><div><h3>App Installer</h3><p>160+ self-hosted apps in one click: Nextcloud, WordPress, Grafana, game servers and more - deployed via Docker, straight from the panel.</p></div></div>
-            <div class="pp-feat rv"><i class="fa-solid fa-clock-rotate-left"></i><div><h3>Backups on your schedule</h3><p>Daily backups run at the hour you choose, with up to three retained. Restore with one click, or download the full archive anytime.</p></div></div>
-            <div class="pp-feat rv"><i class="fa-solid fa-user-group"></i><div><h3>Team access</h3><p>Share server management by email with granular permissions: power, backups, files, console or settings - per person.</p></div></div>
-            <div class="pp-feat rv"><i class="fa-solid fa-shield-halved"></i><div><h3>Built-in firewall</h3><p>Open or block ports instantly from the panel - rules apply at the host level, no iptables required.</p></div></div>
-            <div class="pp-feat rv"><i class="fa-solid fa-chart-line"></i><div><h3>Usage history &amp; traffic</h3><p>CPU, RAM and network graphs from the last hour to the last month, including traffic totals for any window.</p></div></div>
-            <div class="pp-feat rv"><i class="fa-solid fa-globe"></i><div><h3>Reverse DNS (PTR)</h3><p>Set PTR records for your IPs right in the panel - essential for running mail servers with good deliverability.</p></div></div>
-            <div class="pp-feat rv"><i class="fa-solid fa-terminal"></i><div><h3>Console &amp; file manager</h3><p>Web console and a full file manager in the browser. Edit, upload and manage files without an SSH client.</p></div></div>
-            <div class="pp-feat rv"><i class="fa-solid fa-key"></i><div><h3>Root password reset</h3><p>Locked out? Set a new root password from the panel while the server keeps running. No rescue mode needed.</p></div></div>
-            <div class="pp-feat rv"><i class="fa-solid fa-signal"></i><div><h3>99.9% uptime</h3><p>Backed by our SLA with pro-rata credits and a public live status page at status.instantnode.eu.</p></div></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== private networks ===== -->
-      <section class="sec sec-flush">
-        <div class="sec-head" style="padding: clamp(64px,9vw,110px) var(--pad) 0">
-          <span class="badge rv">Private networks (VPC)</span>
-          <h2 class="d2 rv">Connect your servers<br />over a private network</h2>
-          <p class="lede rv">Private networks (VPC) are free with every EPYC KVM. Manage your networks in the panel under Private networks, on a server's Network tab or through the <a href="/developers" style="border-bottom:1px solid var(--dim)">API</a>. The address is configured automatically, and KVM servers finish the setup on the next reboot.</p>
+        <div class="sec-head" style="padding: 0 var(--pad) clamp(36px,5vw,56px)">
+          <span class="badge rv">Perfect for</span>
+          <h2 class="d2 rv">Where clock speed<br />makes the difference</h2>
+          <p class="lede rv">Workloads that wait on a single thread run faster on high-frequency cores.</p>
         </div>
         <div class="pp-wrap pp-trio">
-          <div class="rv"><canvas class="art cell-ico" data-art="nodes" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Several networks per server</h3><p>Up to 3 networks per account. A server can be in several of them at once, with one extra network adapter per network.</p></div>
-          <div class="rv"><canvas class="art cell-ico" data-art="sliders" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Your subnet or ours</h3><p>Automatic (10.77.x.0/24) or your own private subnet: 10.x, 172.16-31.x or 192.168.x, from /16 to /28. You choose it when you create the network and cannot change it later.</p></div>
-          <div class="rv"><canvas class="art cell-ico" data-art="vault" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Only your servers</h3><p>Only your own servers in the same network can reach each other. Networks work across all our nodes over VXLAN, with an MTU of 1450.</p></div>
+          <div class="rv"><canvas class="art cell-ico" data-art="gamepad" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Game servers</h3><p>Minecraft, Rust, Valheim and other servers whose main loop runs on one thread. A higher clock speed gives that loop more headroom.</p></div>
+          <div class="rv"><canvas class="art cell-ico" data-art="terminal" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Build jobs &amp; CI</h3><p>Compile steps, test runners and CI workers that need fast cores more than many cores.</p></div>
+          <div class="rv"><canvas class="art cell-ico" data-art="browser" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Latency-sensitive apps</h3><p>APIs, Discord bots and websocket servers that run on one thread answer faster on a high-frequency core.</p></div>
         </div>
       </section>
 
-      <!-- ===== OS ===== -->
+      <!-- ===== included + OS ===== -->
       <section class="sec">
-        <div class="sec-head">
-          <span class="badge rv">Choose your OS</span>
-          <h2 class="d2 rv">Reinstall to any image,<br />straight from the panel</h2>
+        <div class="sec-head" style="padding-bottom:clamp(36px,5vw,56px)">
+          <span class="badge rv">In every plan</span>
+          <h2 class="d2 rv">Everything a server needs,<br />nothing to add on</h2>
         </div>
+        <ul class="rz-incl rv">
+          <li><b>Full root access</b><span>Your own kernel and full control, Docker included.</span></li>
+          <li><b>DDoS protection</b><span>Always on, every attack listed in your panel.</span></li>
+          <li><b>IPv4 and IPv6</b><span>1x dedicated IPv4 and a /64 IPv6 subnet.</span></li>
+          <li><b>Network</b><span>Up to 1 Gbit/s, 2.5 Gbit/s available at checkout.</span></li>
+          <li><b>Billing</b><span>Hourly or monthly from your prepaid balance.</span></li>
+          <li><b>Panel tools</b><span>Web console, rescue system and one-click reinstall.</span></li>
+          <li><b>Backups</b><span>Scheduled backups with one-click restore.</span></li>
+          <li><b>Location</b><span>Eygelshoven, Netherlands (EU), GDPR compliant.</span></li>
+        </ul>
+        <div class="rz-os-k"><span class="k rv">13 Linux images, no Windows</span></div>
         <div class="pp-wrap pp-os">
           <div class="rv"><img src="/icons/os/debian.png" alt="" width="40" height="40" loading="lazy" /><div><b data-no-i18n>Debian</b><small data-no-i18n>13</small><small data-no-i18n>12</small></div></div>
           <div class="rv"><img src="/icons/os/ubuntu.png" alt="" width="40" height="40" loading="lazy" /><div><b data-no-i18n>Ubuntu</b><small data-no-i18n>26.04</small><small data-no-i18n>24.04</small><small data-no-i18n>22.04</small></div></div>
@@ -408,109 +512,44 @@ web: Up 4 seconds
           <div class="rv"><img src="/icons/os/fedora.png" alt="" width="40" height="40" loading="lazy" /><div><b data-no-i18n>Fedora</b><small data-no-i18n>42</small></div></div>
           <div class="rv"><img src="/icons/os/opensuse.webp" alt="" width="40" height="40" loading="lazy" /><div><b data-no-i18n>openSUSE</b><small data-no-i18n>Leap 15.6</small></div></div>
           <div class="rv"><img src="/icons/os/archlinux.png" alt="" width="40" height="40" loading="lazy" /><div><b data-no-i18n>Arch Linux</b><small data-no-i18n>rolling</small></div></div>
-          <div class="rv"><img src="/icons/os/proxmox.webp" alt="" width="40" height="40" loading="lazy" /><div><b data-no-i18n>Proxmox VE</b><small data-no-i18n>9</small></div></div>
         </div>
       </section>
 
-      <!-- ===== location ===== -->
-      <section class="sec">
-        <div class="pp-wrap pp-loc">
-          <div>
-            <div class="pp-head">
-              <span class="badge rv">Location</span>
-              <h2 class="d2 rv">One datacenter,<br />right in the heart of Europe</h2>
-              <p class="lede rv">Every server runs in our datacenter in Eygelshoven, Netherlands - on the German border, with short routes into Benelux, Germany, France and beyond.</p>
-            </div>
-            <ul class="pp-facts rv">
-              <li><b>Eygelshoven, NL</b><span>Datacenter location</span></li>
-              <li><b>Always-on</b><span>DDoS protection included</span></li>
-              <li><b>IPv4 + IPv6</b><span>1x IPv4 and a /64 subnet included</span></li>
-              <li><b>GDPR</b><span>EU hosting, EU company</span></li>
-            </ul>
-          </div>
-          <div class="pp-radar rv">
-            <svg viewBox="0 0 520 520" role="img" aria-label="Eygelshoven in the Netherlands with short routes to Amsterdam, Frankfurt, Paris, Berlin, Vienna and London">
-              <defs><linearGradient id="pp-route" x1="0" x2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs>
-              <circle class="ring" cx="260" cy="260" r="60"/><circle class="ring" cx="260" cy="260" r="120"/><circle class="ring" cx="260" cy="260" r="180"/><circle class="ring" cx="260" cy="260" r="240"/><path class="route" d="M260 260 Q260 199 211 162"/><path class="route" d="M260 260 Q299 310 362 308"/><path class="route" d="M260 260 Q180 280 148 357"/><path class="route" d="M260 260 Q363 273 435 198"/><path class="route" d="M260 260 Q342 354 466 345"/><path class="route" d="M260 260 Q183 205 93 233"/><circle class="city" cx="211" cy="162" r="4"/><text x="201" y="166" text-anchor="end">Amsterdam</text><circle class="city" cx="362" cy="308" r="4"/><text x="372" y="312" text-anchor="start">Frankfurt</text><circle class="city" cx="148" cy="357" r="4"/><text x="138" y="361" text-anchor="end">Paris</text><circle class="city" cx="435" cy="198" r="4"/><text x="445" y="202" text-anchor="start">Berlin</text><circle class="city" cx="466" cy="345" r="4"/><text x="476" y="349" text-anchor="start">Vienna</text><circle class="city" cx="93" cy="233" r="4"/><text x="83" y="237" text-anchor="end">London</text>
-              <circle class="pulse" cx="260" cy="260" r="10"/><circle class="home" cx="260" cy="260" r="7"/>
-              <text class="home-label" x="260" y="290" text-anchor="middle">Eygelshoven, NL</text>
-            </svg>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== use cases ===== -->
+      <!-- ===== the node ===== -->
       <section class="sec sec-flush">
-        <div class="sec-head" style="padding: clamp(64px,9vw,110px) var(--pad) 0">
-          <span class="badge rv">Perfect for</span>
-          <h2 class="d2 rv">One EPYC KVM,<br />countless workloads</h2>
-          <p class="lede rv">Here is what our customers run every day.</p>
-        </div>
-        <div class="pp-wrap pp-cases">
-          <div class="pp-big rv"><canvas class="art cell-ico" data-art="browser" data-tint="off" data-cell="5" width="200" height="200"></canvas><h3>Web apps &amp; APIs</h3><p>Host Node.js, Python, PHP or Go services with full control over the stack - NVMe keeps response times low.</p></div>
-          <div class="rv"><canvas class="art cell-ico" data-art="gamepad" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Game backends</h3><p>Run matchmaking, game APIs or community services on dedicated vCPU cores with DDoS protection in front.</p></div>
-          <div class="rv"><canvas class="art cell-ico" data-art="bot" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Discord bots</h3><p>Keep your bots online 24/7 with root access for any library, runtime or database they need.</p></div>
-          <div class="rv"><canvas class="art cell-ico" data-art="terminal" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Dev &amp; staging</h3><p>Spin up a clean environment in seconds, test your deployment, then resize or reinstall whenever you like.</p></div>
-          <div class="rv"><canvas class="art cell-ico" data-art="db" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><h3>Databases</h3><p>MySQL, PostgreSQL, Redis and friends love fast NVMe storage and DDR4 ECC RAM.</p></div>
-          <div class="pp-wide rv"><canvas class="art cell-ico" data-art="lock" data-tint="off" data-cell="3.6" width="92" height="92"></canvas><div><h3>VPN &amp; self-hosting</h3><p>Your own WireGuard endpoint, ad-blocker, password manager or media stack - private and under your control.</p></div></div>
-        </div>
-      </section>
-
-      <!-- ===== specs ===== -->
-      <section class="sec sec-flush">
-        <div class="sec-head" style="padding: clamp(64px,9vw,110px) var(--pad) 0">
-          <span class="badge rv">EPYC KVM specifications</span>
-          <h2 class="d2 rv">The same enterprise platform,<br />every plan</h2>
+        <div class="sec-head" style="padding: 0 var(--pad) clamp(28px,4vw,44px)">
+          <span class="badge rv">The node</span>
+          <h2 class="d2 rv">One Ryzen 9 5950X,<br />shared by Ryzen KVM only</h2>
         </div>
         <div class="pp-wrap pp-spec">
           <dl class="rv">
-            <div><dt>vCPU</dt><dd>1 - 32 dedicated cores · AMD EPYC 7763</dd></div>
-            <div><dt>RAM</dt><dd>2 - 64 GB DDR4 ECC</dd></div>
-            <div><dt>Storage</dt><dd>10 - 1,000 GB NVMe SSD</dd></div>
-            <div><dt>Virtualization</dt><dd>KVM - full hardware virtualization</dd></div>
-            <div><dt>Operating systems</dt><dd>Debian 12 / 13, Ubuntu 22.04 / 24.04 / 26.04, Rocky Linux 9 / 10, AlmaLinux 9 / 10, CentOS Stream 9, Fedora 42, openSUSE Leap 15.6, Arch Linux, Proxmox VE 9</dd></div>
-            <div><dt>DDoS protection</dt><dd>Included on each plan, always-on</dd></div>
-            <div><dt>IPv4</dt><dd>1x dedicated IPv4 address included</dd></div>
-            <div><dt>IPv6</dt><dd>/64 IPv6 subnet included</dd></div>
-            <div><dt>Network</dt><dd>Up to 1 Gbit/s (up to 2.5 Gbit/s available)</dd></div>
-            <div><dt>Location</dt><dd>Netherlands / EU - GDPR compliant</dd></div>
-            <div><dt>Migration</dt><dd>Free with the <a href="/dashboard/import" style="border-bottom:1px solid var(--dim)">Server Importer</a></dd></div>
-            <div><dt>Deployment</dt><dd>Automated - online in about 60 seconds</dd></div>
+            <div><dt>Processor</dt><dd>AMD Ryzen 9 5950X (Zen 3)</dd></div>
+            <div><dt>Cores</dt><dd>16 cores / 32 threads</dd></div>
+            <div><dt>Clock</dt><dd>Up to 4.9 GHz boost</dd></div>
+            <div><dt>Memory</dt><dd>128 GB DDR4</dd></div>
+            <div><dt>Guest storage</dt><dd>2x 1 TB Samsung 990 PRO NVMe</dd></div>
+            <div><dt>Node uplink</dt><dd>10 GbE</dd></div>
+            <div><dt>Hypervisor</dt><dd>Proxmox VE 9.2</dd></div>
+            <div><dt>Location</dt><dd>Eygelshoven, Netherlands (EU)</dd></div>
           </dl>
-          <div class="pp-spec-price rv"><span>Plans</span><b>Loki €4.55/mo (2 vCPU / 4 GB / 40 GB) · Odin €17.96/mo (8 vCPU / 16 GB / 160 GB) · custom builds from €2.00/mo</b></div>
+          <div class="pp-spec-price rv"><span>More hardware</span><b>See every node we run on <a href="/hardware#node-ryzen5950x-2" style="border-bottom:1px solid var(--dim)">our hardware page</a>.</b></div>
         </div>
-      </section>
-
-      <!-- ===== in numbers ===== -->
-      <section class="sec sec-flush stats stats-x stats-live">
-        <div class="sec-head" style="padding: clamp(64px,9vw,110px) var(--pad) 0">
-          <h2 class="d2 rv">Numbers from our own systems</h2>
-          <p class="lede rv">Calculated automatically from our own systems. Support and uptime cover the last 90 days, countries come from the billing addresses of paying customers.</p>
-        </div>
-        <div class="cells cells-4" style="border-top:0">
-          <div class="cell rv"><span class="n js-support-median" data-no-i18n>22 min</span><span class="k">Median time to the first human reply on a ticket</span><div class="spark" data-spark="support" hidden></div></div>
-          <div class="cell rv"><span class="n js-uptime" data-no-i18n>99.97%</span><span class="k">Uptime of website, panel and server nodes</span><div class="spark" data-spark="uptime" hidden></div></div>
-          <div class="cell rv"><span class="n js-countries" data-no-i18n>60+</span><span class="k">Countries our paying customers come from</span><div class="spark" data-spark="countries" hidden></div></div>
-          <div class="cell rv"><span class="n js-customer-count" data-no-i18n>400+</span><span class="k">Paying customers, plus <span class="js-user-count">3,800+</span> registered users</span><div class="spark" data-spark="customers" hidden></div></div>
-        </div>
-        <div class="rv-line js-review-line" data-no-i18n hidden><a class="btn btn-ghost btn-sm" href="/reviews" data-review-text></a></div>
       </section>
 
       <!-- ===== FAQ ===== -->
       <section class="sec">
         <div class="pp-wrap pp-faq">
           <div class="pp-head">
-          <span class="badge rv">We always have the answers</span>
-          <h2 class="d2 rv">Frequently asked questions</h2>
-          <p class="lede rv">Still unsure? Our support team answers on Discord and by ticket.</p>
+          <span class="badge rv">Questions</span>
+          <h2 class="d2 rv">Ryzen KVM, answered</h2>
+          <p class="lede rv">Anything else? Our support team answers on Discord and by ticket.</p>
         </div>
-          <div class="faq has-ping">
-          <span class="ping ping--stand" style="--pw:78px;right:34px" aria-hidden="true"><img src="/img/ping/ping-think.webp" width="520" height="748" alt="" loading="lazy" decoding="async" /></span>
-          <details class="rv"><summary>Can I install my own operating system?</summary><div>Yes. Reinstall to any of our supported images: Debian 12 and 13, Ubuntu 22.04 to 26.04, Rocky Linux 9 and 10, AlmaLinux 9 and 10, CentOS Stream 9, Fedora 42, openSUSE Leap 15.6, Arch Linux or even Proxmox VE 9. Proxmox VE 9 has nested virtualization enabled, so you can run your own VMs inside your VPS. You do this straight from the control panel in a couple of clicks.</div></details>
-          <details class="rv"><summary>Can I resize my VPS later?</summary><div>Yes. Scale up to 32 vCPU, 64 GB RAM and 1 TB of NVMe storage whenever you need to. You only pay for the resources you configure.</div></details>
-          <details class="rv"><summary>Is DDoS protection included?</summary><div>Yes. Always-on DDoS mitigation is included with each EPYC KVM at no extra cost. Every attack on your addresses shows up in the DDoS tab of your panel.</div></details>
-          <details class="rv"><summary>Can I migrate my existing server to InstantNode?</summary><div>Yes - use our free <a href="/dashboard/import">Server Importer</a>. The wizard connects to your old server over SFTP and pulls your data onto your new VPS for you.</div></details>
-          <details class="rv"><summary>Which payment methods do you accept?</summary><div>We accept card payments, Apple Pay, Google Pay, Klarna, Wero, cryptocurrencies, bank transfer and your InstantNode account balance.</div></details>
+          <div class="faq">
+          <details class="rv"><summary>What is the difference to EPYC KVM?</summary><div>Both are full KVM virtual machines. Ryzen KVM runs on the AMD Ryzen 9 5950X with fewer but faster cores (up to 4.9 GHz boost), in four fixed plans. <a href="/epyc-kvm">EPYC KVM</a> runs on AMD EPYC, scales up to 32 vCPU and 64 GB RAM with a custom configurator and also offers Proxmox VE.</div></details>
+          <details class="rv"><summary>Are the cores dedicated?</summary><div>No. Ryzen KVM uses shared vCPUs on the Ryzen host. If you need cores reserved only for you, look at our <a href="/vds">VDS</a> plans.</div></details>
+          <details class="rv"><summary>Can I run Windows?</summary><div>No. Ryzen KVM is Linux only, with 13 images to choose from. For Windows, see our <a href="/windows-server">Windows Server</a> plans.</div></details>
+          <details class="rv"><summary>Can I upgrade later?</summary><div>Yes. Move to any larger Ryzen KVM plan from the panel, up to Forseti with 8 vCPU, 16 GB RAM and 160 GB NVMe. Custom sizes are not available.</div></details>
+          <details class="rv"><summary>Is DDoS protection included?</summary><div>Yes. Always-on DDoS mitigation is included with each Ryzen KVM at no extra cost. Every attack on your addresses shows up in the DDoS tab of your panel.</div></details>
         </div>
         </div>
       </section>
@@ -518,10 +557,10 @@ web: Up 4 seconds
       <!-- ===== final CTA ===== -->
       <section class="cta-final">
         <canvas class="art" data-art="wave" data-hotx="0.5" data-hoty="0.85" height="260"></canvas>
-        <h2 class="d1 rv">Ready for full control?</h2>
-        <p class="lede rv">Deploy an EPYC KVM with full root access in seconds - and only pay for what you need.</p>
-        <span class="ping-cta ping-host rv"><span class="ping " style="--pw:88px;" aria-hidden="true"><img src="/img/ping/ping-point-r.webp" width="520" height="705" alt="" loading="lazy" decoding="async" /><img src="/img/ping/ping-point-r-happy.webp" width="520" height="705" alt="" loading="lazy" decoding="async" /></span><a class="btn btn-light btn-lg" href="/dashboard">Deploy your VPS</a></span>
-        <p class="rv" style="color:var(--dim);font-size:13px">Need more capacity? Compare our <a href="/storage-server" style="color:var(--mute);border-bottom:1px solid var(--dim)">storage servers</a> and <a href="/gameservers" style="color:var(--mute);border-bottom:1px solid var(--dim)">game servers</a>.</p>
+        <h2 class="d1 rv">Ready for more clock speed?</h2>
+        <p class="lede rv">Deploy a Ryzen KVM with full root access in about 60 seconds.</p>
+        <a class="btn btn-light btn-lg rv" href="/dashboard/containers/create?type=ryzen-kvm">Deploy your Ryzen KVM</a>
+        <p class="rv" style="color:var(--dim);font-size:13px">Need more cores or Windows? Compare our <a href="/epyc-kvm" style="color:var(--mute);border-bottom:1px solid var(--dim)">EPYC KVM</a> and <a href="/windows-server" style="color:var(--mute);border-bottom:1px solid var(--dim)">Windows Server</a> plans.</p>
       </section>
       <!-- ===== footer ===== -->
       <footer class="ftr ping-host">
@@ -538,7 +577,8 @@ web: Up 4 seconds
           <div class="ftr-col">
             <h4>Products</h4>
             <a href="/gameservers">Game Servers</a>
-            <a href="/kvm">EPYC KVM</a>
+            <a href="/epyc-kvm">EPYC KVM</a>
+            <a href="/ryzen-kvm">Ryzen KVM</a>
             <a href="/lxc">LXC VPS</a>
             <a href="/vds">VDS</a>
             <a href="/windows-server">Windows Server</a>
@@ -613,7 +653,7 @@ web: Up 4 seconds
       </footer>
     </main>
 
-    <script src="/js/lunaris.js?v=xmas8" defer></script>
-    <script src="/js/inn-sales.js?v=5" defer></script>
+    <script src="/js/lunaris.js?v=xmas9" defer></script>
+    <script src="/js/inn-sales.js?v=6" defer></script>
   </body>
 </html>

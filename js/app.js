@@ -319,15 +319,15 @@
 /* ── Flash-Sale-Banner: zeigt aktive Sales mit Countdown (API: /api/v1/public/sales) ── */
 (function () {
   var LABELS = {
-    'vps': ['VPS', '/kvm'], 'vps:kvm': ['KVM VPS', '/kvm'], 'vps:vds': ['VDS', '/vds'],
+    'vps': ['VPS', '/epyc-kvm'], 'vps:kvm': ['EPYC KVM', '/epyc-kvm'], 'vps:ryzen-kvm': ['Ryzen KVM', '/ryzen-kvm'], 'vps:vds': ['VDS', '/vds'],
     'vps:windows-kvm': ['Windows VPS', '/windows-server'], 'vps:storage': ['Storage VPS', '/storage-server'],
     'bots': ['Discord Bots', '/discord-bots'], 'webspaces': ['Web Hosting', '/webspaces'],
     'gameserver': ['Game Servers', '/gameservers'], 'domains': ['Domains', '/domains']
   };
   function target(genre) {
     if (LABELS[genre]) return LABELS[genre];
-    if (genre.indexOf('vps:plan:') === 0) return [genre.slice(9) + ' plan', '/kvm'];
-    if (genre.indexOf('vps') === 0) return ['VPS', '/kvm'];
+    if (genre.indexOf('vps:plan:') === 0) return [genre.slice(9) + ' plan', '/epyc-kvm'];
+    if (genre.indexOf('vps') === 0) return ['VPS', '/epyc-kvm'];
     return [genre.charAt(0).toUpperCase() + genre.slice(1) + ' servers', '/gameservers'];
   }
   function fmt(ms) {

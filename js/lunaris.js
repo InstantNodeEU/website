@@ -556,6 +556,33 @@
       if (Math.abs(X) < 0.2 && Math.abs(Y) < 0.2) return 1;
       return ico(Math.min(0.5 - Math.abs(X), 0.5 - Math.abs(Y)), u, v);
     },
+    /* 16-core die with one core lit at full clock and speed streaks trailing it (ryzen-kvm) */
+    coreburst: function (u, v, a, c, cu) {
+      a = a || 1; c = c || 0.03; cu = cu || 0.01;
+      var X = (u - 0.5) * a, Y = v - 0.5;
+      var G = 0.205, S = 0.15, X0 = Math.max(0, Math.min(a * 0.18, a / 2 - 0.5));
+      var by = -G * 0.5, hw = G * 2 + 0.035;             /* lit core row, die half size */
+      var ex = cu * a * 1.2, ey = c * 1.2;               /* about one glyph of edge */
+      var dX = X - X0;
+      if (Math.abs(dX) < hw + ex && Math.abs(Y) < hw + ey) {
+        if (Math.abs(dX) > hw || Math.abs(Y) > hw) return 0.42;            /* die outline */
+        var i = Math.max(0, Math.min(3, Math.round(dX / G + 1.5))), j = Math.max(0, Math.min(3, Math.round(Y / G + 1.5)));
+        var ox = Math.abs(X - X0 - (i - 1.5) * G), oy = Math.abs(Y - (j - 1.5) * G);
+        if (ox > S / 2 || oy > S / 2) return 0;
+        if (i === 1 && j === 1) return 1;                                    /* the fast core */
+        return (S / 2 - ox < ex || S / 2 - oy < ey) ? 0.5 : 0.1 + 0.08 * fbm(u * 20, v * 20);
+      }
+      if (X < X0 - hw - ex * 2) {                        /* streaks on the lit core's rows */
+        var t = clamp01(1 - (X0 - hw - X) / (a * 0.5 + 0.2));
+        for (var k = -2; k <= 2; k++) {
+          if (Math.abs(Y - (by + k * c * 1.6)) < c * 0.5) {
+            var dash = Math.sin(X * (26 + k * 5) + k * 1.7) > -0.2 ? 1 : 0;
+            return dash * t * (k === 0 ? 0.95 : 0.55);
+          }
+        }
+      }
+      return 0;
+    },
     /* three stacked containers with ribs (lxc) */
     crates: function (u, v, a) {
       a = a || 1;

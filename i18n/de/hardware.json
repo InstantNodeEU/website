@@ -92,5 +92,20 @@
  "Enterprise compute · 2 nodes": "Enterprise-Compute · 2 Nodes",
  "Game server nodes · 2 nodes": "Gameserver-Nodes · 2 Nodes",
  "16 cores · 128 GB each": "je 16 Kerne · 128 GB",
- "High-frequency cores dedicated to lag-free game server hosting. Game servers love single-thread speed, so these 16 Zen 3 cores run nothing else - your tick rate stays stable even at peak hours. We run two of these nodes, and new game servers are placed on whichever has the most headroom.": "Hochgetaktete Kerne nur für lagfreies Gameserver-Hosting. Gameserver lieben Single-Thread-Geschwindigkeit, deshalb laufen auf diesen 16 Zen-3-Kernen keine anderen Dienste - deine Tickrate bleibt auch zu Stoßzeiten stabil. Wir betreiben zwei dieser Nodes, neue Gameserver landen auf dem mit der meisten Reserve."
+ "High-frequency cores dedicated to lag-free game server hosting. Game servers love single-thread speed, so these 16 Zen 3 cores run nothing else - your tick rate stays stable even at peak hours. We run two of these nodes, and new game servers are placed on whichever has the most headroom.": "Hochgetaktete Kerne nur für lagfreies Gameserver-Hosting. Gameserver lieben Single-Thread-Geschwindigkeit, deshalb laufen auf diesen 16 Zen-3-Kernen keine anderen Dienste - deine Tickrate bleibt auch zu Stoßzeiten stabil. Wir betreiben zwei dieser Nodes, neue Gameserver landen auf dem mit der meisten Reserve.",
+ "The hardware behind InstantNode: AMD EPYC 7763 and 7713 nodes with 64 cores, 128 threads and 1 TB ECC RAM each, plus Ryzen 9 5950X nodes with 128 GB for game servers and Ryzen KVM.": "Die Hardware hinter InstantNode: AMD EPYC 7763- und 7713-Nodes mit je 64 Kernen, 128 Threads und 1 TB ECC-RAM, plus Ryzen 9 5950X-Nodes mit 128 GB für Gameserver und Ryzen KVM.",
+ "We run three node types: AMD EPYC 7763 and EPYC 7713 with 1 TB of ECC memory each for servers and hosting, and high-frequency Ryzen 9 5950X for game servers and Ryzen KVM.": "Wir betreiben drei Node-Typen: AMD EPYC 7763 und EPYC 7713 mit je 1 TB ECC-Speicher für Server und Hosting sowie hochgetaktete Ryzen 9 5950X für Gameserver und Ryzen KVM.",
+ "AMD Ryzen 9 5950X (Ryzen KVM)": "AMD Ryzen 9 5950X (Ryzen KVM)",
+ "Ryzen KVM node": "Ryzen-KVM-Node",
+ "Game server node": "Gameserver-Node",
+ "Game servers · 16 cores · 128 GB": "Gameserver · 16 Kerne · 128 GB",
+ "Ryzen KVM · 16 cores · 128 GB": "Ryzen KVM · 16 Kerne · 128 GB",
+ "Ryzen 9 5950X (game servers)": "Ryzen 9 5950X (Gameserver)",
+ "Ryzen 9 5950X (Ryzen KVM)": "Ryzen 9 5950X (Ryzen KVM)",
+ "The node behind Ryzen KVM. 16 Zen 3 cores with up to 4.9 GHz boost, shared only between Ryzen KVM servers, on NVMe storage with a 10 GbE uplink.": "Der Node hinter <a href=\"/ryzen-kvm\">Ryzen KVM</a>. 16 Zen-3-Kerne mit bis zu 4,9 GHz Boost, nur zwischen Ryzen-KVM-Servern geteilt, auf NVMe-Speicher mit 10-GbE-Anbindung.",
+ "16 cores / 32 threads (Zen 3), up to 4.9 GHz": "16 Kerne / 32 Threads (Zen 3), bis zu 4,9 GHz",
+ "2x 1 TB Samsung 990 PRO NVMe": "2x 1 TB Samsung 990 PRO NVMe",
+ "System disks": "Systemplatten",
+ "2x 250 GB SATA SSD": "2x 250 GB SATA-SSD",
+ "Hypervisor": "Hypervisor"
 }
