@@ -72,7 +72,7 @@
  "Web apps & APIs": "Web-Apps & APIs",
  "Host Node.js, Python, PHP or Go services with full control over the stack - NVMe keeps response times low.": "Hoste Node.js-, Python-, PHP- oder Go-Dienste mit voller Kontrolle über den Stack - NVMe hält die Antwortzeiten niedrig.",
  "Game backends": "Game-Backends",
- "Run matchmaking, game APIs or community services on dedicated vCPU cores with DDoS protection in front.": "Betreibe Matchmaking, Game-APIs oder Community-Dienste auf dedizierten vCPU-Kernen mit vorgeschaltetem DDoS-Schutz.",
+ "Run matchmaking, game APIs or community services with DDoS protection in front.": "Betreibe Matchmaking, Game-APIs oder Community-Dienste mit vorgeschaltetem DDoS-Schutz.",
  "Keep your bots online 24/7 with root access for any library, runtime or database they need.": "Halte deine Bots 24/7 online - mit Root-Zugriff für jede Bibliothek, Runtime oder Datenbank, die sie brauchen.",
  "Dev & staging": "Dev & Staging",
  "Spin up a clean environment in seconds, test your deployment, then resize or reinstall whenever you like.": "Starte in Sekunden eine saubere Umgebung, teste dein Deployment und skaliere oder installiere neu, wann immer du willst.",

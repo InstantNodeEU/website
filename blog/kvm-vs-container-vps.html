@@ -2,21 +2,21 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=33" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=34" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>KVM vs Container VPS: What&#39;s the Difference?</title>
-    <meta content="KVM and container VPS compared: kernel isolation, dedicated resources, custom kernels and Docker support, plus how to choose the right one for your project." name="description" />
+    <meta content="KVM and container VPS compared: kernel isolation, resource allocation, custom kernels and Docker support, plus how to choose the right one for your project." name="description" />
     <link href="https://instantnode.eu/blog/kvm-vs-container-vps" rel="canonical" />
     <meta content="article" property="og:type" />
     <meta content="https://instantnode.eu/blog/kvm-vs-container-vps" property="og:url" />
     <meta content="KVM vs Container VPS: What&#39;s the Difference?" property="og:title" />
-    <meta content="KVM and container VPS compared: kernel isolation, dedicated resources, custom kernels and Docker support, plus how to choose the right one for your project." property="og:description" />
+    <meta content="KVM and container VPS compared: kernel isolation, resource allocation, custom kernels and Docker support, plus how to choose the right one for your project." property="og:description" />
     <meta content="https://instantnode.eu/blog/og/kvm-vs-container-vps.jpg" property="og:image" />
     <meta content="summary_large_image" property="twitter:card" />
     <meta content="https://instantnode.eu/blog/kvm-vs-container-vps" property="twitter:url" />
     <meta content="KVM vs Container VPS: What&#39;s the Difference?" property="twitter:title" />
-    <meta content="KVM and container VPS compared: kernel isolation, dedicated resources, custom kernels and Docker support, plus how to choose the right one for your project." property="twitter:description" />
+    <meta content="KVM and container VPS compared: kernel isolation, resource allocation, custom kernels and Docker support, plus how to choose the right one for your project." property="twitter:description" />
     <meta content="https://instantnode.eu/blog/og/kvm-vs-container-vps.jpg" property="twitter:image" />
     <meta content="#060606" name="theme-color" />
     <meta name="darkreader-lock" />
@@ -25,7 +25,7 @@
     <link as="font" href="/fonts/Satoshi.woff" rel="preload" type="font/woff2" crossorigin />
     <link href="/css/fonts.css" rel="stylesheet" />
     <link href="/css/lunaris.css?v=xmas1" rel="stylesheet" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://instantnode.eu/blog/kvm-vs-container-vps"}, "headline": "KVM vs Container VPS: What's the Difference?", "description": "KVM and container VPS compared: kernel isolation, dedicated resources, custom kernels and Docker support, plus how to choose the right one for your project.", "image": "https://instantnode.eu/meta-banner.webp?v=5", "author": {"@type": "Organization", "name": "InstantNode", "url": "https://instantnode.eu/"}, "publisher": {"@type": "Organization", "name": "InstantNode", "logo": {"@type": "ImageObject", "url": "https://instantnode.eu/logos/light_logo.png"}}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://instantnode.eu/blog/kvm-vs-container-vps"}, "headline": "KVM vs Container VPS: What's the Difference?", "description": "KVM and container VPS compared: kernel isolation, resource allocation, custom kernels and Docker support, plus how to choose the right one for your project.", "image": "https://instantnode.eu/meta-banner.webp?v=5", "author": {"@type": "Organization", "name": "InstantNode", "url": "https://instantnode.eu/"}, "publisher": {"@type": "Organization", "name": "InstantNode", "logo": {"@type": "ImageObject", "url": "https://instantnode.eu/logos/light_logo.png"}}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://instantnode.eu/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://instantnode.eu/blog"}, {"@type": "ListItem", "position": 3, "name": "KVM vs Container VPS: What's the Difference?", "item": "https://instantnode.eu/blog/kvm-vs-container-vps"}]}</script>
     <link rel="discord:component-embed" type="application/json" href="https://instantnode.eu/discord-embed.json">
 </head>
@@ -234,7 +234,7 @@
 <tr><td>Kernel modules (WireGuard, etc.)</td><td>Only if the host loaded them</td><td>Load whatever you need</td></tr>
 <tr><td>Docker &amp; nested containers</td><td>Often restricted or fragile</td><td>Works natively</td></tr>
 <tr><td>OS choice</td><td>Host-provided Linux templates</td><td>Any Linux - or <a href="/windows-server">Windows</a></td></tr>
-<tr><td>Resources</td><td>Kernel-enforced limits; behaviour under host pressure varies</td><td>Hard allocations from the hypervisor</td></tr>
+<tr><td>Resources</td><td>Kernel-enforced limits; behaviour under host pressure varies</td><td>Set per VM by the hypervisor</td></tr>
 <tr><td>Swap &amp; filesystems</td><td>Usually host-controlled</td><td>Your call: swap, ZFS, LUKS encryption…</td></tr>
 <tr><td>Overhead</td><td>Near zero</td><td>Small (virtio)</td></tr>
 </table></div>
@@ -251,11 +251,11 @@
 <p>Honesty over marketing: containers are not a scam. If you're hosting a small static site, a dev sandbox, or a single well-behaved app on a tight budget - and you'll never need Docker, custom kernels or a VPN endpoint - a container VPS from a reputable provider will serve you fine, often for less money. The problem isn't the technology; it's discovering its limits six months in, when moving means a migration.</p>
 
 <h2>KVM and LXC at InstantNode</h2>
-<p>We offer both, so you can match the technology to the workload. Our <a href="/epyc-kvm">EPYC KVM</a> is a full virtual machine with its own kernel and hard resource allocations on <a href="/hardware">AMD EPYC hardware</a> with NVMe storage - maximum isolation, run Docker, Kubernetes, a custom kernel or nested virtualization, and behave like a machine you own. Our <a href="/lxc">LXC VPS</a> is the lightweight, cheaper option: an unprivileged Linux container that shares the host kernel, boots in seconds and starts from €1.50/mo - ideal when you want a fast, efficient Linux box for a standard workload and don't need your own kernel. Both run on the same AMD EPYC hardware with NVMe storage in the EU. The rule of thumb: pick KVM when you need full kernel-level control and the hardest isolation, and pick LXC when you want the best value for a normal Linux server.</p>
+<p>We offer both, so you can match the technology to the workload. Our <a href="/epyc-kvm">EPYC KVM</a> is a full virtual machine with its own kernel and shared vCPUs on <a href="/hardware">AMD EPYC hardware</a> with NVMe storage - maximum isolation, run Docker, Kubernetes, a custom kernel or nested virtualization, and behave like a machine you own. Need dedicated, pinned cores instead? That is our <a href="/vds">VDS</a>. Our <a href="/lxc">LXC VPS</a> is the lightweight, cheaper option: an unprivileged Linux container that shares the host kernel, boots in seconds and starts from €1.50/mo - ideal when you want a fast, efficient Linux box for a standard workload and don't need your own kernel. Both run on the same AMD EPYC hardware with NVMe storage in the EU. The rule of thumb: pick KVM when you need full kernel-level control and the hardest isolation, and pick LXC when you want the best value for a normal Linux server.</p>
 <p>If you're currently on a container VPS and hitting its walls, our <a href="/dashboard/import">Server Importer</a> can pull your files over SFTP onto a fresh EPYC KVM with a matching OS - the rare kind of migration that removes limitations instead of adding new ones.</p>
 
 <h2>The bottom line</h2>
-<p>Ask one question: will this project ever need its own kernel, Docker, or guaranteed resources? If the answer is "maybe", the container discount is buying you a future migration. If it's a firm "no", save the money. And if you'd rather not gamble on your own roadmap - that's exactly what KVM is for.</p>
+<p>Ask one question: will this project ever need its own kernel, Docker, or kernel modules like WireGuard? If the answer is "maybe", the container discount is buying you a future migration. If it's a firm "no", save the money. And if you'd rather not gamble on your own roadmap - that's exactly what KVM is for.</p>
         <hr />
         <h2>Get a real virtual machine</h2>
         <p>Full root access, your own kernel, NVMe storage - an EPYC KVM deployed in about 60 seconds.</p>
