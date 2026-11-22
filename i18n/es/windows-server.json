@@ -51,7 +51,7 @@
  "Schedulers, bots and background jobs keep working even when your own machine is off.": "Programadores, bots y tareas en segundo plano siguen funcionando aunque tu equipo esté apagado.",
  "Windows Server specifications": "Especificaciones del Windows Server",
  "Windows on the same platformas our Linux EPYC KVM": "Windows en la misma plataforma<br>que nuestro EPYC KVM Linux",
- "4 - 32 dedicated cores · AMD EPYC 7763": "4 - 32 núcleos dedicados · AMD EPYC 7763",
+ "4 - 32 dedicated cores · AMD EPYC Milan": "4 - 32 núcleos dedicados · AMD EPYC Milan",
  "8 - 64 GB DDR4 ECC": "8 - 64 GB DDR4 ECC",
  "Operating system": "Sistema operativo",
  "Windows Server 2022 or 2025 - evaluation edition, pre-installed. License not included.": "Windows Server 2022 o 2025 - edición de evaluación, preinstalada. Licencia no incluida.",

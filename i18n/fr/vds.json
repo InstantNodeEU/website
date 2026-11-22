@@ -1,6 +1,6 @@
 {
  "Dedicated cores,zero neighbors.": "Des cœurs dédiés,<br>zéro voisin.",
- "Physical EPYC cores pinned to your VM - consistent performance at 3 a.m. and at peak hour. Pinned AMD EPYC 7763 cores, NVMe SSD and free DDoS protection.": "Des cœurs EPYC physiques attribués à votre VM - des performances constantes à 3 h du matin comme aux heures de pointe. Cœurs AMD EPYC 7763 épinglés, SSD NVMe et protection anti-DDoS gratuite.",
+ "Physical EPYC cores pinned to your VM - consistent performance at 3 a.m. and at peak hour. Pinned AMD EPYC Milan cores, NVMe SSD and free DDoS protection.": "Des cœurs EPYC physiques attribués à votre VM - des performances constantes à 3 h du matin comme aux heures de pointe. Cœurs AMD EPYC Milan épinglés, SSD NVMe et protection anti-DDoS gratuite.",
  "Pinned CPU cores": "Cœurs CPU épinglés",
  "Pick your VDS plan": "Choisissez votre offre VDS",
  "Eight fixed plans withdedicated, pinned cores": "Huit offres fixes avec<br>des cœurs dédiés et épinglés",

@@ -69,7 +69,7 @@
  "It is a real EPYC KVM: SSH in, add tools, run anything else next to OpenClaw.": "Es ist ein echter EPYC KVM: per SSH rein, Tools hinzufügen, alles andere neben OpenClaw betreiben.",
  "OpenClaw KVM specifications": "OpenClaw KVM Spezifikationen",
  "The same enterprise platform,with OpenClaw on top": "Dieselbe Enterprise-Plattform,<br>mit OpenClaw obendrauf",
- "KVM - full hardware virtualization on AMD EPYC 7763": "KVM - vollständige Hardware-Virtualisierung auf AMD EPYC 7763",
+ "KVM - full hardware virtualization on AMD EPYC Milan": "KVM - vollständige Hardware-Virtualisierung auf AMD EPYC Milan",
  "2 - 24 dedicated cores": "2 - 24 dedizierte Kerne",
  "Node.js 22, OpenClaw gateway as a systemd service, nginx reverse proxy": "Node.js 22, OpenClaw-Gateway als systemd-Dienst, nginx Reverse-Proxy",
  "Bound to localhost (port 18789), reachable only through nginx": "An localhost gebunden (Port 18789), nur über nginx erreichbar",

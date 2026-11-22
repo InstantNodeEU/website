@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=32" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=33" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Windows VPS / RDP Server Hosting | InstantNode</title>
@@ -33,7 +33,7 @@
       "@type": "Product",
       "@id": "https://instantnode.eu/windows-server#product",
       "name": "Windows VPS / RDP Server",
-      "description": "Windows VPS with full RDP access. Windows Server 2022 or 2025 evaluation edition pre-installed on AMD EPYC 7763 NVMe hardware, configurable up to 32 vCPU and 64 GB RAM, with free DDoS protection.",
+      "description": "Windows VPS with full RDP access. Windows Server 2022 or 2025 evaluation edition pre-installed on AMD EPYC Milan NVMe hardware, configurable up to 32 vCPU and 64 GB RAM, with free DDoS protection.",
       "image": "https://instantnode.eu/illustrations/windows-server.webp",
       "url": "https://instantnode.eu/windows-server",
       "brand": {
@@ -383,8 +383,8 @@
             <div class="pp-term ping-host rv" style="--above:82px" data-no-i18n aria-hidden="true">
               <span class="ping ping--ledge ping--peek" style="--pw:112px;right:26px" aria-hidden="true"><img src="/img/ping/ping-peek.webp" width="520" height="393" alt="" loading="lazy" decoding="async" /><img src="/img/ping/ping-peek-happy.webp" width="520" height="393" alt="" loading="lazy" decoding="async" /></span>
               <div class="pp-term-bar">Administrator: Windows PowerShell</div>
-              <pre><span class="p">PS C:\Users\Administrator&gt;</span> (Get-CimInstance Win32_Processor).Name
-AMD EPYC 7763 64-Core Processor
+              <pre><span class="p">PS C:\Users\Administrator&gt;</span> (Get-CimInstance Win32_Processor).Manufacturer
+AuthenticAMD
 <span class="p">PS C:\Users\Administrator&gt;</span> (Install-WindowsFeature Web-Server).Success
 True
 <span class="p">PS C:\Users\Administrator&gt;</span> Get-Service W3SVC | Select Status
@@ -471,7 +471,7 @@ Running
         </div>
         <div class="pp-wrap pp-spec">
           <dl class="rv">
-            <div><dt>vCPU</dt><dd>4 - 32 dedicated cores &middot; AMD EPYC 7763</dd></div>
+            <div><dt>vCPU</dt><dd>4 - 32 dedicated cores &middot; AMD EPYC Milan</dd></div>
             <div><dt>RAM</dt><dd>8 - 64 GB DDR4 ECC</dd></div>
             <div><dt>Storage</dt><dd>40 - 1,000 GB NVMe SSD</dd></div>
             <div><dt>Virtualization</dt><dd>KVM - full hardware virtualization</dd></div>

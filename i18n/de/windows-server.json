@@ -51,7 +51,7 @@
  "Schedulers, bots and background jobs keep working even when your own machine is off.": "Scheduler, Bots und Hintergrundjobs laufen weiter, auch wenn dein eigener Rechner aus ist.",
  "Windows Server specifications": "Windows Server Spezifikationen",
  "Windows on the same platformas our Linux EPYC KVM": "Windows auf derselben Plattform<br>wie unser Linux EPYC KVM",
- "4 - 32 dedicated cores · AMD EPYC 7763": "4 - 32 dedizierte Kerne · AMD EPYC 7763",
+ "4 - 32 dedicated cores · AMD EPYC Milan": "4 - 32 dedizierte Kerne · AMD EPYC Milan",
  "8 - 64 GB DDR4 ECC": "8 - 64 GB DDR4 ECC",
  "Operating system": "Betriebssystem",
  "Windows Server 2022 or 2025 - evaluation edition, pre-installed. License not included.": "Windows Server 2022 oder 2025 - Evaluierungsversion, vorinstalliert. Lizenz nicht enthalten.",

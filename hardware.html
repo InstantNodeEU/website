@@ -2,20 +2,20 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=32" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=33" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Our Hardware - AMD EPYC &amp; Ryzen | InstantNode</title>
-    <meta content="The hardware behind InstantNode: AMD EPYC 7763 and 7713 nodes with 64 cores, 128 threads and 1 TB ECC RAM each, plus Ryzen 9 5950X nodes with 128 GB for game servers and Ryzen KVM." name="description" />
+    <meta content="The hardware behind InstantNode: AMD EPYC Milan nodes with 64 cores, 128 threads and 1 TB ECC RAM each, plus Ryzen 9 5950X nodes with 128 GB for game servers and Ryzen KVM." name="description" />
     <link href="https://instantnode.eu/hardware" rel="canonical" />
     <meta content="website" property="og:type" />
     <meta content="https://instantnode.eu/hardware" property="og:url" />
     <meta content="Our Hardware - AMD EPYC &amp; Ryzen | InstantNode" property="og:title" />
-    <meta content="The hardware behind InstantNode: AMD EPYC 7763 and 7713 nodes with 64 cores, 128 threads and 1 TB ECC RAM each, plus Ryzen 9 5950X nodes with 128 GB for game servers and Ryzen KVM." property="og:description" />
+    <meta content="The hardware behind InstantNode: AMD EPYC Milan nodes with 64 cores, 128 threads and 1 TB ECC RAM each, plus Ryzen 9 5950X nodes with 128 GB for game servers and Ryzen KVM." property="og:description" />
     <meta content="https://instantnode.eu/meta-banner.webp?v=5" property="og:image" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="Our Hardware - AMD EPYC &amp; Ryzen | InstantNode" name="twitter:title" />
-    <meta content="The hardware behind InstantNode: AMD EPYC 7763 and 7713 nodes with 64 cores, 128 threads and 1 TB ECC RAM each, plus Ryzen 9 5950X nodes with 128 GB for game servers and Ryzen KVM." name="twitter:description" />
+    <meta content="The hardware behind InstantNode: AMD EPYC Milan nodes with 64 cores, 128 threads and 1 TB ECC RAM each, plus Ryzen 9 5950X nodes with 128 GB for game servers and Ryzen KVM." name="twitter:description" />
     <meta content="https://instantnode.eu/meta-banner.webp?v=5" name="twitter:image" />
     <meta content="#060606" name="theme-color" />
     <meta name="darkreader-lock" />
@@ -225,10 +225,10 @@
       <section class="hero">
         <span class="badge rv">Our Hardware</span>
         <h1 class="d1 rv">Built on hardware<br />that performs</h1>
-        <p class="lede rv">We run three node types: AMD EPYC 7763 and EPYC 7713 with 1 TB of ECC memory each for servers and hosting, and high-frequency Ryzen 9 5950X for game servers and Ryzen KVM.</p>
+        <p class="lede rv">We run two CPU families: AMD EPYC Milan with 1 TB of ECC memory per node for servers and hosting, and high-frequency Ryzen 9 5950X for game servers and Ryzen KVM.</p>
         <div class="hero-actions rv">
           <a class="btn btn-light btn-lg" href="/dashboard">Create server</a>
-          <a class="btn btn-ghost btn-lg" href="#rack">See the nodes</a>
+          <a class="btn btn-ghost btn-lg" href="#nodes">See the nodes</a>
         </div>
         <div class="pill-row rv">
           <span class="chip"><i class="fa-solid fa-location-pin"></i>Skylink NL</span>
@@ -238,88 +238,15 @@
         </div>
       </section>
 
-      <!-- ===== rack ===== -->
-      <section class="sec" id="rack">
-        <div class="pp-wrap hw-rackwrap">
-          <div class="hw-rack ping-host rv" style="--above:145px" role="img" aria-label="Rack elevation: three AMD EPYC nodes and two AMD Ryzen 9 5950X nodes">
-            <span class="ping ping--ledge ping--sit" style="--pw:96px;left:36%" aria-hidden="true"><img src="/img/ping/ping-sit.webp" width="520" height="959" alt="" loading="lazy" decoding="async" /><img src="/img/ping/ping-sit-happy.webp" width="520" height="959" alt="" loading="lazy" decoding="async" /></span>
-            <div class="hw-rack__top"><span>InstantNode · Skylink NL</span><span class="hw-rack__live"><i></i> online</span></div>
-            <a class="hw-unit hw-u2" href="#node-epyc7763" aria-label="AMD EPYC 7763">
-              <span class="hw-unit__ear"></span>
-              <span class="hw-unit__label"><b>EPYC 7763</b><small>Enterprise compute</small></span>
-              <span class="hw-unit__bays"><i style="--d:0.00s"></i><i style="--d:0.37s"></i><i style="--d:0.74s"></i><i style="--d:1.11s"></i><i style="--d:1.48s"></i><i style="--d:1.85s"></i><i style="--d:0.02s"></i><i style="--d:0.39s"></i><i style="--d:0.76s"></i><i style="--d:1.13s"></i></span>
-              <span class="hw-unit__vent"></span>
-              <span class="hw-unit__pwr"></span>
-              <span class="hw-unit__ear"></span>
-            </a>
-            <a class="hw-unit hw-u2" href="#node-epyc7713" aria-label="AMD EPYC 7713">
-              <span class="hw-unit__ear"></span>
-              <span class="hw-unit__label"><b>EPYC 7713</b><small>Enterprise compute</small></span>
-              <span class="hw-unit__bays"><i style="--d:0.90s"></i><i style="--d:1.27s"></i><i style="--d:1.64s"></i><i style="--d:2.01s"></i><i style="--d:0.18s"></i><i style="--d:0.55s"></i><i style="--d:0.92s"></i><i style="--d:1.29s"></i><i style="--d:1.66s"></i><i style="--d:2.03s"></i></span>
-              <span class="hw-unit__vent"></span>
-              <span class="hw-unit__pwr"></span>
-              <span class="hw-unit__ear"></span>
-            </a>
-            <a class="hw-unit hw-u2" href="#node-epyc7713" aria-label="AMD EPYC 7713">
-              <span class="hw-unit__ear"></span>
-              <span class="hw-unit__label"><b>EPYC 7713</b><small>Enterprise compute</small></span>
-              <span class="hw-unit__bays"><i style="--d:1.90s"></i><i style="--d:1.27s"></i><i style="--d:1.64s"></i><i style="--d:2.01s"></i><i style="--d:1.18s"></i><i style="--d:1.55s"></i><i style="--d:0.92s"></i><i style="--d:1.29s"></i><i style="--d:1.66s"></i><i style="--d:2.03s"></i></span>
-              <span class="hw-unit__vent"></span>
-              <span class="hw-unit__pwr"></span>
-              <span class="hw-unit__ear"></span>
-            </a>
-            <a class="hw-unit hw-u1" href="#node-ryzen5950x" aria-label="AMD Ryzen 9 5950X">
-              <span class="hw-unit__ear"></span>
-              <span class="hw-unit__label"><b>Ryzen 9 5950X</b><small>Game server node GS-01</small></span>
-              <span class="hw-unit__bays"><i style="--d:1.80s"></i><i style="--d:2.17s"></i><i style="--d:0.34s"></i><i style="--d:0.71s"></i></span>
-              <span class="hw-unit__vent"></span>
-              <span class="hw-unit__pwr"></span>
-              <span class="hw-unit__ear"></span>
-            </a>
-            <a class="hw-unit hw-u1" href="#node-ryzen5950x-2" aria-label="AMD Ryzen 9 5950X (Ryzen KVM)">
-              <span class="hw-unit__ear"></span>
-              <span class="hw-unit__label"><b>Ryzen 9 5950X</b><small>Ryzen KVM node</small></span>
-              <span class="hw-unit__bays"><i style="--d:0.52s"></i><i style="--d:0.89s"></i><i style="--d:1.26s"></i><i style="--d:1.63s"></i></span>
-              <span class="hw-unit__vent"></span>
-              <span class="hw-unit__pwr"></span>
-              <span class="hw-unit__ear"></span>
-            </a>
-          </div>
-          <div class="hw-rackcopy">
-            <div class="pp-head">
-              <span class="badge rv">The rack</span>
-              <h2 class="d2 rv">Three node types,<br />one standard of quality</h2>
-              <p class="lede rv">Every server we sell runs on one of these machines. No mystery hardware, no oversold cloud slices.</p>
-            </div>
-            <div class="hw-legend">
-            <a class="hw-leg rv" href="#node-epyc7763"><span class="hw-leg__u">1×</span><span><b>AMD EPYC 7763</b><small>64 cores · 1 TB ECC</small></span><i class="fa-solid fa-arrow-right"></i></a>
-            <a class="hw-leg rv" href="#node-epyc7713"><span class="hw-leg__u">2×</span><span><b>AMD EPYC 7713</b><small>64 cores · 1 TB ECC each</small></span><i class="fa-solid fa-arrow-right"></i></a>
-            <a class="hw-leg rv" href="#node-ryzen5950x"><span class="hw-leg__u">1×</span><span><b>AMD Ryzen 9 5950X</b><small>Game servers · 16 cores · 128 GB</small></span><i class="fa-solid fa-arrow-right"></i></a>
-            <a class="hw-leg rv" href="#node-ryzen5950x-2"><span class="hw-leg__u">1×</span><span><b>AMD Ryzen 9 5950X</b><small>Ryzen KVM · 16 cores · 128 GB</small></span><i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== totals ===== -->
-      <section class="sec sec-flush" style="padding-bottom:clamp(40px,6vw,80px)">
-        <div class="ib-nums hw-nums">
-          <div class="rv"><b>224</b><span>Zen 3 cores</span></div>
-          <div class="rv"><b>448</b><span>threads</span></div>
-          <div class="rv"><b>3.25 TB</b><span>memory</span></div>
-          <div class="rv"><b>5</b><span>nodes</span></div>
-        </div>
-      </section>
-
-      <!-- ===== node explorer ===== -->
+      <!-- ===== node types (per node, no counts) ===== -->
       <section class="sec" id="nodes">
         <div class="sec-head">
-          <span class="badge rv">Node by node</span>
-          <h2 class="d2 rv">Look inside each node</h2>
-          <p class="lede rv">Every square below is one physical core.</p>
+          <span class="badge rv">Node types</span>
+          <h2 class="d2 rv">Two CPU families,<br />one standard of quality</h2>
+          <p class="lede rv">Our servers run on these two node types. Every square below is one physical core.</p>
         </div>
         <div class="pp-wrap hw-explorer rv">
-          <div class="hw-tabs"><input type="radio" name="hwnode" id="t-epyc7763" checked><label for="t-epyc7763">AMD EPYC 7763</label><input type="radio" name="hwnode" id="t-epyc7713"><label for="t-epyc7713">AMD EPYC 7713</label><input type="radio" name="hwnode" id="t-ryzen5950x"><label for="t-ryzen5950x">Ryzen 9 5950X (game servers)</label><input type="radio" name="hwnode" id="t-ryzen5950x-2"><label for="t-ryzen5950x-2">Ryzen 9 5950X (Ryzen KVM)</label></div>
+          <div class="hw-tabs"><input type="radio" name="hwnode" id="t-epyc7763" checked><label for="t-epyc7763">AMD EPYC Milan</label><input type="radio" name="hwnode" id="t-ryzen5950x"><label for="t-ryzen5950x">AMD Ryzen 9 5950X</label></div>
           <div class="hw-panels">
           <div class="hw-panel" id="node-epyc7763">
             <div class="hw-die hw-die--64" aria-hidden="true">
@@ -328,21 +255,9 @@
             </div>
             <div class="hw-panel__copy">
               <span class="k">Enterprise compute</span>
-              <h3 class="d3">AMD EPYC 7763</h3>
+              <h3 class="d3">AMD EPYC Milan</h3>
               <p class="lede">Powers our EPYC KVM &amp; Windows VPS, web hosting, dedicated and bot services. 64 Zen 3 cores and 128 threads of enterprise-grade compute, paired with error-correcting ECC memory so a flipped bit never becomes your problem.</p>
-              <dl class="hw-spec"><div><dt>Processor</dt><dd>AMD EPYC 7763</dd></div><div><dt>Cores</dt><dd>64 cores / 128 threads (Zen 3)</dd></div><div><dt>Memory</dt><dd>1 TB DDR4 ECC (1024 GB)</dd></div></dl>
-            </div>
-          </div>
-          <div class="hw-panel" id="node-epyc7713">
-            <div class="hw-die hw-die--64" aria-hidden="true">
-              <div class="hw-die__cores"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-              <span class="hw-die__tag">64 cores · 128 threads</span>
-            </div>
-            <div class="hw-panel__copy">
-              <span class="k">Enterprise compute</span>
-              <h3 class="d3">AMD EPYC 7713</h3>
-              <p class="lede">Two of our nodes run this CPU: the same 64 Zen 3 cores and 128 threads as the 7763, each with a full terabyte of ECC memory.</p>
-              <dl class="hw-spec"><div><dt>Processor</dt><dd>AMD EPYC 7713</dd></div><div><dt>Cores</dt><dd>64 cores / 128 threads (Zen 3)</dd></div><div><dt>Memory</dt><dd>1 TB DDR4 ECC (1024 GB)</dd></div></dl>
+              <dl class="hw-spec"><div><dt>Processor</dt><dd>AMD EPYC Milan (Zen 3)</dd></div><div><dt>Cores</dt><dd>64 cores / 128 threads</dd></div><div><dt>Boost clock</dt><dd>Up to 3.5 GHz</dd></div><div><dt>Memory</dt><dd>1 TB DDR4 ECC (1024 GB)</dd></div><div><dt>Storage</dt><dd>NVMe SSD</dd></div><div><dt>Network</dt><dd>10 GbE</dd></div></dl>
             </div>
           </div>
           <div class="hw-panel" id="node-ryzen5950x">
@@ -351,53 +266,31 @@
               <span class="hw-die__tag">16 cores · 32 threads</span>
             </div>
             <div class="hw-panel__copy">
-              <span class="k">Game server node</span>
+              <span class="k">Game servers and Ryzen KVM</span>
               <h3 class="d3">AMD Ryzen 9 5950X</h3>
-              <p class="lede">High-frequency cores dedicated to lag-free game server hosting. Game servers love single-thread speed, so these 16 Zen 3 cores run nothing else - your tick rate stays stable even at peak hours.</p>
-              <dl class="hw-spec"><div><dt>Processor</dt><dd>AMD Ryzen 9 5950X</dd></div><div><dt>Cores</dt><dd>16 cores / 32 threads (Zen 3)</dd></div><div><dt>Memory</dt><dd>128 GB DDR4</dd></div></dl>
-            </div>
-          </div>
-          <div class="hw-panel" id="node-ryzen5950x-2">
-            <div class="hw-die hw-die--16" aria-hidden="true">
-              <div class="hw-die__cores"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-              <span class="hw-die__tag">16 cores · 32 threads</span>
-            </div>
-            <div class="hw-panel__copy">
-              <span class="k">Ryzen KVM node</span>
-              <h3 class="d3">AMD Ryzen 9 5950X</h3>
-              <p class="lede">The node behind <a href="/ryzen-kvm">Ryzen KVM</a>. 16 Zen 3 cores with up to 4.9 GHz boost, shared only between Ryzen KVM servers, on NVMe storage with a 10 GbE uplink.</p>
-              <dl class="hw-spec"><div><dt>Processor</dt><dd>AMD Ryzen 9 5950X</dd></div><div><dt>Cores</dt><dd>16 cores / 32 threads (Zen 3), up to 4.9 GHz</dd></div><div><dt>Memory</dt><dd>128 GB DDR4</dd></div><div><dt>Storage</dt><dd>2x 1 TB Samsung 990 PRO NVMe</dd></div><div><dt>System disks</dt><dd>2x 250 GB SATA SSD</dd></div><div><dt>Network</dt><dd>10 GbE</dd></div><div><dt>Hypervisor</dt><dd>Proxmox VE 9.2</dd></div></dl>
+              <p class="lede">High-frequency Zen 3 cores for workloads that live on single-thread speed. Our game servers and <a href="/ryzen-kvm">Ryzen KVM</a> run on this node type.</p>
+              <dl class="hw-spec"><div><dt>Processor</dt><dd>AMD Ryzen 9 5950X (Zen 3)</dd></div><div><dt>Cores</dt><dd>16 cores / 32 threads</dd></div><div><dt>Boost clock</dt><dd>Up to 4.9 GHz</dd></div><div><dt>Memory</dt><dd>128 GB DDR4</dd></div><div><dt>Storage</dt><dd>NVMe SSD</dd></div><div><dt>Network</dt><dd>10 GbE</dd></div></dl>
             </div>
           </div>
           </div>
         </div>
       </section>
 
-      <!-- ===== node comparison ===== -->
+      <!-- ===== node comparison (per node) ===== -->
       <section class="sec sec-flush">
         <div class="sec-head" style="padding: clamp(40px,6vw,80px) var(--pad) 0">
           <span class="badge rv">Side by side</span>
-          <h2 class="d2 rv">Three node types, one standard of quality</h2>
+          <h2 class="d2 rv">Per node, side by side</h2>
         </div>
         <div class="pp-wrap hw-cmp">
           <div class="hw-cmp__row hw-cmp__head"><div></div><div>Cores</div><div>Memory</div></div>
             <div class="hw-cmp__row rv">
-              <div class="hw-cmp__name"><b>AMD EPYC 7763</b><small>Enterprise compute</small></div>
+              <div class="hw-cmp__name"><b>AMD EPYC Milan</b><small>Enterprise compute</small></div>
               <div><span class="hw-bar"><i style="width:100%"></i><em>64 cores</em></span></div>
               <div><span class="hw-bar"><i style="width:100%"></i><em>1 TB ECC</em></span></div>
             </div>
             <div class="hw-cmp__row rv">
-              <div class="hw-cmp__name"><b>AMD EPYC 7713</b><small>Enterprise compute · 2 nodes</small></div>
-              <div><span class="hw-bar"><i style="width:100%"></i><em>64 cores</em></span></div>
-              <div><span class="hw-bar"><i style="width:100%"></i><em>1 TB ECC</em></span></div>
-            </div>
-            <div class="hw-cmp__row rv">
-              <div class="hw-cmp__name"><b>AMD Ryzen 9 5950X</b><small>Game server node</small></div>
-              <div><span class="hw-bar"><i style="width:25%"></i><em>16 cores</em></span></div>
-              <div><span class="hw-bar"><i style="width:12%"></i><em>128 GB</em></span></div>
-            </div>
-            <div class="hw-cmp__row rv">
-              <div class="hw-cmp__name"><b>AMD Ryzen 9 5950X</b><small>Ryzen KVM node</small></div>
+              <div class="hw-cmp__name"><b>AMD Ryzen 9 5950X</b><small>Game servers and Ryzen KVM</small></div>
               <div><span class="hw-bar"><i style="width:25%"></i><em>16 cores</em></span></div>
               <div><span class="hw-bar"><i style="width:12%"></i><em>128 GB</em></span></div>
             </div>

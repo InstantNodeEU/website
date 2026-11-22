@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=32" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=33" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>VDS - Dedicated Core Servers | InstantNode</title>
@@ -323,7 +323,7 @@
       <section class="hero">
         <span class="badge rv">VDS &middot; from &euro;8.99/mo</span>
         <h1 class="d1 rv">Dedicated cores,<br />zero neighbors.</h1>
-        <p class="lede rv">Physical EPYC cores pinned to your VM - consistent performance at 3 a.m. and at peak hour. Pinned AMD EPYC 7763 cores, NVMe SSD and free DDoS protection.</p>
+        <p class="lede rv">Physical EPYC cores pinned to your VM - consistent performance at 3 a.m. and at peak hour. Pinned AMD EPYC Milan cores, NVMe SSD and free DDoS protection.</p>
         <div class="hero-actions rv">
           <a class="btn btn-light btn-lg" href="/dashboard">Deploy now</a>
           <a class="btn btn-ghost btn-lg" href="#plans">See plans</a>
@@ -479,8 +479,9 @@
         </div>
             <div class="pp-term rv" data-no-i18n aria-hidden="true">
               <div class="pp-term-bar">ssh root@vds-b7305e</div>
-              <pre><span class="p">root@vds-b7305e:~#</span> lscpu | grep "Model name"
-Model name:   AMD EPYC 7763 64-Core Processor
+              <pre><span class="p">root@vds-b7305e:~#</span> lscpu | grep -E "Vendor ID|CPU family"
+Vendor ID:    AuthenticAMD
+CPU family:   25
 <span class="p">root@vds-b7305e:~#</span> nproc
 2
 <span class="p">root@vds-b7305e:~#</span> grep steal /proc/stat
