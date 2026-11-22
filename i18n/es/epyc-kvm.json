@@ -109,5 +109,7 @@
  "EU hosting, EU company": "Alojamiento en la UE, empresa de la UE",
  "Still unsure? Our support team answers on Discord and by ticket.": "¿Aún tienes dudas? Nuestro soporte responde en Discord y por ticket.",
  "A server in the InstantNode panel: specs, live resources, SSH access, billing and one-click management": "Un servidor en el panel de InstantNode: especificaciones, recursos en vivo, acceso SSH, facturación y gestión con un clic",
- "Private networks (VPC) are free with every EPYC KVM. Manage your networks in the panel under Private networks, on a server's Network tab or through the API. The address is configured automatically, and KVM servers finish the setup on the next reboot.": "Las redes privadas (VPC) son gratis con cada EPYC KVM. Gestiona tus redes en el panel en Redes privadas, en la pestaña Red de un servidor o mediante la <a href=\"/developers\" style=\"border-bottom:1px solid var(--dim)\">API</a>. La dirección se configura automáticamente y los servidores KVM terminan la configuración en el siguiente reinicio."
+ "Private networks (VPC) are free with every EPYC KVM. Manage your networks in the panel under Private networks, on a server's Network tab or through the API. The address is configured automatically, and KVM servers finish the setup on the next reboot.": "Las redes privadas (VPC) son gratis con cada EPYC KVM. Gestiona tus redes en el panel en Redes privadas, en la pestaña Red de un servidor o mediante la <a href=\"/developers\" style=\"border-bottom:1px solid var(--dim)\">API</a>. La dirección se configura automáticamente y los servidores KVM terminan la configuración en el siguiente reinicio.",
+ "40 GB NVMe SSD": "40 GB de SSD NVMe",
+ "160 GB NVMe SSD": "160 GB de SSD NVMe"
 }

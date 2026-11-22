@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 <!-- InstantNode consent banner -->
-<script src="/js/inn-lang.js?v=34" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
+<script src="/js/inn-lang.js?v=35" defer></script><script src="/js/inn-currency.js?v=3" defer></script><script src="/js/inn-consent.js" defer></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>VDS - Dedicated Core Servers | InstantNode</title>
@@ -767,7 +767,7 @@ CPU family:   25
     </main>
 
     <script src="/js/lunaris.js?v=xmas9" defer></script>
-    <script src="/js/inn-sales.js?v=6" defer></script>
+    <script src="/js/inn-sales.js?v=8" defer></script>
 
     <!-- VDS capacity: dedicated cores are a finite pool, and a visitor who tops
          up their balance for a plan that cannot be placed has been misled by
@@ -777,12 +777,10 @@ CPU family:   25
       (function () {
         var CARD = '.plans .plan';
         function markSoldOut(card, label) {
-          if (card.querySelector('.plan-soldout')) return;
+          if (card.classList.contains('is-soldout')) return;
           card.classList.add('is-soldout');
-          var badge = document.createElement('div');
-          badge.className = 'plan-soldout';
-          badge.textContent = 'Sold out';
-          card.insertBefore(badge, card.firstChild);
+          // The availability line itself comes from inn-sales.js, in the same
+          // spot as on every other product page; the key lets it find this card.
           var cta = card.querySelector('a.btn');
           if (cta) {
             // Replaced rather than hidden: the visitor should still see which
@@ -790,7 +788,8 @@ CPU family:   25
             var dead = document.createElement('span');
             dead.className = 'btn btn-ghost plan-soldout-cta';
             dead.setAttribute('aria-disabled', 'true');
-            dead.textContent = 'Sold out';
+            dead.setAttribute('data-plan-key', 'vds:' + label);
+            dead.textContent = cta.classList.contains('inn-sales-off') ? cta.textContent : 'Currently unavailable';
             cta.parentNode.replaceChild(dead, cta);
           }
         }
@@ -830,7 +829,7 @@ CPU family:   25
                 note.className = 'vds-capacity-note';
                 note.textContent = data.allSoldOut
                   ? 'All VDS plans are currently sold out. Dedicated cores are a finite pool and we never oversell them.'
-                  : 'Some VDS plans are currently sold out - ' + data.freeCores + ' dedicated cores are free right now. We never oversell the pool.';
+                  : 'Some VDS plans are currently sold out. Dedicated cores are a finite pool and we never oversell them.';
                 head.parentNode.insertBefore(note, head);
               }
             })

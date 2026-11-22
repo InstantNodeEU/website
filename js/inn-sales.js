@@ -4,6 +4,39 @@
    visitor learns it BEFORE topping up balance. API unreachable = page untouched. */
 (function () {
   var SEL = 'a[href*="/dashboard/containers/create"]';
+  // Strings this script writes after inn-lang.js has collected the page, so
+  // they are translated here (same pattern as lunaris.js) and repainted on 'inn:lang'.
+  var T = {
+    de: { 'In stock': 'Verfügbar', 'Only a few left': 'Nur noch wenige verfügbar', 'Sold out': 'Ausverkauft', 'Currently unavailable': 'Derzeit nicht verfügbar' },
+    es: { 'In stock': 'Disponible', 'Only a few left': 'Quedan pocos', 'Sold out': 'Agotado', 'Currently unavailable': 'No disponible por ahora' },
+    fr: { 'In stock': 'Disponible', 'Only a few left': 'Plus que quelques-uns', 'Sold out': 'Épuisé', 'Currently unavailable': 'Indisponible pour le moment' }
+  };
+  function lang() {
+    var l = window.innLang && window.innLang.current ? window.innLang.current() : document.documentElement.lang;
+    return String(l || 'en').slice(0, 2).toLowerCase();
+  }
+  function tr(k) { var d = T[lang()]; return (d && d[k]) || k; }
+  var painted = [];   // [element, english text]
+  function say(el, k) {
+    el.textContent = tr(k);
+    if (!painted.some(function (p) { return p[0] === el; })) painted.push([el, k]);
+  }
+  document.addEventListener('inn:lang', function () {
+    painted.forEach(function (p) { p[0].textContent = tr(p[1]); });
+  });
+  // "type:Label" of an order link; OpenClaw links are type=kvm&product=openclaw.
+  function planKey(a) {
+    if (a.hasAttribute('data-plan-key')) return a.getAttribute('data-plan-key').toLowerCase();
+    var u; try { u = new URL(a.href, location.href); } catch (e) { return ''; }
+    var t = (u.searchParams.get('product') || u.searchParams.get('type') || '').toLowerCase();
+    var p = (u.searchParams.get('plan') || '').toLowerCase();
+    return t && p ? t + ':' + p : '';
+  }
+  var PAGE = { kvm: 'kvm', 'epyc-kvm': 'kvm', 'ryzen-kvm': 'ryzen-kvm', lxc: 'lxc', vds: 'vds', 'windows-server': 'windows-kvm', 'storage-server': 'storage', openclaw: 'openclaw' };
+  function pageType() {
+    var m = location.pathname.match(/^\/([a-z-]+?)(\.html)?\/?$/);
+    return m && PAGE[m[1]];
+  }
   function paused() {
     var st = document.createElement('style');
     st.textContent =
@@ -27,7 +60,7 @@
       a.classList.add('inn-sales-off');
       a.setAttribute('aria-disabled', 'true');
       a.setAttribute('tabindex', '-1');
-      a.textContent = 'Currently unavailable';
+      say(a, 'Currently unavailable');
     });
     // Configurator buttons may rewrite their href later: block navigation for
     // any VPS order link, whatever it points to by then.
@@ -62,14 +95,13 @@
     document.head.appendChild(st);
     var hit = 0;
     Array.prototype.forEach.call(document.querySelectorAll(SEL), function (a) {
-      var u; try { u = new URL(a.href, location.href); } catch (e) { return; }
-      var t = (u.searchParams.get('type') || '').toLowerCase(), p = (u.searchParams.get('plan') || '').toLowerCase();
-      if (!p || !off[t + ':' + p]) return;
+      var k = planKey(a);
+      if (!k || !off[k]) return;
       hit++;
       a.classList.add('inn-sales-off');
       a.setAttribute('aria-disabled', 'true');
       a.setAttribute('tabindex', '-1');
-      a.textContent = 'Currently unavailable';
+      say(a, 'Currently unavailable');
       var card = a.closest('article, .card, .plan, [class*="plan"]');
       if (card && card !== document.body) card.style.opacity = '.6';
     });
@@ -78,8 +110,7 @@
       if (a) { e.preventDefault(); e.stopPropagation(); }
     }, true);
     // Banner only where a plan is really blocked: a greyed button or a plan of this page's type.
-    var PAGE = { kvm: 'kvm', 'epyc-kvm': 'kvm', 'ryzen-kvm': 'ryzen-kvm', lxc: 'lxc', vds: 'vds', 'windows-server': 'windows-kvm', 'storage-server': 'storage', openclaw: 'openclaw' };
-    var m = location.pathname.match(/^\/([a-z-]+?)(\.html)?\/?$/), pt = m && PAGE[m[1]];
+    var pt = pageType();
     var pageOff = pt && (d.unavailablePlans || []).some(function (k) { return k.toLowerCase().indexOf(pt + ':') === 0; });
     if (!hit && !pageOff) return;
     if (document.querySelector('.inn-sales-banner')) return;
@@ -97,6 +128,41 @@
     var main = document.querySelector('main') || document.body;
     main.insertBefore(b, main.firstChild);
   }
+  // One availability line per plan card on the product pages: a static dot and
+  // a word. Three states only; the API carries no counts and neither does this.
+  function stock(d) {
+    if (!pageType()) return;   // landing page cards stand for a whole product line
+    var off = {}, low = {};
+    (d.unavailablePlans || []).forEach(function (k) { off[String(k).toLowerCase()] = 1; });
+    (d.lowStockPlans || []).forEach(function (k) { low[String(k).toLowerCase()] = 1; });
+    var st = document.createElement('style');
+    st.textContent =
+      '.inn-stock{display:flex;align-items:center;gap:8px;margin:auto 0 -6px;font-size:13px;line-height:1.2;color:var(--mute)}' +
+      '.inn-stock::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--pp-ok,#22c55e)}' +
+      '.inn-stock+.btn{margin-top:0}' +
+      '.inn-stock[data-stock="low"]{color:#fbbf24}' +
+      '.inn-stock[data-stock="low"]::before{background:#f59e0b}' +
+      '.inn-stock[data-stock="out"]{color:var(--dim)}' +
+      '.inn-stock[data-stock="out"]::before{background:none;box-shadow:inset 0 0 0 1px var(--dim)}' +
+      'td .inn-stock{margin:6px 0 0;font-size:12px}';
+    document.head.appendChild(st);
+    // [data-plan-key]: a CTA the page already swapped for a sold-out label (vds.html).
+    Array.prototype.forEach.call(document.querySelectorAll(SEL + ',[data-plan-key]'), function (a) {
+      var k = planKey(a);
+      if (!k) return;
+      var card = a.closest('.plan, tr');
+      if (!card || card.querySelector('.inn-stock')) return;
+      var s = off[k] ? 'out' : low[k] ? 'low' : 'in';
+      var el = document.createElement('p');
+      el.className = 'inn-stock';
+      el.setAttribute('data-stock', s);
+      el.setAttribute('data-no-i18n', '');
+      say(el, s === 'out' ? 'Sold out' : s === 'low' ? 'Only a few left' : 'In stock');
+      if (a.hasAttribute('data-plan-key') && s === 'out') say(a, 'Currently unavailable');
+      if (card.nodeName === 'TR') card.cells[0].appendChild(el);
+      else card.insertBefore(el, a);
+    });
+  }
   function run() {
     fetch('/api/v1/public/sales-status', { headers: { accept: 'application/json' } })
       .then(function (r) { return r.ok ? r.json() : null; })
@@ -105,6 +171,7 @@
         if (d.vpsOrdersPaused) return paused();
         // Sold-out plans ("type:Label") are greyed out even without a size cap.
         if (d.sizeCap || (d.unavailablePlans && d.unavailablePlans.length)) capped(d);
+        stock(d);
       })
       .catch(function () {});
   }

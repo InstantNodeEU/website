@@ -113,5 +113,9 @@
  "EU hosting, EU company": "Hosting in der EU, Firma in der EU",
  "Still unsure? Our support team answers on Discord and by ticket.": "Noch unsicher? Unser Support antwortet auf Discord und per Ticket.",
  "A server in the InstantNode panel: specs, live resources, SSH access, billing and one-click management": "Ein Server im InstantNode-Panel: Specs, Live-Ressourcen, SSH-Zugang, Abrechnung und Verwaltung per Klick",
- "Private networks (VPC) are free with every LXC VPS. Manage your networks in the panel under Private networks, on a server's Network tab or through the API. Your server gets its address configured automatically.": "Private Netzwerke (VPC) sind bei jedem LXC VPS kostenlos. Verwalte deine Netzwerke im Panel unter Private Netzwerke, im Tab Netzwerk eines Servers oder über die <a href=\"/developers\" style=\"border-bottom:1px solid var(--dim)\">API</a>. Dein Server bekommt seine Adresse automatisch eingerichtet."
+ "Private networks (VPC) are free with every LXC VPS. Manage your networks in the panel under Private networks, on a server's Network tab or through the API. Your server gets its address configured automatically.": "Private Netzwerke (VPC) sind bei jedem LXC VPS kostenlos. Verwalte deine Netzwerke im Panel unter Private Netzwerke, im Tab Netzwerk eines Servers oder über die <a href=\"/developers\" style=\"border-bottom:1px solid var(--dim)\">API</a>. Dein Server bekommt seine Adresse automatisch eingerichtet.",
+ "1 shared vCPU - AMD EPYC Milan": "1 geteilte vCPU - AMD EPYC Milan",
+ "4 shared vCPU - AMD EPYC Milan": "4 geteilte vCPU - AMD EPYC Milan",
+ "10 GB NVMe SSD": "10 GB NVMe-SSD",
+ "80 GB NVMe SSD": "80 GB NVMe-SSD"
 }
