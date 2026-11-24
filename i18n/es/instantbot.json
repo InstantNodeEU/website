@@ -2,7 +2,6 @@
  "No code · €2.99/mo": "Sin código · €2.99/mes",
  "Your own Discord bot.Zero code.": "Tu propio bot de Discord.<br>Cero código.",
  "InstantBot is a ready-made Discord bot under your own name and avatar. Switch on moderation, tickets, logs and welcome cards, then build your own commands by connecting blocks.": "InstantBot es un bot de Discord listo para usar, con tu propio nombre y avatar. Activa moderación, tickets, registros y tarjetas de bienvenida, y crea tus propios comandos conectando bloques.",
- "Coming soon - get notified": "Muy pronto - avísame",
  "See what it does": "Ver qué hace",
  "7 modules": "7 módulos",
  "Visual builder": "Editor visual",
@@ -128,7 +127,6 @@
  "What's the difference to Discord bot hosting?": "¿Qué diferencia hay con el hosting de bots de Discord?",
  "With Discord bot hosting (from €0.90/mo) you upload and run your own code. InstantBot is a finished bot that we maintain - you only configure it.": "Con el <a href=\"/discord-bots\">hosting de bots de Discord</a> (desde €0.90/mes) subes y ejecutas tu propio código. InstantBot es un bot terminado que mantenemos nosotros - tú solo lo configuras.",
  "Your bot, without the code": "Tu bot, sin el código",
- "InstantBot is launching soon for €2.99/mo. Join our Discord to hear first when it goes live.": "InstantBot llega pronto por €2.99/mes. Únete a nuestro Discord para enterarte el primero del lanzamiento.",
  "Already have a bot you wrote yourself? Host it from €0.90/mo.": "¿Ya tienes un bot que escribiste tú? <a href=\"/discord-bots\" style=\"color:var(--mute);border-bottom:1px solid var(--dim)\">Alójalo desde €0.90/mes</a>.",
  "The InstantBot builder: a slash command sends a message, a 50% chance block then either replies or removes a role": "El editor de InstantBot: un comando de barra envía un mensaje y un bloque de azar al 50 % responde o quita un rol",
  "The InstantBot profile editor with banner, avatar, name and About me": "El editor de perfil de InstantBot con banner, avatar, nombre y «Sobre mí»",
@@ -280,5 +278,7 @@
  "In-voice role": "Rol en canal de voz",
  "Goodbye message": "Mensaje de despedida",
  "Bump reminder": "Recordatorio de bump",
- "Avatar command": "Comando avatar"
+ "Avatar command": "Comando avatar",
+ "Build your bot": "Crea tu bot",
+ "InstantBot is live for €2.99/mo. Pick InstantBot when you create a bot and set it up in the panel.": "InstantBot ya está disponible por €2.99/mes. Elige InstantBot al crear un bot y configúralo en el panel."
 }
