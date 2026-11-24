@@ -211,8 +211,6 @@
  "Menu": "Menü",
  "Mobile": "Mobile Navigation",
  "5 stars": "5 Sterne",
- "InstantNode - Game Server & EPYC KVM Hosting in Europe": "InstantNode - Gameserver & EPYC KVM Hosting in Europa",
- "Game server & VPS hosting from €1.50/mo, hosted in the Netherlands (EU). NVMe storage, AMD EPYC power, free DDoS protection and ~60 second deployment. GDPR compliant.": "Gameserver- & VPS-Hosting ab €1.50/Monat, gehostet in den Niederlanden (EU). NVMe-Speicher, AMD EPYC-Power, kostenloser DDoS-Schutz und Bereitstellung in ~60 Sekunden. DSGVO-konform.",
  "Managed Hosting": "Managed Hosting",
  "The InstantNode panel dashboard: balance, spend, runway and your servers on one screen": "Das InstantNode-Panel-Dashboard: Guthaben, Ausgaben, Laufzeit und deine Server auf einem Bildschirm",
  "A ready-made no-code bot with modules and a visual builder.": "Ein fertiger No-Code-Bot mit Modulen und visuellem Baukasten.",
@@ -251,5 +249,18 @@
  "Automatic (10.77.x.0/24) or your own private subnet: 10.x, 172.16-31.x or 192.168.x, from /16 to /28. You choose it when you create the network and cannot change it later.": "Automatisch (10.77.x.0/24) oder dein eigenes privates Subnetz: 10.x, 172.16-31.x oder 192.168.x, von /16 bis /28. Du wählst es beim Anlegen des Netzwerks, später lässt es sich nicht mehr ändern.",
  "Only your servers": "Nur deine Server",
  "Only your own servers in the same network can reach each other. Networks work across all our nodes over VXLAN, with an MTU of 1450.": "Nur deine eigenen Server im selben Netzwerk erreichen sich gegenseitig. Die Netzwerke funktionieren über alle unsere Nodes hinweg per VXLAN, mit einer MTU von 1450.",
- "KVM on the AMD Ryzen 9 5950X - high single-core speed for game servers and build jobs.": "KVM auf dem AMD Ryzen 9 5950X - hohe Single-Core-Leistung für Gameserver und Build-Jobs."
+ "KVM on the AMD Ryzen 9 5950X - high single-core speed for game servers and build jobs.": "KVM auf dem AMD Ryzen 9 5950X - hohe Single-Core-Leistung für Gameserver und Build-Jobs.",
+ "InstantNode - Game Server, EPYC & Ryzen KVM Hosting in Europe": "InstantNode - Gameserver, EPYC & Ryzen KVM Hosting in Europa",
+ "Game server & VPS hosting from €1.50/mo, hosted in the Netherlands (EU). NVMe storage, AMD EPYC and Ryzen power, free DDoS protection and ~60 second deployment. GDPR compliant.": "Gameserver- & VPS-Hosting ab €1.50/Monat, gehostet in den Niederlanden (EU). NVMe-Speicher, AMD EPYC und Ryzen-Power, kostenloser DDoS-Schutz und Bereitstellung in ~60 Sekunden. DSGVO-konform.",
+ "Shared KVM on AMD Ryzen 9 5950X - high single-core speed for game backends and build jobs.": "Shared KVM auf AMD Ryzen 9 5950X - hohe Single-Core-Leistung für Game-Backends und Build-Jobs.",
+ "Register or transfer your domain, with DNS hosting on our nameservers included.": "Registriere oder transferiere deine Domain, DNS-Hosting auf unseren Nameservern inklusive.",
+ "Build your own Discord bot without code: moderation, tickets, logs and welcome cards.": "Baue deinen eigenen Discord-Bot ohne Code: Moderation, Tickets, Logs und Willkommenskarten.",
+ "A DDoS-protected IPv4 forwarded over WireGuard to your server at home or anywhere else.": "Eine DDoS-geschützte IPv4, per WireGuard an deinen Server zu Hause oder anderswo weitergeleitet.",
+ "from €13.30/yr": "ab €13.30/Jahr",
+ "AMD Ryzen 9 5950X · NVMe": "AMD Ryzen 9 5950X · NVMe",
+ "Ryzen KVM": "Ryzen KVM",
+ "InstantBot": "InstantBot",
+ "from €2.99/mo": "ab €2.99/Mon.",
+ "from €3.99/mo": "ab €3.99/Mon.",
+ "from €10.99/mo": "ab €10.99/Mon."
 }
