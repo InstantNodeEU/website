@@ -2,8 +2,8 @@
   "openapi": "3.0.3",
   "info": {
     "title": "InstantNode PAT API",
-    "version": "1.5.0",
-    "description": "The **Personal Access Token (PAT) API** is the single API surface for your InstantNode account. It operates strictly on the token owner's own resources - read your services, control power, provision and manage vServers, game servers, Discord bots, webspaces, domains and managed email (mail domains, mailboxes, passwords, aliases), run and schedule backups, manage host firewall rules and private networks (VPC), and read billing history.\n\n**Base URL:** `https://instantnode.eu/api/pat`  •  **Auth:** `Authorization: Bearer inpat_...`  •  JSON in, JSON out; every response carries an `ok` boolean.\n\n**Retired:** the old reseller API (`/api/resell`) now returns `410 Gone` - PATs are the single API surface.\n\n**Poll politely:** at most once per 30 seconds per endpoint; excessive polling may be rate-limited (`429`).\n\n**Panel-only surfaces** return `403 not_available_via_api` by design (account-security / abuse boundaries): the file manager, console/VNC access, live SSE streams, sharing/manager management, server **deletion** (servers always run to the end of the paid billing period - cancel by disabling auto-renew), secret-token rotation, cancelling a Managed Email subscription (it purges every mailbox), and payments/top-ups.\n\n**Compatibility:** breaking changes ship under a new version prefix; additive fields may appear within `v1` at any time - ignore unknown fields.",
+    "version": "1.6.0",
+    "description": "The **Personal Access Token (PAT) API** is the single API surface for your InstantNode account. It operates strictly on the token owner's own resources - read your services, control power, provision and manage vServers, game servers, Discord bots, webspaces, domains and managed email (mail domains, mailboxes, passwords, aliases), run and schedule backups, manage host firewall rules and private networks (VPC), run per-second sandboxes (beta), and read billing history.\n\n**Base URL:** `https://instantnode.eu/api/pat`  •  **Auth:** `Authorization: Bearer inpat_...`  •  JSON in, JSON out; every response carries an `ok` boolean.\n\n**Retired:** the old reseller API (`/api/resell`) now returns `410 Gone` - PATs are the single API surface.\n\n**Poll politely:** at most once per 30 seconds per endpoint; excessive polling may be rate-limited (`429`).\n\n**Panel-only surfaces** return `403 not_available_via_api` by design (account-security / abuse boundaries): the file manager, console/VNC access, live SSE streams, sharing/manager management, server **deletion** (servers always run to the end of the paid billing period - cancel by disabling auto-renew), secret-token rotation, cancelling a Managed Email subscription (it purges every mailbox), and payments/top-ups.\n\n**Compatibility:** breaking changes ship under a new version prefix; additive fields may appear within `v1` at any time - ignore unknown fields.",
     "contact": {
       "name": "InstantNode",
       "url": "https://instantnode.eu/contact"
@@ -39,6 +39,10 @@
     {
       "name": "Private networks",
       "description": "Free private networks (VPC) between your own servers - up to 3 per account, across all our nodes."
+    },
+    {
+      "name": "Sandboxes",
+      "description": "Small Linux containers billed per second (beta, access on request via support): create, start, stop, delete. Public IPv6 /64 each, outbound IPv4 via NAT, SSH key login as root."
     },
     {
       "name": "Game servers",
@@ -7981,6 +7985,473 @@
           }
         }
       }
+    },
+    "/v1/sandboxes": {
+      "get": {
+        "tags": [
+          "Sandboxes"
+        ],
+        "summary": "List sandboxes, prices and balance",
+        "description": "Everything the dashboard shows in one call: the sizes with their hourly price, the OS templates, your limit, `balance`, `reserved` (cost of the sandboxes not yet charged), `available` (balance minus reserved), `burnPerHour` and `runwaySeconds` (time until running sandboxes are stopped for lack of money, `null` when nothing runs), and your sandboxes. Sandboxes that failed to create stay in the list for 24 hours with an `error`. Returns 403 `sandboxes_not_enabled` while your account has no beta access.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SandboxSummary"
+                },
+                "example": {
+                  "ok": true,
+                  "enabled": true,
+                  "limit": 20,
+                  "minBalance": 1,
+                  "minSeconds": 60,
+                  "maxTtl": 2592000,
+                  "sizes": [
+                    {
+                      "id": 512,
+                      "cpu": 1,
+                      "ramMb": 512,
+                      "diskGb": 5,
+                      "perHour": 0.002817
+                    },
+                    {
+                      "id": 1024,
+                      "cpu": 1,
+                      "ramMb": 1024,
+                      "diskGb": 5,
+                      "perHour": 0.003683
+                    },
+                    {
+                      "id": 2048,
+                      "cpu": 2,
+                      "ramMb": 2048,
+                      "diskGb": 5,
+                      "perHour": 0.007367
+                    }
+                  ],
+                  "templates": [
+                    {
+                      "id": "debian-13",
+                      "label": "Debian 13"
+                    },
+                    {
+                      "id": "ubuntu-24.04",
+                      "label": "Ubuntu 24.04"
+                    }
+                  ],
+                  "balance": 12.5,
+                  "reserved": 0.00077148,
+                  "available": 12.49922852,
+                  "burnPerHour": 0.003683,
+                  "runwaySeconds": 12217093,
+                  "sandboxes": [
+                    {
+                      "id": "5b0e7c1a-3f2d-4a8e-9c61-2d7f4b9e1a03",
+                      "name": "build-1",
+                      "status": "running",
+                      "size": 1024,
+                      "cpu": 1,
+                      "ramMb": 1024,
+                      "diskGb": 5,
+                      "template": "debian-13",
+                      "ipv6": "2a14:7581:9f00:f012::1",
+                      "ssh": "ssh root@2a14:7581:9f00:f012::1",
+                      "perHour": 0.00368333,
+                      "seconds": 754,
+                      "cost": 0.00077148,
+                      "createdAt": "2026-11-24T14:02:11.000Z",
+                      "stoppedAt": null,
+                      "stopReason": null,
+                      "ttlAt": "2026-11-24T15:02:11.000Z",
+                      "deleteAt": null
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SandboxError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Sandboxes"
+        ],
+        "summary": "Create a sandbox",
+        "description": "Creates and starts a sandbox and returns it once it runs (usually well under a minute; allow up to 3 minutes before your client gives up). Billing starts with the run, per second with a 60 second minimum. You need at least EUR 1 of balance that is not reserved by other sandboxes. Login is `ssh root@<ipv6>` with the key you send here; there is no password. Errors: 400 `invalid_size`, `invalid_template`, `invalid_ssh_key`, `invalid_ttl`, `invalid_name`; 402 `insufficient_balance` (with `minBalance`); 403 `sandboxes_not_enabled`, `account_suspended`; 409 `sandbox_limit` (with `limit`); 429 `rate_limited` (more than 60 creates in 10 minutes); 502 `sandbox_create_failed` (nothing is charged, the sandbox shows as `failed` in the list); 503 `sandboxes_unavailable`, `no_capacity`.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxCreate"
+              },
+              "example": {
+                "size": 1024,
+                "template": "debian-13",
+                "name": "build-1",
+                "ttl": 3600,
+                "sshKey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGq3x0Jm8pW7cXk2Zr1y0bV9eN4tLhQ5sD6fA2uY8wKe you@laptop"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created and running",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "sandbox": {
+                      "$ref": "#/components/schemas/Sandbox"
+                    }
+                  }
+                },
+                "example": {
+                  "ok": true,
+                  "sandbox": {
+                    "id": "5b0e7c1a-3f2d-4a8e-9c61-2d7f4b9e1a03",
+                    "name": "build-1",
+                    "status": "running",
+                    "size": 1024,
+                    "cpu": 1,
+                    "ramMb": 1024,
+                    "diskGb": 5,
+                    "template": "debian-13",
+                    "ipv6": "2a14:7581:9f00:f012::1",
+                    "ssh": "ssh root@2a14:7581:9f00:f012::1",
+                    "perHour": 0.00368333,
+                    "seconds": 754,
+                    "cost": 0.00077148,
+                    "createdAt": "2026-11-24T14:02:11.000Z",
+                    "stoppedAt": null,
+                    "stopReason": null,
+                    "ttlAt": "2026-11-24T15:02:11.000Z",
+                    "deleteAt": null
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SandboxError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sandboxes/{sandboxId}": {
+      "get": {
+        "tags": [
+          "Sandboxes"
+        ],
+        "summary": "Get a sandbox",
+        "parameters": [
+          {
+            "name": "sandboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Sandbox id (UUID, from the list or create response)."
+          }
+        ],
+        "description": "One sandbox with its run time and cost so far. Returns 404 `sandbox_not_found` (also for deleted sandboxes). Returns 403 `sandboxes_not_enabled` while your account has no beta access.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "sandbox": {
+                      "$ref": "#/components/schemas/Sandbox"
+                    }
+                  }
+                },
+                "example": {
+                  "ok": true,
+                  "sandbox": {
+                    "id": "5b0e7c1a-3f2d-4a8e-9c61-2d7f4b9e1a03",
+                    "name": "build-1",
+                    "status": "running",
+                    "size": 1024,
+                    "cpu": 1,
+                    "ramMb": 1024,
+                    "diskGb": 5,
+                    "template": "debian-13",
+                    "ipv6": "2a14:7581:9f00:f012::1",
+                    "ssh": "ssh root@2a14:7581:9f00:f012::1",
+                    "perHour": 0.00368333,
+                    "seconds": 754,
+                    "cost": 0.00077148,
+                    "createdAt": "2026-11-24T14:02:11.000Z",
+                    "stoppedAt": null,
+                    "stopReason": null,
+                    "ttlAt": "2026-11-24T15:02:11.000Z",
+                    "deleteAt": null
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SandboxError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Sandboxes"
+        ],
+        "summary": "Delete a sandbox",
+        "parameters": [
+          {
+            "name": "sandboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Sandbox id (UUID, from the list or create response)."
+          }
+        ],
+        "description": "Ends billing, charges the whole run time to your balance in one booking (at least 60 seconds if it ever ran; a sandbox that never ran is free) and removes the guest with its disk. This cannot be undone. `seconds` is the billed run time, `charged` the amount in EUR. Returns 404 `sandbox_not_found`, 409 `sandbox_busy` while it is still being created.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "seconds": {
+                      "type": "integer",
+                      "description": "Billed run time in seconds."
+                    },
+                    "charged": {
+                      "type": "number",
+                      "description": "Amount charged in EUR."
+                    }
+                  }
+                },
+                "example": {
+                  "ok": true,
+                  "id": "5b0e7c1a-3f2d-4a8e-9c61-2d7f4b9e1a03",
+                  "seconds": 754,
+                  "charged": 0.00077148
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SandboxError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sandboxes/{sandboxId}/start": {
+      "post": {
+        "tags": [
+          "Sandboxes"
+        ],
+        "summary": "Start a stopped sandbox",
+        "parameters": [
+          {
+            "name": "sandboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Sandbox id (UUID, from the list or create response)."
+          }
+        ],
+        "description": "Starts the sandbox again with its disk as it was; billing resumes. Starting a running sandbox returns it unchanged. Needs EUR 1 of unreserved balance like a create. Returns 402 `insufficient_balance`, 403 `account_suspended`, 404 `sandbox_not_found`, 409 `sandbox_busy` (creating or deleting), 502 `sandbox_action_failed`.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "sandbox": {
+                      "$ref": "#/components/schemas/Sandbox"
+                    }
+                  }
+                },
+                "example": {
+                  "ok": true,
+                  "sandbox": {
+                    "id": "5b0e7c1a-3f2d-4a8e-9c61-2d7f4b9e1a03",
+                    "name": "build-1",
+                    "status": "running",
+                    "size": 1024,
+                    "cpu": 1,
+                    "ramMb": 1024,
+                    "diskGb": 5,
+                    "template": "debian-13",
+                    "ipv6": "2a14:7581:9f00:f012::1",
+                    "ssh": "ssh root@2a14:7581:9f00:f012::1",
+                    "perHour": 0.00368333,
+                    "seconds": 754,
+                    "cost": 0.00077148,
+                    "createdAt": "2026-11-24T14:02:11.000Z",
+                    "stoppedAt": null,
+                    "stopReason": null,
+                    "ttlAt": "2026-11-24T15:02:11.000Z",
+                    "deleteAt": null
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SandboxError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sandboxes/{sandboxId}/stop": {
+      "post": {
+        "tags": [
+          "Sandboxes"
+        ],
+        "summary": "Stop a sandbox",
+        "parameters": [
+          {
+            "name": "sandboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Sandbox id (UUID, from the list or create response)."
+          }
+        ],
+        "description": "Powers the sandbox off. A stopped sandbox costs nothing and keeps its disk for 24 hours (`deleteAt`); after that it is deleted and charged automatically. Stopping a stopped sandbox returns it unchanged. Returns 404 `sandbox_not_found`, 409 `sandbox_busy`, 502 `sandbox_action_failed`.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "sandbox": {
+                      "$ref": "#/components/schemas/Sandbox"
+                    }
+                  }
+                },
+                "example": {
+                  "ok": true,
+                  "sandbox": {
+                    "id": "5b0e7c1a-3f2d-4a8e-9c61-2d7f4b9e1a03",
+                    "name": "build-1",
+                    "status": "stopped",
+                    "size": 1024,
+                    "cpu": 1,
+                    "ramMb": 1024,
+                    "diskGb": 5,
+                    "template": "debian-13",
+                    "ipv6": "2a14:7581:9f00:f012::1",
+                    "ssh": "ssh root@2a14:7581:9f00:f012::1",
+                    "perHour": 0.00368333,
+                    "seconds": 754,
+                    "cost": 0.00077148,
+                    "createdAt": "2026-11-24T14:02:11.000Z",
+                    "stoppedAt": "2026-11-24T14:14:45.000Z",
+                    "stopReason": "user",
+                    "ttlAt": "2026-11-24T15:02:11.000Z",
+                    "deleteAt": "2026-11-25T14:14:45.000Z"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SandboxError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -8507,6 +8978,283 @@
               }
             }
           }
+        }
+      },
+      "Sandbox": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "example": "build-1"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "creating",
+              "running",
+              "stopped",
+              "deleting",
+              "failed"
+            ],
+            "description": "`failed` only appears in the list, for 24 hours after a create that did not finish (never charged)."
+          },
+          "size": {
+            "type": "integer",
+            "enum": [
+              512,
+              1024,
+              2048
+            ],
+            "description": "Size id = RAM in MB."
+          },
+          "cpu": {
+            "type": "integer",
+            "description": "vCPU cores (shared)."
+          },
+          "ramMb": {
+            "type": "integer"
+          },
+          "diskGb": {
+            "type": "integer",
+            "example": 5
+          },
+          "template": {
+            "type": "string",
+            "enum": [
+              "debian-13",
+              "debian-12",
+              "ubuntu-24.04",
+              "ubuntu-22.04",
+              "alpine-3.24",
+              "almalinux-10",
+              "rockylinux-10",
+              "fedora-44",
+              "opensuse-16.0"
+            ]
+          },
+          "ipv6": {
+            "type": "string",
+            "description": "The sandbox address, `::1` in its own public /64.",
+            "example": "2a14:7581:9f00:f012::1"
+          },
+          "ssh": {
+            "type": "string",
+            "example": "ssh root@2a14:7581:9f00:f012::1"
+          },
+          "perHour": {
+            "type": "number",
+            "description": "Price in EUR per hour of run time, billed per second."
+          },
+          "seconds": {
+            "type": "integer",
+            "description": "Run time so far (stopped time does not count)."
+          },
+          "cost": {
+            "type": "number",
+            "description": "Cost so far in EUR (at least 60 seconds once it ran); after delete the amount charged."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "stoppedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "stopReason": {
+            "type": "string",
+            "nullable": true,
+            "description": "`user`, `balance` (stopped before the money ran out), `suspended`, `account` or `guest` (powered off from inside)."
+          },
+          "ttlAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "Deleted and charged at this time (from `ttl`)."
+          },
+          "deleteAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "Stopped sandboxes only: deleted and charged at this time, 24 hours after the stop."
+          },
+          "error": {
+            "type": "string",
+            "nullable": true,
+            "description": "Only on `failed`."
+          }
+        }
+      },
+      "SandboxCreate": {
+        "type": "object",
+        "required": [
+          "size",
+          "sshKey"
+        ],
+        "properties": {
+          "size": {
+            "type": "integer",
+            "enum": [
+              512,
+              1024,
+              2048
+            ],
+            "description": "512 = 1 vCPU / 512 MB, 1024 = 1 vCPU / 1 GB, 2048 = 2 vCPU / 2 GB; 5 GB disk each."
+          },
+          "template": {
+            "type": "string",
+            "enum": [
+              "debian-13",
+              "debian-12",
+              "ubuntu-24.04",
+              "ubuntu-22.04",
+              "alpine-3.24",
+              "almalinux-10",
+              "rockylinux-10",
+              "fedora-44",
+              "opensuse-16.0"
+            ],
+            "default": "debian-13"
+          },
+          "sshKey": {
+            "type": "string",
+            "maxLength": 4096,
+            "description": "One OpenSSH public key line (ssh-ed25519, ssh-rsa, ecdsa-sha2-nistp256/384/521 or the sk- variants). Root login with this key only."
+          },
+          "name": {
+            "type": "string",
+            "pattern": "^[a-z0-9]([a-z0-9-]{0,38}[a-z0-9])?$",
+            "maxLength": 40,
+            "description": "Hostname. Lower case letters, digits and dashes. Default `sbx-<first 8 chars of the id>`."
+          },
+          "ttl": {
+            "type": "integer",
+            "minimum": 60,
+            "maximum": 2592000,
+            "description": "Optional lifetime in seconds from now (60 s to 30 days). When it is reached the sandbox is deleted and charged, running or stopped."
+          }
+        }
+      },
+      "SandboxSummary": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "example": true
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Sandboxes you can have at once (default 20)."
+          },
+          "minBalance": {
+            "type": "number",
+            "description": "EUR of unreserved balance needed to create or start."
+          },
+          "minSeconds": {
+            "type": "integer",
+            "description": "Minimum billed run time (60)."
+          },
+          "maxTtl": {
+            "type": "integer",
+            "description": "Largest `ttl` in seconds (30 days)."
+          },
+          "sizes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "cpu": {
+                  "type": "integer"
+                },
+                "ramMb": {
+                  "type": "integer"
+                },
+                "diskGb": {
+                  "type": "integer"
+                },
+                "perHour": {
+                  "type": "number",
+                  "description": "EUR per hour, billed per second."
+                }
+              }
+            }
+          },
+          "templates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "balance": {
+            "type": "number"
+          },
+          "reserved": {
+            "type": "number",
+            "description": "Cost of your sandboxes that is not charged yet; it cannot be spent elsewhere."
+          },
+          "available": {
+            "type": "number",
+            "description": "balance - reserved."
+          },
+          "burnPerHour": {
+            "type": "number",
+            "description": "What your running sandboxes cost per hour together."
+          },
+          "runwaySeconds": {
+            "type": "integer",
+            "nullable": true,
+            "description": "Seconds until `available` reaches 0 at the current burn. Running sandboxes are stopped about 30 seconds before."
+          },
+          "sandboxes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Sandbox"
+            }
+          }
+        }
+      },
+      "SandboxError": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Error"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "limit": {
+                "type": "integer",
+                "description": "With `sandbox_limit`."
+              },
+              "minBalance": {
+                "type": "number",
+                "description": "With `insufficient_balance`."
+              }
+            }
+          }
+        ],
+        "example": {
+          "ok": false,
+          "error": "insufficient_balance",
+          "minBalance": 1
         }
       }
     }
